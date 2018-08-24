@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<smc>
+<general version="2.0.0.0">
+<configuration active="true" id="com.renesas.smc.toolchain.rxc.configuration.release">
+<property id="com.renesas.smc.service.project.buildArtefactType" values="com.renesas.smc.service.project.buildArtefactType.exe"/>
+<toolchain id="com.renesas.smc.toolchain.rxc.toolchain.rxc">
+<option id="com.renesas.smc.toolchain.option.buildArtefactType" key="com.renesas.smc.toolchain.option.buildArtefactType.exe"/>
+</toolchain>
+</configuration>
+<platform id="R5F51303AxFN"/>
+<option id="board" value="カスタムユーザボード"/>
+</general>
+<tool id="Clock">
+<Item current="true" id="vccSetting.isSelected"/>
+<Item current="" id="vccSetting.InputValue"/>
+<Item current="vcc2_7-5_5" id="vccSetting.OutputValue"/>
+<Item current="3.3" id="vccSetting.vccTxt"/>
+<Item current="true" id="mainclock.selectBox"/>
+<Item current="" id="mainclock.InputValue"/>
+<Item current="8 MHz" id="mainclock.OutputValue"/>
+<Item current="8" error="false" id="mainclock.frequencyTxt"/>
+<Item current="sBox2" id="mainclock.cycleBox"/>
+<Item current="srcEOI" id="mainclock.sourceBox"/>
+<Item current="false" id="subclock.selectBox"/>
+<Item current="" id="subclock.InputValue"/>
+<Item current="" id="subclock.OutputValue"/>
+<Item current="32.768" error="false" id="subclock.frequencyTxt"/>
+<Item current="false" id="hococlock.selectBox"/>
+<Item current="" id="hococlock.InputValue"/>
+<Item current="" id="hococlock.OutputValue"/>
+<Item current="32" error="false" id="hococlock.frequencyTxt"/>
+<Item current="false" id="lococlock.selectBox"/>
+<Item current="" id="lococlock.InputValue"/>
+<Item current="" id="lococlock.OutputValue"/>
+<Item current="4" error="false" id="lococlock.frequencyTxt"/>
+<Item current="false" id="iwdtclock.selectBox"/>
+<Item current="" id="iwdtclock.InputValue"/>
+<Item current="" id="iwdtclock.OutputValue"/>
+<Item current="15" error="false" id="iwdtclock.frequencyTxt"/>
+<Item current="true" id="pll.isSelected"/>
+<Item current="8 MHz" id="pll.InputValue"/>
+<Item current="32.0 MHz" id="pll.OutputValue"/>
+<Item current="mul8-1" error="false" id="pll.multiplyBox"/>
+<Item current="div1-2" error="false" id="pll.dividerBox"/>
+<Item current="4.0 MHz" error="false" id="pll.MiddleValue"/>
+<Item current="false" id="lptselector.isSelected"/>
+<Item current="" id="lptselector.InputValue"/>
+<Item current="" id="lptselector.OutputValue"/>
+<Item current="swtsubclock" id="lptselector.radiobutton"/>
+<Item current="0" id="lptselector.CurrentValue"/>
+<Item current="true" id="lptselector.buttonDisable.0"/>
+<Item current="true" id="lptselector.buttonDisable.1"/>
+<Item current="true" id="sckselector.isSelected"/>
+<Item current="32.0 MHz" id="sckselector.InputValue"/>
+<Item current="32.0 MHz" id="sckselector.OutputValue"/>
+<Item current="swtpll" id="sckselector.radiobutton"/>
+<Item current="0" id="sckselector.CurrentValue"/>
+<Item current="false" id="sckselector.buttonDisable.0"/>
+<Item current="false" id="sckselector.buttonDisable.1"/>
+<Item current="true" id="sckselector.buttonDisable.2"/>
+<Item current="true" id="sckselector.buttonDisable.3"/>
+<Item current="true" id="sckselector.buttonDisable.4"/>
+<Item current="true" id="fclkdivider.isSelected"/>
+<Item current="32.0 MHz" id="fclkdivider.InputValue"/>
+<Item current="32.0 MHz" id="fclkdivider.OutputValue"/>
+<Item current="sckselector.radiobutton.swtpll" id="fclkdivider.Condition"/>
+<Item current="comboBox1-1" error="false" id="fclkdivider.comboBox"/>
+<Item current="32.0 MHz" error="false" id="fclkdivider.PreOutput"/>
+<Item current="iclkdivider" error="false" id="fclkdivider.PreOutputController"/>
+<Item current="true" id="pclkbdivider.isSelected"/>
+<Item current="32.0 MHz" id="pclkbdivider.InputValue"/>
+<Item current="32.0 MHz" id="pclkbdivider.OutputValue"/>
+<Item current="sckselector.radiobutton.swtpll" id="pclkbdivider.Condition"/>
+<Item current="comboBox1-1" error="false" id="pclkbdivider.comboBox"/>
+<Item current="32.0 MHz" error="false" id="pclkbdivider.PreOutput"/>
+<Item current="iclkdivider" error="false" id="pclkbdivider.PreOutputController"/>
+<Item current="true" id="pclkddivider.isSelected"/>
+<Item current="32.0 MHz" id="pclkddivider.InputValue"/>
+<Item current="32.0 MHz" id="pclkddivider.OutputValue"/>
+<Item current="sckselector.radiobutton.swtpll" id="pclkddivider.Condition"/>
+<Item current="comboBox1-1" error="false" id="pclkddivider.comboBox"/>
+<Item current="32.0 MHz" error="false" id="pclkddivider.PreOutput"/>
+<Item current="pclkbdivider" error="false" id="pclkddivider.PreOutputController"/>
+<Item current="true" id="iclkdivider.isSelected"/>
+<Item current="32.0 MHz" id="iclkdivider.InputValue"/>
+<Item current="32.0 MHz" id="iclkdivider.OutputValue"/>
+<Item current="sckselector.radiobutton.swtpll" id="iclkdivider.Condition"/>
+<Item current="comboBox1-1" error="false" id="iclkdivider.comboBox"/>
+<Item current="true" id="fclk.isSelected"/>
+<Item current="32.0 MHz" id="fclk.InputValue"/>
+<Item current="32.0 MHz" id="fclk.OutputValue"/>
+<Item current="32.0" id="fclk.frequencyTxt"/>
+<Item current="MHz" id="fclk.unitTxt"/>
+<Item current="32.0" id="fclk.CurrentValue"/>
+<Item current="false" id="fclk.Disabled"/>
+<Item current="true" id="iclk.isSelected"/>
+<Item current="32.0 MHz" id="iclk.InputValue"/>
+<Item current="32.0 MHz" id="iclk.OutputValue"/>
+<Item current="32.0" id="iclk.frequencyTxt"/>
+<Item current="MHz" id="iclk.unitTxt"/>
+<Item current="32.0" id="iclk.CurrentValue"/>
+<Item current="false" id="iclk.Disabled"/>
+<Item current="true" id="pclkb.isSelected"/>
+<Item current="32.0 MHz" id="pclkb.InputValue"/>
+<Item current="32.0 MHz" id="pclkb.OutputValue"/>
+<Item current="32.0" id="pclkb.frequencyTxt"/>
+<Item current="MHz" id="pclkb.unitTxt"/>
+<Item current="32.0" id="pclkb.CurrentValue"/>
+<Item current="false" id="pclkb.Disabled"/>
+<Item current="true" id="pclkd.isSelected"/>
+<Item current="32.0 MHz" id="pclkd.InputValue"/>
+<Item current="32.0 MHz" id="pclkd.OutputValue"/>
+<Item current="32.0" id="pclkd.frequencyTxt"/>
+<Item current="MHz" id="pclkd.unitTxt"/>
+<Item current="32.0" id="pclkd.CurrentValue"/>
+<Item current="false" id="pclkd.Disabled"/>
+<Item current="true" id="cacmclk.isSelected"/>
+<Item current="8 MHz" id="cacmclk.InputValue"/>
+<Item current="8 MHz" id="cacmclk.OutputValue"/>
+<Item current="8" id="cacmclk.frequencyTxt"/>
+<Item current="MHz" id="cacmclk.unitTxt"/>
+<Item current="8" id="cacmclk.CurrentValue"/>
+<Item current="false" id="cacmclk.Disabled"/>
+<Item current="false" id="caclclk.isSelected"/>
+<Item current="" id="caclclk.InputValue"/>
+<Item current="0" id="caclclk.OutputValue"/>
+<Item current="-" id="caclclk.frequencyTxt"/>
+<Item current="MHz" id="caclclk.unitTxt"/>
+<Item current="true" id="caclclk.Disabled"/>
+<Item current="false" id="cachclk.isSelected"/>
+<Item current="" id="cachclk.InputValue"/>
+<Item current="0" id="cachclk.OutputValue"/>
+<Item current="-" id="cachclk.frequencyTxt"/>
+<Item current="MHz" id="cachclk.unitTxt"/>
+<Item current="true" id="cachclk.Disabled"/>
+<Item current="false" id="cacsclk.isSelected"/>
+<Item current="" id="cacsclk.InputValue"/>
+<Item current="0" id="cacsclk.OutputValue"/>
+<Item current="-" id="cacsclk.frequencyTxt"/>
+<Item current="MHz" id="cacsclk.unitTxt"/>
+<Item current="true" id="cacsclk.Disabled"/>
+<Item current="false" id="cacilsclk.isSelected"/>
+<Item current="" id="cacilsclk.InputValue"/>
+<Item current="0" id="cacilsclk.OutputValue"/>
+<Item current="-" id="cacilsclk.frequencyTxt"/>
+<Item current="MHz" id="cacilsclk.unitTxt"/>
+<Item current="true" id="cacilsclk.Disabled"/>
+<Item current="false" id="lptclk.isSelected"/>
+<Item current="" id="lptclk.InputValue"/>
+<Item current="0" id="lptclk.OutputValue"/>
+<Item current="-" id="lptclk.frequencyTxt"/>
+<Item current="MHz" id="lptclk.unitTxt"/>
+<Item current="true" id="lptclk.Disabled"/>
+</tool>
+<tool id="Pins" version="1.0.0.0">
+<pinItem allocation="10" direction="None" id="XTAL" locked="false" status="0"/>
+<pinItem allocation="" direction="None" id="TSCAP" locked="false" status="0"/>
+<pinItem allocation="12" direction="None" id="EXTAL" locked="false" status="0"/>
+<pinItem allocation="42" direction="None" id="TS19" locked="false" status="512"/>
+<pinItem allocation="41" direction="None" id="TS18" locked="false" status="512"/>
+<pinItem allocation="40" direction="None" id="TS17" locked="false" status="512"/>
+<pinItem allocation="39" direction="None" id="TS16" locked="false" status="512"/>
+<pinItem allocation="37" direction="None" id="TS15" locked="false" status="512"/>
+<pinItem allocation="36" direction="None" id="TS14" locked="false" status="512"/>
+<pinItem allocation="35" direction="None" id="TS13" locked="false" status="512"/>
+<pinItem allocation="34" direction="None" id="TS12" locked="false" status="512"/>
+<pinItem allocation="45" direction="None" id="TS22" locked="false" status="512"/>
+<pinItem allocation="44" direction="None" id="TS21" locked="false" status="512"/>
+<pinItem allocation="43" direction="None" id="TS20" locked="false" status="512"/>
+<pinItem allocation="33" direction="None" id="TS11" locked="false" status="512"/>
+<pinItem allocation="32" direction="None" id="TS10" locked="false" status="512"/>
+<pinItem allocation="61" direction="None" id="TS35" locked="false" status="512"/>
+<pinItem allocation="60" direction="None" id="TS34" locked="false" status="512"/>
+<pinItem allocation="65" direction="None" id="RXD6" locked="false" status="0"/>
+<pinItem allocation="54" direction="None" id="TS29" locked="false" status="512"/>
+<pinItem allocation="53" direction="None" id="TS28" locked="false" status="512"/>
+<pinItem allocation="52" direction="None" id="TS27" locked="false" status="512"/>
+<pinItem allocation="59" direction="None" id="TS33" locked="false" status="512"/>
+<pinItem allocation="57" direction="None" id="TS32" locked="false" status="512"/>
+<pinItem allocation="56" direction="None" id="TS31" locked="false" status="512"/>
+<pinItem allocation="55" direction="None" id="TS30" locked="false" status="512"/>
+<pinItem allocation="16" direction="None" id="TS0" locked="false" status="512"/>
+<pinItem allocation="18" direction="None" id="TS2" locked="false" status="512"/>
+<pinItem allocation="17" direction="None" id="TS1" locked="false" status="512"/>
+<pinItem allocation="20" direction="None" id="TS4" locked="false" status="512"/>
+<pinItem allocation="19" direction="None" id="TS3" locked="false" status="512"/>
+<pinItem allocation="26" direction="None" id="TS6" locked="false" status="512"/>
+<pinItem allocation="25" direction="None" id="TS5" locked="false" status="512"/>
+<pinItem allocation="30" direction="None" id="TS8" locked="false" status="512"/>
+<pinItem allocation="29" direction="None" id="TS7" locked="false" status="512"/>
+<pinItem allocation="31" direction="None" id="TS9" locked="false" status="512"/>
+<pinItem allocation="64" direction="None" id="SCK6" locked="false" status="0"/>
+<pinItem allocation="66" direction="None" id="TXD6" locked="false" status="0"/>
+</tool>
+<tool id="Interrupt">
+<Item id="BSC_BUSERR" priority="15"/>
+<Item id="FCU_FRDYI" priority="15"/>
+<Item id="ICU_SWINT" priority="15"/>
+<Item id="CMT0_CMI0" priority="15"/>
+<Item id="CMT1_CMI1" priority="15"/>
+<Item id="CAC_FERRF" priority="15"/>
+<Item id="CAC_MENDF" priority="15"/>
+<Item id="CAC_OVFF" priority="15"/>
+<Item id="RSPI0_SPEI0" priority="15"/>
+<Item id="RSPI0_SPRI0" priority="15"/>
+<Item id="RSPI0_SPTI0" priority="15"/>
+<Item id="RSPI0_SPII0" priority="15"/>
+<Item id="DOC_DOPCF" priority="15"/>
+<Item id="CMPB_CMPB0" priority="15"/>
+<Item id="CMPB_CMPB1" priority="15"/>
+<Item id="CTSU_CTSUWR" priority="15"/>
+<Item id="CTSU_CTSURD" priority="15"/>
+<Item id="CTSU_CTSUFN" priority="15"/>
+<Item id="RTC_CUP" priority="15"/>
+<Item id="ICU_IRQ0" priority="15"/>
+<Item id="ICU_IRQ1" priority="15"/>
+<Item id="ICU_IRQ2" priority="15"/>
+<Item id="ICU_IRQ3" priority="15"/>
+<Item id="ICU_IRQ4" priority="15"/>
+<Item id="ICU_IRQ5" priority="15"/>
+<Item id="ICU_IRQ6" priority="15"/>
+<Item id="ICU_IRQ7" priority="15"/>
+<Item id="ELC_ELSR8I" priority="15"/>
+<Item id="LVD1_LVD1" priority="15"/>
+<Item id="LVD2_LVD2" priority="15"/>
+<Item id="RTC_ALM" priority="15"/>
+<Item id="RTC_PRD" priority="15"/>
+<Item id="REMC0_REMCI0" priority="15"/>
+<Item id="REMC1_REMCI1" priority="15"/>
+<Item id="S12AD_S12ADI0" priority="15"/>
+<Item id="S12AD_GBADI" priority="15"/>
+<Item id="ELC_ELSR18I" priority="15"/>
+<Item id="MTU0_TGIA0" priority="15"/>
+<Item id="MTU0_TGIB0" priority="15"/>
+<Item id="MTU0_TGIC0" priority="15"/>
+<Item id="MTU0_TGID0" priority="15"/>
+<Item id="MTU0_TCIV0" priority="15"/>
+<Item id="MTU0_TGIE0" priority="15"/>
+<Item id="MTU0_TGIF0" priority="15"/>
+<Item id="MTU1_TGIA1" priority="15"/>
+<Item id="MTU1_TGIB1" priority="15"/>
+<Item id="MTU1_TCIV1" priority="15"/>
+<Item id="MTU1_TCIU1" priority="15"/>
+<Item id="MTU2_TGIA2" priority="15"/>
+<Item id="MTU2_TGIB2" priority="15"/>
+<Item id="MTU2_TCIV2" priority="15"/>
+<Item id="MTU2_TCIU2" priority="15"/>
+<Item id="MTU3_TGIA3" priority="15"/>
+<Item id="MTU3_TGIB3" priority="15"/>
+<Item id="MTU3_TGIC3" priority="15"/>
+<Item id="MTU3_TGID3" priority="15"/>
+<Item id="MTU3_TCIV3" priority="15"/>
+<Item id="MTU4_TGIA4" priority="15"/>
+<Item id="MTU4_TGIB4" priority="15"/>
+<Item id="MTU4_TGIC4" priority="15"/>
+<Item id="MTU4_TGID4" priority="15"/>
+<Item id="MTU4_TCIV4" priority="15"/>
+<Item id="MTU5_TGIU5" priority="15"/>
+<Item id="MTU5_TGIV5" priority="15"/>
+<Item id="MTU5_TGIW5" priority="15"/>
+<Item id="POE_OEI1" priority="15"/>
+<Item id="POE_OEI2" priority="15"/>
+<Item id="TMR0_CMIA0" priority="15"/>
+<Item id="TMR0_CMIB0" priority="15"/>
+<Item id="TMR0_OVI0" priority="15"/>
+<Item id="TMR1_CMIA1" priority="15"/>
+<Item id="TMR1_CMIB1" priority="15"/>
+<Item id="TMR1_OVI1" priority="15"/>
+<Item id="TMR2_CMIA2" priority="15"/>
+<Item id="TMR2_CMIB2" priority="15"/>
+<Item id="TMR2_OVI2" priority="15"/>
+<Item id="TMR3_CMIA3" priority="15"/>
+<Item id="TMR3_CMIB3" priority="15"/>
+<Item id="TMR3_OVI3" priority="15"/>
+<Item id="SCI0_ERI0" priority="15"/>
+<Item id="SCI0_RXI0" priority="15"/>
+<Item id="SCI0_TXI0" priority="15"/>
+<Item id="SCI0_TEI0" priority="15"/>
+<Item id="SCI1_ERI1" priority="15"/>
+<Item id="SCI1_RXI1" priority="15"/>
+<Item id="SCI1_TXI1" priority="15"/>
+<Item id="SCI1_TEI1" priority="15"/>
+<Item id="SCI5_ERI5" priority="15"/>
+<Item id="SCI5_RXI5" priority="15"/>
+<Item id="SCI5_TXI5" priority="15"/>
+<Item id="SCI5_TEI5" priority="15"/>
+<Item id="SCI6_ERI6" priority="1"/>
+<Item id="SCI6_RXI6" priority="1"/>
+<Item id="SCI6_TXI6" priority="1"/>
+<Item id="SCI6_TEI6" priority="1"/>
+<Item id="SCI8_ERI8" priority="15"/>
+<Item id="SCI8_RXI8" priority="15"/>
+<Item id="SCI8_TXI8" priority="15"/>
+<Item id="SCI8_TEI8" priority="15"/>
+<Item id="SCI9_ERI9" priority="15"/>
+<Item id="SCI9_RXI9" priority="15"/>
+<Item id="SCI9_TXI9" priority="15"/>
+<Item id="SCI9_TEI9" priority="15"/>
+<Item id="SCI12_ERI12" priority="15"/>
+<Item id="SCI12_RXI12" priority="15"/>
+<Item id="SCI12_TXI12" priority="15"/>
+<Item id="SCI12_TEI12" priority="15"/>
+<Item id="SCI12_SCIX0" priority="15"/>
+<Item id="SCI12_SCIX1" priority="15"/>
+<Item id="SCI12_SCIX2" priority="15"/>
+<Item id="SCI12_SCIX3" priority="15"/>
+<Item id="RIIC0_EEI0" priority="15"/>
+<Item id="RIIC0_RXI0" priority="15"/>
+<Item id="RIIC0_TXI0" priority="15"/>
+<Item id="RIIC0_TEI0" priority="15"/>
+</tool>
+<tool id="SWComponent" version="1.0.0.0">
+<configuration inuse="true" name="r_bsp">
+<component description="依存モジュール: なし&#10;The r_bsp package provides a foundation for code to be built on top of. It provides startup code, iodefines, and MCU information for different boards. There are 2 folders that make up the r_bsp package. The 'mcu' folder contains files that are common to a MCU group. These files provide functionality such as easy register access, CPU functions, and a file named 'mcu_info.h' for each MCU group. The 'mcu_info.h' file has information about the MCU on the board and is configured based on the information given in r_bsp_config.h. The information in 'mcu_info.h' is used to help configure Renesas middleware that uses the r_bsp package. The 'board' folder has a folder with startup code for each supported board.  Which MCU and board is chosen is decided by the settings in 'platform.h'. The user can choose which board they are using by uncommenting the include path that applies to their board. For example, if you are using the RSK+RX62N then you would uncomment the #include &quot;./board/rskrx62n/r_bsp.h&quot; include path. Users are encouraged to add their own boards to the 'board' directory. BSPs are configured by using the r_bsp_config.h file. Each board will have a reference configuration file named r_bsp_config_reference.h. The user should copy this file to their project, rename it to r_bsp_config.h, and use the options inside the file to configure the BSP for their project." detailDescription="Board Support Packages." display="r_bsp" id="r_bspGeneric(v=3.60)" version="Generic(v=3.60)"/>
+<source description="Firmware Integration Technology (FIT) に対応するコンポーネントは、RXファミリのマイコン間での高い移行性を特徴とします。" display="Firmware Integration Technology" id="com.renesas.smc.tools.swcomponent.fit.source"/>
+<source description="Firmware Integration Technology (FIT) に対応するコンポーネントは、RXファミリのマイコン間での高い移行性を特徴とします。" display="Firmware Integration Technology" id="com.renesas.smc.tools.swcomponent.fit.source"/>
+</configuration>
+<configuration id="69265c0a-3698-4196-b5d6-2c751ec94ec2" inuse="true" name="Config_SCI6">
+<allocatable id="SCI6" name="SCI6">
+<isocket id="CountingClockB" selection="Clock.tool_clock_pclkb" value="3.2E7"/>
+<isocket id="CountingClockA" value="6.0E7"/>
+<option enabled="true" id="TransDir" selection="MSBFirst">
+<item id="LSBFirst" input="" vlaue="0"/>
+<item id="MSBFirst" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="TransClock" selection="Internal">
+<item id="Internal" input="" vlaue="0"/>
+<item id="External" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="Bitrate" selection="500000">
+<item id="FreeValue" input="500000" vlaue="5000"/>
+<item id="10000" input="" vlaue="0"/>
+<item id="5000" input="" vlaue="0"/>
+<item id="25000" input="" vlaue="0"/>
+<item id="50000" input="" vlaue="0"/>
+<item id="100000" input="" vlaue="0"/>
+<item id="250000" input="" vlaue="0"/>
+<item id="500000" input="" vlaue="0"/>
+<item id="750000" input="" vlaue="0"/>
+<item id="1500000" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="DutyCorrection" selection="Enable">
+<item id="Enable" input="" vlaue="0"/>
+<item id="Disable" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="ClockDelay" selection="NotDelay">
+<item id="NotDelay" input="" vlaue="0"/>
+<item id="Delay" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="Polarity" selection="Enable">
+<item id="Enable" input="" vlaue="0"/>
+<item id="Disable" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="FlowControl" selection="None">
+<item id="None" input="" vlaue="0"/>
+<item id="CTS" input="" vlaue="0"/>
+<item id="RTS" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="TransDataHandle" selection="ISR">
+<item id="ISR" input="" vlaue="0"/>
+<item id="DTC" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="RecvDataHandle" selection="ISR">
+<item id="ISR" input="" vlaue="0"/>
+<item id="DTC" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="ERIEnable" selection="Enable">
+<item id="Enable" input="" vlaue="0"/>
+<item id="Disable" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="TransEnd" selection="Enable">
+<item id="Enable" input="" vlaue="0"/>
+<item id="Disable" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="RecvEnd" selection="Enable">
+<item id="Enable" input="" vlaue="0"/>
+<item id="Disable" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="RecvError" selection="Enable">
+<item id="Enable" input="" vlaue="0"/>
+<item id="Disable" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="IntERIPriority" selection="Level1">
+<item id="Level0" input="" vlaue="0"/>
+<item id="Level1" input="" vlaue="0"/>
+<item id="Level2" input="" vlaue="0"/>
+<item id="Level3" input="" vlaue="0"/>
+<item id="Level4" input="" vlaue="0"/>
+<item id="Level5" input="" vlaue="0"/>
+<item id="Level6" input="" vlaue="0"/>
+<item id="Level7" input="" vlaue="0"/>
+<item id="Level8" input="" vlaue="0"/>
+<item id="Level9" input="" vlaue="0"/>
+<item id="Level10" input="" vlaue="0"/>
+<item id="Level11" input="" vlaue="0"/>
+<item id="Level12" input="" vlaue="0"/>
+<item id="Level13" input="" vlaue="0"/>
+<item id="Level14" input="" vlaue="0"/>
+<item id="Level15" input="" vlaue="0"/>
+</option>
+</allocatable>
+<component description="このソフトウェア・コンポーネントは、SCI(SCIF) クロック同期式の構成を提供し" detailDescription="" display="SCI(SCIF) クロック同期式モード" id="com.renesas.smc.tools.swcomponent.codegenerator.scisynchronousmode" version="1.0.0"/>
+<allocator channelLevel0="6" channelLevel1="" channelLevel2="" channelLevel3="" channelLevel4="" channelLevel5="" description="SCI チャネル 6" display="SCI6" id="com.renesas.smc.tools.swcomponent.codegenerator.scisync.rx130.sci6" type="">
+<context>
+<option enabled="true" id="Mode" selection="BothMode">
+<item enabled="true" id="TransMode"/>
+<item enabled="true" id="RecvMode"/>
+<item enabled="true" id="BothMode"/>
+</option>
+</context>
+</allocator>
+<source description="コード生成に対応したコンポーネントは、設定に応じた周辺ドライバのコードを小さなコードサイズで出力します。" display="コード生成" id="com.renesas.smc.tools.swcomponent.codegenerator.source"/>
+</configuration>
+<configuration id="85d439cb-bdfa-468c-9a78-0af577dba363" inuse="true" name="Config_CMT0">
+<allocatable id="CMT0" name="CMT0">
+<isocket id="CountingClock" selection="Clock.tool_clock_pclkb" value="3.2E7"/>
+<option enabled="true" id="ClockDivision" selection="Devide512">
+<item id="Devide8" input="" vlaue="0"/>
+<item id="Devide32" input="" vlaue="0"/>
+<item id="Devide128" input="" vlaue="0"/>
+<item id="Devide512" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="IntervalValue" selection="IntervalValue">
+<item id="IntervalValue" input="20" vlaue="65535"/>
+</option>
+<option enabled="true" id="IntervalUnit" selection="ms">
+<item id="ms" input="" vlaue="0"/>
+<item id="us" input="" vlaue="0"/>
+<item id="ns" input="" vlaue="0"/>
+<item id="Count" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="CNTRegValue" selection="CNTRegValue">
+<item id="CNTRegValue" input="1249" vlaue="1249"/>
+</option>
+<option enabled="true" id="IntCMWIEnable" selection="Enable">
+<item id="Enable" input="" vlaue="0"/>
+<item id="Disable" input="" vlaue="0"/>
+</option>
+<option enabled="true" id="IntCMWIPriority" selection="Level15">
+<item id="Level0" input="" vlaue="0"/>
+<item id="Level1" input="" vlaue="0"/>
+<item id="Level2" input="" vlaue="0"/>
+<item id="Level3" input="" vlaue="0"/>
+<item id="Level4" input="" vlaue="0"/>
+<item id="Level5" input="" vlaue="0"/>
+<item id="Level6" input="" vlaue="0"/>
+<item id="Level7" input="" vlaue="0"/>
+<item id="Level8" input="" vlaue="0"/>
+<item id="Level9" input="" vlaue="0"/>
+<item id="Level10" input="" vlaue="0"/>
+<item id="Level11" input="" vlaue="0"/>
+<item id="Level12" input="" vlaue="0"/>
+<item id="Level13" input="" vlaue="0"/>
+<item id="Level14" input="" vlaue="0"/>
+<item id="Level15" input="" vlaue="0"/>
+</option>
+</allocatable>
+<component description="このソフトウェア・コンポーネントは、CMT/CMTWモジュールの16/32ビットタイマの構成を提供し、設定した間隔で割り込みを発生させることができます。 " detailDescription="" display="コンペアマッチタイマ" id="com.renesas.smc.tools.swcomponent.codegenerator.cmtw" version="1.2.0"/>
+<allocator channelLevel0="0" channelLevel1="" channelLevel2="" channelLevel3="" channelLevel4="" channelLevel5="" description="コンペアマッチタイマ(ユニット0)" display="CMT0" id="com.renesas.smc.tools.swcomponent.codegenerator.cmtw.rx130.cmt0" type="CMT">
+<context/>
+</allocator>
+<source description="コード生成に対応したコンポーネントは、設定に応じた周辺ドライバのコードを小さなコードサイズで出力します。" display="コード生成" id="com.renesas.smc.tools.swcomponent.codegenerator.source"/>
+</configuration>
+</tool>
+</smc>

@@ -16,12 +16,15 @@ void CTSUa_Init(void)
 	uint32_t i;
 
 	// TSCAP端子を汎用ポート機能として活用し、Lowレベルを一定期間ドライブすることによって、TSCAP端子の外部に接続されているLPF容量を放電
+	PORTC.PMR.BIT.B4 = 1U;
 	PORTC.PDR.BIT.B4 = 1U;
 	PORTC.PODR.BIT.B4 = 0U;
 	for(i = 0; i < 240000U; i++){ }
 
 	// モジュールストップ状態を解除
+	R_BSP_RegisterProtectDisable(BSP_REG_PROTECT_LPC_CGC_SWR);
 	MSTP(CTSU) = 0U;
+	R_BSP_RegisterProtectEnable(BSP_REG_PROTECT_LPC_CGC_SWR);
 
 	// CTSU電源設定
 	CTSU.CTSUCR1.BIT.CTSUATUNE1 = 0U;	// 通常出力
@@ -35,8 +38,8 @@ void CTSUa_Init(void)
 	// TSCAP端子を設定
 	R_BSP_RegisterProtectDisable(BSP_REG_PROTECT_MPC);
 	MPC.PC4PFS.BYTE = 0x19U;
-	PORTC.PMR.BIT.B4 = 1U;
 	R_BSP_RegisterProtectEnable(BSP_REG_PROTECT_MPC);
+	PORTC.PMR.BIT.B4 = 1U;
 
 	// CTSU電源オン
 	CTSU.CTSUCR1.BYTE |= 0x03U;			// 電源ON, 容量スイッチON

@@ -22,6 +22,7 @@ F 0 "P1" H 8450 2425 50  0000 C CNN
 F 1 "Universal I/F 1" H 8450 2350 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch2.54mm" H 8400 1650 50  0001 C CNN
 F 3 "" H 8400 1650 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    8450 1650
 	1    0    0    -1  
 $EndComp
@@ -80,6 +81,7 @@ F 0 "Q3" H 7500 1950 50  0000 L CNN
 F 1 "IRLML6344TRPbF" H 7050 1850 50  0000 L CNN
 F 2 "TO_SOT_Packages_SMD:SOT-23" H 7850 2200 50  0001 C CNN
 F 3 "~" H 7650 2100 50  0001 C CNN
+F 4 "a" H 0   0   50  0001 C CNN "購入済み"
 	1    7650 2100
 	1    0    0    -1  
 $EndComp
@@ -102,6 +104,7 @@ F 0 "R70" V 7330 2100 50  0000 C CNN
 F 1 "1k" V 7250 2100 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603" V 7180 2100 50  0001 C CNN
 F 3 "~" H 7250 2100 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    7250 2100
 	0    -1   -1   0   
 $EndComp
@@ -129,6 +132,7 @@ F 0 "U14" H 1750 2600 50  0000 C CNN
 F 1 "M74HC365" H 2350 1450 50  0000 C CNN
 F 2 "Housings_SSOP:TSSOP-16_4.4x5mm_Pitch0.65mm" H 2050 2050 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS365" H 2050 2050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    2050 2050
 	1    0    0    -1  
 $EndComp
@@ -162,6 +166,7 @@ F 0 "C145" H 2260 1270 50  0000 L CNN
 F 1 "0.1u" H 2260 1120 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 2250 1200 50  0001 C CNN
 F 3 "~" H 2250 1200 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    2250 1200
 	1    0    0    -1  
 $EndComp
@@ -207,17 +212,17 @@ Wire Wire Line
 	2550 2050 2950 2050
 Wire Wire Line
 	2550 2150 2900 2150
-Text Label 1200 1650 0    50   ~ 0
+Text Label 1200 1850 0    50   ~ 0
 1_SSCK
-Text GLabel 2950 1650 2    50   Output ~ 0
+Text GLabel 2950 1850 2    50   Output ~ 0
 IF1_SSCK
 Text Label 2900 1750 2    50   ~ 0
 1_SRXD
 Text GLabel 1150 1750 0    50   Input ~ 0
 IF1_SRXD
-Text Label 1200 1850 0    50   ~ 0
+Text Label 1200 1650 0    50   ~ 0
 1_STXD
-Text GLabel 2950 1850 2    50   Output ~ 0
+Text GLabel 2950 1650 2    50   Output ~ 0
 IF1_STXD
 Text Label 2900 1950 2    50   ~ 0
 1_HSCK
@@ -249,6 +254,7 @@ F 0 "P2" H 10600 2425 50  0000 C CNN
 F 1 "Universal I/F 2" H 10600 2350 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch2.54mm" H 10550 1650 50  0001 C CNN
 F 3 "" H 10550 1650 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    10600 1650
 	1    0    0    -1  
 $EndComp
@@ -307,6 +313,7 @@ F 0 "Q4" H 9650 1950 50  0000 L CNN
 F 1 "IRLML6344TRPbF" H 9200 1850 50  0000 L CNN
 F 2 "TO_SOT_Packages_SMD:SOT-23" H 10000 2200 50  0001 C CNN
 F 3 "~" H 9800 2100 50  0001 C CNN
+F 4 "a" H 0   0   50  0001 C CNN "購入済み"
 	1    9800 2100
 	1    0    0    -1  
 $EndComp
@@ -329,6 +336,7 @@ F 0 "R71" V 9480 2100 50  0000 C CNN
 F 1 "1k" V 9400 2100 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603" V 9330 2100 50  0001 C CNN
 F 3 "~" H 9400 2100 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    9400 2100
 	0    -1   -1   0   
 $EndComp
@@ -356,6 +364,7 @@ F 0 "P3" H 8450 4275 50  0000 C CNN
 F 1 "Universal I/F 3" H 8450 4200 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch2.54mm" H 8400 3500 50  0001 C CNN
 F 3 "" H 8400 3500 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    8450 3500
 	1    0    0    -1  
 $EndComp
@@ -414,6 +423,7 @@ F 0 "Q5" H 7500 3800 50  0000 L CNN
 F 1 "IRLML6344TRPbF" H 7050 3700 50  0000 L CNN
 F 2 "TO_SOT_Packages_SMD:SOT-23" H 7850 4050 50  0001 C CNN
 F 3 "~" H 7650 3950 50  0001 C CNN
+F 4 "a" H 0   0   50  0001 C CNN "購入済み"
 	1    7650 3950
 	1    0    0    -1  
 $EndComp
@@ -436,6 +446,7 @@ F 0 "R72" V 7330 3950 50  0000 C CNN
 F 1 "1k" V 7250 3950 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603" V 7180 3950 50  0001 C CNN
 F 3 "~" H 7250 3950 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    7250 3950
 	0    -1   -1   0   
 $EndComp
@@ -463,6 +474,7 @@ F 0 "P4" H 10600 4275 50  0000 C CNN
 F 1 "Universal I/F 4" H 10600 4200 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch2.54mm" H 10550 3500 50  0001 C CNN
 F 3 "" H 10550 3500 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    10600 3500
 	1    0    0    -1  
 $EndComp
@@ -521,6 +533,7 @@ F 0 "Q6" H 9650 3800 50  0000 L CNN
 F 1 "IRLML6344TRPbF" H 9200 3700 50  0000 L CNN
 F 2 "TO_SOT_Packages_SMD:SOT-23" H 10000 4050 50  0001 C CNN
 F 3 "~" H 9800 3950 50  0001 C CNN
+F 4 "a" H 0   0   50  0001 C CNN "購入済み"
 	1    9800 3950
 	1    0    0    -1  
 $EndComp
@@ -543,6 +556,7 @@ F 0 "R73" V 9480 3950 50  0000 C CNN
 F 1 "1k" V 9400 3950 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603" V 9330 3950 50  0001 C CNN
 F 3 "~" H 9400 3950 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    9400 3950
 	0    -1   -1   0   
 $EndComp
@@ -570,6 +584,7 @@ F 0 "P5" H 8450 6075 50  0000 C CNN
 F 1 "Universal I/F 5" H 8450 6000 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch2.54mm" H 8400 5300 50  0001 C CNN
 F 3 "" H 8400 5300 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    8450 5300
 	1    0    0    -1  
 $EndComp
@@ -628,6 +643,7 @@ F 0 "Q7" H 7500 5600 50  0000 L CNN
 F 1 "IRLML6344TRPbF" H 7050 5500 50  0000 L CNN
 F 2 "TO_SOT_Packages_SMD:SOT-23" H 7850 5850 50  0001 C CNN
 F 3 "~" H 7650 5750 50  0001 C CNN
+F 4 "a" H 0   0   50  0001 C CNN "購入済み"
 	1    7650 5750
 	1    0    0    -1  
 $EndComp
@@ -650,6 +666,7 @@ F 0 "R74" V 7330 5750 50  0000 C CNN
 F 1 "1k" V 7250 5750 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603" V 7180 5750 50  0001 C CNN
 F 3 "~" H 7250 5750 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    7250 5750
 	0    -1   -1   0   
 $EndComp
@@ -677,6 +694,7 @@ F 0 "P6" H 10600 6075 50  0000 C CNN
 F 1 "Universal I/F 6" H 10600 6000 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch2.54mm" H 10550 5300 50  0001 C CNN
 F 3 "" H 10550 5300 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    10600 5300
 	1    0    0    -1  
 $EndComp
@@ -735,6 +753,7 @@ F 0 "Q8" H 9650 5600 50  0000 L CNN
 F 1 "IRLML6344TRPbF" H 9200 5500 50  0000 L CNN
 F 2 "TO_SOT_Packages_SMD:SOT-23" H 10000 5850 50  0001 C CNN
 F 3 "~" H 9800 5750 50  0001 C CNN
+F 4 "a" H 0   0   50  0001 C CNN "購入済み"
 	1    9800 5750
 	1    0    0    -1  
 $EndComp
@@ -757,6 +776,7 @@ F 0 "R75" V 9480 5750 50  0000 C CNN
 F 1 "1k" V 9400 5750 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603" V 9330 5750 50  0001 C CNN
 F 3 "~" H 9400 5750 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    9400 5750
 	0    -1   -1   0   
 $EndComp
@@ -784,6 +804,7 @@ F 0 "U15" H 4500 2600 50  0000 C CNN
 F 1 "M74HC365" H 5100 1450 50  0000 C CNN
 F 2 "Housings_SSOP:TSSOP-16_4.4x5mm_Pitch0.65mm" H 4800 2050 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS365" H 4800 2050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    4800 2050
 	1    0    0    -1  
 $EndComp
@@ -817,6 +838,7 @@ F 0 "C146" H 5010 1270 50  0000 L CNN
 F 1 "0.1u" H 5010 1120 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 5000 1200 50  0001 C CNN
 F 3 "~" H 5000 1200 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    5000 1200
 	1    0    0    -1  
 $EndComp
@@ -862,17 +884,17 @@ Wire Wire Line
 	5300 2050 5700 2050
 Wire Wire Line
 	5300 2150 5650 2150
-Text Label 3950 1650 0    50   ~ 0
+Text Label 3950 1850 0    50   ~ 0
 2_SSCK
-Text GLabel 5700 1650 2    50   Output ~ 0
+Text GLabel 5700 1850 2    50   Output ~ 0
 IF2_SSCK
 Text Label 5650 1750 2    50   ~ 0
 2_SRXD
 Text GLabel 3900 1750 0    50   Input ~ 0
 IF2_SRXD
-Text Label 3950 1850 0    50   ~ 0
+Text Label 3950 1650 0    50   ~ 0
 2_STXD
-Text GLabel 5700 1850 2    50   Output ~ 0
+Text GLabel 5700 1650 2    50   Output ~ 0
 IF2_STXD
 Text Label 5650 1950 2    50   ~ 0
 2_HSCK
@@ -901,6 +923,7 @@ F 0 "U16" H 1750 4850 50  0000 C CNN
 F 1 "M74HC365" H 2350 3700 50  0000 C CNN
 F 2 "Housings_SSOP:TSSOP-16_4.4x5mm_Pitch0.65mm" H 2050 4300 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS365" H 2050 4300 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    2050 4300
 	1    0    0    -1  
 $EndComp
@@ -934,6 +957,7 @@ F 0 "C147" H 2260 3520 50  0000 L CNN
 F 1 "0.1u" H 2260 3370 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 2250 3450 50  0001 C CNN
 F 3 "~" H 2250 3450 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    2250 3450
 	1    0    0    -1  
 $EndComp
@@ -979,17 +1003,17 @@ Wire Wire Line
 	2550 4300 2950 4300
 Wire Wire Line
 	2550 4400 2900 4400
-Text Label 1200 3900 0    50   ~ 0
+Text Label 1200 4100 0    50   ~ 0
 3_SSCK
-Text GLabel 2950 3900 2    50   Output ~ 0
+Text GLabel 2950 4100 2    50   Output ~ 0
 IF3_SSCK
 Text Label 2900 4000 2    50   ~ 0
 3_SRXD
 Text GLabel 1150 4000 0    50   Input ~ 0
 IF3_SRXD
-Text Label 1200 4100 0    50   ~ 0
+Text Label 1200 3900 0    50   ~ 0
 3_STXD
-Text GLabel 2950 4100 2    50   Output ~ 0
+Text GLabel 2950 3900 2    50   Output ~ 0
 IF3_STXD
 Text Label 2900 4200 2    50   ~ 0
 3_HSCK
@@ -1018,6 +1042,7 @@ F 0 "U17" H 4500 4850 50  0000 C CNN
 F 1 "M74HC365" H 5100 3700 50  0000 C CNN
 F 2 "Housings_SSOP:TSSOP-16_4.4x5mm_Pitch0.65mm" H 4800 4300 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS365" H 4800 4300 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    4800 4300
 	1    0    0    -1  
 $EndComp
@@ -1051,6 +1076,7 @@ F 0 "C148" H 5010 3520 50  0000 L CNN
 F 1 "0.1u" H 5010 3370 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 5000 3450 50  0001 C CNN
 F 3 "~" H 5000 3450 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    5000 3450
 	1    0    0    -1  
 $EndComp
@@ -1108,17 +1134,17 @@ Text Label 3950 4100 0    50   ~ 0
 4_STXD
 Text GLabel 5700 4100 2    50   Output ~ 0
 IF4_STXD
-Text Label 5650 4200 2    50   ~ 0
+Text Label 5650 4400 2    50   ~ 0
 4_HSCK
-Text GLabel 3900 4200 0    50   Input ~ 0
+Text GLabel 3900 4400 0    50   Input ~ 0
 IF4_HSCK
 Text Label 3950 4300 0    50   ~ 0
 4_HRXD
 Text GLabel 5700 4300 2    50   Output ~ 0
 IF4_HRXD
-Text Label 5650 4400 2    50   ~ 0
+Text Label 5650 4200 2    50   ~ 0
 4_HTXD
-Text GLabel 3900 4400 0    50   Input ~ 0
+Text GLabel 3900 4200 0    50   Input ~ 0
 IF4_HTXD
 Wire Wire Line
 	4800 5050 4800 5000
@@ -1135,6 +1161,7 @@ F 0 "U18" H 1750 7100 50  0000 C CNN
 F 1 "M74HC365" H 2350 5950 50  0000 C CNN
 F 2 "Housings_SSOP:TSSOP-16_4.4x5mm_Pitch0.65mm" H 2050 6550 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS365" H 2050 6550 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    2050 6550
 	1    0    0    -1  
 $EndComp
@@ -1168,6 +1195,7 @@ F 0 "C149" H 2260 5770 50  0000 L CNN
 F 1 "0.1u" H 2260 5620 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 2250 5700 50  0001 C CNN
 F 3 "~" H 2250 5700 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    2250 5700
 	1    0    0    -1  
 $EndComp
@@ -1225,17 +1253,17 @@ Text Label 1200 6350 0    50   ~ 0
 5_STXD
 Text GLabel 2950 6350 2    50   Output ~ 0
 IF5_STXD
-Text Label 2900 6450 2    50   ~ 0
+Text Label 2900 6650 2    50   ~ 0
 5_HSCK
-Text GLabel 1150 6450 0    50   Input ~ 0
+Text GLabel 1150 6650 0    50   Input ~ 0
 IF5_HSCK
 Text Label 1200 6550 0    50   ~ 0
 5_HRXD
 Text GLabel 2950 6550 2    50   Output ~ 0
 IF5_HRXD
-Text Label 2900 6650 2    50   ~ 0
+Text Label 2900 6450 2    50   ~ 0
 5_HTXD
-Text GLabel 1150 6650 0    50   Input ~ 0
+Text GLabel 1150 6450 0    50   Input ~ 0
 IF5_HTXD
 Wire Wire Line
 	2050 7300 2050 7250
@@ -1252,6 +1280,7 @@ F 0 "U19" H 4500 7100 50  0000 C CNN
 F 1 "M74HC365" H 5100 5950 50  0000 C CNN
 F 2 "Housings_SSOP:TSSOP-16_4.4x5mm_Pitch0.65mm" H 4800 6550 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS365" H 4800 6550 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    4800 6550
 	1    0    0    -1  
 $EndComp
@@ -1285,6 +1314,7 @@ F 0 "C150" H 5010 5770 50  0000 L CNN
 F 1 "0.1u" H 5010 5620 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 5000 5700 50  0001 C CNN
 F 3 "~" H 5000 5700 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    5000 5700
 	1    0    0    -1  
 $EndComp
@@ -1330,17 +1360,17 @@ Wire Wire Line
 	5300 6550 5700 6550
 Wire Wire Line
 	5300 6650 5650 6650
-Text Label 3950 6150 0    50   ~ 0
+Text Label 3950 6350 0    50   ~ 0
 6_SSCK
-Text GLabel 5700 6150 2    50   Output ~ 0
+Text GLabel 5700 6350 2    50   Output ~ 0
 IF6_SSCK
 Text Label 5650 6250 2    50   ~ 0
 6_SRXD
 Text GLabel 3900 6250 0    50   Input ~ 0
 IF6_SRXD
-Text Label 3950 6350 0    50   ~ 0
+Text Label 3950 6150 0    50   ~ 0
 6_STXD
-Text GLabel 5700 6350 2    50   Output ~ 0
+Text GLabel 5700 6150 2    50   Output ~ 0
 IF6_STXD
 Text Label 5650 6450 2    50   ~ 0
 6_HSCK

@@ -20,8 +20,9 @@ U 1 1 5B8699F8
 P 8150 3150
 F 0 "U2" H 8150 3250 50  0000 C CNN
 F 1 "IS43TR16256AL-125KBL" H 8150 3150 50  0000 C CNN
-F 2 "KiCad_Footprints:BGA-484_22x22_19.0x19.0mm" H 8150 3150 50  0001 C CNN
+F 2 "KiCad_Footprints:BGA-96_2x3x16_9.0x13.0mm_Pitch0.8mm" H 8150 3150 50  0001 C CNN
 F 3 "" H 8150 3150 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    8150 3150
 	1    0    0    -1  
 $EndComp
@@ -78,49 +79,49 @@ Wire Wire Line
 Wire Wire Line
 	3950 4000 4550 4000
 Wire Wire Line
-	1150 2800 1750 2800
-Wire Wire Line
-	1150 2900 1750 2900
-Wire Wire Line
-	1150 3000 1750 3000
-Wire Wire Line
-	1150 3100 1750 3100
-Wire Wire Line
-	1150 3200 1750 3200
-Wire Wire Line
-	1150 3300 1750 3300
-Wire Wire Line
-	1150 3400 1750 3400
-Wire Wire Line
 	1150 3500 1750 3500
+Wire Wire Line
+	1150 3900 1750 3900
+Wire Wire Line
+	1150 4100 1750 4100
 Wire Wire Line
 	1150 3600 1750 3600
 Wire Wire Line
 	1150 3700 1750 3700
 Wire Wire Line
-	1150 3800 1750 3800
-Wire Wire Line
-	1150 3900 1750 3900
-Wire Wire Line
-	1150 4000 1750 4000
-Wire Wire Line
-	1150 4100 1750 4100
-Wire Wire Line
 	1150 4200 1750 4200
+Wire Wire Line
+	1150 3800 1750 3800
 Wire Wire Line
 	1150 2700 1750 2700
 Wire Wire Line
-	1150 4700 1750 4700
+	1150 2900 1750 2900
+Wire Wire Line
+	1150 3200 1750 3200
+Wire Wire Line
+	1150 3300 1750 3300
+Wire Wire Line
+	1150 3000 1750 3000
+Wire Wire Line
+	1150 2800 1750 2800
+Wire Wire Line
+	1150 3100 1750 3100
+Wire Wire Line
+	1150 3400 1750 3400
+Wire Wire Line
+	1150 4000 1750 4000
 Wire Wire Line
 	1150 4800 1750 4800
 Wire Wire Line
-	1150 5400 1750 5400
-Wire Wire Line
-	1150 5500 1750 5500
+	1150 4700 1750 4700
 Wire Wire Line
 	1150 5600 1750 5600
 Wire Wire Line
 	1150 5700 1750 5700
+Wire Wire Line
+	1150 5400 1750 5400
+Wire Wire Line
+	1150 5500 1750 5500
 NoConn ~ 1750 5300
 NoConn ~ 1750 5200
 NoConn ~ 1750 5100
@@ -173,37 +174,37 @@ Text Label 4550 2400 2    50   ~ 0
 DDR_A1
 Text Label 4550 2500 2    50   ~ 0
 DDR_A0
-Text Label 1150 4200 0    50   ~ 0
-DDR_DQ0
-Text Label 1150 4100 0    50   ~ 0
-DDR_DQ1
-Text Label 1150 4000 0    50   ~ 0
-DDR_DQ2
-Text Label 1150 3900 0    50   ~ 0
-DDR_DQ3
-Text Label 1150 3800 0    50   ~ 0
-DDR_DQ4
-Text Label 1150 3700 0    50   ~ 0
-DDR_DQ5
-Text Label 1150 3600 0    50   ~ 0
-DDR_DQ6
-Text Label 1150 3500 0    50   ~ 0
-DDR_DQ7
 Text Label 1150 3400 0    50   ~ 0
-DDR_DQ8
-Text Label 1150 3300 0    50   ~ 0
-DDR_DQ9
-Text Label 1150 3200 0    50   ~ 0
-DDR_DQ10
+DDR_DQ0
 Text Label 1150 3100 0    50   ~ 0
-DDR_DQ11
-Text Label 1150 3000 0    50   ~ 0
-DDR_DQ12
-Text Label 1150 2900 0    50   ~ 0
-DDR_DQ13
+DDR_DQ1
 Text Label 1150 2800 0    50   ~ 0
-DDR_DQ14
+DDR_DQ2
+Text Label 1150 3000 0    50   ~ 0
+DDR_DQ3
+Text Label 1150 3300 0    50   ~ 0
+DDR_DQ4
+Text Label 1150 3200 0    50   ~ 0
+DDR_DQ5
+Text Label 1150 2900 0    50   ~ 0
+DDR_DQ6
 Text Label 1150 2700 0    50   ~ 0
+DDR_DQ7
+Text Label 1150 3800 0    50   ~ 0
+DDR_DQ8
+Text Label 1150 4200 0    50   ~ 0
+DDR_DQ9
+Text Label 1150 3700 0    50   ~ 0
+DDR_DQ10
+Text Label 1150 3900 0    50   ~ 0
+DDR_DQ11
+Text Label 1150 3600 0    50   ~ 0
+DDR_DQ12
+Text Label 1150 4100 0    50   ~ 0
+DDR_DQ13
+Text Label 1150 3500 0    50   ~ 0
+DDR_DQ14
+Text Label 1150 4000 0    50   ~ 0
 DDR_DQ15
 Text Label 4550 3000 2    50   ~ 0
 DDR_BA0
@@ -211,17 +212,17 @@ Text Label 4550 2900 2    50   ~ 0
 DDR_BA1
 Text Label 4550 2800 2    50   ~ 0
 DDR_BA2
-Text Label 1150 4700 0    50   ~ 0
-DDR_DM1
 Text Label 1150 4800 0    50   ~ 0
+DDR_DM1
+Text Label 1150 4700 0    50   ~ 0
 DDR_DM0
-Text Label 1150 5400 0    50   ~ 0
-DDR_DQS_1_P
-Text Label 1150 5500 0    50   ~ 0
-DDR_DQS_1_N
 Text Label 1150 5600 0    50   ~ 0
-DDR_DQS_0_P
+DDR_DQS_1_P
 Text Label 1150 5700 0    50   ~ 0
+DDR_DQS_1_N
+Text Label 1150 5400 0    50   ~ 0
+DDR_DQS_0_P
+Text Label 1150 5500 0    50   ~ 0
 DDR_DQS_0_N
 Text Label 4550 3300 2    50   ~ 0
 DDR_CAS
@@ -243,8 +244,9 @@ U 1 1 5B860E68
 P 4200 4700
 F 0 "R1" V 4280 4700 50  0000 C CNN
 F 1 "80" V 4200 4700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" V 4130 4700 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402_NoSilk" V 4130 4700 50  0001 C CNN
 F 3 "~" H 4200 4700 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    4200 4700
 	0    -1   -1   0   
 $EndComp
@@ -281,6 +283,7 @@ F 0 "C3" H 4460 5220 50  0000 L CNN
 F 1 "0.1u" H 4460 5070 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 4450 5150 50  0001 C CNN
 F 3 "~" H 4450 5150 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    4450 5150
 	1    0    0    -1  
 $EndComp
@@ -308,8 +311,9 @@ U 1 1 5B874230
 P 4200 5500
 F 0 "R4" V 4280 5500 50  0000 C CNN
 F 1 "80" V 4200 5500 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" V 4130 5500 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" V 4130 5500 50  0001 C CNN
 F 3 "~" H 4200 5500 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    4200 5500
 	0    -1   -1   0   
 $EndComp
@@ -319,8 +323,9 @@ U 1 1 5B874272
 P 4200 5700
 F 0 "R5" V 4280 5700 50  0000 C CNN
 F 1 "80" V 4200 5700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603" V 4130 5700 50  0001 C CNN
+F 2 "Resistors_SMD:R_0402" V 4130 5700 50  0001 C CNN
 F 3 "~" H 4200 5700 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    4200 5700
 	0    -1   -1   0   
 $EndComp
@@ -589,6 +594,7 @@ F 1 "10n" H 6310 970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 6300 1050 50  0001 C CNN
 F 3 "~" H 6300 1050 50  0001 C CNN
 F 4 "CA Byp" H 6100 1150 50  0000 C CNN "MEMO"
+F 5 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    6300 1050
 	1    0    0    -1  
 $EndComp
@@ -601,6 +607,7 @@ F 1 "10n" H 6310 1270 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 6300 1350 50  0001 C CNN
 F 3 "~" H 6300 1350 50  0001 C CNN
 F 4 "DQ Byp" H 6100 1300 50  0000 C CNN "MEMO"
+F 5 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    6300 1350
 	1    0    0    -1  
 $EndComp
@@ -849,6 +856,8 @@ F 0 "R3" V 10380 4950 50  0000 C CNN
 F 1 "240" V 10300 4950 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603" V 10230 4950 50  0001 C CNN
 F 3 "~" H 10300 4950 50  0001 C CNN
+F 4 "1%" V 10200 4950 50  0000 C CNN "Tolerance"
+F 5 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    10300 4950
 	1    0    0    -1  
 $EndComp
@@ -888,6 +897,7 @@ F 0 "R2" V 9730 4950 50  0000 C CNN
 F 1 "4.7k" V 9650 4950 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603" V 9580 4950 50  0001 C CNN
 F 3 "~" H 9650 4950 50  0001 C CNN
+F 4 "-" H 0   0   50  0001 C CNN "購入済み"
 	1    9650 4950
 	1    0    0    -1  
 $EndComp
@@ -917,6 +927,7 @@ F 0 "C4" H 6010 6120 50  0000 L CNN
 F 1 "47n" H 6010 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 6000 6050 50  0001 C CNN
 F 3 "~" H 6000 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    6000 6050
 	1    0    0    -1  
 $EndComp
@@ -928,6 +939,7 @@ F 0 "C5" H 6260 6120 50  0000 L CNN
 F 1 "47n" H 6260 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 6250 6050 50  0001 C CNN
 F 3 "~" H 6250 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    6250 6050
 	1    0    0    -1  
 $EndComp
@@ -939,6 +951,7 @@ F 0 "C6" H 6510 6120 50  0000 L CNN
 F 1 "47n" H 6510 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 6500 6050 50  0001 C CNN
 F 3 "~" H 6500 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    6500 6050
 	1    0    0    -1  
 $EndComp
@@ -950,6 +963,7 @@ F 0 "C7" H 6760 6120 50  0000 L CNN
 F 1 "47n" H 6760 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 6750 6050 50  0001 C CNN
 F 3 "~" H 6750 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    6750 6050
 	1    0    0    -1  
 $EndComp
@@ -961,6 +975,7 @@ F 0 "C8" H 7010 6120 50  0000 L CNN
 F 1 "47n" H 7010 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 7000 6050 50  0001 C CNN
 F 3 "~" H 7000 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    7000 6050
 	1    0    0    -1  
 $EndComp
@@ -972,6 +987,7 @@ F 0 "C9" H 7260 6120 50  0000 L CNN
 F 1 "47n" H 7260 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 7250 6050 50  0001 C CNN
 F 3 "~" H 7250 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    7250 6050
 	1    0    0    -1  
 $EndComp
@@ -983,6 +999,7 @@ F 0 "C10" H 7510 6120 50  0000 L CNN
 F 1 "47n" H 7510 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 7500 6050 50  0001 C CNN
 F 3 "~" H 7500 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    7500 6050
 	1    0    0    -1  
 $EndComp
@@ -994,6 +1011,7 @@ F 0 "C11" H 7760 6120 50  0000 L CNN
 F 1 "47n" H 7760 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 7750 6050 50  0001 C CNN
 F 3 "~" H 7750 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    7750 6050
 	1    0    0    -1  
 $EndComp
@@ -1105,6 +1123,7 @@ F 0 "C12" H 8310 6120 50  0000 L CNN
 F 1 "47n" H 8310 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 8300 6050 50  0001 C CNN
 F 3 "~" H 8300 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    8300 6050
 	1    0    0    -1  
 $EndComp
@@ -1116,6 +1135,7 @@ F 0 "C13" H 8560 6120 50  0000 L CNN
 F 1 "47n" H 8560 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 8550 6050 50  0001 C CNN
 F 3 "~" H 8550 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    8550 6050
 	1    0    0    -1  
 $EndComp
@@ -1127,6 +1147,7 @@ F 0 "C14" H 8810 6120 50  0000 L CNN
 F 1 "47n" H 8810 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 8800 6050 50  0001 C CNN
 F 3 "~" H 8800 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    8800 6050
 	1    0    0    -1  
 $EndComp
@@ -1138,6 +1159,7 @@ F 0 "C15" H 9060 6120 50  0000 L CNN
 F 1 "47n" H 9060 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 9050 6050 50  0001 C CNN
 F 3 "~" H 9050 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    9050 6050
 	1    0    0    -1  
 $EndComp
@@ -1149,6 +1171,7 @@ F 0 "C16" H 9310 6120 50  0000 L CNN
 F 1 "47n" H 9310 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 9300 6050 50  0001 C CNN
 F 3 "~" H 9300 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    9300 6050
 	1    0    0    -1  
 $EndComp
@@ -1160,6 +1183,7 @@ F 0 "C17" H 9560 6120 50  0000 L CNN
 F 1 "47n" H 9560 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 9550 6050 50  0001 C CNN
 F 3 "~" H 9550 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    9550 6050
 	1    0    0    -1  
 $EndComp
@@ -1171,6 +1195,7 @@ F 0 "C18" H 9810 6120 50  0000 L CNN
 F 1 "47n" H 9810 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 9800 6050 50  0001 C CNN
 F 3 "~" H 9800 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    9800 6050
 	1    0    0    -1  
 $EndComp
@@ -1182,6 +1207,7 @@ F 0 "C19" H 10060 6120 50  0000 L CNN
 F 1 "47n" H 10060 5970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 10050 6050 50  0001 C CNN
 F 3 "~" H 10050 6050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    10050 6050
 	1    0    0    -1  
 $EndComp
@@ -1293,6 +1319,7 @@ F 0 "C20" H 6010 7020 50  0000 L CNN
 F 1 "0.47u" H 6010 6870 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 6000 6950 50  0001 C CNN
 F 3 "~" H 6000 6950 50  0001 C CNN
+F 4 "a" H 0   0   50  0001 C CNN "購入済み"
 	1    6000 6950
 	1    0    0    -1  
 $EndComp
@@ -1304,6 +1331,7 @@ F 0 "C21" H 6310 7020 50  0000 L CNN
 F 1 "0.47u" H 6310 6870 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 6300 6950 50  0001 C CNN
 F 3 "~" H 6300 6950 50  0001 C CNN
+F 4 "a" H 0   0   50  0001 C CNN "購入済み"
 	1    6300 6950
 	1    0    0    -1  
 $EndComp
@@ -1315,6 +1343,7 @@ F 0 "C22" H 6610 7020 50  0000 L CNN
 F 1 "4.7u" H 6610 6870 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0603" H 6600 6950 50  0001 C CNN
 F 3 "~" H 6600 6950 50  0001 C CNN
+F 4 "a" H 0   0   50  0001 C CNN "購入済み"
 	1    6600 6950
 	1    0    0    -1  
 $EndComp
@@ -1376,6 +1405,8 @@ F 0 "R6" V 1630 6650 50  0000 C CNN
 F 1 "10k" V 1550 6650 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603" V 1480 6650 50  0001 C CNN
 F 3 "~" H 1550 6650 50  0001 C CNN
+F 4 "1%" V 1450 6650 50  0000 C CNN "Tolerance"
+F 5 "d" V 1550 6650 50  0001 C CNN "購入済み"
 	1    1550 6650
 	1    0    0    -1  
 $EndComp
@@ -1387,6 +1418,8 @@ F 0 "R7" V 1630 7050 50  0000 C CNN
 F 1 "10k" V 1550 7050 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603" V 1480 7050 50  0001 C CNN
 F 3 "~" H 1550 7050 50  0001 C CNN
+F 4 "1%" V 1450 7050 50  0000 C CNN "Tolerance"
+F 5 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    1550 7050
 	1    0    0    -1  
 $EndComp
@@ -1398,6 +1431,7 @@ F 0 "C23" H 1910 7120 50  0000 L CNN
 F 1 "10n" H 1910 6970 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0402_NoSilk" H 1900 7050 50  0001 C CNN
 F 3 "~" H 1900 7050 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	1    1900 7050
 	1    0    0    -1  
 $EndComp
@@ -1456,6 +1490,7 @@ F 0 "U1" H 2850 6300 50  0000 C CNN
 F 1 "XC7Z020-1CLG484C" H 2850 6200 50  0000 C CNN
 F 2 "KiCad_Footprints:BGA-484_22x22_19.0x19.0mm" H 2850 6100 50  0001 C CNN
 F 3 "" H 2850 6100 50  0001 C CNN
+F 4 "d" H 0   0   50  0001 C CNN "購入済み"
 	4    2850 3500
 	1    0    0    -1  
 $EndComp

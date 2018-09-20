@@ -1,0 +1,14 @@
+/*
+ * test.c
+ *
+ *  Created on: 2018/09/11
+ *      Author: Reiji
+ */
+
+#include <stdio.h>
+
+int main()
+{
+	printf("hi,\n");
+	return 0;
+}

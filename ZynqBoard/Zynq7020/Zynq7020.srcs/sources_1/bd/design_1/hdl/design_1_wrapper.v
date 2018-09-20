@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Thu Aug 23 12:18:48 2018
+//Date        : Mon Sep 17 16:53:24 2018
 //Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -31,9 +31,9 @@ module design_1_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    USBIND_0_0_port_indctl,
-    USBIND_0_0_vbus_pwrfault,
-    USBIND_0_0_vbus_pwrselect);
+    RGB_OUT_0,
+    UART_1_rxd,
+    UART_1_txd);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -55,9 +55,9 @@ module design_1_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
-  output [1:0]USBIND_0_0_port_indctl;
-  input USBIND_0_0_vbus_pwrfault;
-  output USBIND_0_0_vbus_pwrselect;
+  output [2:0]RGB_OUT_0;
+  input UART_1_rxd;
+  output UART_1_txd;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -80,9 +80,9 @@ module design_1_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
-  wire [1:0]USBIND_0_0_port_indctl;
-  wire USBIND_0_0_vbus_pwrfault;
-  wire USBIND_0_0_vbus_pwrselect;
+  wire [2:0]RGB_OUT_0;
+  wire UART_1_rxd;
+  wire UART_1_txd;
 
   design_1 design_1_i
        (.DDR_addr(DDR_addr),
@@ -106,7 +106,7 @@ module design_1_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .USBIND_0_0_port_indctl(USBIND_0_0_port_indctl),
-        .USBIND_0_0_vbus_pwrfault(USBIND_0_0_vbus_pwrfault),
-        .USBIND_0_0_vbus_pwrselect(USBIND_0_0_vbus_pwrselect));
+        .RGB_OUT_0(RGB_OUT_0),
+        .UART_1_rxd(UART_1_rxd),
+        .UART_1_txd(UART_1_txd));
 endmodule

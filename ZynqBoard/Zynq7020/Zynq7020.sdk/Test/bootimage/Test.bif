@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\fsbl\Debug\fsbl.elf
+	F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_0\design_1_wrapper.bit
+	F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\Test\Debug\Test.elf
+}

@@ -1,0 +1,128 @@
+18:00:08 INFO  : Registering command handlers for SDK TCF services
+18:00:09 INFO  : Launching XSCT server: xsct.bat -interactive F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\temp_xsdb_launch_script.tcl
+18:00:11 INFO  : XSCT server has started successfully.
+18:00:11 INFO  : Successfully done setting XSCT server connection channel  
+18:00:11 INFO  : Successfully done setting SDK workspace  
+18:00:11 INFO  : Processing command line option -hwspec F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf.
+20:44:51 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1536666290000,  Project:1536656104000
+20:44:51 INFO  : Project design_1_wrapper_hw_platform_0's source hardware specification located at F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+20:45:01 INFO  : Copied contents of F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+20:45:04 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:45:04 INFO  : Clearing existing target manager status.
+20:45:04 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+20:45:04 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+20:58:56 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1536667134000,  Project:1536666290000
+20:58:56 INFO  : Project design_1_wrapper_hw_platform_0's source hardware specification located at F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+20:58:58 INFO  : Copied contents of F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+20:59:00 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:59:00 INFO  : Clearing existing target manager status.
+20:59:00 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+20:59:00 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+22:34:16 INFO  : Launching XSCT server: xsct.bat -interactive F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\temp_xsdb_launch_script.tcl
+22:34:18 INFO  : XSCT server has started successfully.
+22:34:18 INFO  : Successfully done setting XSCT server connection channel  
+22:34:18 INFO  : Successfully done setting SDK workspace  
+22:34:22 INFO  : Registering command handlers for SDK TCF services
+22:34:22 INFO  : Processing command line option -hwspec F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf.
+22:34:22 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+22:52:42 INFO  : Registering command handlers for SDK TCF services
+22:52:43 INFO  : Launching XSCT server: xsct.bat -interactive F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\temp_xsdb_launch_script.tcl
+22:52:45 INFO  : XSCT server has started successfully.
+22:52:45 INFO  : Successfully done setting XSCT server connection channel  
+22:52:45 INFO  : Successfully done setting SDK workspace  
+22:52:45 INFO  : Processing command line option -hwspec F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf.
+22:52:45 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+23:48:24 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1536850102000,  Project:1536667134000
+23:48:24 INFO  : Project design_1_wrapper_hw_platform_0's source hardware specification located at F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+23:49:14 INFO  : Copied contents of F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+23:49:21 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+23:49:23 INFO  : 
+23:49:25 INFO  : 
+23:49:26 INFO  : Updating hardware inferred compiler options for Test.
+23:49:27 INFO  : Updating hardware inferred compiler options for fsbl.
+23:49:27 INFO  : Clearing existing target manager status.
+23:49:27 INFO  : Closing and re-opening the MSS file of ther project Test_bsp
+23:49:27 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+23:49:32 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+00:00:00 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:00:38 INFO  : Registering command handlers for SDK TCF services
+14:00:38 INFO  : Launching XSCT server: xsct.bat -interactive F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\temp_xsdb_launch_script.tcl
+14:00:41 INFO  : XSCT server has started successfully.
+14:00:43 INFO  : Successfully done setting XSCT server connection channel  
+14:00:43 INFO  : Successfully done setting SDK workspace  
+14:00:43 INFO  : Processing command line option -hwspec F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf.
+14:00:43 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+14:00:43 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1536987624000,  Project:1536850102000
+14:00:43 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf.
+14:00:43 INFO  : Copied contents of F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+14:00:53 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+14:00:55 INFO  : 
+14:00:57 INFO  : 
+14:00:59 INFO  : 
+14:01:00 INFO  : Updating hardware inferred compiler options for Test.
+14:01:00 INFO  : Updating hardware inferred compiler options for fsbl.
+14:01:01 INFO  : Updating hardware inferred compiler options for hello.
+14:01:01 INFO  : Clearing existing target manager status.
+14:01:01 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+14:01:08 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+14:07:36 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1536987596000,  Project:1536987624000
+14:07:36 INFO  : Project design_1_wrapper_hw_platform_0's source hardware specification located at F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+14:07:38 INFO  : Copied contents of F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+14:07:41 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+14:07:42 INFO  : 
+14:07:44 INFO  : 
+14:07:46 INFO  : 
+14:07:47 INFO  : Updating hardware inferred compiler options for Test.
+14:07:48 INFO  : Updating hardware inferred compiler options for fsbl.
+14:07:48 INFO  : Updating hardware inferred compiler options for hello.
+14:07:49 INFO  : Clearing existing target manager status.
+14:07:49 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+14:07:54 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+14:09:18 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:59:51 INFO  : Registering command handlers for SDK TCF services
+17:59:51 INFO  : Launching XSCT server: xsct.bat -interactive F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\temp_xsdb_launch_script.tcl
+17:59:54 INFO  : XSCT server has started successfully.
+17:59:54 INFO  : Successfully done setting XSCT server connection channel  
+17:59:54 INFO  : Processing command line option -hwspec F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf.
+17:59:54 INFO  : Successfully done setting SDK workspace  
+17:59:54 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+17:59:56 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1537086944000,  Project:1536987596000
+17:59:56 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf.
+17:59:56 INFO  : Copied contents of F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+17:59:59 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+18:00:01 INFO  : 
+18:00:03 INFO  : 
+18:00:05 INFO  : 
+18:00:06 INFO  : Updating hardware inferred compiler options for Test.
+18:00:07 INFO  : Updating hardware inferred compiler options for fsbl.
+18:00:07 INFO  : Updating hardware inferred compiler options for hello.
+18:00:07 INFO  : Clearing existing target manager status.
+18:00:07 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+18:00:15 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+17:42:14 INFO  : Registering command handlers for SDK TCF services
+17:42:14 INFO  : Launching XSCT server: xsct.bat -interactive F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\temp_xsdb_launch_script.tcl
+17:42:16 INFO  : XSCT server has started successfully.
+17:42:17 INFO  : Successfully done setting XSCT server connection channel  
+17:42:17 INFO  : Successfully done setting SDK workspace  
+17:42:17 INFO  : Processing command line option -hwspec F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf.
+17:42:17 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+17:42:19 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1537172406000,  Project:1537086944000
+17:42:19 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf.
+17:42:19 INFO  : Copied contents of F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+17:42:22 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+17:42:24 INFO  : 
+17:42:26 INFO  : 
+17:42:28 INFO  : 
+17:42:29 INFO  : Updating hardware inferred compiler options for Test.
+17:42:29 INFO  : Updating hardware inferred compiler options for fsbl.
+17:42:30 INFO  : Updating hardware inferred compiler options for hello.
+17:42:30 INFO  : Clearing existing target manager status.
+17:42:30 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+17:42:36 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+18:04:20 INFO  : Invoking Bootgen: bootgen -image Test.bif -arch zynq -o F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\Test\bootimage\BOOT.bin
+18:04:20 INFO  : Creating new bif file F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\Test\bootimage\Test.bif
+18:04:22 INFO  : Bootgen command execution is done.

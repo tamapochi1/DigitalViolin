@@ -1,0 +1,20 @@
+/*
+ * test.c
+ *
+ *  Created on: 2018/09/11
+ *      Author: Reiji
+ */
+
+#include <stdio.h>
+#include "platform.h"
+#include "myip.h"
+
+int main()
+{
+	init_platform();
+
+	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x7);
+
+	cleanup_platform();
+	return 0;
+}

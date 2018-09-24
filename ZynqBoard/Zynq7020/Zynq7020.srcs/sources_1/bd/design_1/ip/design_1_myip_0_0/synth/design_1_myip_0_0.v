@@ -48,14 +48,15 @@
 
 
 // IP VLNV: xilinx.com:user:myip:1.0
-// IP Revision: 2
+// IP Revision: 5
 
 (* X_CORE_INFO = "myip_v1_0,Vivado 2018.2" *)
 (* CHECK_LICENSE_TYPE = "design_1_myip_0_0,myip_v1_0,{}" *)
-(* CORE_GENERATION_INFO = "design_1_myip_0_0,myip_v1_0,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=myip,x_ipVersion=1.0,x_ipCoreRevision=2,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
+(* CORE_GENERATION_INFO = "design_1_myip_0_0,myip_v1_0,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=myip,x_ipVersion=1.0,x_ipCoreRevision=5,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_myip_0_0 (
   RGB_OUT,
+  USB_nRESET,
   s00_axi_awaddr,
   s00_axi_awprot,
   s00_axi_awvalid,
@@ -80,6 +81,7 @@ module design_1_myip_0_0 (
 );
 
 output wire [2 : 0] RGB_OUT;
+output wire USB_nRESET;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR" *)
 input wire [3 : 0] s00_axi_awaddr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWPROT" *)
@@ -132,6 +134,7 @@ input wire s00_axi_aresetn;
     .C_S00_AXI_ADDR_WIDTH(4)  // Width of S_AXI address bus
   ) inst (
     .RGB_OUT(RGB_OUT),
+    .USB_nRESET(USB_nRESET),
     .s00_axi_awaddr(s00_axi_awaddr),
     .s00_axi_awprot(s00_axi_awprot),
     .s00_axi_awvalid(s00_axi_awvalid),

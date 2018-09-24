@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Sep 17 16:53:41 2018" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Sep 24 00:29:38 2018" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="design_1" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -30,6 +30,11 @@
     <PORT DIR="O" LEFT="2" NAME="RGB_OUT_0" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_RGB_OUT">
       <CONNECTIONS>
         <CONNECTION INSTANCE="myip_0" PORT="RGB_OUT"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="USB_nRESET_0" SIGIS="undef" SIGNAME="myip_0_USB_nRESET">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="myip_0" PORT="USB_nRESET"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -105,6 +110,11 @@
         <PORT DIR="O" LEFT="2" NAME="RGB_OUT" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_RGB_OUT">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="RGB_OUT_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="USB_nRESET" SIGIS="undef" SIGNAME="myip_0_USB_nRESET">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="USB_nRESET_0"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="3" NAME="s00_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_awaddr">
@@ -1414,10 +1424,10 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="slowest_sync_clk"/>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="ACLK"/>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
@@ -2328,9 +2338,9 @@
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="rst_ps7_0_50M_peripheral_aresetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ARESETN"/>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

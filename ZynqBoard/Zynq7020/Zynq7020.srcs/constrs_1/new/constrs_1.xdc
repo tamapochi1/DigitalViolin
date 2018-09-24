@@ -16,3 +16,7 @@ set_property PACKAGE_PIN A21 [get_ports UART_1_rxd]
 set_property PACKAGE_PIN A22 [get_ports UART_1_txd]
 set_property IOSTANDARD LVCMOS33 [get_ports UART_1_rxd]
 set_property IOSTANDARD LVCMOS33 [get_ports UART_1_txd]
+
+set_property PACKAGE_PIN G19 [get_ports USB_nRESET_0]
+set_property IOSTANDARD LVCMOS33 [get_ports USB_nRESET_0]
+set_property SLEW SLOW [get_ports USB_nRESET_0]

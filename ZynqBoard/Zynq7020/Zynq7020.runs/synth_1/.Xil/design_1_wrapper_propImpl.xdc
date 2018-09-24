@@ -17,3 +17,5 @@ set_property src_info {type:XDC file:1 line:15 export:INPUT save:INPUT read:READ
 set_property PACKAGE_PIN A21 [get_ports UART_1_rxd]
 set_property src_info {type:XDC file:1 line:16 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN A22 [get_ports UART_1_txd]
+set_property src_info {type:XDC file:1 line:20 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN G19 [get_ports USB_nRESET_0]

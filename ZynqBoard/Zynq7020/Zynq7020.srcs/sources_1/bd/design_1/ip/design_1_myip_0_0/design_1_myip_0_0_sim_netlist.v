@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Tue Sep 11 17:42:12 2018
+// Date        : Mon Sep 24 00:30:13 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode funcsim -rename_top design_1_myip_0_0 -prefix
-//               design_1_myip_0_0_ design_1_myip_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_myip_0_0/design_1_myip_0_0_sim_netlist.v
 // Design      : design_1_myip_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,6 +16,7 @@
 (* NotValidForBitStream *)
 module design_1_myip_0_0
    (RGB_OUT,
+    USB_nRESET,
     s00_axi_awaddr,
     s00_axi_awprot,
     s00_axi_awvalid,
@@ -38,6 +39,7 @@ module design_1_myip_0_0
     s00_axi_aclk,
     s00_axi_aresetn);
   output [2:0]RGB_OUT;
+  output USB_nRESET;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR" *) input [3:0]s00_axi_awaddr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWPROT" *) input [2:0]s00_axi_awprot;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWVALID" *) input s00_axi_awvalid;
@@ -62,6 +64,7 @@ module design_1_myip_0_0
 
   wire \<const0> ;
   wire [2:0]RGB_OUT;
+  wire USB_nRESET;
   wire s00_axi_aclk;
   wire [3:0]s00_axi_araddr;
   wire s00_axi_aresetn;
@@ -91,6 +94,7 @@ module design_1_myip_0_0
         .S_AXI_ARREADY(s00_axi_arready),
         .S_AXI_AWREADY(s00_axi_awready),
         .S_AXI_WREADY(s00_axi_wready),
+        .USB_nRESET(USB_nRESET),
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_araddr(s00_axi_araddr[3:2]),
         .s00_axi_aresetn(s00_axi_aresetn),
@@ -107,6 +111,7 @@ module design_1_myip_0_0
         .s00_axi_wvalid(s00_axi_wvalid));
 endmodule
 
+(* ORIG_REF_NAME = "myip_v1_0" *) 
 module design_1_myip_0_0_myip_v1_0
    (S_AXI_AWREADY,
     S_AXI_WREADY,
@@ -114,6 +119,7 @@ module design_1_myip_0_0_myip_v1_0
     s00_axi_rdata,
     s00_axi_rvalid,
     RGB_OUT,
+    USB_nRESET,
     s00_axi_bvalid,
     s00_axi_aclk,
     s00_axi_awaddr,
@@ -132,6 +138,7 @@ module design_1_myip_0_0_myip_v1_0
   output [31:0]s00_axi_rdata;
   output s00_axi_rvalid;
   output [2:0]RGB_OUT;
+  output USB_nRESET;
   output s00_axi_bvalid;
   input s00_axi_aclk;
   input [1:0]s00_axi_awaddr;
@@ -149,6 +156,7 @@ module design_1_myip_0_0_myip_v1_0
   wire S_AXI_ARREADY;
   wire S_AXI_AWREADY;
   wire S_AXI_WREADY;
+  wire USB_nRESET;
   wire s00_axi_aclk;
   wire [1:0]s00_axi_araddr;
   wire s00_axi_aresetn;
@@ -169,6 +177,7 @@ module design_1_myip_0_0_myip_v1_0
         .S_AXI_ARREADY(S_AXI_ARREADY),
         .S_AXI_AWREADY(S_AXI_AWREADY),
         .S_AXI_WREADY(S_AXI_WREADY),
+        .USB_nRESET(USB_nRESET),
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_araddr(s00_axi_araddr),
         .s00_axi_aresetn(s00_axi_aresetn),
@@ -185,6 +194,7 @@ module design_1_myip_0_0_myip_v1_0
         .s00_axi_wvalid(s00_axi_wvalid));
 endmodule
 
+(* ORIG_REF_NAME = "myip_v1_0_S00_AXI" *) 
 module design_1_myip_0_0_myip_v1_0_S00_AXI
    (S_AXI_AWREADY,
     S_AXI_WREADY,
@@ -192,6 +202,7 @@ module design_1_myip_0_0_myip_v1_0_S00_AXI
     s00_axi_rdata,
     s00_axi_rvalid,
     RGB_OUT,
+    USB_nRESET,
     s00_axi_bvalid,
     s00_axi_aclk,
     s00_axi_awaddr,
@@ -210,6 +221,7 @@ module design_1_myip_0_0_myip_v1_0_S00_AXI
   output [31:0]s00_axi_rdata;
   output s00_axi_rvalid;
   output [2:0]RGB_OUT;
+  output USB_nRESET;
   output s00_axi_bvalid;
   input s00_axi_aclk;
   input [1:0]s00_axi_awaddr;
@@ -227,6 +239,7 @@ module design_1_myip_0_0_myip_v1_0_S00_AXI
   wire S_AXI_ARREADY;
   wire S_AXI_AWREADY;
   wire S_AXI_WREADY;
+  wire USB_nRESET;
   wire aw_en_i_1_n_0;
   wire aw_en_reg_n_0;
   wire [3:2]axi_araddr;
@@ -291,6 +304,11 @@ module design_1_myip_0_0_myip_v1_0_S00_AXI
     \RGB_OUT[2]_INST_0 
        (.I0(slv_reg0[2]),
         .O(RGB_OUT[2]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    USB_nRESET_INST_0
+       (.I0(slv_reg1[0]),
+        .O(USB_nRESET));
   LUT6 #(
     .INIT(64'hF7FFC4CCC4CCC4CC)) 
     aw_en_i_1
@@ -1215,12 +1233,12 @@ module design_1_myip_0_0_myip_v1_0_S00_AXI
         .I3(p_0_in[0]),
         .O(\slv_reg1[31]_i_1_n_0 ));
   LUT4 #(
-    .INIT(16'h2000)) 
+    .INIT(16'h0080)) 
     \slv_reg1[7]_i_1 
        (.I0(slv_reg_wren__0),
-        .I1(p_0_in[1]),
-        .I2(s00_axi_wstrb[0]),
-        .I3(p_0_in[0]),
+        .I1(s00_axi_wstrb[0]),
+        .I2(p_0_in[0]),
+        .I3(p_0_in[1]),
         .O(\slv_reg1[7]_i_1_n_0 ));
   FDRE \slv_reg1_reg[0] 
        (.C(s00_axi_aclk),

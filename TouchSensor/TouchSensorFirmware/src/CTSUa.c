@@ -8,7 +8,7 @@
 #include "CTSUa.h"
 #include "r_cg_macrodriver.h"
 
-uint16_t sensorDataBuffer[224];
+uint16_t sensorDataBuffer[448];
 uint32_t sensorDataBuffer_index = 0U;
 
 void CTSUa_Init(void)
@@ -71,7 +71,7 @@ void CTSUa_Init(void)
 	CTSU.CTSUCHTRC1.BYTE = 0x00U;		// TS8 ~ TS15 受信
 	CTSU.CTSUCHTRC2.BYTE = 0x00U;		// TS16 ~ TS23 受信
 	CTSU.CTSUCHTRC3.BYTE = 0x00U;		// TS24 ~ TS31 受信
-	CTSU.CTSUCHTRC4.BYTE = 0x01U;		// TS32 ~ TS35 送信
+	CTSU.CTSUCHTRC4.BYTE = 0x0FU;		// TS32 ~ TS35 送信
 
 	IPR(CTSU,CTSUWR) = 0x0FU;
 	IPR(CTSU,CTSURD) = 0x0FU;

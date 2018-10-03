@@ -1,0 +1,25 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../Zynq7020.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../Zynq7020.srcs/sources_1/bd/design_1/ipshared/5bb9/hdl/verilog" --include "../../../../Zynq7020.srcs/sources_1/bd/design_1/ipshared/70fd/hdl" --include "../../../../Zynq7020.srcs/sources_1/bd/design_1/ipshared/b65a" --include "F:/Xilinx/Vivado/2018.2/data/xilinx_vip/include" \
+"../../../../Zynq7020.srcs/sources_1/new/DAC_IF.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ip/design_1_processing_system7_0_0/sim/design_1_processing_system7_0_0.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/sim/design_1.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ipshared/ddd1/hdl/myip_v1_0_S00_AXI.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ipshared/ddd1/hdl/myip_v1_0.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ip/design_1_myip_0_0/sim/design_1_myip_0_0.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_clk_wiz.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ip/design_1_DAC_IF_0_0/sim/design_1_DAC_IF_0_0.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ipshared/be34/hdl/myDSP_v1_0_S00_AXI.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ipshared/be34/hdl/Prescaler.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ipshared/be34/hdl/SinGen.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ipshared/be34/hdl/myDSP_v1_0.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ip/design_1_myDSP_0_0_1/sim/design_1_myDSP_0_0.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ip/design_1_xbar_0_1/sim/design_1_xbar_0.v" \
+"../../../../Zynq7020.ip_user_files/bd/design_1/ip/design_1_auto_pc_0/sim/design_1_auto_pc_0.v" \
+"../../../../Zynq7020.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

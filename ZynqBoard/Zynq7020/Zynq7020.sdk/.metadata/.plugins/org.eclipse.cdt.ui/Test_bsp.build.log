@@ -1,10 +1,17 @@
-00:35:43 **** Clean-only build of project Test_bsp ****
+00:30:55 **** Clean-only build of project Test_bsp ****
 make -k clean 
+make -C ps7_cortexa9_0/libsrc/bram_v4_2/src -s clean 
 make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s clean 
 make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s clean 
 make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s clean 
 make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s clean 
 make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s clean 
+make -C ps7_cortexa9_0/libsrc/DSP_register_v1_0/src -s clean 
+rm: cannot lstat `*.o': Invalid argument
+make[1]: *** [clean] エラー 1
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s clean 
+make: *** [ps7_cortexa9_0/libsrc/DSP_register_v1_0/src/make.clean] エラー 2
+make -C ps7_cortexa9_0/libsrc/iicps_v3_7/src -s clean 
 make -C ps7_cortexa9_0/libsrc/myip_v1_0/src -s clean 
 rm: cannot lstat `*.o': Invalid argument
 make[1]: *** [clean] エラー 1
@@ -18,5 +25,5 @@ make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s clean
 make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s clean 
 make: ターゲット `clean' はエラーにより再 make できませんでした.
 
-00:35:45 Build Finished (took 1s.787ms)
+00:30:57 Build Finished (took 2s.255ms)
 

@@ -60,21 +60,22 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {HDL-1065} -limit 10000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7z020clg484-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/wt [current_project]
   set_property parent.project_path F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.xpr [current_project]
-  set_property ip_repo_paths F:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/myip_1.0 [current_project]
+  set_property ip_repo_paths {
+  F:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/DSP_register_1.0
+  F:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo
+  F:/Git/DigitalViolin/ZynqBoard/ip_repo/myDSP_1.0
+  F:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/myip_1.0
+} [current_project]
   set_property ip_output_repo F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
@@ -168,6 +169,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
   catch { write_mem_info -force design_1_wrapper.mmi }
+  catch { write_bmm -force design_1_wrapper_bd.bmm }
   write_bitstream -force design_1_wrapper.bit 
   catch { write_sysdef -hwdef design_1_wrapper.hwdef -bitfile design_1_wrapper.bit -meminfo design_1_wrapper.mmi -file design_1_wrapper.sysdef }
   catch {write_debug_probes -quiet -force design_1_wrapper}

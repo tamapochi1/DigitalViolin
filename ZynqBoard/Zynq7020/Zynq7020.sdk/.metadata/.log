@@ -1,4 +1,4 @@
-!SESSION 2018-09-23 20:20:35.415 -----------------------------------------------
+!SESSION 2018-10-03 00:30:25.394 -----------------------------------------------
 eclipse.buildId=2018.2
 java.version=1.8.0_112
 java.vendor=Oracle Corporation
@@ -6,1056 +6,720 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ja_JP
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk
 
 This is a continuation of log file F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\.metadata\.bak_0.log
-Created Time: 2018-09-24 00:35:40.101
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:35:40.101
-!MESSAGE XSCT Command: [::hsi::utils::sync_sw_with_hw_changes -newhw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf -oldhw C:/Users/Reiji/AppData/Local/Temp/system7703366256603344813.hdf -sw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss -dir F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp], Thread: ModalContext
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:35:41.206
-!MESSAGE XSCT command with result: [::hsi::utils::sync_sw_with_hw_changes -newhw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf -oldhw C:/Users/Reiji/AppData/Local/Temp/system7703366256603344813.hdf -sw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss -dir F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp], Result: [null, ]. Thread: ModalContext
-
-!ENTRY org.eclipse.e4.ui.workbench 4 0 2018-09-24 00:35:43.823
-!MESSAGE Error setting focus to : org.eclipse.e4.ui.model.application.ui.basic.impl.PartImpl xil_io.h
-!STACK 0
-org.eclipse.swt.SWTException: Widget is disposed
-	at org.eclipse.swt.SWT.error(SWT.java:4533)
-	at org.eclipse.swt.SWT.error(SWT.java:4448)
-	at org.eclipse.swt.SWT.error(SWT.java:4419)
-	at org.eclipse.swt.widgets.Widget.error(Widget.java:482)
-	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:354)
-	at org.eclipse.swt.widgets.Control.setFocus(Control.java:3437)
-	at org.eclipse.swt.widgets.Composite.setFocus(Composite.java:1119)
-	at org.eclipse.swt.widgets.Composite.setFocus(Composite.java:1119)
-	at org.eclipse.ui.texteditor.StatusTextEditor.setFocus(StatusTextEditor.java:118)
-	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.delegateSetFocus(CompatibilityPart.java:203)
-	at sun.reflect.GeneratedMethodAccessor48.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:282)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:288)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:259)
-	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:107)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.focusGui(PartRenderingEngine.java:779)
-	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer$2.setFocus(ContributedPartRenderer.java:102)
-	at org.eclipse.swt.custom.CTabItem.setFocus(CTabItem.java:332)
-	at org.eclipse.swt.custom.CTabFolder.setFocus(CTabFolder.java:2611)
-	at org.eclipse.swt.widgets.Control.fixFocus(Control.java:1069)
-	at org.eclipse.swt.widgets.Control.setVisible(Control.java:3964)
-	at org.eclipse.swt.custom.CTabFolder.setSelection(CTabFolder.java:3155)
-	at org.eclipse.swt.custom.CTabFolder.setSelection(CTabFolder.java:3112)
-	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.showTab(StackRenderer.java:1329)
-	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer$1.handleEvent(LazyStackRenderer.java:72)
-	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
-	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:233)
-	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:145)
-	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4813)
-	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:211)
-	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
-	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:201)
-	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
-	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
-	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
-	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
-	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
-	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:94)
-	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
-	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
-	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:173)
-	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.showElementInWindow(ModelServiceImpl.java:617)
-	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.bringToTop(ModelServiceImpl.java:581)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.delegateBringToTop(PartServiceImpl.java:770)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.showPart(PartServiceImpl.java:1211)
-	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:3261)
-	at org.eclipse.ui.internal.WorkbenchPage.access$25(WorkbenchPage.java:3176)
-	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:3158)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3153)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3117)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3098)
-	at com.xilinx.sdk.hw.sync.internal.HwChangeWorkspaceSynchronizer.reopenMssFiles(HwChangeWorkspaceSynchronizer.java:147)
-	at com.xilinx.sdk.hw.sync.internal.HwChangeWorkspaceSynchronizer.synchronize(HwChangeWorkspaceSynchronizer.java:111)
-	at com.xilinx.sdk.hw.sync.HwSpecChangeUtil.performChange(HwSpecChangeUtil.java:136)
-	at com.xilinx.sdk.hw.sync.HwPlatformMonitor.doMonitorTask(HwPlatformMonitor.java:78)
-	at com.xilinx.sdk.hw.sync.HwPlatformMonitor.access$0(HwPlatformMonitor.java:41)
-	at com.xilinx.sdk.hw.sync.HwPlatformMonitor$1.run(HwPlatformMonitor.java:33)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4203)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3819)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1121)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1022)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:150)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:687)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:604)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:138)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:35:55.321
-!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:35:55.323
-!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss ], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:35:55.324
-!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:35:55.326
-!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
-"osname": "standalone",
-"osver": "6.7",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:35:55.327
-!MESSAGE XSCT Command: [::hsi::utils::get_design_properties -json F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:35:55.329
-!MESSAGE XSCT command with result: [::hsi::utils::get_design_properties -json F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf], Result: [null, {"device": "7z020",
-"family": "zynq",
-"timestamp": "Mon Sep 24 00:29:38 2018",
-"vivado_version": "2018.2",
-"part": "xc7z020clg484-1",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:35:55.330
-!MESSAGE XSCT Command: [::hsi::utils::closesw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:35:55.331
-!MESSAGE XSCT command with result: [::hsi::utils::closesw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:00.262
-!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/fsbl_bsp/system.mss ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:00.264
-!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/fsbl_bsp/system.mss ], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:00.266
-!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/fsbl_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:00.268
-!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/fsbl_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
-"osname": "standalone",
-"osver": "6.7",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:00.269
-!MESSAGE XSCT Command: [::hsi::utils::closesw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/fsbl_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:00.271
-!MESSAGE XSCT command with result: [::hsi::utils::closesw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/fsbl_bsp/system.mss], Result: [null, ]. Thread: main
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:01.798
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:01.889
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:01.893
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:02.115
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:02.119
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:02.328
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:02.332
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:02.548
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:02.554
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:02.766
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:02.770
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:02.986
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:02.990
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:03.203
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:03.207
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:03.419
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:03.423
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:03.635
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:03.640
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:03.854
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:03.859
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:04.080
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:04.084
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:04.498
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:04.502
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:04.717
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:04.721
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:04.938
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:04.942
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:05.155
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:05.159
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:05.369
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:05.374
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:05.537
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:05.693
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:05.797
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:05.802
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:05.963
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:06.027
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:06.032
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:06.198
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:06.320
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:06.325
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:06.489
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:07.513
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:07.517
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:07.687
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:08.875
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:08.878
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:09.043
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:09.289
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:09.291
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:09.292
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:09.293
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:09.293
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:09.294
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:09.295
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:09.576
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:09.581
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:09.747
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:10.934
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:10.938
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:11.103
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:11.729
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:11.734
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:11.896
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:12.672
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:12.676
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:12.845
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:14.006
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:14.010
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:14.210
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:19.016
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:19.020
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:19.185
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:20.568
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:20.572
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:20.734
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:22.271
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:22.275
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:22.441
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:23.902
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:23.906
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:24.120
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:24.154
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.closeConsoleOutputStream(ConsoleOutputSniffer.java:160)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.close(ConsoleOutputSniffer.java:68)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.close(ProcessClosure.java:98)
-	at org.eclipse.cdt.internal.core.ProcessClosure.isAlive(ProcessClosure.java:193)
-	at org.eclipse.cdt.core.CommandLauncher.waitAndRead(CommandLauncher.java:259)
-	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:273)
-	at org.eclipse.cdt.make.core.MakeBuilder.invokeMake(MakeBuilder.java:219)
-	at org.eclipse.cdt.make.core.MakeBuilder.build(MakeBuilder.java:108)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
-	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:487)
-	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:406)
-	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:285)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:47.320
-!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:47.324
-!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss ], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:47.325
-!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:47.327
-!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
-"osname": "standalone",
-"osver": "6.7",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:47.328
-!MESSAGE XSCT Command: [::hsi::utils::closesw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:36:47.330
-!MESSAGE XSCT command with result: [::hsi::utils::closesw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Result: [null, ]. Thread: main
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:48.663
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:48.758
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:48.762
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:48.973
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:48.978
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:49.186
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:49.190
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:49.400
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:49.405
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:49.617
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:49.622
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:49.834
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:49.837
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:50.047
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:50.051
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:50.262
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:50.266
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:50.482
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:50.486
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:50.696
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:50.700
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:50.915
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:50.920
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:51.329
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:51.334
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:51.551
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:51.555
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:51.769
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:51.773
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:51.937
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:52.160
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:52.266
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:52.270
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:52.433
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:52.498
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:52.502
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:52.663
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:52.785
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:52.789
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:52.954
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:53.984
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:53.989
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:54.152
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.335
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.339
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.503
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.656
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.658
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.659
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.660
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.661
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.662
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.663
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.884
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:55.888
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:56.055
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:57.269
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:57.273
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:57.438
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:58.056
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:58.060
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:58.222
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:58.839
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:58.843
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:36:59.014
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:37:00.186
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:37:00.191
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:37:00.385
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:37:05.430
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:37:05.434
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:37:05.599
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:37:07.040
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:37:07.044
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:37:07.206
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:37:08.431
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-
-!ENTRY org.eclipse.cdt.core 4 0 2018-09-24 00:37:08.466
-!MESSAGE Error
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer.closeConsoleOutputStream(ConsoleOutputSniffer.java:160)
-	at org.eclipse.cdt.internal.core.ConsoleOutputSniffer$ConsoleOutputStream.close(ConsoleOutputSniffer.java:68)
-	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.close(ProcessClosure.java:98)
-	at org.eclipse.cdt.internal.core.ProcessClosure.isAlive(ProcessClosure.java:193)
-	at org.eclipse.cdt.core.CommandLauncher.waitAndRead(CommandLauncher.java:259)
-	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:273)
-	at org.eclipse.cdt.make.core.MakeBuilder.invokeMake(MakeBuilder.java:219)
-	at org.eclipse.cdt.make.core.MakeBuilder.build(MakeBuilder.java:108)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
-	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:487)
-	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:406)
-	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:285)
-	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:37:30.712
-!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss ], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:37:30.715
-!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss ], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:37:30.716
-!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:37:30.718
-!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
-"osname": "standalone",
-"osver": "6.7",
-}]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:37:30.719
-!MESSAGE XSCT Command: [::hsi::utils::closesw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Thread: main
-
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 00:37:30.720
-!MESSAGE XSCT command with result: [::hsi::utils::closesw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello_bsp/system.mss], Result: [null, ]. Thread: main
-
-!ENTRY com.xilinx.sdk.utils 1 0 2018-09-24 00:37:34.500
+Created Time: 2018-10-03 00:41:58.843
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.844
+!MESSAGE XSCT Command: [connect -url tcp:127.0.0.1:3121], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.845
+!MESSAGE XSCT command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#3]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.846
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.853
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.854
+!MESSAGE XSCT Command: [version -server], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.856
+!MESSAGE XSCT command with result: [version -server], Result: [null, 2018.2]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.857
+!MESSAGE XSCT Command: [version], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.858
+!MESSAGE XSCT command with result: [version], Result: [null, 2018.2]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.859
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.865
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.866
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.885
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.886
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.892
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.894
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.912
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.913
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.919
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.920
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.939
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.940
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.947
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.949
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.967
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.968
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.976
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.977
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.996
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:58.997
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.003
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.004
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.022
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.023
+!MESSAGE XSCT Command: [jtag targets -set -filter {name =~ "Digilent JTAG-HS3 210299A1F2A7" && level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.043
+!MESSAGE XSCT command with result: [jtag targets -set -filter {name =~ "Digilent JTAG-HS3 210299A1F2A7" && level == 0}], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.044
+!MESSAGE XSCT Command: [jtag frequency], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.047
+!MESSAGE XSCT command with result: [jtag frequency], Result: [null, 15000000]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.048
+!MESSAGE XSCT Command: [source F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.050
+!MESSAGE XSCT command with result: [source F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.051
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.077
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.078
+!MESSAGE XSCT Command: [loadhw -hw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.088
+!MESSAGE XSCT command with result: [loadhw -hw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]], Result: [null, design_1_wrapper_2]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.089
+!MESSAGE XSCT Command: [configparams force-mem-access 1], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.092
+!MESSAGE XSCT command with result: [configparams force-mem-access 1], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.093
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.119
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.121
+!MESSAGE XSCT Command: [stop], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.160
+!MESSAGE XSCT command with result: [stop], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.161
+!MESSAGE XSCT Command: [ps7_init], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.580
+!MESSAGE XSCT command with result: [ps7_init], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.581
+!MESSAGE XSCT Command: [ps7_post_config], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.599
+!MESSAGE XSCT command with result: [ps7_post_config], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.600
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.624
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.625
+!MESSAGE XSCT Command: [rst -processor], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.667
+!MESSAGE XSCT command with result: [rst -processor], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.668
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.692
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.694
+!MESSAGE XSCT Command: [dow F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello/Debug/hello.elf], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.843
+!MESSAGE XSCT command with result: [dow F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello/Debug/hello.elf], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.845
+!MESSAGE XSCT Command: [configparams force-mem-access 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.848
+!MESSAGE XSCT command with result: [configparams force-mem-access 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.915
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.974
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:41:59.975
+!MESSAGE XSCT Command: [con], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:42:00.003
+!MESSAGE XSCT command with result: [con], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:33.097
+!MESSAGE XSCT Command: [disconnect tcfchan#3], Thread: Thread-303
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:33.123
+!MESSAGE XSCT command with result: [disconnect tcfchan#3], Result: [null, ]. Thread: Thread-303
+
+!ENTRY com.xilinx.sdk.utils 1 0 2018-10-03 00:43:34.097
 !MESSAGE Updating toolusage
 
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 01:03:36.576
-!MESSAGE XSCT Command: [disconnect tcfchan#20], Thread: Thread-2553
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.098
+!MESSAGE XSCT Command: [connect -url tcp:127.0.0.1:3121], Thread: Worker-2
 
-!ENTRY com.xilinx.sdk.utils 0 0 2018-09-24 01:03:36.581
-!MESSAGE XSCT command with result: [disconnect tcfchan#20], Result: [null, ]. Thread: Thread-2553
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.102
+!MESSAGE XSCT command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#4]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.104
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.113
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.114
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.120
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.121
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.139
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.140
+!MESSAGE XSCT Command: [targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==0} -index 1], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.168
+!MESSAGE XSCT command with result: [targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==0} -index 1], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.169
+!MESSAGE XSCT Command: [fpga -state], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.185
+!MESSAGE XSCT command with result: [fpga -state], Result: [null, FPGA is configured]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.186
+!MESSAGE XSCT Command: [connect -url tcp:127.0.0.1:3121], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.187
+!MESSAGE XSCT command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#4]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.188
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.194
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.195
+!MESSAGE XSCT Command: [version -server], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.197
+!MESSAGE XSCT command with result: [version -server], Result: [null, 2018.2]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.198
+!MESSAGE XSCT Command: [version], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.202
+!MESSAGE XSCT command with result: [version], Result: [null, 2018.2]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.203
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.210
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.211
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.229
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.230
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.236
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.238
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.256
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.257
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.263
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.264
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.282
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.283
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.289
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.290
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.309
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.310
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.316
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.317
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.335
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.336
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.344
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.345
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.363
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.364
+!MESSAGE XSCT Command: [jtag targets -set -filter {name =~ "Digilent JTAG-HS3 210299A1F2A7" && level == 0}], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.382
+!MESSAGE XSCT command with result: [jtag targets -set -filter {name =~ "Digilent JTAG-HS3 210299A1F2A7" && level == 0}], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.384
+!MESSAGE XSCT Command: [jtag frequency], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.385
+!MESSAGE XSCT command with result: [jtag frequency], Result: [null, 15000000]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.386
+!MESSAGE XSCT Command: [source F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.388
+!MESSAGE XSCT command with result: [source F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.389
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.412
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.413
+!MESSAGE XSCT Command: [loadhw -hw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.420
+!MESSAGE XSCT command with result: [loadhw -hw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]], Result: [null, design_1_wrapper_2]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.421
+!MESSAGE XSCT Command: [configparams force-mem-access 1], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.423
+!MESSAGE XSCT command with result: [configparams force-mem-access 1], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.424
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.447
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.449
+!MESSAGE XSCT Command: [stop], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.490
+!MESSAGE XSCT command with result: [stop], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.492
+!MESSAGE XSCT Command: [ps7_init], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.808
+!MESSAGE XSCT command with result: [ps7_init], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.809
+!MESSAGE XSCT Command: [ps7_post_config], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.816
+!MESSAGE XSCT command with result: [ps7_post_config], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.817
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.842
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.843
+!MESSAGE XSCT Command: [rst -processor], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.873
+!MESSAGE XSCT command with result: [rst -processor], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.874
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.897
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:34.899
+!MESSAGE XSCT Command: [dow F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello/Debug/hello.elf], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:35.036
+!MESSAGE XSCT command with result: [dow F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello/Debug/hello.elf], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:35.037
+!MESSAGE XSCT Command: [configparams force-mem-access 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:35.039
+!MESSAGE XSCT command with result: [configparams force-mem-access 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:35.108
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:35.166
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:35.167
+!MESSAGE XSCT Command: [con], Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:43:35.194
+!MESSAGE XSCT command with result: [con], Result: [null, ]. Thread: Worker-2
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:12.283
+!MESSAGE XSCT Command: [disconnect tcfchan#4], Thread: Thread-365
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:12.319
+!MESSAGE XSCT command with result: [disconnect tcfchan#4], Result: [null, ]. Thread: Thread-365
+
+!ENTRY com.xilinx.sdk.utils 1 0 2018-10-03 00:44:13.285
+!MESSAGE Updating toolusage
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.286
+!MESSAGE XSCT Command: [connect -url tcp:127.0.0.1:3121], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.291
+!MESSAGE XSCT command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#5]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.292
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.303
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.305
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.311
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.312
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.329
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.331
+!MESSAGE XSCT Command: [targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==0} -index 1], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.359
+!MESSAGE XSCT command with result: [targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==0} -index 1], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.360
+!MESSAGE XSCT Command: [fpga -state], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.372
+!MESSAGE XSCT command with result: [fpga -state], Result: [null, FPGA is configured]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.373
+!MESSAGE XSCT Command: [connect -url tcp:127.0.0.1:3121], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.375
+!MESSAGE XSCT command with result: [connect -url tcp:127.0.0.1:3121], Result: [null, tcfchan#5]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.375
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.381
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.382
+!MESSAGE XSCT Command: [version -server], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.385
+!MESSAGE XSCT command with result: [version -server], Result: [null, 2018.2]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.386
+!MESSAGE XSCT Command: [version], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.387
+!MESSAGE XSCT command with result: [version], Result: [null, 2018.2]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.389
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.395
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.396
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.414
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.415
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.421
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.422
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.441
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.442
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.448
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.449
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.466
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.467
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.474
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.475
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.492
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.493
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.499
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.501
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.519
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.520
+!MESSAGE XSCT Command: [jtag targets -filter {level == 0}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.526
+!MESSAGE XSCT command with result: [jtag targets -filter {level == 0}], Result: [null,   1* Digilent JTAG-HS3 210299A1F2A7]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.527
+!MESSAGE XSCT Command: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.545
+!MESSAGE XSCT command with result: [jtag targets -filter {jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7" && level==1}], Result: [null,      2  arm_dap (idcode 4ba00477 irlen 4)
+     3  xc7z020 (idcode 23727093 irlen 6 fpga)]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.546
+!MESSAGE XSCT Command: [jtag targets -set -filter {name =~ "Digilent JTAG-HS3 210299A1F2A7" && level == 0}], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.565
+!MESSAGE XSCT command with result: [jtag targets -set -filter {name =~ "Digilent JTAG-HS3 210299A1F2A7" && level == 0}], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.567
+!MESSAGE XSCT Command: [jtag frequency], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.569
+!MESSAGE XSCT command with result: [jtag frequency], Result: [null, 15000000]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.570
+!MESSAGE XSCT Command: [source F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.572
+!MESSAGE XSCT command with result: [source F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.573
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.597
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.598
+!MESSAGE XSCT Command: [loadhw -hw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.608
+!MESSAGE XSCT command with result: [loadhw -hw F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]], Result: [null, design_1_wrapper_2]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.609
+!MESSAGE XSCT Command: [configparams force-mem-access 1], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.612
+!MESSAGE XSCT command with result: [configparams force-mem-access 1], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.613
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.637
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.639
+!MESSAGE XSCT Command: [stop], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.686
+!MESSAGE XSCT command with result: [stop], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:13.687
+!MESSAGE XSCT Command: [ps7_init], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.174
+!MESSAGE XSCT command with result: [ps7_init], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.175
+!MESSAGE XSCT Command: [ps7_post_config], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.189
+!MESSAGE XSCT command with result: [ps7_post_config], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.190
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.214
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.215
+!MESSAGE XSCT Command: [rst -processor], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.248
+!MESSAGE XSCT command with result: [rst -processor], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.249
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.274
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.276
+!MESSAGE XSCT Command: [dow F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello/Debug/hello.elf], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.417
+!MESSAGE XSCT command with result: [dow F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/hello/Debug/hello.elf], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.418
+!MESSAGE XSCT Command: [configparams force-mem-access 0], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.421
+!MESSAGE XSCT command with result: [configparams force-mem-access 0], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.488
+!MESSAGE XSCT Command: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.545
+!MESSAGE XSCT command with result: [targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-HS3 210299A1F2A7"} -index 0], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.546
+!MESSAGE XSCT Command: [con], Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:44:14.578
+!MESSAGE XSCT command with result: [con], Result: [null, ]. Thread: Worker-1
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:45:56.677
+!MESSAGE XSCT Command: [enable_info_messages], Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:45:56.679
+!MESSAGE XSCT command with result: [enable_info_messages], Result: [null, ]. Thread: Worker-5
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:47:53.280
+!MESSAGE XSCT Command: [disconnect tcfchan#5], Thread: Thread-432
+
+!ENTRY com.xilinx.sdk.utils 0 0 2018-10-03 00:47:53.302
+!MESSAGE XSCT command with result: [disconnect tcfchan#5], Result: [null, ]. Thread: Thread-432

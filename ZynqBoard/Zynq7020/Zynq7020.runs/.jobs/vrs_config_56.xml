@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="design_1_xbar_0_synth_1" LaunchDir="F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_xbar_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_output_buffer_0_0_synth_1" LaunchDir="F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_output_buffer_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_cordic_0_0_synth_1" LaunchDir="F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_cordic_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_audio_clk_gen_0_0_synth_1" LaunchDir="F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_audio_clk_gen_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_DSP_register_0_0_synth_1" LaunchDir="F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_DSP_register_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_phase_generator_0_0_synth_1" LaunchDir="F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_phase_generator_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="design_1_s00_mmu_0_synth_1" LaunchDir="F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_s00_mmu_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

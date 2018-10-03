@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Mon Sep 24 00:29:38 2018
+//Date        : Wed Oct  3 00:01:28 2018
 //Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -10,7 +10,11 @@
 `timescale 1 ps / 1 ps
 
 module design_1_wrapper
-   (DDR_addr,
+   (DAC_BICK_0,
+    DAC_LRCK_0,
+    DAC_MCLK_0,
+    DAC_SDT_0,
+    DDR_addr,
     DDR_ba,
     DDR_cas_n,
     DDR_ck_n,
@@ -35,6 +39,10 @@ module design_1_wrapper
     UART_1_rxd,
     UART_1_txd,
     USB_nRESET_0);
+  output DAC_BICK_0;
+  output DAC_LRCK_0;
+  output DAC_MCLK_0;
+  output DAC_SDT_0;
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -61,6 +69,10 @@ module design_1_wrapper
   output UART_1_txd;
   output USB_nRESET_0;
 
+  wire DAC_BICK_0;
+  wire DAC_LRCK_0;
+  wire DAC_MCLK_0;
+  wire DAC_SDT_0;
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
   wire DDR_cas_n;
@@ -88,7 +100,11 @@ module design_1_wrapper
   wire USB_nRESET_0;
 
   design_1 design_1_i
-       (.DDR_addr(DDR_addr),
+       (.DAC_BICK_0(DAC_BICK_0),
+        .DAC_LRCK_0(DAC_LRCK_0),
+        .DAC_MCLK_0(DAC_MCLK_0),
+        .DAC_SDT_0(DAC_SDT_0),
+        .DDR_addr(DDR_addr),
         .DDR_ba(DDR_ba),
         .DDR_cas_n(DDR_cas_n),
         .DDR_ck_n(DDR_ck_n),

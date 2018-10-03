@@ -51,17 +51,79 @@
 #include "xparameters.h"
 #include "sleep.h"
 #include "platform.h"
+#include "xparameters.h"
+#include "xiicps.h"
+#include "xgpiops.h"
 #include "myip.h"
+#include "DSP_register.h"
 
 u32 test[130000000];
+XIicPs Iic;
+
+int i2c_write(XIicPs *Iic, u8 addr, u8 command, u16 i2c_adder)
+{
+    int Status;
+    u8 buffer[4];
+    buffer[0] = addr;
+    buffer[1] = command;
+
+    Status = XIicPs_MasterSendPolled(Iic, buffer, 2, i2c_adder);
+
+    if(Status != XST_SUCCESS){
+        return XST_FAILURE;
+    }
+
+    while(XIicPs_BusIsBusy(Iic)){ }
+
+    return XST_SUCCESS;
+}
 
 int main()
 {
-	u32 i;
+	u32 i, freq, upDown;
+	int status;
+	XIicPs_Config *Config;
+	XGpioPs instXGpioPs;
+	XGpioPs_Config *configXGpioPs;
 
     init_platform();
 
     MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x5);
+
+    Config = XIicPs_LookupConfig(XPAR_XIICPS_0_DEVICE_ID);
+    status = XIicPs_CfgInitialize(&Iic, Config, Config->BaseAddress);
+    status = XIicPs_SelfTest(&Iic);
+    status = XIicPs_SetSClk(&Iic, 400000);
+
+    configXGpioPs = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID);
+    XGpioPs_CfgInitialize(&instXGpioPs, configXGpioPs,configXGpioPs->BaseAddr);
+    /* Set MIO12 as output */
+    XGpioPs_SetDirectionPin(&instXGpioPs, 12, 1);
+    XGpioPs_SetOutputEnablePin(&instXGpioPs, 12, 1);
+
+    i2c_write(&Iic, 0x01, 0x30, 0x12);	// ヘッドホンアンプのミュート
+    usleep(300000);
+    i2c_write(&Iic, 0x01, 0x00, 0x12);	// ヘッドホンアンプオフ
+    XGpioPs_WritePin(&instXGpioPs, 12, 0);
+    usleep(10);
+    XGpioPs_WritePin(&instXGpioPs, 12, 1);
+
+    i2c_write(&Iic, 0x04, 0x03, 0x12);
+    i2c_write(&Iic, 0x05, 0x00, 0x12);
+    i2c_write(&Iic, 0x00, 0x40, 0x12);
+    i2c_write(&Iic, 0x0F, 0x09, 0x12);
+    i2c_write(&Iic, 0x02, 0x02, 0x12);	// Pseudo cap-less
+    i2c_write(&Iic, 0x09, 0x91, 0x12);	// ALC部ディジタルボリューム 0dB
+    i2c_write(&Iic, 0x0A, 0x20, 0x12);	// 出力ディジタルボリューム
+    i2c_write(&Iic, 0x00, 0x64, 0x12);	// DAC, MIN-Ampオン
+    i2c_write(&Iic, 0x01, 0x30, 0x12);	// ヘッドホンアンプオン
+    i2c_write(&Iic, 0x01, 0x70, 0x12);	// ヘッドホンアンプのミュート解除
+    MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG0_OFFSET, 0x3);
+
+//    MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG1_OFFSET, 0x4000/(48000/442));
+
+    Xil_Out32(0x40000000, 125);
+    test[0] = Xil_In32(0x40000000);
 
     for(i = 0; i < 130000000; i++)
     {
@@ -77,13 +139,42 @@ int main()
     	}
     }
 
+    freq = 221;
+    upDown = 1;
+
 	while(1)
 	{
-		print("Hello World\n\r");
+//		print("Hello World\n\r");
 		MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x3);
-		sleep(1);
+		usleep(10000);
 		MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x1);
-		sleep(1);
+		usleep(10000);
+
+		if(upDown)
+		{
+			if(freq < 884)
+			{
+				freq += 2;
+			}
+			else
+			{
+				upDown = 0;
+			}
+		}
+		else
+		{
+			if(freq > 221)
+			{
+				freq -= 10;
+			}
+			else
+			{
+				upDown = 1;
+			}
+		}
+
+		MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG1_OFFSET, (u32)((float)0x4000/((float)48000/(float)freq)));
+
 	}
 
     cleanup_platform();

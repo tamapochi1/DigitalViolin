@@ -30,6 +30,58 @@
  
  
 /******************************************************************/
+/* Definitions for driver DSP_REGISTER */
+#define XPAR_DSP_REGISTER_NUM_INSTANCES 1
+
+/* Definitions for peripheral DSP_DSP_REGISTER_0 */
+#define XPAR_DSP_DSP_REGISTER_0_DEVICE_ID 0
+#define XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR 0x43C10000
+#define XPAR_DSP_DSP_REGISTER_0_S00_AXI_HIGHADDR 0x43C1FFFF
+
+
+/******************************************************************/
+
+/* Definitions for driver BRAM */
+#define XPAR_XBRAM_NUM_INSTANCES 1U
+
+/* Definitions for peripheral DSP_AXI_BRAM_CTRL_0 */
+#define XPAR_DSP_AXI_BRAM_CTRL_0_DEVICE_ID 0U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_DATA_WIDTH 32U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_ECC 0U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_FAULT_INJECT 0U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_CE_FAILING_REGISTERS 0U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_UE_FAILING_REGISTERS 0U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_ECC_STATUS_REGISTERS 0U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_CE_COUNTER_WIDTH 0U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_ECC_ONOFF_REGISTER 0U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_ECC_ONOFF_RESET_VALUE 0U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_WRITE_ACCESS 0U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_S_AXI_BASEADDR 0x40000000U
+#define XPAR_DSP_AXI_BRAM_CTRL_0_S_AXI_HIGHADDR 0x40000FFFU
+#define XPAR_DSP_AXI_BRAM_CTRL_0_S_AXI_CTRL_BASEADDR 0xFFFFFFFFU 
+#define XPAR_DSP_AXI_BRAM_CTRL_0_S_AXI_CTRL_HIGHADDR 0xFFFFFFFFU 
+
+
+/******************************************************************/
+
+/* Canonical definitions for peripheral DSP_AXI_BRAM_CTRL_0 */
+#define XPAR_BRAM_0_DEVICE_ID XPAR_DSP_AXI_BRAM_CTRL_0_DEVICE_ID
+#define XPAR_BRAM_0_DATA_WIDTH 32U
+#define XPAR_BRAM_0_ECC 0U
+#define XPAR_BRAM_0_FAULT_INJECT 0U
+#define XPAR_BRAM_0_CE_FAILING_REGISTERS 0U
+#define XPAR_BRAM_0_UE_FAILING_REGISTERS 0U
+#define XPAR_BRAM_0_ECC_STATUS_REGISTERS 0U
+#define XPAR_BRAM_0_CE_COUNTER_WIDTH 0U
+#define XPAR_BRAM_0_ECC_ONOFF_REGISTER 0U
+#define XPAR_BRAM_0_ECC_ONOFF_RESET_VALUE 0U
+#define XPAR_BRAM_0_WRITE_ACCESS 0U
+#define XPAR_BRAM_0_BASEADDR 0x40000000U
+#define XPAR_BRAM_0_HIGHADDR 0x40000FFFU
+
+
+/******************************************************************/
+
 
 /* Definitions for peripheral PS7_DDR_0 */
 #define XPAR_PS7_DDR_0_S_AXI_BASEADDR 0x00100000
@@ -173,6 +225,46 @@
 /* Definitions for peripheral PS7_SLCR_0 */
 #define XPAR_PS7_SLCR_0_S_AXI_BASEADDR 0xF8000000
 #define XPAR_PS7_SLCR_0_S_AXI_HIGHADDR 0xF8000FFF
+
+
+/******************************************************************/
+
+/* Definitions for driver GPIOPS */
+#define XPAR_XGPIOPS_NUM_INSTANCES 1
+
+/* Definitions for peripheral PS7_GPIO_0 */
+#define XPAR_PS7_GPIO_0_DEVICE_ID 0
+#define XPAR_PS7_GPIO_0_BASEADDR 0xE000A000
+#define XPAR_PS7_GPIO_0_HIGHADDR 0xE000AFFF
+
+
+/******************************************************************/
+
+/* Canonical definitions for peripheral PS7_GPIO_0 */
+#define XPAR_XGPIOPS_0_DEVICE_ID XPAR_PS7_GPIO_0_DEVICE_ID
+#define XPAR_XGPIOPS_0_BASEADDR 0xE000A000
+#define XPAR_XGPIOPS_0_HIGHADDR 0xE000AFFF
+
+
+/******************************************************************/
+
+/* Definitions for driver IICPS */
+#define XPAR_XIICPS_NUM_INSTANCES 1
+
+/* Definitions for peripheral PS7_I2C_0 */
+#define XPAR_PS7_I2C_0_DEVICE_ID 0
+#define XPAR_PS7_I2C_0_BASEADDR 0xE0004000
+#define XPAR_PS7_I2C_0_HIGHADDR 0xE0004FFF
+#define XPAR_PS7_I2C_0_I2C_CLK_FREQ_HZ 111111115
+
+
+/******************************************************************/
+
+/* Canonical definitions for peripheral PS7_I2C_0 */
+#define XPAR_XIICPS_0_DEVICE_ID XPAR_PS7_I2C_0_DEVICE_ID
+#define XPAR_XIICPS_0_BASEADDR 0xE0004000
+#define XPAR_XIICPS_0_HIGHADDR 0xE0004FFF
+#define XPAR_XIICPS_0_I2C_CLK_FREQ_HZ 111111115
 
 
 /******************************************************************/

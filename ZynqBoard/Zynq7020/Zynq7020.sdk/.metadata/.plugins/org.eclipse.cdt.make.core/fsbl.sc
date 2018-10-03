@@ -847,6 +847,8 @@
 </instance>
 <instance id="xilinx.gnu.armv7.exe.debug.2072888969;xilinx.gnu.armv7.exe.debug.2072888969.;xilinx.gnu.armv7.c.toolchain.compiler.debug.1491508263;xilinx.gnu.armv7.c.compiler.input.1836782536">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="#undef __thumb2__" removed="true"/>
+<includePath path="#undef __THUMBEL__" removed="true"/>
 <includePath path="#undef __ARM_ASM_SYNTAX_UNIFIED__" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_FP16_VECTOR_ARITHMETIC" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_FMA" removed="true"/>

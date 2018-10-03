@@ -2,34 +2,43 @@
    ExpandedHierarchyInLayout: "",
    guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
 #  -string -flagsOSRD
-preplace port s00_axi_aresetn -pg 1 -y 200 -defaultsOSRD
-preplace port s01_axi_aclk -pg 1 -y 340 -defaultsOSRD
-preplace port S00_AXI -pg 1 -y 160 -defaultsOSRD
-preplace port outDataValid -pg 1 -y 250 -defaultsOSRD
+preplace port s00_axi_aresetn -pg 1 -y 250 -defaultsOSRD
+preplace port s01_axi_aclk -pg 1 -y 370 -defaultsOSRD
+preplace port S00_AXI -pg 1 -y 210 -defaultsOSRD
+preplace port outDataValid -pg 1 -y 230 -defaultsOSRD
 preplace port sysClk -pg 1 -y 80 -defaultsOSRD
-preplace port S01_AXI -pg 1 -y 320 -defaultsOSRD
-preplace port s01_axi_aresetn -pg 1 -y 360 -defaultsOSRD
-preplace port s00_axi_aclk -pg 1 -y 180 -defaultsOSRD
-preplace portBus outData -pg 1 -y 170 -defaultsOSRD
-preplace inst blk_mem_gen_0 -pg 1 -lvl 2 -y 350 -defaultsOSRD
-preplace inst audio_clk_gen_0 -pg 1 -lvl 2 -y 70 -defaultsOSRD
-preplace inst DSP_Sin -pg 1 -lvl 3 -y 170 -defaultsOSRD
-preplace inst axi_bram_ctrl_0 -pg 1 -lvl 1 -y 340 -defaultsOSRD
-preplace inst DSP_register_0 -pg 1 -lvl 1 -y 180 -defaultsOSRD
+preplace port S01_AXI -pg 1 -y 350 -defaultsOSRD
+preplace port s01_axi_aresetn -pg 1 -y 390 -defaultsOSRD
+preplace port s00_axi_aclk -pg 1 -y 230 -defaultsOSRD
+preplace portBus outData -pg 1 -y 90 -defaultsOSRD
+preplace inst mult_sum_0 -pg 1 -lvl 4 -y 550 -defaultsOSRD
+preplace inst mult_gen_0 -pg 1 -lvl 5 -y 540 -defaultsOSRD
+preplace inst cordic_0 -pg 1 -lvl 3 -y 520 -defaultsOSRD
+preplace inst phase_gen_256_0 -pg 1 -lvl 2 -y 510 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 2 -y 380 -defaultsOSRD
+preplace inst audio_clk_gen_0 -pg 1 -lvl 2 -y 150 -defaultsOSRD
+preplace inst DSP_Sin -pg 1 -lvl 3 -y 90 -defaultsOSRD
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 1 -y 370 -defaultsOSRD
+preplace inst DSP_register_0 -pg 1 -lvl 1 -y 230 -defaultsOSRD
 preplace netloc Conn1 1 0 1 NJ
 preplace netloc Conn2 1 0 1 NJ
 preplace netloc s_axi_aclk_0_1 1 0 1 NJ
 preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 1 1 NJ
 preplace netloc s00_axi_aresetn_0_1 1 0 1 NJ
+preplace netloc mult_sum_0_mult_A 1 4 1 1240
 preplace netloc s00_axi_aclk_0_1 1 0 1 NJ
-preplace netloc DSP_register_0_sysNReset 1 1 2 280 140 NJ
+preplace netloc mult_sum_0_mult_B 1 4 1 1240
+preplace netloc DSP_register_0_sysNReset 1 1 3 320 60 640J 170 940
 preplace netloc s_axi_aresetn_0_1 1 0 1 NJ
-preplace netloc sysClk_0_1 1 0 3 NJ 80 290 160 NJ
-preplace netloc output_buffer_0_outData 1 3 1 NJ
-preplace netloc audio_clk_gen_0_audioClk 1 2 1 560
-preplace netloc DSP_register_0_debugData 1 1 2 N 200 NJ
-preplace netloc DSP_register_0_outDataValid 1 1 3 NJ 180 550J 250 NJ
-levelinfo -pg 1 -40 140 420 680 820 -top 0 -bot 700
+preplace netloc phase_gen_256_0_m_axis_phase 1 2 1 N
+preplace netloc mult_gen_0_P 1 3 3 960 430 N 430 1420
+preplace netloc sysClk_0_1 1 0 5 NJ 80 300 80 620J 440 950 440 1240
+preplace netloc output_buffer_0_outData 1 3 3 NJ 90 N 90 N
+preplace netloc audio_clk_gen_0_audioClk 1 1 2 330 70 610
+preplace netloc cordic_0_M_AXIS_DOUT 1 3 1 N
+preplace netloc DSP_register_0_debugData 1 1 2 310 50 630J
+preplace netloc DSP_register_0_outDataValid 1 1 5 NJ 230 NJ 230 NJ 230 NJ 230 NJ
+levelinfo -pg 1 0 160 470 790 1100 1330 1440 -top 0 -bot 660
 ",
 }
 0

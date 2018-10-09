@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Mon Sep 24 16:25:28 2018
+// Date        : Fri Oct  5 23:34:14 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim
-//               f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_sim_netlist.v
+//               F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_sim_netlist.v
 // Design      : design_1_clk_wiz_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,18 +16,22 @@
 module design_1_clk_wiz_0_0
    (clk_out1,
     resetn,
+    locked,
     clk_in1);
   output clk_out1;
   input resetn;
+  output locked;
   input clk_in1;
 
   wire clk_in1;
   wire clk_out1;
+  wire locked;
   wire resetn;
 
   design_1_clk_wiz_0_0_design_1_clk_wiz_0_0_clk_wiz inst
        (.clk_in1(clk_in1),
         .clk_out1(clk_out1),
+        .locked(locked),
         .resetn(resetn));
 endmodule
 
@@ -35,18 +39,23 @@ endmodule
 module design_1_clk_wiz_0_0_design_1_clk_wiz_0_0_clk_wiz
    (clk_out1,
     resetn,
+    locked,
     clk_in1);
   output clk_out1;
   input resetn;
+  output locked;
   input clk_in1;
 
   wire clk_in1;
   wire clk_out1;
   wire clk_out1_design_1_clk_wiz_0_0;
+  wire clk_out1_design_1_clk_wiz_0_0_en_clk;
   wire clkfbout_buf_design_1_clk_wiz_0_0;
   wire clkfbout_design_1_clk_wiz_0_0;
+  wire locked;
   wire reset_high;
   wire resetn;
+  (* RTL_KEEP = "true" *) (* async_reg = "true" *) wire [7:0]seq_reg1;
   wire NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED;
@@ -61,7 +70,6 @@ module design_1_clk_wiz_0_0_design_1_clk_wiz_0_0_clk_wiz
   wire NLW_mmcm_adv_inst_CLKOUT5_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKOUT6_UNCONNECTED;
   wire NLW_mmcm_adv_inst_DRDY_UNCONNECTED;
-  wire NLW_mmcm_adv_inst_LOCKED_UNCONNECTED;
   wire NLW_mmcm_adv_inst_PSDONE_UNCONNECTED;
   wire [15:0]NLW_mmcm_adv_inst_DO_UNCONNECTED;
 
@@ -70,9 +78,26 @@ module design_1_clk_wiz_0_0_design_1_clk_wiz_0_0_clk_wiz
        (.I(clkfbout_design_1_clk_wiz_0_0),
         .O(clkfbout_buf_design_1_clk_wiz_0_0));
   (* BOX_TYPE = "PRIMITIVE" *) 
-  BUFG clkout1_buf
+  (* XILINX_LEGACY_PRIM = "BUFGCE" *) 
+  (* XILINX_TRANSFORM_PINMAP = "CE:CE0 I:I0" *) 
+  BUFGCTRL #(
+    .INIT_OUT(0),
+    .PRESELECT_I0("TRUE"),
+    .PRESELECT_I1("FALSE")) 
+    clkout1_buf
+       (.CE0(seq_reg1[7]),
+        .CE1(1'b0),
+        .I0(clk_out1_design_1_clk_wiz_0_0),
+        .I1(1'b1),
+        .IGNORE0(1'b0),
+        .IGNORE1(1'b1),
+        .O(clk_out1),
+        .S0(1'b1),
+        .S1(1'b0));
+  (* BOX_TYPE = "PRIMITIVE" *) 
+  BUFH clkout1_buf_en
        (.I(clk_out1_design_1_clk_wiz_0_0),
-        .O(clk_out1));
+        .O(clk_out1_design_1_clk_wiz_0_0_en_clk));
   (* BOX_TYPE = "PRIMITIVE" *) 
   MMCME2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
@@ -150,7 +175,7 @@ module design_1_clk_wiz_0_0_design_1_clk_wiz_0_0_clk_wiz
         .DO(NLW_mmcm_adv_inst_DO_UNCONNECTED[15:0]),
         .DRDY(NLW_mmcm_adv_inst_DRDY_UNCONNECTED),
         .DWE(1'b0),
-        .LOCKED(NLW_mmcm_adv_inst_LOCKED_UNCONNECTED),
+        .LOCKED(locked),
         .PSCLK(1'b0),
         .PSDONE(NLW_mmcm_adv_inst_PSDONE_UNCONNECTED),
         .PSEN(1'b0),
@@ -162,6 +187,86 @@ module design_1_clk_wiz_0_0_design_1_clk_wiz_0_0_clk_wiz
     mmcm_adv_inst_i_1
        (.I0(resetn),
         .O(reset_high));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDCE #(
+    .INIT(1'b0)) 
+    \seq_reg1_reg[0] 
+       (.C(clk_out1_design_1_clk_wiz_0_0_en_clk),
+        .CE(1'b1),
+        .CLR(reset_high),
+        .D(locked),
+        .Q(seq_reg1[0]));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDCE #(
+    .INIT(1'b0)) 
+    \seq_reg1_reg[1] 
+       (.C(clk_out1_design_1_clk_wiz_0_0_en_clk),
+        .CE(1'b1),
+        .CLR(reset_high),
+        .D(seq_reg1[0]),
+        .Q(seq_reg1[1]));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDCE #(
+    .INIT(1'b0)) 
+    \seq_reg1_reg[2] 
+       (.C(clk_out1_design_1_clk_wiz_0_0_en_clk),
+        .CE(1'b1),
+        .CLR(reset_high),
+        .D(seq_reg1[1]),
+        .Q(seq_reg1[2]));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDCE #(
+    .INIT(1'b0)) 
+    \seq_reg1_reg[3] 
+       (.C(clk_out1_design_1_clk_wiz_0_0_en_clk),
+        .CE(1'b1),
+        .CLR(reset_high),
+        .D(seq_reg1[2]),
+        .Q(seq_reg1[3]));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDCE #(
+    .INIT(1'b0)) 
+    \seq_reg1_reg[4] 
+       (.C(clk_out1_design_1_clk_wiz_0_0_en_clk),
+        .CE(1'b1),
+        .CLR(reset_high),
+        .D(seq_reg1[3]),
+        .Q(seq_reg1[4]));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDCE #(
+    .INIT(1'b0)) 
+    \seq_reg1_reg[5] 
+       (.C(clk_out1_design_1_clk_wiz_0_0_en_clk),
+        .CE(1'b1),
+        .CLR(reset_high),
+        .D(seq_reg1[4]),
+        .Q(seq_reg1[5]));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDCE #(
+    .INIT(1'b0)) 
+    \seq_reg1_reg[6] 
+       (.C(clk_out1_design_1_clk_wiz_0_0_en_clk),
+        .CE(1'b1),
+        .CLR(reset_high),
+        .D(seq_reg1[5]),
+        .Q(seq_reg1[6]));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDCE #(
+    .INIT(1'b0)) 
+    \seq_reg1_reg[7] 
+       (.C(clk_out1_design_1_clk_wiz_0_0_en_clk),
+        .CE(1'b1),
+        .CLR(reset_high),
+        .D(seq_reg1[6]),
+        .Q(seq_reg1[7]));
 endmodule
 `ifndef GLBL
 `define GLBL

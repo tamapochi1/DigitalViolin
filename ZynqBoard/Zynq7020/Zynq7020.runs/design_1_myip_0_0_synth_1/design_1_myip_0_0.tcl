@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 create_project -in_memory -part xc7z020clg484-1
 
@@ -31,6 +30,8 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_repo_paths {
+  f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/DSP_register_1.0
+  f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo
   f:/Git/DigitalViolin/ZynqBoard/ip_repo/myDSP_1.0
   f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/myip_1.0
 } [current_project]

@@ -1,0 +1,4 @@
+NumberHits:4
+Timestamp: Sun Oct 07 14:11:39 UTC 2018
+VLNV: xilinx.com:user:myip:1.0
+SynthRuntime: 49

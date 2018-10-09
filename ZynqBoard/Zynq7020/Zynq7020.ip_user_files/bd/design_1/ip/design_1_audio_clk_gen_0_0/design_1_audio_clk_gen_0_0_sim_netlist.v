@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Wed Sep 26 21:13:04 2018
+// Date        : Fri Oct  5 22:12:56 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim
 //               F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_audio_clk_gen_0_0/design_1_audio_clk_gen_0_0_sim_netlist.v
@@ -17,38 +17,38 @@
 (* NotValidForBitStream *)
 module design_1_audio_clk_gen_0_0
    (nReset,
-    sysClk,
+    audioClk256,
     audioClk);
   input nReset;
-  input sysClk;
+  input audioClk256;
   output audioClk;
 
   wire audioClk;
+  wire audioClk256;
   wire nReset;
-  wire sysClk;
 
   design_1_audio_clk_gen_0_0_audio_clk_gen inst
        (.audioClk(audioClk),
-        .nReset(nReset),
-        .sysClk(sysClk));
+        .audioClk256(audioClk256),
+        .nReset(nReset));
 endmodule
 
 (* ORIG_REF_NAME = "audio_clk_gen" *) 
 module design_1_audio_clk_gen_0_0_audio_clk_gen
    (audioClk,
-    sysClk,
+    audioClk256,
     nReset);
   output audioClk;
-  input sysClk;
+  input audioClk256;
   input nReset;
 
   wire audioClk;
+  wire audioClk256;
   wire audioClk_INST_0_i_1_n_0;
   wire nReset;
   wire [7:0]p_0_in;
   wire \prescaler[7]_i_1_n_0 ;
   wire [7:0]prescaler_reg__0;
-  wire sysClk;
 
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT3 #(
@@ -142,7 +142,7 @@ module design_1_audio_clk_gen_0_0_audio_clk_gen
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \prescaler_reg[0] 
-       (.C(sysClk),
+       (.C(audioClk256),
         .CE(1'b1),
         .D(p_0_in[0]),
         .Q(prescaler_reg__0[0]),
@@ -150,7 +150,7 @@ module design_1_audio_clk_gen_0_0_audio_clk_gen
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \prescaler_reg[1] 
-       (.C(sysClk),
+       (.C(audioClk256),
         .CE(1'b1),
         .D(p_0_in[1]),
         .Q(prescaler_reg__0[1]),
@@ -158,7 +158,7 @@ module design_1_audio_clk_gen_0_0_audio_clk_gen
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \prescaler_reg[2] 
-       (.C(sysClk),
+       (.C(audioClk256),
         .CE(1'b1),
         .D(p_0_in[2]),
         .Q(prescaler_reg__0[2]),
@@ -166,7 +166,7 @@ module design_1_audio_clk_gen_0_0_audio_clk_gen
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \prescaler_reg[3] 
-       (.C(sysClk),
+       (.C(audioClk256),
         .CE(1'b1),
         .D(p_0_in[3]),
         .Q(prescaler_reg__0[3]),
@@ -174,7 +174,7 @@ module design_1_audio_clk_gen_0_0_audio_clk_gen
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \prescaler_reg[4] 
-       (.C(sysClk),
+       (.C(audioClk256),
         .CE(1'b1),
         .D(p_0_in[4]),
         .Q(prescaler_reg__0[4]),
@@ -182,7 +182,7 @@ module design_1_audio_clk_gen_0_0_audio_clk_gen
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \prescaler_reg[5] 
-       (.C(sysClk),
+       (.C(audioClk256),
         .CE(1'b1),
         .D(p_0_in[5]),
         .Q(prescaler_reg__0[5]),
@@ -190,7 +190,7 @@ module design_1_audio_clk_gen_0_0_audio_clk_gen
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \prescaler_reg[6] 
-       (.C(sysClk),
+       (.C(audioClk256),
         .CE(1'b1),
         .D(p_0_in[6]),
         .Q(prescaler_reg__0[6]),
@@ -198,7 +198,7 @@ module design_1_audio_clk_gen_0_0_audio_clk_gen
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \prescaler_reg[7] 
-       (.C(sysClk),
+       (.C(audioClk256),
         .CE(1'b1),
         .D(p_0_in[7]),
         .Q(prescaler_reg__0[7]),

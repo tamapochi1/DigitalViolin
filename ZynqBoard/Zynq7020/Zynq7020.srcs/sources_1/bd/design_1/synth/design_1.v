@@ -1,61 +1,13 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Wed Oct  3 00:01:27 2018
+//Date        : Mon Oct  8 23:06:16 2018
 //Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target design_1.bd
 //Design      : design_1
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
-
-module DSP_Sin_imp_XICE1X
-   (audioClk,
-    delta,
-    nReset,
-    outData,
-    sysClk);
-  input audioClk;
-  input [15:0]delta;
-  input nReset;
-  output [15:0]outData;
-  input sysClk;
-
-  wire [15:0]DSP_register_0_debugData;
-  wire DSP_register_0_sysNReset;
-  wire audio_clk_gen_0_audioClk;
-  wire [31:0]cordic_0_M_AXIS_DOUT_TDATA;
-  wire cordic_0_M_AXIS_DOUT_TVALID;
-  wire [15:0]output_buffer_0_outData;
-  wire [15:0]phase_generator_0_m_axis_phase_TDATA;
-  wire phase_generator_0_m_axis_phase_TVALID;
-  wire sysClk_0_1;
-
-  assign DSP_register_0_debugData = delta[15:0];
-  assign DSP_register_0_sysNReset = nReset;
-  assign audio_clk_gen_0_audioClk = audioClk;
-  assign outData[15:0] = output_buffer_0_outData;
-  assign sysClk_0_1 = sysClk;
-  design_1_cordic_0_0 cordic_0
-       (.aclk(sysClk_0_1),
-        .m_axis_dout_tdata(cordic_0_M_AXIS_DOUT_TDATA),
-        .m_axis_dout_tvalid(cordic_0_M_AXIS_DOUT_TVALID),
-        .s_axis_phase_tdata(phase_generator_0_m_axis_phase_TDATA),
-        .s_axis_phase_tvalid(phase_generator_0_m_axis_phase_TVALID));
-  design_1_output_buffer_0_0 output_buffer_0
-       (.nReset(DSP_register_0_sysNReset),
-        .outData(output_buffer_0_outData),
-        .s_axis_in_tdata(cordic_0_M_AXIS_DOUT_TDATA),
-        .s_axis_in_tvalid(cordic_0_M_AXIS_DOUT_TVALID),
-        .sysClk(sysClk_0_1));
-  design_1_phase_generator_0_0 phase_generator_0
-       (.audioClk(audio_clk_gen_0_audioClk),
-        .delta(DSP_register_0_debugData),
-        .m_axis_phase_tdata(phase_generator_0_m_axis_phase_TDATA),
-        .m_axis_phase_tvalid(phase_generator_0_m_axis_phase_TVALID),
-        .nReset(DSP_register_0_sysNReset),
-        .sysClk(sysClk_0_1));
-endmodule
 
 module DSP_imp_KXGKBB
    (S00_AXI_araddr,
@@ -108,7 +60,10 @@ module DSP_imp_KXGKBB
     S01_AXI_wready,
     S01_AXI_wstrb,
     S01_AXI_wvalid,
-    outData,
+    audioClk256,
+    nResetExt,
+    outData1,
+    outData2,
     outDataValid,
     s00_axi_aclk,
     s00_axi_aresetn,
@@ -165,7 +120,10 @@ module DSP_imp_KXGKBB
   output S01_AXI_wready;
   input [3:0]S01_AXI_wstrb;
   input S01_AXI_wvalid;
-  output [15:0]outData;
+  input audioClk256;
+  input nResetExt;
+  output [15:0]outData1;
+  output [15:0]outData2;
   output outDataValid;
   input s00_axi_aclk;
   input s00_axi_aresetn;
@@ -223,18 +181,14 @@ module DSP_imp_KXGKBB
   wire Conn2_WREADY;
   wire [3:0]Conn2_WSTRB;
   wire Conn2_WVALID;
-  wire [15:0]DSP_register_0_debugData;
   wire DSP_register_0_outDataValid;
+  wire [7:0]DSP_register_0_synth0Gain;
   wire DSP_register_0_sysNReset;
+  wire DSP_reset_0_nReset;
+  wire audioClk256_0_1;
   wire audio_clk_gen_0_audioClk;
-  wire [11:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
-  wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
-  wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DIN;
-  wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DOUT;
-  wire axi_bram_ctrl_0_BRAM_PORTA_EN;
-  wire axi_bram_ctrl_0_BRAM_PORTA_RST;
-  wire [3:0]axi_bram_ctrl_0_BRAM_PORTA_WE;
-  wire [15:0]output_buffer_0_outData;
+  wire [15:0]mult_sum_0_out;
+  wire nResetExt_0_1;
   wire s00_axi_aclk_0_1;
   wire s00_axi_aresetn_0_1;
   wire s_axi_aclk_0_1;
@@ -291,22 +245,18 @@ module DSP_imp_KXGKBB
   assign S01_AXI_rresp[1:0] = Conn2_RRESP;
   assign S01_AXI_rvalid = Conn2_RVALID;
   assign S01_AXI_wready = Conn2_WREADY;
-  assign outData[15:0] = output_buffer_0_outData;
+  assign audioClk256_0_1 = audioClk256;
+  assign nResetExt_0_1 = nResetExt;
+  assign outData1[15:0] = mult_sum_0_out;
+  assign outData2[15:0] = mult_sum_0_out;
   assign outDataValid = DSP_register_0_outDataValid;
   assign s00_axi_aclk_0_1 = s00_axi_aclk;
   assign s00_axi_aresetn_0_1 = s00_axi_aresetn;
   assign s_axi_aclk_0_1 = s01_axi_aclk;
   assign s_axi_aresetn_0_1 = s01_axi_aresetn;
   assign sysClk_0_1 = sysClk;
-  DSP_Sin_imp_XICE1X DSP_Sin
-       (.audioClk(audio_clk_gen_0_audioClk),
-        .delta(DSP_register_0_debugData),
-        .nReset(DSP_register_0_sysNReset),
-        .outData(output_buffer_0_outData),
-        .sysClk(sysClk_0_1));
   design_1_DSP_register_0_0 DSP_register_0
-       (.debugData(DSP_register_0_debugData),
-        .outDataValid(DSP_register_0_outDataValid),
+       (.outDataValid(DSP_register_0_outDataValid),
         .s00_axi_aclk(s00_axi_aclk_0_1),
         .s00_axi_araddr(Conn1_ARADDR[3:0]),
         .s00_axi_aresetn(s00_axi_aresetn_0_1),
@@ -328,12 +278,523 @@ module DSP_imp_KXGKBB
         .s00_axi_wready(Conn1_WREADY),
         .s00_axi_wstrb(Conn1_WSTRB),
         .s00_axi_wvalid(Conn1_WVALID),
+        .synth0Gain(DSP_register_0_synth0Gain),
         .sysNReset(DSP_register_0_sysNReset));
+  design_1_DSP_reset_0_0 DSP_reset_0
+       (.nReset(DSP_reset_0_nReset),
+        .nResetExt(nResetExt_0_1),
+        .nResetInt(DSP_register_0_sysNReset));
+  Synthesizer_imp_5BWTWR Synthesizer
+       (.S_AXI_araddr(Conn2_ARADDR),
+        .S_AXI_arburst(Conn2_ARBURST),
+        .S_AXI_arcache(Conn2_ARCACHE),
+        .S_AXI_arlen(Conn2_ARLEN),
+        .S_AXI_arlock(Conn2_ARLOCK),
+        .S_AXI_arprot(Conn2_ARPROT),
+        .S_AXI_arready(Conn2_ARREADY),
+        .S_AXI_arsize(Conn2_ARSIZE),
+        .S_AXI_arvalid(Conn2_ARVALID),
+        .S_AXI_awaddr(Conn2_AWADDR),
+        .S_AXI_awburst(Conn2_AWBURST),
+        .S_AXI_awcache(Conn2_AWCACHE),
+        .S_AXI_awlen(Conn2_AWLEN),
+        .S_AXI_awlock(Conn2_AWLOCK),
+        .S_AXI_awprot(Conn2_AWPROT),
+        .S_AXI_awready(Conn2_AWREADY),
+        .S_AXI_awsize(Conn2_AWSIZE),
+        .S_AXI_awvalid(Conn2_AWVALID),
+        .S_AXI_bready(Conn2_BREADY),
+        .S_AXI_bresp(Conn2_BRESP),
+        .S_AXI_bvalid(Conn2_BVALID),
+        .S_AXI_rdata(Conn2_RDATA),
+        .S_AXI_rlast(Conn2_RLAST),
+        .S_AXI_rready(Conn2_RREADY),
+        .S_AXI_rresp(Conn2_RRESP),
+        .S_AXI_rvalid(Conn2_RVALID),
+        .S_AXI_wdata(Conn2_WDATA),
+        .S_AXI_wlast(Conn2_WLAST),
+        .S_AXI_wready(Conn2_WREADY),
+        .S_AXI_wstrb(Conn2_WSTRB),
+        .S_AXI_wvalid(Conn2_WVALID),
+        .audioClk(audio_clk_gen_0_audioClk),
+        .nReset(DSP_reset_0_nReset),
+        .outData(mult_sum_0_out),
+        .outGain(DSP_register_0_synth0Gain),
+        .s_axi_aclk(s_axi_aclk_0_1),
+        .s_axi_aresetn(s_axi_aresetn_0_1),
+        .sysClk(sysClk_0_1));
   design_1_audio_clk_gen_0_0 audio_clk_gen_0
        (.audioClk(audio_clk_gen_0_audioClk),
+        .audioClk256(audioClk256_0_1),
+        .nReset(DSP_reset_0_nReset));
+endmodule
+
+module GainAndSum_imp_1USF4QI
+   (clear,
+    nReset,
+    outData,
+    outGain,
+    s_axis_gain_tdata,
+    s_axis_gain_tvalid,
+    s_axis_sin_tdata,
+    s_axis_sin_tvalid,
+    sysClk);
+  input clear;
+  input nReset;
+  output [15:0]outData;
+  input [7:0]outGain;
+  input [13:0]s_axis_gain_tdata;
+  input s_axis_gain_tvalid;
+  input [31:0]s_axis_sin_tdata;
+  input s_axis_sin_tvalid;
+  input sysClk;
+
+  wire DSP_register_0_sysNReset;
+  wire [31:0]cordic_0_M_AXIS_DOUT_TDATA;
+  wire cordic_0_M_AXIS_DOUT_TVALID;
+  wire [13:0]delay_0_m_axis_out_TDATA;
+  wire delay_0_m_axis_out_TVALID;
+  wire [29:0]mult_gen_0_P;
+  wire [15:0]mult_sum_0_mult_A;
+  wire [13:0]mult_sum_0_mult_B;
+  wire [15:0]mult_sum_0_out;
+  wire [7:0]outGain_0_1;
+  wire phase_gen_256_0_sync;
+  wire sysClk_0_1;
+
+  assign DSP_register_0_sysNReset = nReset;
+  assign cordic_0_M_AXIS_DOUT_TDATA = s_axis_sin_tdata[31:0];
+  assign cordic_0_M_AXIS_DOUT_TVALID = s_axis_sin_tvalid;
+  assign delay_0_m_axis_out_TDATA = s_axis_gain_tdata[13:0];
+  assign delay_0_m_axis_out_TVALID = s_axis_gain_tvalid;
+  assign outData[15:0] = mult_sum_0_out;
+  assign outGain_0_1 = outGain[7:0];
+  assign phase_gen_256_0_sync = clear;
+  assign sysClk_0_1 = sysClk;
+  design_1_mult_gen_0_1 mult_gen_0
+       (.A(mult_sum_0_mult_A),
+        .B(mult_sum_0_mult_B),
+        .CLK(sysClk_0_1),
+        .P(mult_gen_0_P));
+  design_1_mult_sum_0_0 mult_sum_0
+       (.clear(phase_gen_256_0_sync),
+        .mult_A(mult_sum_0_mult_A),
+        .mult_B(mult_sum_0_mult_B),
+        .mult_P(mult_gen_0_P),
+        .nReset(DSP_register_0_sysNReset),
+        .outData(mult_sum_0_out),
+        .outGain(outGain_0_1),
+        .s_axis_gain_tdata(delay_0_m_axis_out_TDATA),
+        .s_axis_gain_tvalid(delay_0_m_axis_out_TVALID),
+        .s_axis_sin_tdata(cordic_0_M_AXIS_DOUT_TDATA),
+        .s_axis_sin_tvalid(cordic_0_M_AXIS_DOUT_TVALID),
+        .sysClk(sysClk_0_1));
+endmodule
+
+module Oscillator_imp_AA12YF
+   (audioClk,
+    m_axis_phase_tdata,
+    m_axis_phase_tvalid,
+    nReset,
+    reg_index,
+    reg_index_valid,
+    s_axis_delta_tdata,
+    s_axis_delta_tvalid,
+    sync,
+    sysClk);
+  input audioClk;
+  output [15:0]m_axis_phase_tdata;
+  output m_axis_phase_tvalid;
+  input nReset;
+  output [10:0]reg_index;
+  output reg_index_valid;
+  input [23:0]s_axis_delta_tdata;
+  input s_axis_delta_tvalid;
+  output sync;
+  input sysClk;
+
+  wire [23:0]DSP_reg_read_0_m_axis_delta_TDATA;
+  wire DSP_reg_read_0_m_axis_delta_TVALID;
+  wire DSP_register_0_sysNReset;
+  wire audio_clk_gen_0_audioClk;
+  wire [23:0]blk_mem_gen_1_douta;
+  wire [15:0]phase_gen_256_0_m_axis_phase_TDATA;
+  wire phase_gen_256_0_m_axis_phase_TVALID;
+  wire phase_gen_256_0_m_bram_int_clk;
+  wire [10:0]phase_gen_256_0_m_bram_int_rdaddr;
+  wire phase_gen_256_0_m_bram_int_rst;
+  wire phase_gen_256_0_m_bram_int_we;
+  wire [10:0]phase_gen_256_0_m_bram_int_wraddr;
+  wire [23:0]phase_gen_256_0_m_bram_int_wrdata;
+  wire [10:0]phase_gen_256_0_reg_index;
+  wire phase_gen_256_0_reg_index_valid;
+  wire phase_gen_256_0_sync;
+  wire sysClk_0_1;
+
+  assign DSP_reg_read_0_m_axis_delta_TDATA = s_axis_delta_tdata[23:0];
+  assign DSP_reg_read_0_m_axis_delta_TVALID = s_axis_delta_tvalid;
+  assign DSP_register_0_sysNReset = nReset;
+  assign audio_clk_gen_0_audioClk = audioClk;
+  assign m_axis_phase_tdata[15:0] = phase_gen_256_0_m_axis_phase_TDATA;
+  assign m_axis_phase_tvalid = phase_gen_256_0_m_axis_phase_TVALID;
+  assign reg_index[10:0] = phase_gen_256_0_reg_index;
+  assign reg_index_valid = phase_gen_256_0_reg_index_valid;
+  assign sync = phase_gen_256_0_sync;
+  assign sysClk_0_1 = sysClk;
+  design_1_blk_mem_gen_1_0 blk_mem_gen_1
+       (.addra(phase_gen_256_0_m_bram_int_wraddr),
+        .addrb(phase_gen_256_0_m_bram_int_rdaddr),
+        .clka(phase_gen_256_0_m_bram_int_clk),
+        .clkb(phase_gen_256_0_m_bram_int_clk),
+        .dina(phase_gen_256_0_m_bram_int_wrdata),
+        .doutb(blk_mem_gen_1_douta),
+        .rstb(phase_gen_256_0_m_bram_int_rst),
+        .wea(phase_gen_256_0_m_bram_int_we));
+  design_1_phase_gen_256_0_0 phase_gen_256_0
+       (.audioClk(audio_clk_gen_0_audioClk),
+        .m_axis_phase_tdata(phase_gen_256_0_m_axis_phase_TDATA),
+        .m_axis_phase_tvalid(phase_gen_256_0_m_axis_phase_TVALID),
+        .m_bram_int_clk(phase_gen_256_0_m_bram_int_clk),
+        .m_bram_int_rdaddr(phase_gen_256_0_m_bram_int_rdaddr),
+        .m_bram_int_rddata(blk_mem_gen_1_douta),
+        .m_bram_int_rst(phase_gen_256_0_m_bram_int_rst),
+        .m_bram_int_we(phase_gen_256_0_m_bram_int_we),
+        .m_bram_int_wraddr(phase_gen_256_0_m_bram_int_wraddr),
+        .m_bram_int_wrdata(phase_gen_256_0_m_bram_int_wrdata),
+        .nReset(DSP_register_0_sysNReset),
+        .reg_index(phase_gen_256_0_reg_index),
+        .reg_index_valid(phase_gen_256_0_reg_index_valid),
+        .s_axis_delta_tdata(DSP_reg_read_0_m_axis_delta_TDATA),
+        .s_axis_delta_tvalid(DSP_reg_read_0_m_axis_delta_TVALID),
+        .sync(phase_gen_256_0_sync),
+        .sysClk(sysClk_0_1));
+endmodule
+
+module SynthesizerReg_imp_LUF7W8
+   (BRAM_PORTA_addr,
+    BRAM_PORTA_clk,
+    BRAM_PORTA_din,
+    BRAM_PORTA_dout,
+    BRAM_PORTA_en,
+    BRAM_PORTA_rst,
+    BRAM_PORTA_we,
+    index,
+    index_valid,
+    m_axis_delta_tdata,
+    m_axis_delta_tvalid,
+    m_axis_gain_tdata,
+    m_axis_gain_tvalid,
+    nReset,
+    sysClk);
+  input [12:0]BRAM_PORTA_addr;
+  input BRAM_PORTA_clk;
+  input [31:0]BRAM_PORTA_din;
+  output [31:0]BRAM_PORTA_dout;
+  input BRAM_PORTA_en;
+  input BRAM_PORTA_rst;
+  input [3:0]BRAM_PORTA_we;
+  input [10:0]index;
+  input index_valid;
+  output [23:0]m_axis_delta_tdata;
+  output m_axis_delta_tvalid;
+  output [13:0]m_axis_gain_tdata;
+  output m_axis_gain_tvalid;
+  input nReset;
+  input sysClk;
+
+  wire [17:0]DSP_reg_read_0_const;
+  wire [17:0]DSP_reg_read_0_freq;
+  wire [23:0]DSP_reg_read_0_m_axis_delta_TDATA;
+  wire DSP_reg_read_0_m_axis_delta_TVALID;
+  wire [13:0]DSP_reg_read_0_m_axis_gain_TDATA;
+  wire DSP_reg_read_0_m_axis_gain_TVALID;
+  wire DSP_register_0_sysNReset;
+  wire [12:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
+  wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
+  wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DIN;
+  wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DOUT;
+  wire axi_bram_ctrl_0_BRAM_PORTA_EN;
+  wire axi_bram_ctrl_0_BRAM_PORTA_RST;
+  wire [3:0]axi_bram_ctrl_0_BRAM_PORTA_WE;
+  wire [31:0]blk_mem_gen_0_doutb;
+  wire [35:0]mult_gen_1_P;
+  wire phase_gen_256_0_bram_en;
+  wire phase_gen_256_0_bram_rst;
+  wire phase_gen_256_0_m_bram_we;
+  wire [10:0]phase_gen_256_0_reg_index;
+  wire phase_gen_256_0_reg_index_valid;
+  wire [31:0]phase_gen_256_0_s_bram_addr;
+  wire phase_gen_256_0_s_bram_clk;
+  wire sysClk_0_1;
+
+  assign BRAM_PORTA_dout[31:0] = axi_bram_ctrl_0_BRAM_PORTA_DOUT;
+  assign DSP_register_0_sysNReset = nReset;
+  assign axi_bram_ctrl_0_BRAM_PORTA_ADDR = BRAM_PORTA_addr[12:0];
+  assign axi_bram_ctrl_0_BRAM_PORTA_CLK = BRAM_PORTA_clk;
+  assign axi_bram_ctrl_0_BRAM_PORTA_DIN = BRAM_PORTA_din[31:0];
+  assign axi_bram_ctrl_0_BRAM_PORTA_EN = BRAM_PORTA_en;
+  assign axi_bram_ctrl_0_BRAM_PORTA_RST = BRAM_PORTA_rst;
+  assign axi_bram_ctrl_0_BRAM_PORTA_WE = BRAM_PORTA_we[3:0];
+  assign m_axis_delta_tdata[23:0] = DSP_reg_read_0_m_axis_delta_TDATA;
+  assign m_axis_delta_tvalid = DSP_reg_read_0_m_axis_delta_TVALID;
+  assign m_axis_gain_tdata[13:0] = DSP_reg_read_0_m_axis_gain_TDATA;
+  assign m_axis_gain_tvalid = DSP_reg_read_0_m_axis_gain_TVALID;
+  assign phase_gen_256_0_reg_index = index[10:0];
+  assign phase_gen_256_0_reg_index_valid = index_valid;
+  assign sysClk_0_1 = sysClk;
+  design_1_DSP_reg_read_0_0 DSP_reg_read_0
+       (.aclk(sysClk_0_1),
+        .const(DSP_reg_read_0_const),
+        .freq(DSP_reg_read_0_freq),
+        .freqXconst(mult_gen_1_P),
+        .index(phase_gen_256_0_reg_index),
+        .index_valid(phase_gen_256_0_reg_index_valid),
+        .m_axis_delta_tdata(DSP_reg_read_0_m_axis_delta_TDATA),
+        .m_axis_delta_tvalid(DSP_reg_read_0_m_axis_delta_TVALID),
+        .m_axis_gain_tdata(DSP_reg_read_0_m_axis_gain_TDATA),
+        .m_axis_gain_tvalid(DSP_reg_read_0_m_axis_gain_TVALID),
+        .m_bram_addr(phase_gen_256_0_s_bram_addr),
+        .m_bram_clk(phase_gen_256_0_s_bram_clk),
+        .m_bram_en(phase_gen_256_0_bram_en),
+        .m_bram_rddata(blk_mem_gen_0_doutb),
+        .m_bram_rst(phase_gen_256_0_bram_rst),
+        .m_bram_we(phase_gen_256_0_m_bram_we),
+        .nReset(DSP_register_0_sysNReset));
+  design_1_blk_mem_gen_0_1 blk_mem_gen_0
+       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
+        .addrb(phase_gen_256_0_s_bram_addr),
+        .clka(axi_bram_ctrl_0_BRAM_PORTA_CLK),
+        .clkb(phase_gen_256_0_s_bram_clk),
+        .dina(axi_bram_ctrl_0_BRAM_PORTA_DIN),
+        .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
+        .douta(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
+        .doutb(blk_mem_gen_0_doutb),
+        .ena(axi_bram_ctrl_0_BRAM_PORTA_EN),
+        .enb(phase_gen_256_0_bram_en),
+        .rsta(axi_bram_ctrl_0_BRAM_PORTA_RST),
+        .rstb(phase_gen_256_0_bram_rst),
+        .wea(axi_bram_ctrl_0_BRAM_PORTA_WE),
+        .web({phase_gen_256_0_m_bram_we,phase_gen_256_0_m_bram_we,phase_gen_256_0_m_bram_we,phase_gen_256_0_m_bram_we}));
+  design_1_mult_gen_1_0 mult_gen_1
+       (.A(DSP_reg_read_0_freq),
+        .B(DSP_reg_read_0_const),
+        .CLK(sysClk_0_1),
+        .P(mult_gen_1_P));
+endmodule
+
+module Synthesizer_imp_5BWTWR
+   (S_AXI_araddr,
+    S_AXI_arburst,
+    S_AXI_arcache,
+    S_AXI_arlen,
+    S_AXI_arlock,
+    S_AXI_arprot,
+    S_AXI_arready,
+    S_AXI_arsize,
+    S_AXI_arvalid,
+    S_AXI_awaddr,
+    S_AXI_awburst,
+    S_AXI_awcache,
+    S_AXI_awlen,
+    S_AXI_awlock,
+    S_AXI_awprot,
+    S_AXI_awready,
+    S_AXI_awsize,
+    S_AXI_awvalid,
+    S_AXI_bready,
+    S_AXI_bresp,
+    S_AXI_bvalid,
+    S_AXI_rdata,
+    S_AXI_rlast,
+    S_AXI_rready,
+    S_AXI_rresp,
+    S_AXI_rvalid,
+    S_AXI_wdata,
+    S_AXI_wlast,
+    S_AXI_wready,
+    S_AXI_wstrb,
+    S_AXI_wvalid,
+    audioClk,
+    nReset,
+    outData,
+    outGain,
+    s_axi_aclk,
+    s_axi_aresetn,
+    sysClk);
+  input [31:0]S_AXI_araddr;
+  input [1:0]S_AXI_arburst;
+  input [3:0]S_AXI_arcache;
+  input [7:0]S_AXI_arlen;
+  input S_AXI_arlock;
+  input [2:0]S_AXI_arprot;
+  output S_AXI_arready;
+  input [2:0]S_AXI_arsize;
+  input S_AXI_arvalid;
+  input [31:0]S_AXI_awaddr;
+  input [1:0]S_AXI_awburst;
+  input [3:0]S_AXI_awcache;
+  input [7:0]S_AXI_awlen;
+  input S_AXI_awlock;
+  input [2:0]S_AXI_awprot;
+  output S_AXI_awready;
+  input [2:0]S_AXI_awsize;
+  input S_AXI_awvalid;
+  input S_AXI_bready;
+  output [1:0]S_AXI_bresp;
+  output S_AXI_bvalid;
+  output [31:0]S_AXI_rdata;
+  output S_AXI_rlast;
+  input S_AXI_rready;
+  output [1:0]S_AXI_rresp;
+  output S_AXI_rvalid;
+  input [31:0]S_AXI_wdata;
+  input S_AXI_wlast;
+  output S_AXI_wready;
+  input [3:0]S_AXI_wstrb;
+  input S_AXI_wvalid;
+  input audioClk;
+  input nReset;
+  output [15:0]outData;
+  input [7:0]outGain;
+  input s_axi_aclk;
+  input s_axi_aresetn;
+  input sysClk;
+
+  wire [31:0]Conn2_ARADDR;
+  wire [1:0]Conn2_ARBURST;
+  wire [3:0]Conn2_ARCACHE;
+  wire [7:0]Conn2_ARLEN;
+  wire Conn2_ARLOCK;
+  wire [2:0]Conn2_ARPROT;
+  wire Conn2_ARREADY;
+  wire [2:0]Conn2_ARSIZE;
+  wire Conn2_ARVALID;
+  wire [31:0]Conn2_AWADDR;
+  wire [1:0]Conn2_AWBURST;
+  wire [3:0]Conn2_AWCACHE;
+  wire [7:0]Conn2_AWLEN;
+  wire Conn2_AWLOCK;
+  wire [2:0]Conn2_AWPROT;
+  wire Conn2_AWREADY;
+  wire [2:0]Conn2_AWSIZE;
+  wire Conn2_AWVALID;
+  wire Conn2_BREADY;
+  wire [1:0]Conn2_BRESP;
+  wire Conn2_BVALID;
+  wire [31:0]Conn2_RDATA;
+  wire Conn2_RLAST;
+  wire Conn2_RREADY;
+  wire [1:0]Conn2_RRESP;
+  wire Conn2_RVALID;
+  wire [31:0]Conn2_WDATA;
+  wire Conn2_WLAST;
+  wire Conn2_WREADY;
+  wire [3:0]Conn2_WSTRB;
+  wire Conn2_WVALID;
+  wire [23:0]DSP_reg_read_0_m_axis_delta_TDATA;
+  wire DSP_reg_read_0_m_axis_delta_TVALID;
+  wire [13:0]DSP_reg_read_0_m_axis_gain_TDATA;
+  wire DSP_reg_read_0_m_axis_gain_TVALID;
+  wire DSP_register_0_sysNReset;
+  wire audio_clk_gen_0_audioClk;
+  wire [12:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
+  wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
+  wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DIN;
+  wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DOUT;
+  wire axi_bram_ctrl_0_BRAM_PORTA_EN;
+  wire axi_bram_ctrl_0_BRAM_PORTA_RST;
+  wire [3:0]axi_bram_ctrl_0_BRAM_PORTA_WE;
+  wire [31:0]cordic_0_M_AXIS_DOUT_TDATA;
+  wire cordic_0_M_AXIS_DOUT_TVALID;
+  wire [13:0]delay_0_m_axis_out_TDATA;
+  wire delay_0_m_axis_out_TVALID;
+  wire [15:0]mult_sum_0_out;
+  wire [7:0]outGain_0_1;
+  wire [15:0]phase_gen_256_0_m_axis_phase_TDATA;
+  wire phase_gen_256_0_m_axis_phase_TVALID;
+  wire [10:0]phase_gen_256_0_reg_index;
+  wire phase_gen_256_0_reg_index_valid;
+  wire phase_gen_256_0_sync;
+  wire s_axi_aclk_0_1;
+  wire s_axi_aresetn_0_1;
+  wire sysClk_0_1;
+
+  assign Conn2_ARADDR = S_AXI_araddr[31:0];
+  assign Conn2_ARBURST = S_AXI_arburst[1:0];
+  assign Conn2_ARCACHE = S_AXI_arcache[3:0];
+  assign Conn2_ARLEN = S_AXI_arlen[7:0];
+  assign Conn2_ARLOCK = S_AXI_arlock;
+  assign Conn2_ARPROT = S_AXI_arprot[2:0];
+  assign Conn2_ARSIZE = S_AXI_arsize[2:0];
+  assign Conn2_ARVALID = S_AXI_arvalid;
+  assign Conn2_AWADDR = S_AXI_awaddr[31:0];
+  assign Conn2_AWBURST = S_AXI_awburst[1:0];
+  assign Conn2_AWCACHE = S_AXI_awcache[3:0];
+  assign Conn2_AWLEN = S_AXI_awlen[7:0];
+  assign Conn2_AWLOCK = S_AXI_awlock;
+  assign Conn2_AWPROT = S_AXI_awprot[2:0];
+  assign Conn2_AWSIZE = S_AXI_awsize[2:0];
+  assign Conn2_AWVALID = S_AXI_awvalid;
+  assign Conn2_BREADY = S_AXI_bready;
+  assign Conn2_RREADY = S_AXI_rready;
+  assign Conn2_WDATA = S_AXI_wdata[31:0];
+  assign Conn2_WLAST = S_AXI_wlast;
+  assign Conn2_WSTRB = S_AXI_wstrb[3:0];
+  assign Conn2_WVALID = S_AXI_wvalid;
+  assign DSP_register_0_sysNReset = nReset;
+  assign S_AXI_arready = Conn2_ARREADY;
+  assign S_AXI_awready = Conn2_AWREADY;
+  assign S_AXI_bresp[1:0] = Conn2_BRESP;
+  assign S_AXI_bvalid = Conn2_BVALID;
+  assign S_AXI_rdata[31:0] = Conn2_RDATA;
+  assign S_AXI_rlast = Conn2_RLAST;
+  assign S_AXI_rresp[1:0] = Conn2_RRESP;
+  assign S_AXI_rvalid = Conn2_RVALID;
+  assign S_AXI_wready = Conn2_WREADY;
+  assign audio_clk_gen_0_audioClk = audioClk;
+  assign outData[15:0] = mult_sum_0_out;
+  assign outGain_0_1 = outGain[7:0];
+  assign s_axi_aclk_0_1 = s_axi_aclk;
+  assign s_axi_aresetn_0_1 = s_axi_aresetn;
+  assign sysClk_0_1 = sysClk;
+  GainAndSum_imp_1USF4QI GainAndSum
+       (.clear(phase_gen_256_0_sync),
+        .nReset(DSP_register_0_sysNReset),
+        .outData(mult_sum_0_out),
+        .outGain(outGain_0_1),
+        .s_axis_gain_tdata(delay_0_m_axis_out_TDATA),
+        .s_axis_gain_tvalid(delay_0_m_axis_out_TVALID),
+        .s_axis_sin_tdata(cordic_0_M_AXIS_DOUT_TDATA),
+        .s_axis_sin_tvalid(cordic_0_M_AXIS_DOUT_TVALID),
+        .sysClk(sysClk_0_1));
+  Oscillator_imp_AA12YF Oscillator
+       (.audioClk(audio_clk_gen_0_audioClk),
+        .m_axis_phase_tdata(phase_gen_256_0_m_axis_phase_TDATA),
+        .m_axis_phase_tvalid(phase_gen_256_0_m_axis_phase_TVALID),
+        .nReset(DSP_register_0_sysNReset),
+        .reg_index(phase_gen_256_0_reg_index),
+        .reg_index_valid(phase_gen_256_0_reg_index_valid),
+        .s_axis_delta_tdata(DSP_reg_read_0_m_axis_delta_TDATA),
+        .s_axis_delta_tvalid(DSP_reg_read_0_m_axis_delta_TVALID),
+        .sync(phase_gen_256_0_sync),
+        .sysClk(sysClk_0_1));
+  SynthesizerReg_imp_LUF7W8 SynthesizerReg
+       (.BRAM_PORTA_addr(axi_bram_ctrl_0_BRAM_PORTA_ADDR),
+        .BRAM_PORTA_clk(axi_bram_ctrl_0_BRAM_PORTA_CLK),
+        .BRAM_PORTA_din(axi_bram_ctrl_0_BRAM_PORTA_DIN),
+        .BRAM_PORTA_dout(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
+        .BRAM_PORTA_en(axi_bram_ctrl_0_BRAM_PORTA_EN),
+        .BRAM_PORTA_rst(axi_bram_ctrl_0_BRAM_PORTA_RST),
+        .BRAM_PORTA_we(axi_bram_ctrl_0_BRAM_PORTA_WE),
+        .index(phase_gen_256_0_reg_index),
+        .index_valid(phase_gen_256_0_reg_index_valid),
+        .m_axis_delta_tdata(DSP_reg_read_0_m_axis_delta_TDATA),
+        .m_axis_delta_tvalid(DSP_reg_read_0_m_axis_delta_TVALID),
+        .m_axis_gain_tdata(DSP_reg_read_0_m_axis_gain_TDATA),
+        .m_axis_gain_tvalid(DSP_reg_read_0_m_axis_gain_TVALID),
         .nReset(DSP_register_0_sysNReset),
         .sysClk(sysClk_0_1));
-  (* BMM_INFO_ADDRESS_SPACE = "byte  0x40000000 32 > design_1 DSP/blk_mem_gen_0" *) 
+  (* BMM_INFO_ADDRESS_SPACE = "byte  0x40000000 32 > design_1 DSP/Synthesizer/SynthesizerReg/blk_mem_gen_0" *) 
   (* KEEP_HIERARCHY = "yes" *) 
   design_1_axi_bram_ctrl_0_0 axi_bram_ctrl_0
        (.bram_addr_a(axi_bram_ctrl_0_BRAM_PORTA_ADDR),
@@ -344,7 +805,7 @@ module DSP_imp_KXGKBB
         .bram_we_a(axi_bram_ctrl_0_BRAM_PORTA_WE),
         .bram_wrdata_a(axi_bram_ctrl_0_BRAM_PORTA_DIN),
         .s_axi_aclk(s_axi_aclk_0_1),
-        .s_axi_araddr(Conn2_ARADDR[11:0]),
+        .s_axi_araddr(Conn2_ARADDR[12:0]),
         .s_axi_arburst(Conn2_ARBURST),
         .s_axi_arcache(Conn2_ARCACHE),
         .s_axi_aresetn(s_axi_aresetn_0_1),
@@ -354,7 +815,7 @@ module DSP_imp_KXGKBB
         .s_axi_arready(Conn2_ARREADY),
         .s_axi_arsize(Conn2_ARSIZE),
         .s_axi_arvalid(Conn2_ARVALID),
-        .s_axi_awaddr(Conn2_AWADDR[11:0]),
+        .s_axi_awaddr(Conn2_AWADDR[12:0]),
         .s_axi_awburst(Conn2_AWBURST),
         .s_axi_awcache(Conn2_AWCACHE),
         .s_axi_awlen(Conn2_AWLEN),
@@ -376,23 +837,22 @@ module DSP_imp_KXGKBB
         .s_axi_wready(Conn2_WREADY),
         .s_axi_wstrb(Conn2_WSTRB),
         .s_axi_wvalid(Conn2_WVALID));
-  design_1_blk_mem_gen_0_1 blk_mem_gen_0
-       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
-        .addrb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .clka(axi_bram_ctrl_0_BRAM_PORTA_CLK),
-        .clkb(1'b0),
-        .dina(axi_bram_ctrl_0_BRAM_PORTA_DIN),
-        .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
-        .douta(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
-        .ena(axi_bram_ctrl_0_BRAM_PORTA_EN),
-        .enb(1'b0),
-        .rsta(axi_bram_ctrl_0_BRAM_PORTA_RST),
-        .rstb(1'b0),
-        .wea(axi_bram_ctrl_0_BRAM_PORTA_WE),
-        .web({1'b0,1'b0,1'b0,1'b0}));
+  design_1_cordic_0_1 cordic_0
+       (.aclk(sysClk_0_1),
+        .m_axis_dout_tdata(cordic_0_M_AXIS_DOUT_TDATA),
+        .m_axis_dout_tvalid(cordic_0_M_AXIS_DOUT_TVALID),
+        .s_axis_phase_tdata(phase_gen_256_0_m_axis_phase_TDATA),
+        .s_axis_phase_tvalid(phase_gen_256_0_m_axis_phase_TVALID));
+  design_1_delay_0_0 delay_0
+       (.aclk(sysClk_0_1),
+        .m_axis_out_tdata(delay_0_m_axis_out_TDATA),
+        .m_axis_out_tvalid(delay_0_m_axis_out_TVALID),
+        .nReset(DSP_register_0_sysNReset),
+        .s_axis_in_tdata(DSP_reg_read_0_m_axis_gain_TDATA),
+        .s_axis_in_tvalid(DSP_reg_read_0_m_axis_gain_TVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=23,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=7,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=32,numReposBlks=22,numNonXlnxBlks=0,numHierBlks=10,maxHierDepth=2,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (DAC_BICK_0,
     DAC_LRCK_0,
@@ -457,7 +917,8 @@ module design_1
   wire DAC_IF_0_DAC_LRCK;
   wire DAC_IF_0_DAC_MCLK;
   wire DAC_IF_0_DAC_SDT;
-  wire [15:0]DSP_outData;
+  wire [15:0]DSP_out1;
+  wire [15:0]DSP_out2;
   wire DSP_outDataValid;
   wire [31:0]S00_AXI_0_1_ARADDR;
   wire [2:0]S00_AXI_0_1_ARPROT;
@@ -479,6 +940,7 @@ module design_1
   wire [3:0]S00_AXI_0_1_WSTRB;
   wire S00_AXI_0_1_WVALID;
   wire clk_wiz_0_clk_out1;
+  wire clk_wiz_0_locked;
   wire [2:0]myip_0_RGB_OUT;
   wire myip_0_USB_nRESET;
   wire [14:0]processing_system7_0_DDR_ADDR;
@@ -497,6 +959,7 @@ module design_1
   wire processing_system7_0_DDR_RESET_N;
   wire processing_system7_0_DDR_WE_N;
   wire processing_system7_0_FCLK_CLK0;
+  wire processing_system7_0_FCLK_CLK1;
   wire processing_system7_0_FCLK_RESET0_N;
   wire processing_system7_0_FIXED_IO_DDR_VRN;
   wire processing_system7_0_FIXED_IO_DDR_VRP;
@@ -611,9 +1074,10 @@ module design_1
         .DAC_MCLK(DAC_IF_0_DAC_MCLK),
         .DAC_SDT(DAC_IF_0_DAC_SDT),
         .clk_256fs(clk_wiz_0_clk_out1),
-        .dataL(DSP_outData),
-        .dataR(DSP_outData),
-        .nReset(DSP_outDataValid));
+        .dataL(DSP_out1),
+        .dataR(DSP_out2),
+        .nReset(DSP_outDataValid),
+        .sysClk(processing_system7_0_FCLK_CLK0));
   DSP_imp_KXGKBB DSP
        (.S00_AXI_araddr(S00_AXI_0_1_ARADDR),
         .S00_AXI_arprot(S00_AXI_0_1_ARPROT),
@@ -665,21 +1129,25 @@ module design_1
         .S01_AXI_wready(ps7_0_axi_periph_M02_AXI_WREADY),
         .S01_AXI_wstrb(ps7_0_axi_periph_M02_AXI_WSTRB),
         .S01_AXI_wvalid(ps7_0_axi_periph_M02_AXI_WVALID),
-        .outData(DSP_outData),
+        .audioClk256(clk_wiz_0_clk_out1),
+        .nResetExt(clk_wiz_0_locked),
+        .outData1(DSP_out1),
+        .outData2(DSP_out2),
         .outDataValid(DSP_outDataValid),
-        .s00_axi_aclk(clk_wiz_0_clk_out1),
+        .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s00_axi_aresetn(rst_ps7_0_50M_peripheral_aresetn),
-        .s01_axi_aclk(clk_wiz_0_clk_out1),
+        .s01_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s01_axi_aresetn(rst_ps7_0_50M_peripheral_aresetn),
-        .sysClk(clk_wiz_0_clk_out1));
+        .sysClk(processing_system7_0_FCLK_CLK0));
   design_1_clk_wiz_0_0 clk_wiz_0
-       (.clk_in1(processing_system7_0_FCLK_CLK0),
+       (.clk_in1(processing_system7_0_FCLK_CLK1),
         .clk_out1(clk_wiz_0_clk_out1),
+        .locked(clk_wiz_0_locked),
         .resetn(processing_system7_0_FCLK_RESET0_N));
   design_1_myip_0_0 myip_0
        (.RGB_OUT(myip_0_RGB_OUT),
         .USB_nRESET(myip_0_USB_nRESET),
-        .s00_axi_aclk(clk_wiz_0_clk_out1),
+        .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s00_axi_araddr(ps7_0_axi_periph_M00_AXI_ARADDR[3:0]),
         .s00_axi_aresetn(rst_ps7_0_50M_peripheral_aresetn),
         .s00_axi_arprot(ps7_0_axi_periph_M00_AXI_ARPROT),
@@ -700,7 +1168,7 @@ module design_1
         .s00_axi_wready(ps7_0_axi_periph_M00_AXI_WREADY),
         .s00_axi_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
         .s00_axi_wvalid(ps7_0_axi_periph_M00_AXI_WVALID));
-  (* BMM_INFO_PROCESSOR = "arm > design_1 DSP/axi_bram_ctrl_0" *) 
+  (* BMM_INFO_PROCESSOR = "arm > design_1 DSP/Synthesizer/axi_bram_ctrl_0" *) 
   (* KEEP_HIERARCHY = "yes" *) 
   design_1_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr[14:0]),
@@ -721,9 +1189,10 @@ module design_1
         .DDR_VRP(FIXED_IO_ddr_vrp),
         .DDR_WEB(DDR_we_n),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
+        .FCLK_CLK1(processing_system7_0_FCLK_CLK1),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
         .MIO(FIXED_IO_mio[53:0]),
-        .M_AXI_GP0_ACLK(clk_wiz_0_clk_out1),
+        .M_AXI_GP0_ACLK(processing_system7_0_FCLK_CLK0),
         .M_AXI_GP0_ARADDR(processing_system7_0_M_AXI_GP0_ARADDR),
         .M_AXI_GP0_ARBURST(processing_system7_0_M_AXI_GP0_ARBURST),
         .M_AXI_GP0_ARCACHE(processing_system7_0_M_AXI_GP0_ARCACHE),
@@ -768,9 +1237,9 @@ module design_1
         .UART1_RX(processing_system7_0_UART_1_RxD),
         .UART1_TX(processing_system7_0_UART_1_TxD));
   design_1_ps7_0_axi_periph_0 ps7_0_axi_periph
-       (.ACLK(clk_wiz_0_clk_out1),
+       (.ACLK(processing_system7_0_FCLK_CLK0),
         .ARESETN(rst_ps7_0_50M_interconnect_aresetn),
-        .M00_ACLK(clk_wiz_0_clk_out1),
+        .M00_ACLK(processing_system7_0_FCLK_CLK0),
         .M00_ARESETN(rst_ps7_0_50M_peripheral_aresetn),
         .M00_AXI_araddr(ps7_0_axi_periph_M00_AXI_ARADDR),
         .M00_AXI_arprot(ps7_0_axi_periph_M00_AXI_ARPROT),
@@ -791,7 +1260,7 @@ module design_1
         .M00_AXI_wready(ps7_0_axi_periph_M00_AXI_WREADY),
         .M00_AXI_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
         .M00_AXI_wvalid(ps7_0_axi_periph_M00_AXI_WVALID),
-        .M01_ACLK(clk_wiz_0_clk_out1),
+        .M01_ACLK(processing_system7_0_FCLK_CLK0),
         .M01_ARESETN(rst_ps7_0_50M_peripheral_aresetn),
         .M01_AXI_araddr(S00_AXI_0_1_ARADDR),
         .M01_AXI_arprot(S00_AXI_0_1_ARPROT),
@@ -812,7 +1281,7 @@ module design_1
         .M01_AXI_wready(S00_AXI_0_1_WREADY),
         .M01_AXI_wstrb(S00_AXI_0_1_WSTRB),
         .M01_AXI_wvalid(S00_AXI_0_1_WVALID),
-        .M02_ACLK(clk_wiz_0_clk_out1),
+        .M02_ACLK(processing_system7_0_FCLK_CLK0),
         .M02_ARESETN(rst_ps7_0_50M_peripheral_aresetn),
         .M02_AXI_araddr(ps7_0_axi_periph_M02_AXI_ARADDR),
         .M02_AXI_arburst(ps7_0_axi_periph_M02_AXI_ARBURST),
@@ -845,7 +1314,7 @@ module design_1
         .M02_AXI_wready(ps7_0_axi_periph_M02_AXI_WREADY),
         .M02_AXI_wstrb(ps7_0_axi_periph_M02_AXI_WSTRB),
         .M02_AXI_wvalid(ps7_0_axi_periph_M02_AXI_WVALID),
-        .S00_ACLK(clk_wiz_0_clk_out1),
+        .S00_ACLK(processing_system7_0_FCLK_CLK0),
         .S00_ARESETN(rst_ps7_0_50M_peripheral_aresetn),
         .S00_AXI_araddr(processing_system7_0_M_AXI_GP0_ARADDR),
         .S00_AXI_arburst(processing_system7_0_M_AXI_GP0_ARBURST),
@@ -892,7 +1361,7 @@ module design_1
         .interconnect_aresetn(rst_ps7_0_50M_interconnect_aresetn),
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_ps7_0_50M_peripheral_aresetn),
-        .slowest_sync_clk(clk_wiz_0_clk_out1));
+        .slowest_sync_clk(processing_system7_0_FCLK_CLK0));
 endmodule
 
 module design_1_ps7_0_axi_periph_0

@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# DAC_IF, audio_clk_gen, output_buffer, phase_generator
+# DAC_IF, DSP_reset, audio_clk_gen, delay, mult_sum, phase_gen_256, DSP_reg_read
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -128,13 +128,13 @@ if { $nRet != 0 } {
 ##################################################################
 
 
-# Hierarchical cell: DSP_Sin
-proc create_hier_cell_DSP_Sin { parentCell nameHier } {
+# Hierarchical cell: SynthesizerReg
+proc create_hier_cell_SynthesizerReg { parentCell nameHier } {
 
   variable script_folder
 
   if { $parentCell eq "" || $nameHier eq "" } {
-     catch {common::send_msg_id "BD_TCL-102" "ERROR" "create_hier_cell_DSP_Sin() - Empty argument(s)!"}
+     catch {common::send_msg_id "BD_TCL-102" "ERROR" "create_hier_cell_SynthesizerReg() - Empty argument(s)!"}
      return
   }
 
@@ -163,13 +163,347 @@ proc create_hier_cell_DSP_Sin { parentCell nameHier } {
   current_bd_instance $hier_obj
 
   # Create interface pins
+  create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:bram_rtl:1.0 BRAM_PORTA
+  create_bd_intf_pin -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 m_axis_delta
+  create_bd_intf_pin -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 m_axis_gain
+
+  # Create pins
+  create_bd_pin -dir I -from 10 -to 0 index
+  create_bd_pin -dir I index_valid
+  create_bd_pin -dir I nReset
+  create_bd_pin -dir I -type clk sysClk
+
+  # Create instance: DSP_reg_read_0, and set properties
+  set block_name DSP_reg_read
+  set block_cell_name DSP_reg_read_0
+  if { [catch {set DSP_reg_read_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $DSP_reg_read_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: blk_mem_gen_0, and set properties
+  set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_0 ]
+  set_property -dict [ list \
+   CONFIG.Assume_Synchronous_Clk {false} \
+   CONFIG.Byte_Size {8} \
+   CONFIG.EN_SAFETY_CKT {true} \
+   CONFIG.Enable_32bit_Address {true} \
+   CONFIG.Enable_B {Use_ENB_Pin} \
+   CONFIG.Memory_Type {True_Dual_Port_RAM} \
+   CONFIG.Operating_Mode_A {WRITE_FIRST} \
+   CONFIG.Operating_Mode_B {WRITE_FIRST} \
+   CONFIG.Port_A_Write_Rate {50} \
+   CONFIG.Port_B_Clock {100} \
+   CONFIG.Port_B_Enable_Rate {100} \
+   CONFIG.Port_B_Write_Rate {50} \
+   CONFIG.Read_Width_B {32} \
+   CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
+   CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
+   CONFIG.Use_Byte_Write_Enable {true} \
+   CONFIG.Use_RSTA_Pin {true} \
+   CONFIG.Use_RSTB_Pin {true} \
+   CONFIG.use_bram_block {BRAM_Controller} \
+ ] $blk_mem_gen_0
+
+  # Create instance: mult_gen_1, and set properties
+  set mult_gen_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mult_gen:12.0 mult_gen_1 ]
+  set_property -dict [ list \
+   CONFIG.MultType {Parallel_Multiplier} \
+   CONFIG.Multiplier_Construction {Use_Mults} \
+   CONFIG.OptGoal {Speed} \
+   CONFIG.OutputWidthHigh {35} \
+   CONFIG.PipeStages {4} \
+   CONFIG.PortAType {Unsigned} \
+   CONFIG.PortBType {Unsigned} \
+ ] $mult_gen_1
+
+  # Create interface connections
+  connect_bd_intf_net -intf_net DSP_reg_read_0_m_axis_delta [get_bd_intf_pins m_axis_delta] [get_bd_intf_pins DSP_reg_read_0/m_axis_delta]
+  connect_bd_intf_net -intf_net DSP_reg_read_0_m_axis_gain [get_bd_intf_pins m_axis_gain] [get_bd_intf_pins DSP_reg_read_0/m_axis_gain]
+  connect_bd_intf_net -intf_net axi_bram_ctrl_0_BRAM_PORTA [get_bd_intf_pins BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
+
+  # Create port connections
+  connect_bd_net -net DSP_reg_read_0_const [get_bd_pins DSP_reg_read_0/const] [get_bd_pins mult_gen_1/B]
+  connect_bd_net -net DSP_reg_read_0_freq [get_bd_pins DSP_reg_read_0/freq] [get_bd_pins mult_gen_1/A]
+  connect_bd_net -net DSP_register_0_sysNReset [get_bd_pins nReset] [get_bd_pins DSP_reg_read_0/nReset]
+  connect_bd_net -net blk_mem_gen_0_doutb [get_bd_pins DSP_reg_read_0/m_bram_rddata] [get_bd_pins blk_mem_gen_0/doutb]
+  connect_bd_net -net mult_gen_1_P [get_bd_pins DSP_reg_read_0/freqXconst] [get_bd_pins mult_gen_1/P]
+  connect_bd_net -net phase_gen_256_0_bram_en [get_bd_pins DSP_reg_read_0/m_bram_en] [get_bd_pins blk_mem_gen_0/enb]
+  connect_bd_net -net phase_gen_256_0_bram_rst [get_bd_pins DSP_reg_read_0/m_bram_rst] [get_bd_pins blk_mem_gen_0/rstb]
+  connect_bd_net -net phase_gen_256_0_m_bram_we [get_bd_pins DSP_reg_read_0/m_bram_we] [get_bd_pins blk_mem_gen_0/web]
+  connect_bd_net -net phase_gen_256_0_reg_index [get_bd_pins index] [get_bd_pins DSP_reg_read_0/index]
+  connect_bd_net -net phase_gen_256_0_reg_index_valid [get_bd_pins index_valid] [get_bd_pins DSP_reg_read_0/index_valid]
+  connect_bd_net -net phase_gen_256_0_s_bram_addr [get_bd_pins DSP_reg_read_0/m_bram_addr] [get_bd_pins blk_mem_gen_0/addrb]
+  connect_bd_net -net phase_gen_256_0_s_bram_clk [get_bd_pins DSP_reg_read_0/m_bram_clk] [get_bd_pins blk_mem_gen_0/clkb]
+  connect_bd_net -net sysClk_0_1 [get_bd_pins sysClk] [get_bd_pins DSP_reg_read_0/aclk] [get_bd_pins mult_gen_1/CLK]
+
+  # Restore current instance
+  current_bd_instance $oldCurInst
+}
+
+# Hierarchical cell: Oscillator
+proc create_hier_cell_Oscillator { parentCell nameHier } {
+
+  variable script_folder
+
+  if { $parentCell eq "" || $nameHier eq "" } {
+     catch {common::send_msg_id "BD_TCL-102" "ERROR" "create_hier_cell_Oscillator() - Empty argument(s)!"}
+     return
+  }
+
+  # Get object for parentCell
+  set parentObj [get_bd_cells $parentCell]
+  if { $parentObj == "" } {
+     catch {common::send_msg_id "BD_TCL-100" "ERROR" "Unable to find parent cell <$parentCell>!"}
+     return
+  }
+
+  # Make sure parentObj is hier blk
+  set parentType [get_property TYPE $parentObj]
+  if { $parentType ne "hier" } {
+     catch {common::send_msg_id "BD_TCL-101" "ERROR" "Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."}
+     return
+  }
+
+  # Save current instance; Restore later
+  set oldCurInst [current_bd_instance .]
+
+  # Set parent object as current
+  current_bd_instance $parentObj
+
+  # Create cell and set as current instance
+  set hier_obj [create_bd_cell -type hier $nameHier]
+  current_bd_instance $hier_obj
+
+  # Create interface pins
+  create_bd_intf_pin -mode Master -vlnv xilinx.com:interface:axis_rtl:1.0 m_axis_phase
+  create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 s_axis_delta
 
   # Create pins
   create_bd_pin -dir I audioClk
-  create_bd_pin -dir I -from 15 -to 0 delta
+  create_bd_pin -dir I nReset
+  create_bd_pin -dir O -from 10 -to 0 reg_index
+  create_bd_pin -dir O reg_index_valid
+  create_bd_pin -dir O sync
+  create_bd_pin -dir I sysClk
+
+  # Create instance: blk_mem_gen_1, and set properties
+  set blk_mem_gen_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_1 ]
+  set_property -dict [ list \
+   CONFIG.Assume_Synchronous_Clk {true} \
+   CONFIG.Byte_Size {9} \
+   CONFIG.EN_SAFETY_CKT {true} \
+   CONFIG.Enable_32bit_Address {false} \
+   CONFIG.Enable_A {Always_Enabled} \
+   CONFIG.Enable_B {Always_Enabled} \
+   CONFIG.Memory_Type {Simple_Dual_Port_RAM} \
+   CONFIG.Operating_Mode_A {NO_CHANGE} \
+   CONFIG.Operating_Mode_B {READ_FIRST} \
+   CONFIG.Port_B_Clock {100} \
+   CONFIG.Port_B_Enable_Rate {100} \
+   CONFIG.Port_B_Write_Rate {0} \
+   CONFIG.Read_Width_A {24} \
+   CONFIG.Read_Width_B {24} \
+   CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
+   CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
+   CONFIG.Reset_Priority_B {SR} \
+   CONFIG.Use_Byte_Write_Enable {false} \
+   CONFIG.Use_RSTA_Pin {false} \
+   CONFIG.Use_RSTB_Pin {true} \
+   CONFIG.Write_Depth_A {2048} \
+   CONFIG.Write_Width_A {24} \
+   CONFIG.Write_Width_B {24} \
+   CONFIG.use_bram_block {Stand_Alone} \
+ ] $blk_mem_gen_1
+
+  # Create instance: phase_gen_256_0, and set properties
+  set block_name phase_gen_256
+  set block_cell_name phase_gen_256_0
+  if { [catch {set phase_gen_256_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $phase_gen_256_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create interface connections
+  connect_bd_intf_net -intf_net DSP_reg_read_0_m_axis_delta [get_bd_intf_pins s_axis_delta] [get_bd_intf_pins phase_gen_256_0/s_axis_delta]
+  connect_bd_intf_net -intf_net phase_gen_256_0_m_axis_phase [get_bd_intf_pins m_axis_phase] [get_bd_intf_pins phase_gen_256_0/m_axis_phase]
+
+  # Create port connections
+  connect_bd_net -net DSP_register_0_sysNReset [get_bd_pins nReset] [get_bd_pins phase_gen_256_0/nReset]
+  connect_bd_net -net audio_clk_gen_0_audioClk [get_bd_pins audioClk] [get_bd_pins phase_gen_256_0/audioClk]
+  connect_bd_net -net blk_mem_gen_1_douta [get_bd_pins blk_mem_gen_1/doutb] [get_bd_pins phase_gen_256_0/m_bram_int_rddata]
+  connect_bd_net -net phase_gen_256_0_m_bram_int_clk [get_bd_pins blk_mem_gen_1/clka] [get_bd_pins blk_mem_gen_1/clkb] [get_bd_pins phase_gen_256_0/m_bram_int_clk]
+  connect_bd_net -net phase_gen_256_0_m_bram_int_rdaddr [get_bd_pins blk_mem_gen_1/addrb] [get_bd_pins phase_gen_256_0/m_bram_int_rdaddr]
+  connect_bd_net -net phase_gen_256_0_m_bram_int_rst [get_bd_pins blk_mem_gen_1/rstb] [get_bd_pins phase_gen_256_0/m_bram_int_rst]
+  connect_bd_net -net phase_gen_256_0_m_bram_int_we [get_bd_pins blk_mem_gen_1/wea] [get_bd_pins phase_gen_256_0/m_bram_int_we]
+  connect_bd_net -net phase_gen_256_0_m_bram_int_wraddr [get_bd_pins blk_mem_gen_1/addra] [get_bd_pins phase_gen_256_0/m_bram_int_wraddr]
+  connect_bd_net -net phase_gen_256_0_m_bram_int_wrdata [get_bd_pins blk_mem_gen_1/dina] [get_bd_pins phase_gen_256_0/m_bram_int_wrdata]
+  connect_bd_net -net phase_gen_256_0_reg_index [get_bd_pins reg_index] [get_bd_pins phase_gen_256_0/reg_index]
+  connect_bd_net -net phase_gen_256_0_reg_index_valid [get_bd_pins reg_index_valid] [get_bd_pins phase_gen_256_0/reg_index_valid]
+  connect_bd_net -net phase_gen_256_0_sync [get_bd_pins sync] [get_bd_pins phase_gen_256_0/sync]
+  connect_bd_net -net sysClk_0_1 [get_bd_pins sysClk] [get_bd_pins phase_gen_256_0/sysClk]
+
+  # Restore current instance
+  current_bd_instance $oldCurInst
+}
+
+# Hierarchical cell: GainAndSum
+proc create_hier_cell_GainAndSum { parentCell nameHier } {
+
+  variable script_folder
+
+  if { $parentCell eq "" || $nameHier eq "" } {
+     catch {common::send_msg_id "BD_TCL-102" "ERROR" "create_hier_cell_GainAndSum() - Empty argument(s)!"}
+     return
+  }
+
+  # Get object for parentCell
+  set parentObj [get_bd_cells $parentCell]
+  if { $parentObj == "" } {
+     catch {common::send_msg_id "BD_TCL-100" "ERROR" "Unable to find parent cell <$parentCell>!"}
+     return
+  }
+
+  # Make sure parentObj is hier blk
+  set parentType [get_property TYPE $parentObj]
+  if { $parentType ne "hier" } {
+     catch {common::send_msg_id "BD_TCL-101" "ERROR" "Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."}
+     return
+  }
+
+  # Save current instance; Restore later
+  set oldCurInst [current_bd_instance .]
+
+  # Set parent object as current
+  current_bd_instance $parentObj
+
+  # Create cell and set as current instance
+  set hier_obj [create_bd_cell -type hier $nameHier]
+  current_bd_instance $hier_obj
+
+  # Create interface pins
+  create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 s_axis_gain
+  create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 s_axis_sin
+
+  # Create pins
+  create_bd_pin -dir I clear
   create_bd_pin -dir I nReset
   create_bd_pin -dir O -from 15 -to 0 outData
+  create_bd_pin -dir I -from 7 -to 0 outGain
   create_bd_pin -dir I -type clk sysClk
+
+  # Create instance: mult_gen_0, and set properties
+  set mult_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mult_gen:12.0 mult_gen_0 ]
+  set_property -dict [ list \
+   CONFIG.Multiplier_Construction {Use_Mults} \
+   CONFIG.OutputWidthHigh {29} \
+   CONFIG.PipeStages {3} \
+   CONFIG.PortAWidth {16} \
+   CONFIG.PortBType {Unsigned} \
+   CONFIG.PortBWidth {14} \
+ ] $mult_gen_0
+
+  # Create instance: mult_sum_0, and set properties
+  set block_name mult_sum
+  set block_cell_name mult_sum_0
+  if { [catch {set mult_sum_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $mult_sum_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+    set_property -dict [ list \
+   CONFIG.CLEAR_DELAY {28} \
+ ] $mult_sum_0
+
+  # Create interface connections
+  connect_bd_intf_net -intf_net cordic_0_M_AXIS_DOUT [get_bd_intf_pins s_axis_sin] [get_bd_intf_pins mult_sum_0/s_axis_sin]
+  connect_bd_intf_net -intf_net delay_0_m_axis_out [get_bd_intf_pins s_axis_gain] [get_bd_intf_pins mult_sum_0/s_axis_gain]
+
+  # Create port connections
+  connect_bd_net -net DSP_register_0_sysNReset [get_bd_pins nReset] [get_bd_pins mult_sum_0/nReset]
+  connect_bd_net -net mult_gen_0_P [get_bd_pins mult_gen_0/P] [get_bd_pins mult_sum_0/mult_P]
+  connect_bd_net -net mult_sum_0_mult_A [get_bd_pins mult_gen_0/A] [get_bd_pins mult_sum_0/mult_A]
+  connect_bd_net -net mult_sum_0_mult_B [get_bd_pins mult_gen_0/B] [get_bd_pins mult_sum_0/mult_B]
+  connect_bd_net -net mult_sum_0_out [get_bd_pins outData] [get_bd_pins mult_sum_0/outData]
+  connect_bd_net -net outGain_0_1 [get_bd_pins outGain] [get_bd_pins mult_sum_0/outGain]
+  connect_bd_net -net phase_gen_256_0_sync [get_bd_pins clear] [get_bd_pins mult_sum_0/clear]
+  connect_bd_net -net sysClk_0_1 [get_bd_pins sysClk] [get_bd_pins mult_gen_0/CLK] [get_bd_pins mult_sum_0/sysClk]
+
+  # Restore current instance
+  current_bd_instance $oldCurInst
+}
+
+# Hierarchical cell: Synthesizer
+proc create_hier_cell_Synthesizer { parentCell nameHier } {
+
+  variable script_folder
+
+  if { $parentCell eq "" || $nameHier eq "" } {
+     catch {common::send_msg_id "BD_TCL-102" "ERROR" "create_hier_cell_Synthesizer() - Empty argument(s)!"}
+     return
+  }
+
+  # Get object for parentCell
+  set parentObj [get_bd_cells $parentCell]
+  if { $parentObj == "" } {
+     catch {common::send_msg_id "BD_TCL-100" "ERROR" "Unable to find parent cell <$parentCell>!"}
+     return
+  }
+
+  # Make sure parentObj is hier blk
+  set parentType [get_property TYPE $parentObj]
+  if { $parentType ne "hier" } {
+     catch {common::send_msg_id "BD_TCL-101" "ERROR" "Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."}
+     return
+  }
+
+  # Save current instance; Restore later
+  set oldCurInst [current_bd_instance .]
+
+  # Set parent object as current
+  current_bd_instance $parentObj
+
+  # Create cell and set as current instance
+  set hier_obj [create_bd_cell -type hier $nameHier]
+  current_bd_instance $hier_obj
+
+  # Create interface pins
+  create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S_AXI
+
+  # Create pins
+  create_bd_pin -dir I audioClk
+  create_bd_pin -dir I nReset
+  create_bd_pin -dir O -from 15 -to 0 outData
+  create_bd_pin -dir I -from 7 -to 0 outGain
+  create_bd_pin -dir I -type clk s_axi_aclk
+  create_bd_pin -dir I -type rst s_axi_aresetn
+  create_bd_pin -dir I -type clk sysClk
+
+  # Create instance: GainAndSum
+  create_hier_cell_GainAndSum $hier_obj GainAndSum
+
+  # Create instance: Oscillator
+  create_hier_cell_Oscillator $hier_obj Oscillator
+
+  # Create instance: SynthesizerReg
+  create_hier_cell_SynthesizerReg $hier_obj SynthesizerReg
+
+  # Create instance: axi_bram_ctrl_0, and set properties
+  set axi_bram_ctrl_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.0 axi_bram_ctrl_0 ]
+  set_property -dict [ list \
+   CONFIG.DATA_WIDTH {32} \
+   CONFIG.ECC_TYPE {Hamming} \
+   CONFIG.PROTOCOL {AXI4} \
+   CONFIG.SINGLE_PORT_BRAM {1} \
+ ] $axi_bram_ctrl_0
 
   # Create instance: cordic_0, and set properties
   set cordic_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:cordic:6.0 cordic_0 ]
@@ -182,38 +516,41 @@ proc create_hier_cell_DSP_Sin { parentCell nameHier } {
    CONFIG.Pipelining_Mode {Optimal} \
  ] $cordic_0
 
-  # Create instance: output_buffer_0, and set properties
-  set block_name output_buffer
-  set block_cell_name output_buffer_0
-  if { [catch {set output_buffer_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+  # Create instance: delay_0, and set properties
+  set block_name delay
+  set block_cell_name delay_0
+  if { [catch {set delay_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
-   } elseif { $output_buffer_0 eq "" } {
+   } elseif { $delay_0 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
-  
-  # Create instance: phase_generator_0, and set properties
-  set block_name phase_generator
-  set block_cell_name phase_generator_0
-  if { [catch {set phase_generator_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
-     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   } elseif { $phase_generator_0 eq "" } {
-     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   }
-  
+    set_property -dict [ list \
+   CONFIG.DELAY {24} \
+   CONFIG.WIDTH {14} \
+ ] $delay_0
+
   # Create interface connections
-  connect_bd_intf_net -intf_net cordic_0_M_AXIS_DOUT [get_bd_intf_pins cordic_0/M_AXIS_DOUT] [get_bd_intf_pins output_buffer_0/s_axis_in]
-  connect_bd_intf_net -intf_net phase_generator_0_m_axis_phase [get_bd_intf_pins cordic_0/S_AXIS_PHASE] [get_bd_intf_pins phase_generator_0/m_axis_phase]
+  connect_bd_intf_net -intf_net Conn2 [get_bd_intf_pins S_AXI] [get_bd_intf_pins axi_bram_ctrl_0/S_AXI]
+  connect_bd_intf_net -intf_net DSP_reg_read_0_m_axis_delta [get_bd_intf_pins Oscillator/s_axis_delta] [get_bd_intf_pins SynthesizerReg/m_axis_delta]
+  connect_bd_intf_net -intf_net DSP_reg_read_0_m_axis_gain [get_bd_intf_pins SynthesizerReg/m_axis_gain] [get_bd_intf_pins delay_0/s_axis_in]
+  connect_bd_intf_net -intf_net axi_bram_ctrl_0_BRAM_PORTA [get_bd_intf_pins SynthesizerReg/BRAM_PORTA] [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA]
+  connect_bd_intf_net -intf_net cordic_0_M_AXIS_DOUT [get_bd_intf_pins GainAndSum/s_axis_sin] [get_bd_intf_pins cordic_0/M_AXIS_DOUT]
+  connect_bd_intf_net -intf_net delay_0_m_axis_out [get_bd_intf_pins GainAndSum/s_axis_gain] [get_bd_intf_pins delay_0/m_axis_out]
+  connect_bd_intf_net -intf_net phase_gen_256_0_m_axis_phase [get_bd_intf_pins Oscillator/m_axis_phase] [get_bd_intf_pins cordic_0/S_AXIS_PHASE]
 
   # Create port connections
-  connect_bd_net -net DSP_register_0_debugData [get_bd_pins delta] [get_bd_pins phase_generator_0/delta]
-  connect_bd_net -net DSP_register_0_sysNReset [get_bd_pins nReset] [get_bd_pins output_buffer_0/nReset] [get_bd_pins phase_generator_0/nReset]
-  connect_bd_net -net audio_clk_gen_0_audioClk [get_bd_pins audioClk] [get_bd_pins phase_generator_0/audioClk]
-  connect_bd_net -net output_buffer_0_outData [get_bd_pins outData] [get_bd_pins output_buffer_0/outData]
-  connect_bd_net -net sysClk_0_1 [get_bd_pins sysClk] [get_bd_pins cordic_0/aclk] [get_bd_pins output_buffer_0/sysClk] [get_bd_pins phase_generator_0/sysClk]
+  connect_bd_net -net DSP_register_0_sysNReset [get_bd_pins nReset] [get_bd_pins GainAndSum/nReset] [get_bd_pins Oscillator/nReset] [get_bd_pins SynthesizerReg/nReset] [get_bd_pins delay_0/nReset]
+  connect_bd_net -net audio_clk_gen_0_audioClk [get_bd_pins audioClk] [get_bd_pins Oscillator/audioClk]
+  connect_bd_net -net mult_sum_0_out [get_bd_pins outData] [get_bd_pins GainAndSum/outData]
+  connect_bd_net -net outGain_0_1 [get_bd_pins outGain] [get_bd_pins GainAndSum/outGain]
+  connect_bd_net -net phase_gen_256_0_reg_index [get_bd_pins Oscillator/reg_index] [get_bd_pins SynthesizerReg/index]
+  connect_bd_net -net phase_gen_256_0_reg_index_valid [get_bd_pins Oscillator/reg_index_valid] [get_bd_pins SynthesizerReg/index_valid]
+  connect_bd_net -net phase_gen_256_0_sync [get_bd_pins GainAndSum/clear] [get_bd_pins Oscillator/sync]
+  connect_bd_net -net s_axi_aclk_0_1 [get_bd_pins s_axi_aclk] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk]
+  connect_bd_net -net s_axi_aresetn_0_1 [get_bd_pins s_axi_aresetn] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn]
+  connect_bd_net -net sysClk_0_1 [get_bd_pins sysClk] [get_bd_pins GainAndSum/sysClk] [get_bd_pins Oscillator/sysClk] [get_bd_pins SynthesizerReg/sysClk] [get_bd_pins cordic_0/aclk] [get_bd_pins delay_0/aclk]
 
   # Restore current instance
   current_bd_instance $oldCurInst
@@ -258,7 +595,10 @@ proc create_hier_cell_DSP { parentCell nameHier } {
   create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S01_AXI
 
   # Create pins
-  create_bd_pin -dir O -from 15 -to 0 outData
+  create_bd_pin -dir I audioClk256
+  create_bd_pin -dir I nResetExt
+  create_bd_pin -dir O -from 15 -to 0 outData1
+  create_bd_pin -dir O -from 15 -to 0 outData2
   create_bd_pin -dir O outDataValid
   create_bd_pin -dir I -type clk s00_axi_aclk
   create_bd_pin -dir I -type rst s00_axi_aresetn
@@ -266,11 +606,22 @@ proc create_hier_cell_DSP { parentCell nameHier } {
   create_bd_pin -dir I -type rst s01_axi_aresetn
   create_bd_pin -dir I sysClk
 
-  # Create instance: DSP_Sin
-  create_hier_cell_DSP_Sin $hier_obj DSP_Sin
-
   # Create instance: DSP_register_0, and set properties
   set DSP_register_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:DSP_register:1.0 DSP_register_0 ]
+
+  # Create instance: DSP_reset_0, and set properties
+  set block_name DSP_reset
+  set block_cell_name DSP_reset_0
+  if { [catch {set DSP_reset_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $DSP_reset_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: Synthesizer
+  create_hier_cell_Synthesizer $hier_obj Synthesizer
 
   # Create instance: audio_clk_gen_0, and set properties
   set block_name audio_clk_gen
@@ -283,55 +634,24 @@ proc create_hier_cell_DSP { parentCell nameHier } {
      return 1
    }
   
-  # Create instance: axi_bram_ctrl_0, and set properties
-  set axi_bram_ctrl_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.0 axi_bram_ctrl_0 ]
-  set_property -dict [ list \
-   CONFIG.DATA_WIDTH {32} \
-   CONFIG.ECC_TYPE {Hamming} \
-   CONFIG.PROTOCOL {AXI4} \
-   CONFIG.SINGLE_PORT_BRAM {1} \
- ] $axi_bram_ctrl_0
-
-  # Create instance: blk_mem_gen_0, and set properties
-  set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_0 ]
-  set_property -dict [ list \
-   CONFIG.Assume_Synchronous_Clk {false} \
-   CONFIG.Byte_Size {8} \
-   CONFIG.EN_SAFETY_CKT {true} \
-   CONFIG.Enable_32bit_Address {true} \
-   CONFIG.Enable_B {Use_ENB_Pin} \
-   CONFIG.Memory_Type {True_Dual_Port_RAM} \
-   CONFIG.Operating_Mode_A {WRITE_FIRST} \
-   CONFIG.Operating_Mode_B {WRITE_FIRST} \
-   CONFIG.Port_A_Write_Rate {50} \
-   CONFIG.Port_B_Clock {100} \
-   CONFIG.Port_B_Enable_Rate {100} \
-   CONFIG.Port_B_Write_Rate {50} \
-   CONFIG.Read_Width_B {32} \
-   CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
-   CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
-   CONFIG.Use_Byte_Write_Enable {true} \
-   CONFIG.Use_RSTA_Pin {true} \
-   CONFIG.Use_RSTB_Pin {true} \
-   CONFIG.use_bram_block {BRAM_Controller} \
- ] $blk_mem_gen_0
-
   # Create interface connections
   connect_bd_intf_net -intf_net Conn1 [get_bd_intf_pins S00_AXI] [get_bd_intf_pins DSP_register_0/S00_AXI]
-  connect_bd_intf_net -intf_net Conn2 [get_bd_intf_pins S01_AXI] [get_bd_intf_pins axi_bram_ctrl_0/S_AXI]
-  connect_bd_intf_net -intf_net axi_bram_ctrl_0_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
+  connect_bd_intf_net -intf_net Conn2 [get_bd_intf_pins S01_AXI] [get_bd_intf_pins Synthesizer/S_AXI]
 
   # Create port connections
-  connect_bd_net -net DSP_register_0_debugData [get_bd_pins DSP_Sin/delta] [get_bd_pins DSP_register_0/debugData]
   connect_bd_net -net DSP_register_0_outDataValid [get_bd_pins outDataValid] [get_bd_pins DSP_register_0/outDataValid]
-  connect_bd_net -net DSP_register_0_sysNReset [get_bd_pins DSP_Sin/nReset] [get_bd_pins DSP_register_0/sysNReset] [get_bd_pins audio_clk_gen_0/nReset]
-  connect_bd_net -net audio_clk_gen_0_audioClk [get_bd_pins DSP_Sin/audioClk] [get_bd_pins audio_clk_gen_0/audioClk]
-  connect_bd_net -net output_buffer_0_outData [get_bd_pins outData] [get_bd_pins DSP_Sin/outData]
+  connect_bd_net -net DSP_register_0_synth0Gain [get_bd_pins DSP_register_0/synth0Gain] [get_bd_pins Synthesizer/outGain]
+  connect_bd_net -net DSP_register_0_sysNReset [get_bd_pins DSP_register_0/sysNReset] [get_bd_pins DSP_reset_0/nResetInt]
+  connect_bd_net -net DSP_reset_0_nReset [get_bd_pins DSP_reset_0/nReset] [get_bd_pins Synthesizer/nReset] [get_bd_pins audio_clk_gen_0/nReset]
+  connect_bd_net -net audioClk256_0_1 [get_bd_pins audioClk256] [get_bd_pins audio_clk_gen_0/audioClk256]
+  connect_bd_net -net audio_clk_gen_0_audioClk [get_bd_pins Synthesizer/audioClk] [get_bd_pins audio_clk_gen_0/audioClk]
+  connect_bd_net -net mult_sum_0_out [get_bd_pins outData1] [get_bd_pins outData2] [get_bd_pins Synthesizer/outData]
+  connect_bd_net -net nResetExt_0_1 [get_bd_pins nResetExt] [get_bd_pins DSP_reset_0/nResetExt]
   connect_bd_net -net s00_axi_aclk_0_1 [get_bd_pins s00_axi_aclk] [get_bd_pins DSP_register_0/s00_axi_aclk]
   connect_bd_net -net s00_axi_aresetn_0_1 [get_bd_pins s00_axi_aresetn] [get_bd_pins DSP_register_0/s00_axi_aresetn]
-  connect_bd_net -net s_axi_aclk_0_1 [get_bd_pins s01_axi_aclk] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk]
-  connect_bd_net -net s_axi_aresetn_0_1 [get_bd_pins s01_axi_aresetn] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn]
-  connect_bd_net -net sysClk_0_1 [get_bd_pins sysClk] [get_bd_pins DSP_Sin/sysClk] [get_bd_pins audio_clk_gen_0/sysClk]
+  connect_bd_net -net s_axi_aclk_0_1 [get_bd_pins s01_axi_aclk] [get_bd_pins Synthesizer/s_axi_aclk]
+  connect_bd_net -net s_axi_aresetn_0_1 [get_bd_pins s01_axi_aresetn] [get_bd_pins Synthesizer/s_axi_aresetn]
+  connect_bd_net -net sysClk_0_1 [get_bd_pins sysClk] [get_bd_pins Synthesizer/sysClk]
 
   # Restore current instance
   current_bd_instance $oldCurInst
@@ -401,11 +721,19 @@ proc create_root_design { parentCell } {
   set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
   set_property -dict [ list \
    CONFIG.CLKIN1_JITTER_PS {100.0} \
-   CONFIG.CLKOUT1_DRIVES {BUFG} \
+   CONFIG.CLKOUT1_DRIVES {BUFGCE} \
    CONFIG.CLKOUT1_JITTER {360.948} \
    CONFIG.CLKOUT1_PHASE_ERROR {301.601} \
    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {12.288} \
+   CONFIG.CLKOUT2_DRIVES {BUFGCE} \
+   CONFIG.CLKOUT3_DRIVES {BUFGCE} \
+   CONFIG.CLKOUT4_DRIVES {BUFGCE} \
+   CONFIG.CLKOUT5_DRIVES {BUFGCE} \
+   CONFIG.CLKOUT6_DRIVES {BUFGCE} \
+   CONFIG.CLKOUT7_DRIVES {BUFGCE} \
    CONFIG.FEEDBACK_SOURCE {FDBK_AUTO} \
+   CONFIG.JITTER_SEL {No_Jitter} \
+   CONFIG.MMCM_BANDWIDTH {OPTIMIZED} \
    CONFIG.MMCM_CLKFBOUT_MULT_F {48.000} \
    CONFIG.MMCM_CLKIN1_PERIOD {10.000} \
    CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
@@ -415,8 +743,10 @@ proc create_root_design { parentCell } {
    CONFIG.PRIM_SOURCE {No_buffer} \
    CONFIG.RESET_PORT {resetn} \
    CONFIG.RESET_TYPE {ACTIVE_LOW} \
-   CONFIG.USE_LOCKED {false} \
+   CONFIG.USE_INCLK_STOPPED {false} \
+   CONFIG.USE_LOCKED {true} \
    CONFIG.USE_RESET {true} \
+   CONFIG.USE_SAFE_CLOCK_STARTUP {true} \
  ] $clk_wiz_0
 
   # Create instance: myip_0, and set properties
@@ -430,8 +760,8 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_ACT_DCI_PERIPHERAL_FREQMHZ {10.158730} \
    CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {10.000000} \
    CONFIG.PCW_ACT_ENET1_PERIPHERAL_FREQMHZ {10.000000} \
-   CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {100.000000} \
-   CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {20.000000} \
+   CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {100.000000} \
    CONFIG.PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ {10.000000} \
    CONFIG.PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ {10.000000} \
    CONFIG.PCW_ACT_PCAP_PERIPHERAL_FREQMHZ {200.000000} \
@@ -451,8 +781,8 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_ARMPLL_CTRL_FBDIV {40} \
    CONFIG.PCW_CAN_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_CAN_PERIPHERAL_DIVISOR1 {1} \
-   CONFIG.PCW_CLK0_FREQ {100000000} \
-   CONFIG.PCW_CLK1_FREQ {10000000} \
+   CONFIG.PCW_CLK0_FREQ {20000000} \
+   CONFIG.PCW_CLK1_FREQ {100000000} \
    CONFIG.PCW_CLK2_FREQ {10000000} \
    CONFIG.PCW_CLK3_FREQ {10000000} \
    CONFIG.PCW_CPU_CPU_PLL_FREQMHZ {1333.333} \
@@ -470,6 +800,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_ENET1_PERIPHERAL_DIVISOR1 {1} \
    CONFIG.PCW_ENET1_RESET_ENABLE {0} \
    CONFIG.PCW_ENET_RESET_ENABLE {0} \
+   CONFIG.PCW_EN_CLK1_PORT {1} \
    CONFIG.PCW_EN_EMIO_CD_SDIO0 {0} \
    CONFIG.PCW_EN_EMIO_I2C0 {0} \
    CONFIG.PCW_EN_EMIO_MODEM_UART0 {0} \
@@ -483,17 +814,19 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_EN_UART0 {0} \
    CONFIG.PCW_EN_UART1 {1} \
    CONFIG.PCW_EN_USB0 {0} \
-   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {4} \
-   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {4} \
-   CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR0 {1} \
-   CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR1 {1} \
+   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {10} \
+   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {8} \
+   CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR0 {4} \
+   CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR1 {4} \
    CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR1 {1} \
    CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR1 {1} \
-   CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {100} \
+   CONFIG.PCW_FCLK_CLK1_BUF {TRUE} \
+   CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {20} \
+   CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {100} \
    CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
-   CONFIG.PCW_FPGA_FCLK1_ENABLE {0} \
+   CONFIG.PCW_FPGA_FCLK1_ENABLE {1} \
    CONFIG.PCW_FPGA_FCLK2_ENABLE {0} \
    CONFIG.PCW_FPGA_FCLK3_ENABLE {0} \
    CONFIG.PCW_GPIO_MIO_GPIO_ENABLE {1} \
@@ -827,19 +1160,22 @@ proc create_root_design { parentCell } {
   connect_bd_net -net DAC_IF_0_DAC_LRCK [get_bd_ports DAC_LRCK_0] [get_bd_pins DAC_IF_0/DAC_LRCK]
   connect_bd_net -net DAC_IF_0_DAC_MCLK [get_bd_ports DAC_MCLK_0] [get_bd_pins DAC_IF_0/DAC_MCLK]
   connect_bd_net -net DAC_IF_0_DAC_SDT [get_bd_ports DAC_SDT_0] [get_bd_pins DAC_IF_0/DAC_SDT]
-  connect_bd_net -net DSP_outData [get_bd_pins DAC_IF_0/dataL] [get_bd_pins DAC_IF_0/dataR] [get_bd_pins DSP/outData]
+  connect_bd_net -net DSP_out1 [get_bd_pins DAC_IF_0/dataL] [get_bd_pins DSP/outData1]
+  connect_bd_net -net DSP_out2 [get_bd_pins DAC_IF_0/dataR] [get_bd_pins DSP/outData2]
   connect_bd_net -net DSP_outDataValid [get_bd_pins DAC_IF_0/nReset] [get_bd_pins DSP/outDataValid]
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins DAC_IF_0/clk_256fs] [get_bd_pins DSP/s00_axi_aclk] [get_bd_pins DSP/s01_axi_aclk] [get_bd_pins DSP/sysClk] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins myip_0/s00_axi_aclk] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins DAC_IF_0/clk_256fs] [get_bd_pins DSP/audioClk256] [get_bd_pins clk_wiz_0/clk_out1]
+  connect_bd_net -net clk_wiz_0_locked [get_bd_pins DSP/nResetExt] [get_bd_pins clk_wiz_0/locked]
   connect_bd_net -net myip_0_RGB_OUT [get_bd_ports RGB_OUT_0] [get_bd_pins myip_0/RGB_OUT]
   connect_bd_net -net myip_0_USB_nRESET [get_bd_ports USB_nRESET_0] [get_bd_pins myip_0/USB_nRESET]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins processing_system7_0/FCLK_CLK0]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins DAC_IF_0/sysClk] [get_bd_pins DSP/s00_axi_aclk] [get_bd_pins DSP/s01_axi_aclk] [get_bd_pins DSP/sysClk] [get_bd_pins myip_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins processing_system7_0/FCLK_CLK1]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins clk_wiz_0/resetn] [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_50M/ext_reset_in]
   connect_bd_net -net rst_ps7_0_50M_interconnect_aresetn [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins rst_ps7_0_50M/interconnect_aresetn]
   connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins DSP/s00_axi_aresetn] [get_bd_pins DSP/s01_axi_aresetn] [get_bd_pins myip_0/s00_axi_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
 
   # Create address segments
   create_bd_addr_seg -range 0x00010000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/DSP_register_0/S00_AXI/S00_AXI_reg] SEG_DSP_register_0_S00_AXI_reg
-  create_bd_addr_seg -range 0x00001000 -offset 0x40000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
+  create_bd_addr_seg -range 0x00002000 -offset 0x40000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/Synthesizer/axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
   create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs myip_0/S00_AXI/S00_AXI_reg] SEG_myip_0_S00_AXI_reg
 
 

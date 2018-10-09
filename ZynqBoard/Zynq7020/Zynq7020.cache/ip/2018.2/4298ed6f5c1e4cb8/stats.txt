@@ -1,0 +1,4 @@
+NumberHits:0
+Timestamp: Mon Oct 08 13:49:57 UTC 2018
+VLNV: xilinx.com:user:DSP_register:1.0
+SynthRuntime: 48

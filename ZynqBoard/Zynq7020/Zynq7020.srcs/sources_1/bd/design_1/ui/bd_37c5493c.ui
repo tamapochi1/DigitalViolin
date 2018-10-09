@@ -4,20 +4,20 @@
 #  -string -flagsOSRD
 preplace port audioClk -pg 1 -y 120 -defaultsOSRD
 preplace port sysClk -pg 1 -y 40 -defaultsOSRD
-preplace port nReset -pg 1 -y 20 -defaultsOSRD
+preplace port nReset -pg 1 -y 10 -defaultsOSRD
 preplace portBus outData -pg 1 -y 140 -defaultsOSRD
 preplace portBus delta -pg 1 -y 140 -defaultsOSRD
 preplace inst output_buffer_0 -pg 1 -lvl 3 -y 140 -defaultsOSRD
 preplace inst cordic_0 -pg 1 -lvl 2 -y 120 -defaultsOSRD
 preplace inst phase_generator_0 -pg 1 -lvl 1 -y 110 -defaultsOSRD
-preplace netloc DSP_register_0_sysNReset 1 0 3 20 10 NJ 10 620
+preplace netloc DSP_register_0_sysNReset 1 0 3 0 10 NJ 10 620
 preplace netloc phase_generator_0_m_axis_phase 1 1 1 N
 preplace netloc output_buffer_0_outData 1 3 1 N
-preplace netloc sysClk_0_1 1 0 3 30 20 310 190 620J
+preplace netloc sysClk_0_1 1 0 3 10 20 310 190 620J
 preplace netloc audio_clk_gen_0_audioClk 1 0 1 NJ
 preplace netloc cordic_0_M_AXIS_DOUT 1 2 1 N
 preplace netloc DSP_register_0_debugData 1 0 1 NJ
-levelinfo -pg 1 0 170 470 770 930 -top 0 -bot 220
+levelinfo -pg 1 -20 170 470 770 930 -top -10 -bot 220
 ",
 }
 0

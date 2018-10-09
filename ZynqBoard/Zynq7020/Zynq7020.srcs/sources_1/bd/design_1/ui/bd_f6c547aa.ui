@@ -1,0 +1,39 @@
+{
+   ExpandedHierarchyInLayout: "",
+   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
+#  -string -flagsOSRD
+preplace port s_axi_aclk -pg 1 -y 80 -defaultsOSRD
+preplace port audioClk -pg 1 -y 370 -defaultsOSRD
+preplace port sysClk -pg 1 -y 240 -defaultsOSRD
+preplace port nReset -pg 1 -y 260 -defaultsOSRD
+preplace port S_AXI -pg 1 -y 60 -defaultsOSRD
+preplace port s_axi_aresetn -pg 1 -y 100 -defaultsOSRD
+preplace portBus outGain -pg 1 -y 500 -defaultsOSRD
+preplace portBus outData -pg 1 -y 440 -defaultsOSRD
+preplace inst SynthesizerReg -pg 1 -lvl 1 -y 260 -defaultsOSRD
+preplace inst delay_0 -pg 1 -lvl 3 -y 390 -defaultsOSRD
+preplace inst Oscillator -pg 1 -lvl 2 -y 280 -defaultsOSRD
+preplace inst cordic_0 -pg 1 -lvl 3 -y 260 -defaultsOSRD
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 1 -y 80 -defaultsOSRD
+preplace inst GainAndSum -pg 1 -lvl 4 -y 440 -defaultsOSRD
+preplace netloc Conn2 1 0 1 NJ
+preplace netloc DSP_reg_read_0_m_axis_delta 1 1 1 N
+preplace netloc phase_gen_256_0_reg_index 1 0 3 40 390 N 390 650
+preplace netloc s_axi_aclk_0_1 1 0 1 NJ
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 0 2 30 160 360
+preplace netloc outGain_0_1 1 0 4 NJ 500 NJ 500 NJ 500 1000J
+preplace netloc DSP_reg_read_0_m_axis_gain 1 1 2 340 370 N
+preplace netloc delay_0_m_axis_out 1 3 1 N
+preplace netloc DSP_register_0_sysNReset 1 0 4 20 360 350 400 680J 470 980J
+preplace netloc s_axi_aresetn_0_1 1 0 1 NJ
+preplace netloc phase_gen_256_0_sync 1 2 2 660 480 1000
+preplace netloc phase_gen_256_0_m_axis_phase 1 2 1 N
+preplace netloc mult_sum_0_out 1 4 1 N
+preplace netloc sysClk_0_1 1 0 4 30 350 360 360 670J 490 990J
+preplace netloc audio_clk_gen_0_audioClk 1 0 2 NJ 370 330
+preplace netloc cordic_0_M_AXIS_DOUT 1 3 1 980
+preplace netloc phase_gen_256_0_reg_index_valid 1 0 3 50 380 N 380 640
+levelinfo -pg 1 0 190 500 830 1130 1280 -top 0 -bot 540
+",
+}
+0

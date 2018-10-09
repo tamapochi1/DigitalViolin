@@ -48,6 +48,7 @@
 # PART OF THIS FILE AT ALL TIMES.
 # 
 
+set_false_path -to [get_cells  -hier {*seq_reg*[0]} -filter {is_sequential}]
 
 
 

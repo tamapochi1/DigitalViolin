@@ -27,26 +27,44 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_DAC_IF
 # IP: bd/design_1/ip/design_1_xbar_0_1/design_1_xbar_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_xbar_0 || ORIG_REF_NAME==design_1_xbar_0} -quiet] -quiet
 
-# IP: bd/design_1/ip/design_1_output_buffer_0_0/design_1_output_buffer_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_output_buffer_0_0 || ORIG_REF_NAME==design_1_output_buffer_0_0} -quiet] -quiet
-
-# IP: bd/design_1/ip/design_1_cordic_0_0/design_1_cordic_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_cordic_0_0 || ORIG_REF_NAME==design_1_cordic_0_0} -quiet] -quiet
-
 # IP: bd/design_1/ip/design_1_audio_clk_gen_0_0/design_1_audio_clk_gen_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_audio_clk_gen_0_0 || ORIG_REF_NAME==design_1_audio_clk_gen_0_0} -quiet] -quiet
 
 # IP: bd/design_1/ip/design_1_DSP_register_0_0/design_1_DSP_register_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_DSP_register_0_0 || ORIG_REF_NAME==design_1_DSP_register_0_0} -quiet] -quiet
 
-# IP: bd/design_1/ip/design_1_phase_generator_0_0/design_1_phase_generator_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_phase_generator_0_0 || ORIG_REF_NAME==design_1_phase_generator_0_0} -quiet] -quiet
-
 # IP: bd/design_1/ip/design_1_blk_mem_gen_0_1/design_1_blk_mem_gen_0_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_blk_mem_gen_0_1 || ORIG_REF_NAME==design_1_blk_mem_gen_0_1} -quiet] -quiet
 
 # IP: bd/design_1/ip/design_1_axi_bram_ctrl_0_0/design_1_axi_bram_ctrl_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_axi_bram_ctrl_0_0 || ORIG_REF_NAME==design_1_axi_bram_ctrl_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_mult_sum_0_0/design_1_mult_sum_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_mult_sum_0_0 || ORIG_REF_NAME==design_1_mult_sum_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_phase_gen_256_0_0/design_1_phase_gen_256_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_phase_gen_256_0_0 || ORIG_REF_NAME==design_1_phase_gen_256_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_cordic_0_1/design_1_cordic_0_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_cordic_0_1 || ORIG_REF_NAME==design_1_cordic_0_1} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_mult_gen_0_1/design_1_mult_gen_0_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_mult_gen_0_1 || ORIG_REF_NAME==design_1_mult_gen_0_1} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_delay_0_0/design_1_delay_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_delay_0_0 || ORIG_REF_NAME==design_1_delay_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_blk_mem_gen_1_0/design_1_blk_mem_gen_1_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_blk_mem_gen_1_0 || ORIG_REF_NAME==design_1_blk_mem_gen_1_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_DSP_reset_0_0/design_1_DSP_reset_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_DSP_reset_0_0 || ORIG_REF_NAME==design_1_DSP_reset_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_DSP_reg_read_0_0/design_1_DSP_reg_read_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_DSP_reg_read_0_0 || ORIG_REF_NAME==design_1_DSP_reg_read_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_mult_gen_1_0/design_1_mult_gen_1_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_mult_gen_1_0 || ORIG_REF_NAME==design_1_mult_gen_1_0} -quiet] -quiet
 
 # IP: bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_auto_pc_1 || ORIG_REF_NAME==design_1_auto_pc_1} -quiet] -quiet

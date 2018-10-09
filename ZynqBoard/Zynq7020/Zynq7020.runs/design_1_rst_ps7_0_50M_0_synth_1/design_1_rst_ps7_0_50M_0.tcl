@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xc7z020clg484-1
@@ -31,7 +30,12 @@ set_property parent.project_path F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq702
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_repo_paths f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/myip_1.0 [current_project]
+set_property ip_repo_paths {
+  f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/DSP_register_1.0
+  f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo
+  f:/Git/DigitalViolin/ZynqBoard/ip_repo/myDSP_1.0
+  f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/myip_1.0
+} [current_project]
 set_property ip_output_repo f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_ip -quiet F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_0/design_1_rst_ps7_0_50M_0.xci

@@ -9,67 +9,106 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="65536001fs"></ZoomEndTime>
-      <Cursor1Time time="4271000fs"></Cursor1Time>
+      <ZoomStartTime time="893750fs"></ZoomStartTime>
+      <ZoomEndTime time="1285251fs"></ZoomEndTime>
+      <Cursor1Time time="1024000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="222"></NameColumnWidth>
-      <ValueColumnWidth column_width="118"></ValueColumnWidth>
+      <NameColumnWidth column_width="353"></NameColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="7" />
+   <WVObjectSize size="12" />
    <wave_markers>
    </wave_markers>
-   <wvobject fp_name="design_1_i/DSP/m_axis_phase_tvalid" type="logic">
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/mult_sum_0_out" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/DSP/m_axis_phase_tvalid</obj_property>
-      <obj_property name="ObjectShortName">m_axis_phase_tvalid</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/mult_sum_0_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_sum_0_out[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="design_1_i/DAC_IF_0_DAC_LRCK" type="logic">
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/mult_gen_0_P" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/DAC_IF_0_DAC_LRCK</obj_property>
-      <obj_property name="ObjectShortName">DAC_IF_0_DAC_LRCK</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/mult_gen_0_P[29:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_gen_0_P[29:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="design_1_i/DAC_IF_0_DAC_SDT" type="logic">
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/sync" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/DAC_IF_0_DAC_SDT</obj_property>
-      <obj_property name="ObjectShortName">DAC_IF_0_DAC_SDT</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/sync</obj_property>
+      <obj_property name="ObjectShortName">sync</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="design_1_i/DSP/m_axis_dout_tvalid" type="logic">
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/DSP_reg_read_0_m_axis_delta_TDATA" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/DSP/m_axis_dout_tvalid</obj_property>
-      <obj_property name="ObjectShortName">m_axis_dout_tvalid</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/DSP_reg_read_0_m_axis_delta_TDATA[22:22]</obj_property>
+      <obj_property name="ObjectShortName">DSP_reg_read_0_m_axis_delta_TDATA[22:22]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="design_1_i/DSP_outDataValid" type="logic">
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/DSP_reg_read_0_m_axis_delta_TDATA_1" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/DSP_outDataValid</obj_property>
-      <obj_property name="ObjectShortName">DSP_outDataValid</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/DSP_reg_read_0_m_axis_delta_TDATA_1[21:0]</obj_property>
+      <obj_property name="ObjectShortName">DSP_reg_read_0_m_axis_delta_TDATA_1[21:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="design_1_i/DSP/m_axis_phase_tdata" type="array">
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/DSP_reg_read_0_m_axis_delta_TVALID" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/DSP/m_axis_phase_tdata[14:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axis_phase_tdata[14:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/DSP_reg_read_0_m_axis_delta_TVALID</obj_property>
+      <obj_property name="ObjectShortName">DSP_reg_read_0_m_axis_delta_TVALID</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="design_1_i/DSP_outData" type="array">
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/DSP_reg_read_0_m_axis_gain_TDATA" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/DSP_outData[15:0]</obj_property>
-      <obj_property name="ObjectShortName">DSP_outData[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/DSP_reg_read_0_m_axis_gain_TDATA[13:0]</obj_property>
+      <obj_property name="ObjectShortName">DSP_reg_read_0_m_axis_gain_TDATA[13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/DSP_reg_read_0_m_axis_gain_TVALID" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/DSP_reg_read_0_m_axis_gain_TVALID</obj_property>
+      <obj_property name="ObjectShortName">DSP_reg_read_0_m_axis_gain_TVALID</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/cordic_0_M_AXIS_DOUT_TDATA" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/cordic_0_M_AXIS_DOUT_TDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cordic_0_M_AXIS_DOUT_TDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/cordic_0_M_AXIS_DOUT_TVALID" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/cordic_0_M_AXIS_DOUT_TVALID</obj_property>
+      <obj_property name="ObjectShortName">cordic_0_M_AXIS_DOUT_TVALID</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/delay_0_m_axis_out_TDATA" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/delay_0_m_axis_out_TDATA[13:0]</obj_property>
+      <obj_property name="ObjectShortName">delay_0_m_axis_out_TDATA[13:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/DSP/Synthesizer/delay_0_m_axis_out_TVALID" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/DSP/Synthesizer/delay_0_m_axis_out_TVALID</obj_property>
+      <obj_property name="ObjectShortName">delay_0_m_axis_out_TVALID</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
 </wave_config>

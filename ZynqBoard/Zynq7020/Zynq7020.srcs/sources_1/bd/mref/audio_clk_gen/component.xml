@@ -15,7 +15,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>c9361cd3</spirit:value>
+            <spirit:value>564bd05f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -28,7 +28,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>c9361cd3</spirit:value>
+            <spirit:value>564bd05f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -56,7 +56,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>sysClk</spirit:name>
+        <spirit:name>audioClk256</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -116,7 +116,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-10-03T04:19:03Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2018-10-06T07:36:09Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>

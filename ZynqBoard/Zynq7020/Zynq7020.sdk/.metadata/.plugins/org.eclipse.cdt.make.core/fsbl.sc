@@ -855,6 +855,7 @@
 <includePath path="#undef __ARM_NEON" removed="true"/>
 <includePath path="#undef __ARM_NEON_FP" removed="true"/>
 <includePath path="f:\xilinx\sdk\2018.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/7.2.1/include"/>
+<includePath path="#undef __ARM_FEATURE_FP16_SCALAR_ARITHMETIC" removed="true"/>
 <includePath path="#undef __ARM_NEON__" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_DSP" removed="true"/>
 <includePath path="f:\xilinx\sdk\2018.2\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/7.2.1/include-fixed"/>
@@ -867,6 +868,7 @@
 <includePath path="#undef __ARM_ARCH_EXT_IDIV__" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_CRYPTO" removed="true"/>
 <includePath path="#undef __ARM_FP16_FORMAT_ALTERNATIVE" removed="true"/>
+<includePath path="#undef __ARM_FP16_ARGS" removed="true"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_VERSION__=201112L"/>
 <definedSymbol symbol="__STDC_UTF_16__=1"/>

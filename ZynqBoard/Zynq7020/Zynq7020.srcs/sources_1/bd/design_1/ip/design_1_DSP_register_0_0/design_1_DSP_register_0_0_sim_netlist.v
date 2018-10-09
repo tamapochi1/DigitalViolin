@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Thu Sep 27 19:04:08 2018
+// Date        : Mon Oct  8 22:49:57 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim
 //               F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_DSP_register_0_0/design_1_DSP_register_0_0_sim_netlist.v
@@ -18,6 +18,7 @@ module design_1_DSP_register_0_0
    (sysNReset,
     outDataValid,
     debugData,
+    synth0Gain,
     s00_axi_awaddr,
     s00_axi_awprot,
     s00_axi_awvalid,
@@ -42,6 +43,7 @@ module design_1_DSP_register_0_0
   output sysNReset;
   output outDataValid;
   output [15:0]debugData;
+  output [7:0]synth0Gain;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR" *) input [3:0]s00_axi_awaddr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWPROT" *) input [2:0]s00_axi_awprot;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI AWVALID" *) input s00_axi_awvalid;
@@ -60,8 +62,8 @@ module design_1_DSP_register_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI RDATA" *) output [31:0]s00_axi_rdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI RRESP" *) output [1:0]s00_axi_rresp;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI RVALID" *) output s00_axi_rvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI RREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 4, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 12288000, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input s00_axi_rready;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXI_CLK, ASSOCIATED_BUSIF S00_AXI, ASSOCIATED_RESET s00_axi_aresetn, FREQ_HZ 12288000, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *) input s00_axi_aclk;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S00_AXI RREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 4, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 20000000, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input s00_axi_rready;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXI_CLK, ASSOCIATED_BUSIF S00_AXI, ASSOCIATED_RESET s00_axi_aresetn, FREQ_HZ 20000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *) input s00_axi_aclk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S00_AXI_RST RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXI_RST, POLARITY ACTIVE_LOW" *) input s00_axi_aresetn;
 
   wire \<const0> ;
@@ -84,6 +86,7 @@ module design_1_DSP_register_0_0
   wire s00_axi_wready;
   wire [3:0]s00_axi_wstrb;
   wire s00_axi_wvalid;
+  wire [7:0]synth0Gain;
   wire sysNReset;
 
   assign s00_axi_bresp[1] = \<const0> ;
@@ -111,7 +114,8 @@ module design_1_DSP_register_0_0
         .s00_axi_rvalid(s00_axi_rvalid),
         .s00_axi_wdata(s00_axi_wdata),
         .s00_axi_wstrb(s00_axi_wstrb),
-        .s00_axi_wvalid(s00_axi_wvalid));
+        .s00_axi_wvalid(s00_axi_wvalid),
+        .synth0Gain(synth0Gain));
 endmodule
 
 (* ORIG_REF_NAME = "DSP_register_v1_0" *) 
@@ -120,6 +124,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0
     S_AXI_WREADY,
     Q,
     debugData,
+    synth0Gain,
     S_AXI_ARREADY,
     s00_axi_rdata,
     s00_axi_rvalid,
@@ -139,6 +144,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0
   output S_AXI_WREADY;
   output [1:0]Q;
   output [15:0]debugData;
+  output [7:0]synth0Gain;
   output S_AXI_ARREADY;
   output [31:0]s00_axi_rdata;
   output s00_axi_rvalid;
@@ -174,6 +180,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0
   wire [31:0]s00_axi_wdata;
   wire [3:0]s00_axi_wstrb;
   wire s00_axi_wvalid;
+  wire [7:0]synth0Gain;
 
   design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI DSP_register_v1_0_S00_AXI_inst
        (.Q(Q),
@@ -194,7 +201,8 @@ module design_1_DSP_register_0_0_DSP_register_v1_0
         .s00_axi_rvalid(s00_axi_rvalid),
         .s00_axi_wdata(s00_axi_wdata),
         .s00_axi_wstrb(s00_axi_wstrb),
-        .s00_axi_wvalid(s00_axi_wvalid));
+        .s00_axi_wvalid(s00_axi_wvalid),
+        .synth0Gain(synth0Gain));
 endmodule
 
 (* ORIG_REF_NAME = "DSP_register_v1_0_S00_AXI" *) 
@@ -203,6 +211,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
     S_AXI_WREADY,
     Q,
     debugData,
+    synth0Gain,
     S_AXI_ARREADY,
     s00_axi_rdata,
     s00_axi_rvalid,
@@ -222,6 +231,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
   output S_AXI_WREADY;
   output [1:0]Q;
   output [15:0]debugData;
+  output [7:0]synth0Gain;
   output S_AXI_ARREADY;
   output [31:0]s00_axi_rdata;
   output s00_axi_rvalid;
@@ -279,7 +289,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
   wire \slv_reg1[23]_i_1_n_0 ;
   wire \slv_reg1[31]_i_1_n_0 ;
   wire \slv_reg1[7]_i_1_n_0 ;
-  wire [31:0]slv_reg2;
+  wire [31:8]slv_reg2;
   wire \slv_reg2[15]_i_1_n_0 ;
   wire \slv_reg2[23]_i_1_n_0 ;
   wire \slv_reg2[31]_i_1_n_0 ;
@@ -291,6 +301,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
   wire \slv_reg3[7]_i_1_n_0 ;
   wire slv_reg_rden__0;
   wire slv_reg_wren__0;
+  wire [7:0]synth0Gain;
 
   LUT6 #(
     .INIT(64'hF7FFC4CCC4CCC4CC)) 
@@ -420,7 +431,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
         .I2(slv_reg3[0]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
-        .I5(slv_reg2[0]),
+        .I5(synth0Gain[0]),
         .O(reg_data_out[0]));
   LUT6 #(
     .INIT(64'hF0AAFFCCF0AA00CC)) 
@@ -530,7 +541,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
         .I2(slv_reg3[1]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
-        .I5(slv_reg2[1]),
+        .I5(synth0Gain[1]),
         .O(reg_data_out[1]));
   LUT6 #(
     .INIT(64'hF0AAFFCCF0AA00CC)) 
@@ -640,7 +651,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
         .I2(slv_reg3[2]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
-        .I5(slv_reg2[2]),
+        .I5(synth0Gain[2]),
         .O(reg_data_out[2]));
   LUT6 #(
     .INIT(64'hF0AAFFCCF0AA00CC)) 
@@ -670,7 +681,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
         .I2(slv_reg3[3]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
-        .I5(slv_reg2[3]),
+        .I5(synth0Gain[3]),
         .O(reg_data_out[3]));
   LUT6 #(
     .INIT(64'hF0AAFFCCF0AA00CC)) 
@@ -680,7 +691,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
         .I2(slv_reg3[4]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
-        .I5(slv_reg2[4]),
+        .I5(synth0Gain[4]),
         .O(reg_data_out[4]));
   LUT6 #(
     .INIT(64'hF0AAFFCCF0AA00CC)) 
@@ -690,7 +701,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
         .I2(slv_reg3[5]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
-        .I5(slv_reg2[5]),
+        .I5(synth0Gain[5]),
         .O(reg_data_out[5]));
   LUT6 #(
     .INIT(64'hF0AAFFCCF0AA00CC)) 
@@ -700,7 +711,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
         .I2(slv_reg3[6]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
-        .I5(slv_reg2[6]),
+        .I5(synth0Gain[6]),
         .O(reg_data_out[6]));
   LUT6 #(
     .INIT(64'hF0AAFFCCF0AA00CC)) 
@@ -710,7 +721,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
         .I2(slv_reg3[7]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
-        .I5(slv_reg2[7]),
+        .I5(synth0Gain[7]),
         .O(reg_data_out[7]));
   LUT6 #(
     .INIT(64'hF0AAFFCCF0AA00CC)) 
@@ -1451,7 +1462,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[0]),
-        .Q(slv_reg2[0]),
+        .Q(synth0Gain[0]),
         .R(\slv_reg0[0]_i_1_n_0 ));
   FDRE \slv_reg2_reg[10] 
        (.C(s00_axi_aclk),
@@ -1517,7 +1528,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[1]),
-        .Q(slv_reg2[1]),
+        .Q(synth0Gain[1]),
         .R(\slv_reg0[0]_i_1_n_0 ));
   FDRE \slv_reg2_reg[20] 
        (.C(s00_axi_aclk),
@@ -1583,7 +1594,7 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[2]),
-        .Q(slv_reg2[2]),
+        .Q(synth0Gain[2]),
         .R(\slv_reg0[0]_i_1_n_0 ));
   FDRE \slv_reg2_reg[30] 
        (.C(s00_axi_aclk),
@@ -1601,31 +1612,31 @@ module design_1_DSP_register_0_0_DSP_register_v1_0_S00_AXI
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[3]),
-        .Q(slv_reg2[3]),
+        .Q(synth0Gain[3]),
         .R(\slv_reg0[0]_i_1_n_0 ));
   FDRE \slv_reg2_reg[4] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[4]),
-        .Q(slv_reg2[4]),
+        .Q(synth0Gain[4]),
         .R(\slv_reg0[0]_i_1_n_0 ));
   FDRE \slv_reg2_reg[5] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[5]),
-        .Q(slv_reg2[5]),
+        .Q(synth0Gain[5]),
         .R(\slv_reg0[0]_i_1_n_0 ));
   FDRE \slv_reg2_reg[6] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[6]),
-        .Q(slv_reg2[6]),
+        .Q(synth0Gain[6]),
         .R(\slv_reg0[0]_i_1_n_0 ));
   FDRE \slv_reg2_reg[7] 
        (.C(s00_axi_aclk),
         .CE(\slv_reg2[7]_i_1_n_0 ),
         .D(s00_axi_wdata[7]),
-        .Q(slv_reg2[7]),
+        .Q(synth0Gain[7]),
         .R(\slv_reg0[0]_i_1_n_0 ));
   FDRE \slv_reg2_reg[8] 
        (.C(s00_axi_aclk),

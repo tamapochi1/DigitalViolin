@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Wed Oct  3 00:03:21 2018
+// Date        : Wed Oct  3 00:03:20 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode synth_stub
-//               f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_1/design_1_blk_mem_gen_0_1_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top design_1_blk_mem_gen_0_1 -prefix
+//               design_1_blk_mem_gen_0_1_ design_1_blk_mem_gen_0_1_stub.v
 // Design      : design_1_blk_mem_gen_0_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1

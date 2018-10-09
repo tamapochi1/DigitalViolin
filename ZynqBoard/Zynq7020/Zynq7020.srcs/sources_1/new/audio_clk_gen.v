@@ -22,7 +22,7 @@
 
 module audio_clk_gen(
     input nReset,
-    input sysClk,
+    input audioClk256,
     output audioClk
     );
     
@@ -30,7 +30,7 @@ reg [7:0] prescaler;
     
 assign audioClk = (prescaler >= 8'h7F);
 
-always @(negedge sysClk)
+always @(negedge audioClk256)
 begin
     if(~nReset)
     begin

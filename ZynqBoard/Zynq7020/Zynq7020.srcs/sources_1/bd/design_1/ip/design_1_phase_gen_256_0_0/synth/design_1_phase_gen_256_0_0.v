@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "phase_gen_256,Vivado 2018.2" *)
 (* CHECK_LICENSE_TYPE = "design_1_phase_gen_256_0_0,phase_gen_256,{}" *)
-(* CORE_GENERATION_INFO = "design_1_phase_gen_256_0_0,phase_gen_256,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=phase_gen_256,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,M_ONE=0xE00000,ONE=0x200000}" *)
+(* CORE_GENERATION_INFO = "design_1_phase_gen_256_0_0,phase_gen_256,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=phase_gen_256,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,M_TWO=0xC00000,M_ONE=0xE00000,ONE=0x200000}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_phase_gen_256_0_0 (
@@ -82,7 +82,7 @@ output wire [10 : 0] reg_index;
 output wire reg_index_valid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_delta TDATA" *)
 input wire [23 : 0] s_axis_delta_tdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_delta, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 20000000, PHASE 0.000, LAYERED_METADATA undef" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_delta, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_delta TVALID" *)
 input wire s_axis_delta_tvalid;
 output wire [10 : 0] m_bram_int_rdaddr;
@@ -98,12 +98,13 @@ output wire m_bram_int_rst;
 output wire m_bram_int_we;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_phase TDATA" *)
 output wire [15 : 0] m_axis_phase_tdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_phase, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 20000000, PHASE 0.000, LAYERED_METADATA undef" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_phase, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_phase TVALID" *)
 output wire m_axis_phase_tvalid;
 output wire sync;
 
   phase_gen_256 #(
+    .M_TWO(24'HC00000),
     .M_ONE(24'HE00000),
     .ONE(24'H200000)
   ) inst (

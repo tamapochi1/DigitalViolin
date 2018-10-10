@@ -103,7 +103,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2d9295e9</spirit:value>
+            <spirit:value>b4d49352</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -116,7 +116,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2d9295e9</spirit:value>
+            <spirit:value>b4d49352</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -385,6 +385,11 @@
     </spirit:ports>
     <spirit:modelParameters>
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="signed(23 0)">
+        <spirit:name>M_TWO</spirit:name>
+        <spirit:displayName>M Two</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.M_TWO" spirit:bitStringLength="24">0xC00000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="signed(23 0)">
         <spirit:name>M_ONE</spirit:name>
         <spirit:displayName>M One</spirit:displayName>
         <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.M_ONE" spirit:bitStringLength="24">0xE00000</spirit:value>
@@ -402,13 +407,18 @@
       <spirit:file>
         <spirit:name>xgui/phase_gen_256_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_c7d785c3</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_b5ae75fb</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
   <spirit:description>xilinx.com:module_ref:phase_gen_256:1.0</spirit:description>
   <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>M_TWO</spirit:name>
+      <spirit:displayName>M Two</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.M_TWO" spirit:bitStringLength="24">0xC00000</spirit:value>
+    </spirit:parameter>
     <spirit:parameter>
       <spirit:name>M_ONE</spirit:name>
       <spirit:displayName>M One</spirit:displayName>
@@ -439,7 +449,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-10-08T09:39:27Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2018-10-10T13:45:40Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>

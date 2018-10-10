@@ -2,6 +2,7 @@
    ExpandedHierarchyInLayout: "",
    guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
 #  -string -flagsOSRD
+preplace port outDataValid -pg 1 -y 100 -defaultsOSRD
 preplace port sysClk -pg 1 -y 210 -defaultsOSRD
 preplace port nReset -pg 1 -y 110 -defaultsOSRD
 preplace port s_axis_gain -pg 1 -y 70 -defaultsOSRD
@@ -12,16 +13,17 @@ preplace portBus outData -pg 1 -y 160 -defaultsOSRD
 preplace inst mult_sum_0 -pg 1 -lvl 2 -y 130 -defaultsOSRD
 preplace inst mult_gen_0 -pg 1 -lvl 1 -y 270 -defaultsOSRD
 preplace netloc outGain_0_1 1 0 2 NJ 190 NJ
-preplace netloc mult_sum_0_mult_A 1 0 3 30 180 210J 250 500
+preplace netloc mult_sum_0_sync 1 2 1 N
+preplace netloc mult_sum_0_mult_A 1 0 3 30 180 210J 250 510
 preplace netloc delay_0_m_axis_out 1 0 2 NJ 70 NJ
 preplace netloc DSP_register_0_sysNReset 1 0 2 NJ 110 NJ
-preplace netloc mult_sum_0_mult_B 1 0 3 20 10 NJ 10 510
+preplace netloc mult_sum_0_mult_B 1 0 3 20 10 NJ 10 520
 preplace netloc phase_gen_256_0_sync 1 0 2 NJ 150 NJ
 preplace netloc mult_gen_0_P 1 1 1 220
 preplace netloc mult_sum_0_out 1 2 1 N
 preplace netloc sysClk_0_1 1 0 2 10 130 NJ
 preplace netloc cordic_0_M_AXIS_DOUT 1 0 2 NJ 90 NJ
-levelinfo -pg 1 -10 120 360 530 -top 0 -bot 360
+levelinfo -pg 1 -10 120 370 550 -top 0 -bot 360
 ",
 }
-
+0

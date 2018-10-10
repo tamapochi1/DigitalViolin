@@ -43,28 +43,31 @@ module phase_gen_256(
     output sync
     );
     
+parameter signed [23:0] M_TWO = 24'hC00000;
 parameter signed [23:0] M_ONE = 24'hE00000;
 parameter signed [23:0] ONE = 24'h200000;
     
-reg [1:0] preAudioClk;
+//reg [1:0] preAudioClk;
 reg [10:0] index;
 reg index_valid;
 reg [10:0] bram_int_rdIndex;
 reg [10:0] bram_int_wrIndex;
 reg signed [23:0] phase;
 reg phase_valid;
+reg signed [23:0] phasePlusDelta;
+reg phasePlusDeltaValid;
 
-always @(negedge sysClk)
-begin
-    if(~nReset)
-    begin
-        preAudioClk <= 2'b00;
-    end
-    else
-    begin
-        preAudioClk <= {preAudioClk[0], audioClk};
-    end
-end
+//always @(negedge sysClk)
+//begin
+//    if(~nReset)
+//    begin
+//        preAudioClk <= 3'b000;
+//    end
+//    else
+//    begin
+//        preAudioClk <= {preAudioClk[0], audioClk};
+//    end
+//end
     
 always @(negedge sysClk)
 begin
@@ -75,7 +78,7 @@ begin
     end
     else
     begin
-        if(preAudioClk == 2'b01)
+        if(audioClk)
         begin
             index_valid <= 1'b1;
             index <= 11'h000;
@@ -97,33 +100,54 @@ always @(negedge sysClk)
 begin
     if(~nReset)
     begin
-        phase <= 24'h000000;
-        phase_valid <= 1'b0;
+        phasePlusDelta <= 24'b000000;
+        phasePlusDeltaValid <= 1'b0;
         bram_int_rdIndex <= 11'h000;
-        bram_int_wrIndex <= 11'h000;
     end
     else
     begin
+        phasePlusDelta <= m_bram_int_rddata + s_axis_delta_tdata;
+        phasePlusDeltaValid <= s_axis_delta_tvalid;
+        
         if(s_axis_delta_tvalid)
         begin
-            if(m_bram_int_rddata + s_axis_delta_tdata < ONE)
+            bram_int_rdIndex <= bram_int_rdIndex + 11'h001;
+        end
+        else
+        begin
+            bram_int_rdIndex <= 11'h000;
+        end
+    end
+end
+
+always @(negedge sysClk)
+begin
+    if(~nReset)
+    begin
+        phase <= 24'h000000;
+        phase_valid <= 1'b0;
+        bram_int_wrIndex <= 11'h7FF;
+    end
+    else
+    begin
+        if(phasePlusDeltaValid)
+        begin
+            if(phasePlusDelta < ONE)
             begin
-                phase <= m_bram_int_rddata + s_axis_delta_tdata;
+                phase <= phasePlusDelta;
             end
             else
             begin
-                phase <= M_ONE + (s_axis_delta_tdata - (ONE - m_bram_int_rddata));
+                phase <= M_TWO + phasePlusDelta;
             end
             phase_valid <= 1'b1;
-            bram_int_wrIndex <= bram_int_rdIndex;
-            bram_int_rdIndex <= bram_int_rdIndex + 11'h001;
+            bram_int_wrIndex <= bram_int_wrIndex + 11'h001;
         end
         else
         begin
 //            phase <= phase;
             phase_valid <= 1'b0;
-            bram_int_rdIndex <= 11'h000;
-            bram_int_wrIndex <= 11'h000;
+            bram_int_wrIndex <= 11'h7FF;
         end
     end
 end

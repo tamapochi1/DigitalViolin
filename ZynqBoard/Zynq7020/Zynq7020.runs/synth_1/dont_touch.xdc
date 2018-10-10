@@ -66,6 +66,12 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_DSP_re
 # IP: bd/design_1/ip/design_1_mult_gen_1_0/design_1_mult_gen_1_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_mult_gen_1_0 || ORIG_REF_NAME==design_1_mult_gen_1_0} -quiet] -quiet
 
+# IP: bd/design_1/ip/design_1_DAC_FIFO_0_0/design_1_DAC_FIFO_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_DAC_FIFO_0_0 || ORIG_REF_NAME==design_1_DAC_FIFO_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_fifo_generator_0_0/design_1_fifo_generator_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_fifo_generator_0_0 || ORIG_REF_NAME==design_1_fifo_generator_0_0} -quiet] -quiet
+
 # IP: bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_auto_pc_1 || ORIG_REF_NAME==design_1_auto_pc_1} -quiet] -quiet
 

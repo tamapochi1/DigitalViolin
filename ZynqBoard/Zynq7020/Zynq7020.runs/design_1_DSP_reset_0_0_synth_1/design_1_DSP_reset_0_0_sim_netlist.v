@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sun Oct  7 23:13:37 2018
+// Date        : Wed Oct 10 20:54:49 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_DSP_reset_0_0_sim_netlist.v
@@ -12,27 +12,108 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reset
+   (nResetSysClk,
+    nResetAudioClk,
+    nResetExt,
+    sysClk,
+    nResetInt,
+    audioClk256);
+  output nResetSysClk;
+  output nResetAudioClk;
+  input nResetExt;
+  input sysClk;
+  input nResetInt;
+  input audioClk256;
+
+  wire audioClk256;
+  wire nResetAudioClk;
+  wire \nResetAudioClkBuf_reg_n_0_[0] ;
+  wire \nResetAudioClkBuf_reg_n_0_[1] ;
+  wire nResetExt;
+  wire nResetInt;
+  wire nResetSysClk;
+  wire \nResetSysClkBuf_reg_n_0_[0] ;
+  wire [0:0]p_0_in;
+  wire sysClk;
+
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \nResetAudioClkBuf_reg[0] 
+       (.C(audioClk256),
+        .CE(1'b1),
+        .D(\nResetAudioClkBuf_reg_n_0_[1] ),
+        .Q(\nResetAudioClkBuf_reg_n_0_[0] ),
+        .R(1'b0));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \nResetAudioClkBuf_reg[1] 
+       (.C(audioClk256),
+        .CE(1'b1),
+        .D(nResetInt),
+        .Q(\nResetAudioClkBuf_reg_n_0_[1] ),
+        .R(1'b0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    nResetAudioClk_INST_0
+       (.I0(\nResetAudioClkBuf_reg_n_0_[0] ),
+        .I1(nResetExt),
+        .O(nResetAudioClk));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \nResetSysClkBuf_reg[0] 
+       (.C(sysClk),
+        .CE(1'b1),
+        .D(p_0_in),
+        .Q(\nResetSysClkBuf_reg_n_0_[0] ),
+        .R(1'b0));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \nResetSysClkBuf_reg[1] 
+       (.C(sysClk),
+        .CE(1'b1),
+        .D(nResetExt),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT2 #(
+    .INIT(4'h8)) 
+    nResetSysClk_INST_0
+       (.I0(\nResetSysClkBuf_reg_n_0_[0] ),
+        .I1(nResetInt),
+        .O(nResetSysClk));
+endmodule
+
 (* CHECK_LICENSE_TYPE = "design_1_DSP_reset_0_0,DSP_reset,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
 (* X_CORE_INFO = "DSP_reset,Vivado 2018.2" *) 
 (* NotValidForBitStream *)
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (nResetExt,
     nResetInt,
-    nReset);
+    sysClk,
+    audioClk256,
+    nResetSysClk,
+    nResetAudioClk);
   input nResetExt;
   input nResetInt;
-  output nReset;
+  input sysClk;
+  input audioClk256;
+  output nResetSysClk;
+  output nResetAudioClk;
 
-  wire nReset;
+  wire audioClk256;
+  wire nResetAudioClk;
   wire nResetExt;
   wire nResetInt;
+  wire nResetSysClk;
+  wire sysClk;
 
-  LUT2 #(
-    .INIT(4'h8)) 
-    nReset_INST_0
-       (.I0(nResetExt),
-        .I1(nResetInt),
-        .O(nReset));
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reset inst
+       (.audioClk256(audioClk256),
+        .nResetAudioClk(nResetAudioClk),
+        .nResetExt(nResetExt),
+        .nResetInt(nResetInt),
+        .nResetSysClk(nResetSysClk),
+        .sysClk(sysClk));
 endmodule
 `ifndef GLBL
 `define GLBL

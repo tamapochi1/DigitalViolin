@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Mon Oct  8 23:07:30 2018
+| Date         : Thu Oct 11 00:52:03 2018
 | Host         : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
@@ -165,6 +165,7 @@ Table of Contents
 | design_1_mult_sum_0_0           |    1 |
 | design_1_mult_gen_1_0           |    1 |
 | design_1_mult_gen_0_1           |    1 |
+| design_1_fifo_generator_0_0     |    1 |
 | design_1_delay_0_0              |    1 |
 | design_1_cordic_0_1             |    1 |
 | design_1_clk_wiz_0_0            |    1 |
@@ -179,6 +180,7 @@ Table of Contents
 | design_1_DSP_register_0_0       |    1 |
 | design_1_DSP_reg_read_0_0       |    1 |
 | design_1_DAC_IF_0_0             |    1 |
+| design_1_DAC_FIFO_0_0           |    1 |
 +---------------------------------+------+
 
 

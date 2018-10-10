@@ -23,14 +23,20 @@
 module audio_clk_gen(
     input nReset,
     input audioClk256,
+    input sysClk,
     output audioClk
     );
     
+reg [2:0] audioClk256Buf;
 reg [7:0] prescaler;
-    
-assign audioClk = (prescaler >= 8'h7F);
+reg audioClkBuf;
 
-always @(negedge audioClk256)
+always @(negedge sysClk)
+begin
+    audioClk256Buf <= {audioClk256Buf[2:1], audioClk256};
+end
+
+always @(negedge sysClk)
 begin
     if(~nReset)
     begin
@@ -38,15 +44,26 @@ begin
     end
     else
     begin
-        if(prescaler < 8'hFF)
+        if(audioClk256Buf[2:1] == 2'b01)
         begin
-            prescaler <= prescaler + 8'h01;
+            if(prescaler < 8'hFF)
+            begin
+                prescaler <= prescaler + 8'h01;
+                audioClkBuf <= 1'b0;
+            end
+            else
+            begin
+                prescaler <= 8'h00;
+                audioClkBuf <= 1'b1;
+            end
         end
         else
         begin
-            prescaler <= 8'h00;
+            audioClkBuf<=1'b0;
         end
     end
 end
+
+assign audioClk = audioClkBuf;
 
 endmodule

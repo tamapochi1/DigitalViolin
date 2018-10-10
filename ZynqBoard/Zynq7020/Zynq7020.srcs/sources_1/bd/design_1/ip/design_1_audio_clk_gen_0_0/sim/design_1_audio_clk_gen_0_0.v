@@ -57,16 +57,19 @@
 module design_1_audio_clk_gen_0_0 (
   nReset,
   audioClk256,
+  sysClk,
   audioClk
 );
 
 input wire nReset;
 input wire audioClk256;
+input wire sysClk;
 output wire audioClk;
 
   audio_clk_gen inst (
     .nReset(nReset),
     .audioClk256(audioClk256),
+    .sysClk(sysClk),
     .audioClk(audioClk)
   );
 endmodule

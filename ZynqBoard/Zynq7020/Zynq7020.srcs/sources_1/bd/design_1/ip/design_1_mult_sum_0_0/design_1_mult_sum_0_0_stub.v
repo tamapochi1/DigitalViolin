@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Mon Oct  8 22:48:59 2018
+// Date        : Tue Oct  9 21:51:30 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode synth_stub
 //               F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_mult_sum_0_0/design_1_mult_sum_0_0_stub.v
@@ -17,7 +17,7 @@
 module design_1_mult_sum_0_0(nReset, sysClk, clear, sync, s_axis_sin_tdata, 
   s_axis_sin_tvalid, s_axis_gain_tdata, s_axis_gain_tvalid, mult_A, mult_B, mult_P, outData, 
   outGain)
-/* synthesis syn_black_box black_box_pad_pin="nReset,sysClk,clear,sync,s_axis_sin_tdata[31:0],s_axis_sin_tvalid,s_axis_gain_tdata[13:0],s_axis_gain_tvalid,mult_A[15:0],mult_B[13:0],mult_P[29:0],outData[15:0],outGain[7:0]" */;
+/* synthesis syn_black_box black_box_pad_pin="nReset,sysClk,clear,sync,s_axis_sin_tdata[31:0],s_axis_sin_tvalid,s_axis_gain_tdata[13:0],s_axis_gain_tvalid,mult_A[15:0],mult_B[13:0],mult_P[29:0],outData[15:0],outGain[4:0]" */;
   input nReset;
   input sysClk;
   input clear;
@@ -30,5 +30,5 @@ module design_1_mult_sum_0_0(nReset, sysClk, clear, sync, s_axis_sin_tdata,
   output [13:0]mult_B;
   input [29:0]mult_P;
   output [15:0]outData;
-  input [7:0]outGain;
+  input [4:0]outGain;
 endmodule

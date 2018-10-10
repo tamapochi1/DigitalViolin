@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Mon Oct  8 23:06:17 2018
+//Date        : Thu Oct 11 00:50:52 2018
 //Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -10,7 +10,8 @@
 `timescale 1 ps / 1 ps
 
 module DSP_imp_KXGKBB
-   (S00_AXI_araddr,
+   (DAC_nReset,
+    S00_AXI_araddr,
     S00_AXI_arprot,
     S00_AXI_arready,
     S00_AXI_arvalid,
@@ -62,6 +63,7 @@ module DSP_imp_KXGKBB
     S01_AXI_wvalid,
     audioClk256,
     nResetExt,
+    nResetSysClk,
     outData1,
     outData2,
     outDataValid,
@@ -70,6 +72,7 @@ module DSP_imp_KXGKBB
     s01_axi_aclk,
     s01_axi_aresetn,
     sysClk);
+  output DAC_nReset;
   input [31:0]S00_AXI_araddr;
   input [2:0]S00_AXI_arprot;
   output S00_AXI_arready;
@@ -122,6 +125,7 @@ module DSP_imp_KXGKBB
   input S01_AXI_wvalid;
   input audioClk256;
   input nResetExt;
+  output nResetSysClk;
   output [15:0]outData1;
   output [15:0]outData2;
   output outDataValid;
@@ -181,10 +185,11 @@ module DSP_imp_KXGKBB
   wire Conn2_WREADY;
   wire [3:0]Conn2_WSTRB;
   wire Conn2_WVALID;
-  wire DSP_register_0_outDataValid;
   wire [7:0]DSP_register_0_synth0Gain;
   wire DSP_register_0_sysNReset;
-  wire DSP_reset_0_nReset;
+  wire DSP_reset_0_nResetAudioClk;
+  wire DSP_reset_0_nResetSysClk1;
+  wire Synthesizer_sync_0;
   wire audioClk256_0_1;
   wire audio_clk_gen_0_audioClk;
   wire [15:0]mult_sum_0_out;
@@ -228,6 +233,7 @@ module DSP_imp_KXGKBB
   assign Conn2_WLAST = S01_AXI_wlast;
   assign Conn2_WSTRB = S01_AXI_wstrb[3:0];
   assign Conn2_WVALID = S01_AXI_wvalid;
+  assign DAC_nReset = DSP_reset_0_nResetAudioClk;
   assign S00_AXI_arready = Conn1_ARREADY;
   assign S00_AXI_awready = Conn1_AWREADY;
   assign S00_AXI_bresp[1:0] = Conn1_BRESP;
@@ -247,17 +253,17 @@ module DSP_imp_KXGKBB
   assign S01_AXI_wready = Conn2_WREADY;
   assign audioClk256_0_1 = audioClk256;
   assign nResetExt_0_1 = nResetExt;
+  assign nResetSysClk = DSP_reset_0_nResetSysClk1;
   assign outData1[15:0] = mult_sum_0_out;
   assign outData2[15:0] = mult_sum_0_out;
-  assign outDataValid = DSP_register_0_outDataValid;
+  assign outDataValid = Synthesizer_sync_0;
   assign s00_axi_aclk_0_1 = s00_axi_aclk;
   assign s00_axi_aresetn_0_1 = s00_axi_aresetn;
   assign s_axi_aclk_0_1 = s01_axi_aclk;
   assign s_axi_aresetn_0_1 = s01_axi_aresetn;
   assign sysClk_0_1 = sysClk;
   design_1_DSP_register_0_0 DSP_register_0
-       (.outDataValid(DSP_register_0_outDataValid),
-        .s00_axi_aclk(s00_axi_aclk_0_1),
+       (.s00_axi_aclk(s00_axi_aclk_0_1),
         .s00_axi_araddr(Conn1_ARADDR[3:0]),
         .s00_axi_aresetn(s00_axi_aresetn_0_1),
         .s00_axi_arprot(Conn1_ARPROT),
@@ -281,9 +287,12 @@ module DSP_imp_KXGKBB
         .synth0Gain(DSP_register_0_synth0Gain),
         .sysNReset(DSP_register_0_sysNReset));
   design_1_DSP_reset_0_0 DSP_reset_0
-       (.nReset(DSP_reset_0_nReset),
+       (.audioClk256(audioClk256_0_1),
+        .nResetAudioClk(DSP_reset_0_nResetAudioClk),
         .nResetExt(nResetExt_0_1),
-        .nResetInt(DSP_register_0_sysNReset));
+        .nResetInt(DSP_register_0_sysNReset),
+        .nResetSysClk(DSP_reset_0_nResetSysClk1),
+        .sysClk(sysClk_0_1));
   Synthesizer_imp_5BWTWR Synthesizer
        (.S_AXI_araddr(Conn2_ARADDR),
         .S_AXI_arburst(Conn2_ARBURST),
@@ -317,8 +326,9 @@ module DSP_imp_KXGKBB
         .S_AXI_wstrb(Conn2_WSTRB),
         .S_AXI_wvalid(Conn2_WVALID),
         .audioClk(audio_clk_gen_0_audioClk),
-        .nReset(DSP_reset_0_nReset),
+        .nReset(DSP_reset_0_nResetSysClk1),
         .outData(mult_sum_0_out),
+        .outDataValid(Synthesizer_sync_0),
         .outGain(DSP_register_0_synth0Gain),
         .s_axi_aclk(s_axi_aclk_0_1),
         .s_axi_aresetn(s_axi_aresetn_0_1),
@@ -326,13 +336,15 @@ module DSP_imp_KXGKBB
   design_1_audio_clk_gen_0_0 audio_clk_gen_0
        (.audioClk(audio_clk_gen_0_audioClk),
         .audioClk256(audioClk256_0_1),
-        .nReset(DSP_reset_0_nReset));
+        .nReset(DSP_reset_0_nResetSysClk1),
+        .sysClk(sysClk_0_1));
 endmodule
 
 module GainAndSum_imp_1USF4QI
    (clear,
     nReset,
     outData,
+    outDataValid,
     outGain,
     s_axis_gain_tdata,
     s_axis_gain_tvalid,
@@ -342,6 +354,7 @@ module GainAndSum_imp_1USF4QI
   input clear;
   input nReset;
   output [15:0]outData;
+  output outDataValid;
   input [7:0]outGain;
   input [13:0]s_axis_gain_tdata;
   input s_axis_gain_tvalid;
@@ -358,6 +371,7 @@ module GainAndSum_imp_1USF4QI
   wire [15:0]mult_sum_0_mult_A;
   wire [13:0]mult_sum_0_mult_B;
   wire [15:0]mult_sum_0_out;
+  wire mult_sum_0_sync;
   wire [7:0]outGain_0_1;
   wire phase_gen_256_0_sync;
   wire sysClk_0_1;
@@ -368,6 +382,7 @@ module GainAndSum_imp_1USF4QI
   assign delay_0_m_axis_out_TDATA = s_axis_gain_tdata[13:0];
   assign delay_0_m_axis_out_TVALID = s_axis_gain_tvalid;
   assign outData[15:0] = mult_sum_0_out;
+  assign outDataValid = mult_sum_0_sync;
   assign outGain_0_1 = outGain[7:0];
   assign phase_gen_256_0_sync = clear;
   assign sysClk_0_1 = sysClk;
@@ -383,11 +398,12 @@ module GainAndSum_imp_1USF4QI
         .mult_P(mult_gen_0_P),
         .nReset(DSP_register_0_sysNReset),
         .outData(mult_sum_0_out),
-        .outGain(outGain_0_1),
+        .outGain(outGain_0_1[4:0]),
         .s_axis_gain_tdata(delay_0_m_axis_out_TDATA),
         .s_axis_gain_tvalid(delay_0_m_axis_out_TVALID),
         .s_axis_sin_tdata(cordic_0_M_AXIS_DOUT_TDATA),
         .s_axis_sin_tvalid(cordic_0_M_AXIS_DOUT_TVALID),
+        .sync(mult_sum_0_sync),
         .sysClk(sysClk_0_1));
 endmodule
 
@@ -617,6 +633,7 @@ module Synthesizer_imp_5BWTWR
     audioClk,
     nReset,
     outData,
+    outDataValid,
     outGain,
     s_axi_aclk,
     s_axi_aresetn,
@@ -655,6 +672,7 @@ module Synthesizer_imp_5BWTWR
   input audioClk;
   input nReset;
   output [15:0]outData;
+  output outDataValid;
   input [7:0]outGain;
   input s_axi_aclk;
   input s_axi_aresetn;
@@ -696,6 +714,7 @@ module Synthesizer_imp_5BWTWR
   wire [13:0]DSP_reg_read_0_m_axis_gain_TDATA;
   wire DSP_reg_read_0_m_axis_gain_TVALID;
   wire DSP_register_0_sysNReset;
+  wire GainAndSum_sync_0;
   wire audio_clk_gen_0_audioClk;
   wire [12:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
   wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
@@ -753,6 +772,7 @@ module Synthesizer_imp_5BWTWR
   assign S_AXI_wready = Conn2_WREADY;
   assign audio_clk_gen_0_audioClk = audioClk;
   assign outData[15:0] = mult_sum_0_out;
+  assign outDataValid = GainAndSum_sync_0;
   assign outGain_0_1 = outGain[7:0];
   assign s_axi_aclk_0_1 = s_axi_aclk;
   assign s_axi_aresetn_0_1 = s_axi_aresetn;
@@ -761,6 +781,7 @@ module Synthesizer_imp_5BWTWR
        (.clear(phase_gen_256_0_sync),
         .nReset(DSP_register_0_sysNReset),
         .outData(mult_sum_0_out),
+        .outDataValid(GainAndSum_sync_0),
         .outGain(outGain_0_1),
         .s_axis_gain_tdata(delay_0_m_axis_out_TDATA),
         .s_axis_gain_tvalid(delay_0_m_axis_out_TVALID),
@@ -852,7 +873,7 @@ module Synthesizer_imp_5BWTWR
         .s_axis_in_tvalid(DSP_reg_read_0_m_axis_gain_TVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=32,numReposBlks=22,numNonXlnxBlks=0,numHierBlks=10,maxHierDepth=2,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=34,numReposBlks=24,numNonXlnxBlks=0,numHierBlks=10,maxHierDepth=2,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=8,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (DAC_BICK_0,
     DAC_LRCK_0,
@@ -913,13 +934,18 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_1 TxD" *) output UART_1_txd;
   output USB_nRESET_0;
 
+  wire [31:0]DAC_FIFO_0_m_axis_tdata;
+  wire DAC_FIFO_0_m_axis_tvalid;
   wire DAC_IF_0_DAC_BCLK;
   wire DAC_IF_0_DAC_LRCK;
   wire DAC_IF_0_DAC_MCLK;
   wire DAC_IF_0_DAC_SDT;
-  wire [15:0]DSP_out1;
-  wire [15:0]DSP_out2;
+  wire DAC_IF_0_s_axis_tready;
+  wire DSP_nResetSysClk;
+  wire [15:0]DSP_outData1;
+  wire [15:0]DSP_outData2;
   wire DSP_outDataValid;
+  wire DSP_outDataValid1;
   wire [31:0]S00_AXI_0_1_ARADDR;
   wire [2:0]S00_AXI_0_1_ARPROT;
   wire S00_AXI_0_1_ARREADY;
@@ -941,6 +967,9 @@ module design_1
   wire S00_AXI_0_1_WVALID;
   wire clk_wiz_0_clk_out1;
   wire clk_wiz_0_locked;
+  wire [31:0]fifo_generator_0_m_axis_tdata;
+  wire fifo_generator_0_m_axis_tvalid;
+  wire fifo_generator_0_s_axis_tready;
   wire [2:0]myip_0_RGB_OUT;
   wire myip_0_USB_nRESET;
   wire [14:0]processing_system7_0_DDR_ADDR;
@@ -1068,18 +1097,28 @@ module design_1
   assign UART_1_txd = processing_system7_0_UART_1_TxD;
   assign USB_nRESET_0 = myip_0_USB_nRESET;
   assign processing_system7_0_UART_1_RxD = UART_1_rxd;
+  design_1_DAC_FIFO_0_0 DAC_FIFO_0
+       (.Data1(DSP_outData1),
+        .Data2(DSP_outData2),
+        .DataValid(DSP_outDataValid1),
+        .m_axis_tdata(DAC_FIFO_0_m_axis_tdata),
+        .m_axis_tready(fifo_generator_0_s_axis_tready),
+        .m_axis_tvalid(DAC_FIFO_0_m_axis_tvalid));
   design_1_DAC_IF_0_0 DAC_IF_0
        (.DAC_BICK(DAC_IF_0_DAC_BCLK),
         .DAC_LRCK(DAC_IF_0_DAC_LRCK),
         .DAC_MCLK(DAC_IF_0_DAC_MCLK),
         .DAC_SDT(DAC_IF_0_DAC_SDT),
         .clk_256fs(clk_wiz_0_clk_out1),
-        .dataL(DSP_out1),
-        .dataR(DSP_out2),
         .nReset(DSP_outDataValid),
+        .s_axis_aclk(clk_wiz_0_clk_out1),
+        .s_axis_tdata(fifo_generator_0_m_axis_tdata),
+        .s_axis_tready(DAC_IF_0_s_axis_tready),
+        .s_axis_tvalid(fifo_generator_0_m_axis_tvalid),
         .sysClk(processing_system7_0_FCLK_CLK0));
   DSP_imp_KXGKBB DSP
-       (.S00_AXI_araddr(S00_AXI_0_1_ARADDR),
+       (.DAC_nReset(DSP_outDataValid),
+        .S00_AXI_araddr(S00_AXI_0_1_ARADDR),
         .S00_AXI_arprot(S00_AXI_0_1_ARPROT),
         .S00_AXI_arready(S00_AXI_0_1_ARREADY),
         .S00_AXI_arvalid(S00_AXI_0_1_ARVALID),
@@ -1131,9 +1170,10 @@ module design_1
         .S01_AXI_wvalid(ps7_0_axi_periph_M02_AXI_WVALID),
         .audioClk256(clk_wiz_0_clk_out1),
         .nResetExt(clk_wiz_0_locked),
-        .outData1(DSP_out1),
-        .outData2(DSP_out2),
-        .outDataValid(DSP_outDataValid),
+        .nResetSysClk(DSP_nResetSysClk),
+        .outData1(DSP_outData1),
+        .outData2(DSP_outData2),
+        .outDataValid(DSP_outDataValid1),
         .s00_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s00_axi_aresetn(rst_ps7_0_50M_peripheral_aresetn),
         .s01_axi_aclk(processing_system7_0_FCLK_CLK0),
@@ -1144,6 +1184,16 @@ module design_1
         .clk_out1(clk_wiz_0_clk_out1),
         .locked(clk_wiz_0_locked),
         .resetn(processing_system7_0_FCLK_RESET0_N));
+  design_1_fifo_generator_0_0 fifo_generator_0
+       (.m_aclk(clk_wiz_0_clk_out1),
+        .m_axis_tdata(fifo_generator_0_m_axis_tdata),
+        .m_axis_tready(DAC_IF_0_s_axis_tready),
+        .m_axis_tvalid(fifo_generator_0_m_axis_tvalid),
+        .s_aclk(processing_system7_0_FCLK_CLK0),
+        .s_aresetn(DSP_nResetSysClk),
+        .s_axis_tdata(DAC_FIFO_0_m_axis_tdata),
+        .s_axis_tready(fifo_generator_0_s_axis_tready),
+        .s_axis_tvalid(DAC_FIFO_0_m_axis_tvalid));
   design_1_myip_0_0 myip_0
        (.RGB_OUT(myip_0_RGB_OUT),
         .USB_nRESET(myip_0_USB_nRESET),

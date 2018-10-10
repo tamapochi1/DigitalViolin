@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Oct  8 23:06:18 2018" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Oct 11 00:50:53 2018" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="design_1" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -113,6 +113,73 @@
   </EXTERNALINTERFACES>
 
   <MODULES>
+    <MODULE FULLNAME="/DAC_FIFO_0" HWVERSION="1.0" INSTANCE="DAC_FIFO_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="DAC_FIFO" VLNV="xilinx.com:module_ref:DAC_FIFO:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_DAC_FIFO_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="Data1" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_GainAndSum_mult_sum_0_outData">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_GainAndSum_mult_sum_0" PORT="outData"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Data2" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_GainAndSum_mult_sum_0_outData">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_GainAndSum_mult_sum_0" PORT="outData"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="DataValid" SIGIS="undef" SIGNAME="DSP_Synthesizer_GainAndSum_mult_sum_0_sync">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_GainAndSum_mult_sum_0" PORT="sync"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="DAC_FIFO_0_m_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_axis_tdata"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="fifo_generator_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_axis_tready"/>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="DAC_FIFO_0_m_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_axis_tvalid"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="DAC_FIFO_0_m_axis" NAME="m_axis" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
     <MODULE FULLNAME="/DAC_IF_0" HWVERSION="1.0" INSTANCE="DAC_IF_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="DAC_IF" VLNV="xilinx.com:module_ref:DAC_IF:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -120,9 +187,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_register_0_outDataValid">
+        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nResetAudioClk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_register_0" PORT="outDataValid"/>
+            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nResetAudioClk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="sysClk" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK0">
@@ -130,16 +197,32 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="dataL" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_GainAndSum_mult_sum_0_outData">
+        <PORT DIR="I" LEFT="31" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="fifo_generator_0_m_axis_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_GainAndSum_mult_sum_0" PORT="outData"/>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="m_axis_tdata"/>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="m_axis_tdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="dataR" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_GainAndSum_mult_sum_0_outData">
+        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="fifo_generator_0_m_axis_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_GainAndSum_mult_sum_0" PORT="outData"/>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="m_axis_tvalid"/>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="m_axis_tvalid"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="DAC_IF_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="m_axis_tready"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="m_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="12288000" DIR="I" NAME="s_axis_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="FIFOnReset" SIGIS="undef"/>
         <PORT DIR="I" NAME="clk_256fs" SIGIS="undef" SIGNAME="clk_wiz_0_clk_out1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
@@ -166,7 +249,27 @@
           </CONNECTIONS>
         </PORT>
       </PORTS>
-      <BUSINTERFACES/>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="fifo_generator_0_M_AXIS" NAME="s_axis" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="12288000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
     </MODULE>
     <MODULE FULLNAME="/DSP/DSP_register_0" HWVERSION="1.0" INSTANCE="DSP_DSP_register_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="DSP_register" VLNV="xilinx.com:user:DSP_register:1.0">
       <DOCUMENTS/>
@@ -187,11 +290,7 @@
             <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nResetInt"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="outDataValid" SIGIS="undef" SIGNAME="DSP_DSP_register_0_outDataValid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DAC_IF_0" PORT="nReset"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" NAME="outDataValid" SIGIS="undef"/>
         <PORT DIR="O" LEFT="15" NAME="debugData" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="7" NAME="synth0Gain" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_register_0_synth0Gain">
           <CONNECTIONS>
@@ -293,7 +392,7 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -311,7 +410,7 @@
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="4"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -379,13 +478,29 @@
             <CONNECTION INSTANCE="DSP_DSP_register_0" PORT="sysNReset"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nReset">
+        <PORT DIR="I" NAME="sysClk" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_audio_clk_gen_0" PORT="nReset"/>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="audioClk256" SIGIS="undef" SIGNAME="clk_wiz_0_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="nResetSysClk" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nResetSysClk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_aresetn"/>
             <CONNECTION INSTANCE="DSP_Synthesizer_delay_0" PORT="nReset"/>
             <CONNECTION INSTANCE="DSP_Synthesizer_SynthesizerReg_DSP_reg_read_0" PORT="nReset"/>
             <CONNECTION INSTANCE="DSP_Synthesizer_Oscillator_phase_gen_256_0" PORT="nReset"/>
             <CONNECTION INSTANCE="DSP_Synthesizer_GainAndSum_mult_sum_0" PORT="nReset"/>
+            <CONNECTION INSTANCE="DSP_audio_clk_gen_0" PORT="nReset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="nResetAudioClk" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nResetAudioClk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DAC_IF_0" PORT="nReset"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -440,7 +555,7 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -466,14 +581,14 @@
     <MODULE FULLNAME="/DSP/Synthesizer/GainAndSum/mult_sum_0" HWVERSION="1.0" INSTANCE="DSP_Synthesizer_GainAndSum_mult_sum_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mult_sum" VLNV="xilinx.com:module_ref:mult_sum:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="CLEAR_DELAY" VALUE="28"/>
+        <PARAMETER NAME="CLEAR_DELAY" VALUE="29"/>
         <PARAMETER NAME="Component_Name" VALUE="design_1_mult_sum_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nReset">
+        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nResetSysClk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nReset"/>
+            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nResetSysClk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="sysClk" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK0">
@@ -486,7 +601,11 @@
             <CONNECTION INSTANCE="DSP_Synthesizer_Oscillator_phase_gen_256_0" PORT="sync"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="sync" SIGIS="undef"/>
+        <PORT DIR="O" NAME="sync" SIGIS="undef" SIGNAME="DSP_Synthesizer_GainAndSum_mult_sum_0_sync">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DAC_FIFO_0" PORT="DataValid"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="31" NAME="s_axis_sin_tdata" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_GainAndSum_mult_sum_0_s_axis_sin_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="DSP_Synthesizer_cordic_0" PORT="m_axis_dout_tdata"/>
@@ -524,11 +643,11 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="outData" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_GainAndSum_mult_sum_0_outData">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DAC_IF_0" PORT="dataR"/>
-            <CONNECTION INSTANCE="DAC_IF_0" PORT="dataL"/>
+            <CONNECTION INSTANCE="DAC_FIFO_0" PORT="Data2"/>
+            <CONNECTION INSTANCE="DAC_FIFO_0" PORT="Data1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="outGain" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_register_0_synth0Gain">
+        <PORT DIR="I" LEFT="4" NAME="outGain" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_register_0_synth0Gain">
           <CONNECTIONS>
             <CONNECTION INSTANCE="DSP_DSP_register_0" PORT="synth0Gain"/>
           </CONNECTIONS>
@@ -544,7 +663,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -562,7 +681,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} complex {bitwidth {attribs {resolve_type generated dependency complex_width format long minimum {} maximum {}} value 16} stride {attribs {resolve_type generated dependency complex_stride format long minimum {} maximum {}} value 16} realfirst {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} real {fixed {fractwidth {attribs {resolve_type generated dependency complex_fractwidth format long minimum {} maximum {}} value 14} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}} TDATA_WIDTH 32 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cartesian_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value cartesian_tuser} enabled {attribs {resolve_type generated dependency cart_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency cart_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_phase_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value phase_tuser} enabled {attribs {resolve_type generated dependency phase_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency phase_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency phase_offset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}} TUSER_WIDTH 0}"/>
@@ -799,15 +918,16 @@
     <MODULE FULLNAME="/DSP/Synthesizer/Oscillator/phase_gen_256_0" HWVERSION="1.0" INSTANCE="DSP_Synthesizer_Oscillator_phase_gen_256_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="phase_gen_256" VLNV="xilinx.com:module_ref:phase_gen_256:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
+        <PARAMETER NAME="M_TWO" VALUE="0xC00000"/>
         <PARAMETER NAME="M_ONE" VALUE="0xE00000"/>
         <PARAMETER NAME="ONE" VALUE="0x200000"/>
         <PARAMETER NAME="Component_Name" VALUE="design_1_phase_gen_256_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nReset">
+        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nResetSysClk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nReset"/>
+            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nResetSysClk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="sysClk" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK0">
@@ -902,7 +1022,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -920,7 +1040,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -939,12 +1059,12 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nReset">
+        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nResetSysClk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nReset"/>
+            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nResetSysClk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -1035,7 +1155,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -1053,7 +1173,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -1368,7 +1488,7 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -1737,7 +1857,7 @@
         <PARAMETER NAME="C_S_AXI_HIGHADDR" VALUE="0x40001FFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -1942,7 +2062,7 @@
         <BUSINTERFACE BUSNAME="ps7_0_axi_periph_M02_AXI" DATAWIDTH="32" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="13"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -2085,7 +2205,7 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -2121,7 +2241,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -2139,7 +2259,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} complex {bitwidth {attribs {resolve_type generated dependency complex_width format long minimum {} maximum {}} value 16} stride {attribs {resolve_type generated dependency complex_stride format long minimum {} maximum {}} value 16} realfirst {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} real {fixed {fractwidth {attribs {resolve_type generated dependency complex_fractwidth format long minimum {} maximum {}} value 14} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}} TDATA_WIDTH 32 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cartesian_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value cartesian_tuser} enabled {attribs {resolve_type generated dependency cart_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency cart_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_phase_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value phase_tuser} enabled {attribs {resolve_type generated dependency phase_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency phase_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency phase_offset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}} TUSER_WIDTH 0}"/>
@@ -2154,17 +2274,17 @@
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="WIDTH" VALUE="14"/>
-        <PARAMETER NAME="DELAY" VALUE="24"/>
+        <PARAMETER NAME="DELAY" VALUE="25"/>
         <PARAMETER NAME="Component_Name" VALUE="design_1_delay_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nReset">
+        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nResetSysClk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nReset"/>
+            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nResetSysClk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -2200,7 +2320,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -2218,7 +2338,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -2236,14 +2356,19 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nReset">
+        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nResetSysClk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nReset"/>
+            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nResetSysClk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="audioClk256" SIGIS="undef" SIGNAME="clk_wiz_0_clk_out1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sysClk" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="audioClk" SIGIS="undef" SIGNAME="DSP_audio_clk_gen_0_audioClk">
@@ -2836,8 +2961,11 @@
         </PORT>
         <PORT CLKFREQUENCY="12288000" DIR="O" NAME="clk_out1" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="audioClk256"/>
             <CONNECTION INSTANCE="DSP_audio_clk_gen_0" PORT="audioClk256"/>
+            <CONNECTION INSTANCE="DAC_IF_0" PORT="s_axis_aclk"/>
             <CONNECTION INSTANCE="DAC_IF_0" PORT="clk_256fs"/>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="m_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_0_locked">
@@ -2847,6 +2975,484 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/fifo_generator_0" HWVERSION="13.2" INSTANCE="fifo_generator_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fifo_generator" VLNV="xilinx.com:ip:fifo_generator:13.2">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=fifo_generator;v=v13_2;d=pg057-fifo-generator.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_COMMON_CLOCK" VALUE="0"/>
+        <PARAMETER NAME="C_SELECT_XPM" VALUE="0"/>
+        <PARAMETER NAME="C_COUNT_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_DATA_COUNT_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_DEFAULT_VALUE" VALUE="BlankString"/>
+        <PARAMETER NAME="C_DIN_WIDTH" VALUE="18"/>
+        <PARAMETER NAME="C_DOUT_RST_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_DOUT_WIDTH" VALUE="18"/>
+        <PARAMETER NAME="C_ENABLE_RLOCS" VALUE="0"/>
+        <PARAMETER NAME="C_FAMILY" VALUE="zynq"/>
+        <PARAMETER NAME="C_FULL_FLAGS_RST_VAL" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_ALMOST_EMPTY" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_ALMOST_FULL" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_BACKUP" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_INT_CLK" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_MEMINIT_FILE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_OVERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_RD_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_RD_RST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_RST" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_SRST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_UNDERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_VALID" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_WR_ACK" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_WR_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_WR_RST" VALUE="0"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_INIT_WR_PNTR_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_MEMORY_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_MIF_FILE_NAME" VALUE="BlankString"/>
+        <PARAMETER NAME="C_OPTIMIZATION_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_OVERFLOW_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_PRELOAD_LATENCY" VALUE="1"/>
+        <PARAMETER NAME="C_PRELOAD_REGS" VALUE="0"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE" VALUE="4kx4"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL" VALUE="2"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_NEGATE_VAL" VALUE="3"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL" VALUE="1022"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_NEGATE_VAL" VALUE="1021"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_RD_DATA_COUNT_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_RD_DEPTH" VALUE="1024"/>
+        <PARAMETER NAME="C_RD_FREQ" VALUE="1"/>
+        <PARAMETER NAME="C_RD_PNTR_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_UNDERFLOW_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_USE_DOUT_RST" VALUE="1"/>
+        <PARAMETER NAME="C_USE_ECC" VALUE="0"/>
+        <PARAMETER NAME="C_USE_EMBEDDED_REG" VALUE="0"/>
+        <PARAMETER NAME="C_USE_PIPELINE_REG" VALUE="0"/>
+        <PARAMETER NAME="C_POWER_SAVING_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_USE_FIFO16_FLAGS" VALUE="0"/>
+        <PARAMETER NAME="C_USE_FWFT_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_VALID_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_WR_ACK_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_WR_DATA_COUNT_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_DEPTH" VALUE="1024"/>
+        <PARAMETER NAME="C_WR_FREQ" VALUE="1"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_RESPONSE_LATENCY" VALUE="1"/>
+        <PARAMETER NAME="C_MSGON_VAL" VALUE="1"/>
+        <PARAMETER NAME="C_ENABLE_RST_SYNC" VALUE="1"/>
+        <PARAMETER NAME="C_EN_SAFETY_CKT" VALUE="1"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_SYNCHRONIZER_STAGE" VALUE="2"/>
+        <PARAMETER NAME="C_INTERFACE_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXI_WR_CHANNEL" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXI_RD_CHANNEL" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_SLAVE_CE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_MASTER_CE" VALUE="0"/>
+        <PARAMETER NAME="C_ADD_NGC_CONSTRAINT" VALUE="0"/>
+        <PARAMETER NAME="C_USE_COMMON_OVERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_USE_COMMON_UNDERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_USE_DEFAULT_SETTINGS" VALUE="0"/>
+        <PARAMETER NAME="C_AXI_ID_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_ADDR_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_AXI_DATA_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="C_AXI_LEN_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C_AXI_LOCK_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_AWUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_WUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_BUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_ARUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_RUSER" VALUE="0"/>
+        <PARAMETER NAME="C_AXI_ARUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_AWUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_WUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_BUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_RUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXIS_TDATA" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXIS_TID" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TDEST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TREADY" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXIS_TLAST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TSTRB" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TKEEP" VALUE="0"/>
+        <PARAMETER NAME="C_AXIS_TDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_AXIS_TID_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXIS_TDEST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXIS_TUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXIS_TSTRB_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_AXIS_TKEEP_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_WACH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_WDCH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_WRCH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_RACH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_RDCH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_AXIS_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WACH" VALUE="12"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WDCH" VALUE="11"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WRCH" VALUE="12"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_RACH" VALUE="12"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_RDCH" VALUE="11"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_AXIS" VALUE="11"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WACH" VALUE="512x36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WDCH" VALUE="1kx36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WRCH" VALUE="512x36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_RACH" VALUE="512x36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_RDCH" VALUE="1kx36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_AXIS" VALUE="512x36"/>
+        <PARAMETER NAME="C_USE_ECC_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_DIN_WIDTH_WACH" VALUE="32"/>
+        <PARAMETER NAME="C_DIN_WIDTH_WDCH" VALUE="64"/>
+        <PARAMETER NAME="C_DIN_WIDTH_WRCH" VALUE="2"/>
+        <PARAMETER NAME="C_DIN_WIDTH_RACH" VALUE="32"/>
+        <PARAMETER NAME="C_DIN_WIDTH_RDCH" VALUE="64"/>
+        <PARAMETER NAME="C_DIN_WIDTH_AXIS" VALUE="32"/>
+        <PARAMETER NAME="C_WR_DEPTH_WACH" VALUE="16"/>
+        <PARAMETER NAME="C_WR_DEPTH_WDCH" VALUE="1024"/>
+        <PARAMETER NAME="C_WR_DEPTH_WRCH" VALUE="16"/>
+        <PARAMETER NAME="C_WR_DEPTH_RACH" VALUE="16"/>
+        <PARAMETER NAME="C_WR_DEPTH_RDCH" VALUE="1024"/>
+        <PARAMETER NAME="C_WR_DEPTH_AXIS" VALUE="16"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_WACH" VALUE="4"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_WDCH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_WRCH" VALUE="4"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_RACH" VALUE="4"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_RDCH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_AXIS" VALUE="4"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WACH" VALUE="15"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WDCH" VALUE="1023"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WRCH" VALUE="15"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_RACH" VALUE="15"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_RDCH" VALUE="1023"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_AXIS" VALUE="15"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WACH" VALUE="13"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WDCH" VALUE="1021"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WRCH" VALUE="13"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_RACH" VALUE="13"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_RDCH" VALUE="1021"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_AXIS" VALUE="13"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_fifo_generator_0_0"/>
+        <PARAMETER NAME="Fifo_Implementation" VALUE="Common_Clock_Block_RAM"/>
+        <PARAMETER NAME="synchronization_stages" VALUE="2"/>
+        <PARAMETER NAME="synchronization_stages_axi" VALUE="2"/>
+        <PARAMETER NAME="INTERFACE_TYPE" VALUE="AXI_STREAM"/>
+        <PARAMETER NAME="Performance_Options" VALUE="Standard_FIFO"/>
+        <PARAMETER NAME="asymmetric_port_width" VALUE="false"/>
+        <PARAMETER NAME="Input_Data_Width" VALUE="18"/>
+        <PARAMETER NAME="Input_Depth" VALUE="1024"/>
+        <PARAMETER NAME="Output_Data_Width" VALUE="18"/>
+        <PARAMETER NAME="Output_Depth" VALUE="1024"/>
+        <PARAMETER NAME="Enable_ECC" VALUE="false"/>
+        <PARAMETER NAME="Use_Embedded_Registers" VALUE="false"/>
+        <PARAMETER NAME="Reset_Pin" VALUE="true"/>
+        <PARAMETER NAME="Enable_Reset_Synchronization" VALUE="true"/>
+        <PARAMETER NAME="Reset_Type" VALUE="Asynchronous_Reset"/>
+        <PARAMETER NAME="Full_Flags_Reset_Value" VALUE="1"/>
+        <PARAMETER NAME="Use_Dout_Reset" VALUE="true"/>
+        <PARAMETER NAME="Dout_Reset_Value" VALUE="0"/>
+        <PARAMETER NAME="dynamic_power_saving" VALUE="false"/>
+        <PARAMETER NAME="Almost_Full_Flag" VALUE="false"/>
+        <PARAMETER NAME="Almost_Empty_Flag" VALUE="false"/>
+        <PARAMETER NAME="Valid_Flag" VALUE="false"/>
+        <PARAMETER NAME="Valid_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Underflow_Flag" VALUE="false"/>
+        <PARAMETER NAME="Underflow_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Write_Acknowledge_Flag" VALUE="false"/>
+        <PARAMETER NAME="Write_Acknowledge_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Overflow_Flag" VALUE="false"/>
+        <PARAMETER NAME="Overflow_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Inject_Sbit_Error" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error" VALUE="false"/>
+        <PARAMETER NAME="ecc_pipeline_reg" VALUE="false"/>
+        <PARAMETER NAME="Use_Extra_Logic" VALUE="false"/>
+        <PARAMETER NAME="Data_Count" VALUE="false"/>
+        <PARAMETER NAME="Data_Count_Width" VALUE="10"/>
+        <PARAMETER NAME="Write_Data_Count" VALUE="false"/>
+        <PARAMETER NAME="Write_Data_Count_Width" VALUE="10"/>
+        <PARAMETER NAME="Read_Data_Count" VALUE="false"/>
+        <PARAMETER NAME="Read_Data_Count_Width" VALUE="10"/>
+        <PARAMETER NAME="Disable_Timing_Violations" VALUE="false"/>
+        <PARAMETER NAME="Read_Clock_Frequency" VALUE="1"/>
+        <PARAMETER NAME="Write_Clock_Frequency" VALUE="1"/>
+        <PARAMETER NAME="Programmable_Full_Type" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value" VALUE="1022"/>
+        <PARAMETER NAME="Full_Threshold_Negate_Value" VALUE="1021"/>
+        <PARAMETER NAME="Programmable_Empty_Type" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value" VALUE="2"/>
+        <PARAMETER NAME="Empty_Threshold_Negate_Value" VALUE="3"/>
+        <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
+        <PARAMETER NAME="Clock_Type_AXI" VALUE="Independent_Clock"/>
+        <PARAMETER NAME="HAS_ACLKEN" VALUE="false"/>
+        <PARAMETER NAME="Clock_Enable_Type" VALUE="Slave_Interface_Clock_Enable"/>
+        <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
+        <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="ADDRESS_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="AWUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="WUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="BUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="ARUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="RUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
+        <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="Enable_TREADY" VALUE="true"/>
+        <PARAMETER NAME="Enable_TLAST" VALUE="false"/>
+        <PARAMETER NAME="HAS_TSTRB" VALUE="false"/>
+        <PARAMETER NAME="TSTRB_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="HAS_TKEEP" VALUE="false"/>
+        <PARAMETER NAME="TKEEP_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="wach_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_wach" VALUE="Independent_Clocks_Distributed_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_wach" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_wach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_wach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_wach" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_wach" VALUE="16"/>
+        <PARAMETER NAME="Enable_Data_Counts_wach" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_wach" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_wach" VALUE="15"/>
+        <PARAMETER NAME="Programmable_Empty_Type_wach" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_wach" VALUE="13"/>
+        <PARAMETER NAME="wdch_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_wdch" VALUE="Independent_Clocks_Block_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_wdch" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_wdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_wdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_wdch" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_wdch" VALUE="1024"/>
+        <PARAMETER NAME="Enable_Data_Counts_wdch" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_wdch" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_wdch" VALUE="1023"/>
+        <PARAMETER NAME="Programmable_Empty_Type_wdch" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_wdch" VALUE="1021"/>
+        <PARAMETER NAME="wrch_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_wrch" VALUE="Independent_Clocks_Distributed_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_wrch" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_wrch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_wrch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_wrch" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_wrch" VALUE="16"/>
+        <PARAMETER NAME="Enable_Data_Counts_wrch" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_wrch" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_wrch" VALUE="15"/>
+        <PARAMETER NAME="Programmable_Empty_Type_wrch" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_wrch" VALUE="13"/>
+        <PARAMETER NAME="rach_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_rach" VALUE="Independent_Clocks_Distributed_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_rach" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_rach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_rach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_rach" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_rach" VALUE="16"/>
+        <PARAMETER NAME="Enable_Data_Counts_rach" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_rach" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_rach" VALUE="15"/>
+        <PARAMETER NAME="Programmable_Empty_Type_rach" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_rach" VALUE="13"/>
+        <PARAMETER NAME="rdch_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_rdch" VALUE="Independent_Clocks_Block_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_rdch" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_rdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_rdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_rdch" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_rdch" VALUE="1024"/>
+        <PARAMETER NAME="Enable_Data_Counts_rdch" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_rdch" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_rdch" VALUE="1023"/>
+        <PARAMETER NAME="Programmable_Empty_Type_rdch" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_rdch" VALUE="1021"/>
+        <PARAMETER NAME="axis_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_axis" VALUE="Independent_Clocks_Block_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_axis" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_axis" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_axis" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_axis" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_axis" VALUE="16"/>
+        <PARAMETER NAME="Enable_Data_Counts_axis" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_axis" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_axis" VALUE="15"/>
+        <PARAMETER NAME="Programmable_Empty_Type_axis" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_axis" VALUE="13"/>
+        <PARAMETER NAME="Register_Slice_Mode_wach" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_wdch" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_wrch" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_rach" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_rdch" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_axis" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Underflow_Flag_AXI" VALUE="false"/>
+        <PARAMETER NAME="Underflow_Sense_AXI" VALUE="Active_High"/>
+        <PARAMETER NAME="Overflow_Flag_AXI" VALUE="false"/>
+        <PARAMETER NAME="Overflow_Sense_AXI" VALUE="Active_High"/>
+        <PARAMETER NAME="Disable_Timing_Violations_AXI" VALUE="false"/>
+        <PARAMETER NAME="Add_NGC_Constraint_AXI" VALUE="false"/>
+        <PARAMETER NAME="Enable_Common_Underflow" VALUE="false"/>
+        <PARAMETER NAME="Enable_Common_Overflow" VALUE="false"/>
+        <PARAMETER NAME="enable_read_pointer_increment_by2" VALUE="false"/>
+        <PARAMETER NAME="Use_Embedded_Registers_axis" VALUE="false"/>
+        <PARAMETER NAME="enable_low_latency" VALUE="false"/>
+        <PARAMETER NAME="use_dout_register" VALUE="false"/>
+        <PARAMETER NAME="Master_interface_Clock_enable_memory_mapped" VALUE="false"/>
+        <PARAMETER NAME="Slave_interface_Clock_enable_memory_mapped" VALUE="false"/>
+        <PARAMETER NAME="Output_Register_Type" VALUE="Embedded_Reg"/>
+        <PARAMETER NAME="Enable_Safety_Circuit" VALUE="true"/>
+        <PARAMETER NAME="Enable_ECC_Type" VALUE="Hard_ECC"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="wr_rst_busy" SIGIS="undef"/>
+        <PORT DIR="O" NAME="rd_rst_busy" SIGIS="undef"/>
+        <PORT CLKFREQUENCY="12288000" DIR="I" NAME="m_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_aresetn" SIGIS="rst" SIGNAME="DSP_DSP_reset_0_nResetSysClk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nResetSysClk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="DAC_FIFO_0_m_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DAC_FIFO_0" PORT="m_axis_tvalid"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DAC_FIFO_0" PORT="m_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="fifo_generator_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DAC_FIFO_0" PORT="m_axis_tready"/>
+            <CONNECTION INSTANCE="DAC_FIFO_0" PORT="m_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="DAC_FIFO_0_m_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DAC_FIFO_0" PORT="m_axis_tdata"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DAC_FIFO_0" PORT="m_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="fifo_generator_0_m_axis_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DAC_IF_0" PORT="s_axis_tvalid"/>
+            <CONNECTION INSTANCE="DAC_IF_0" PORT="s_axis_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="DAC_IF_0_s_axis_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DAC_IF_0" PORT="s_axis_tready"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DAC_IF_0" PORT="s_axis_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="fifo_generator_0_m_axis_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DAC_IF_0" PORT="s_axis_tdata"/>
+            <CONNECTION INSTANCE="DAC_IF_0" PORT="s_axis_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="fifo_generator_0_M_AXIS" NAME="M_AXIS" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="12288000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK1"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="DAC_FIFO_0_m_axis" NAME="S_AXIS" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
     </MODULE>
     <MODULE FULLNAME="/myip_0" HWVERSION="1.0" INSTANCE="myip_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="myip" VLNV="xilinx.com:user:myip:1.0">
       <DOCUMENTS/>
@@ -2967,7 +3573,7 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -2985,7 +3591,7 @@
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="4"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -3226,7 +3832,7 @@
         <PARAMETER NAME="PCW_TTC1_CLK2_PERIPHERAL_FREQMHZ" VALUE="133.333333"/>
         <PARAMETER NAME="PCW_PCAP_PERIPHERAL_FREQMHZ" VALUE="200"/>
         <PARAMETER NAME="PCW_TPIU_PERIPHERAL_FREQMHZ" VALUE="200"/>
-        <PARAMETER NAME="PCW_FPGA0_PERIPHERAL_FREQMHZ" VALUE="20"/>
+        <PARAMETER NAME="PCW_FPGA0_PERIPHERAL_FREQMHZ" VALUE="100"/>
         <PARAMETER NAME="PCW_FPGA1_PERIPHERAL_FREQMHZ" VALUE="100"/>
         <PARAMETER NAME="PCW_FPGA2_PERIPHERAL_FREQMHZ" VALUE="50"/>
         <PARAMETER NAME="PCW_FPGA3_PERIPHERAL_FREQMHZ" VALUE="50"/>
@@ -3250,7 +3856,7 @@
         <PARAMETER NAME="PCW_ACT_TTC_PERIPHERAL_FREQMHZ" VALUE="50"/>
         <PARAMETER NAME="PCW_ACT_PCAP_PERIPHERAL_FREQMHZ" VALUE="200.000000"/>
         <PARAMETER NAME="PCW_ACT_TPIU_PERIPHERAL_FREQMHZ" VALUE="200.000000"/>
-        <PARAMETER NAME="PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ" VALUE="20.000000"/>
+        <PARAMETER NAME="PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ" VALUE="100.000000"/>
         <PARAMETER NAME="PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ" VALUE="100.000000"/>
         <PARAMETER NAME="PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ" VALUE="10.000000"/>
         <PARAMETER NAME="PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ" VALUE="10.000000"/>
@@ -3260,7 +3866,7 @@
         <PARAMETER NAME="PCW_ACT_TTC1_CLK0_PERIPHERAL_FREQMHZ" VALUE="111.111115"/>
         <PARAMETER NAME="PCW_ACT_TTC1_CLK1_PERIPHERAL_FREQMHZ" VALUE="111.111115"/>
         <PARAMETER NAME="PCW_ACT_TTC1_CLK2_PERIPHERAL_FREQMHZ" VALUE="111.111115"/>
-        <PARAMETER NAME="PCW_CLK0_FREQ" VALUE="20000000"/>
+        <PARAMETER NAME="PCW_CLK0_FREQ" VALUE="100000000"/>
         <PARAMETER NAME="PCW_CLK1_FREQ" VALUE="100000000"/>
         <PARAMETER NAME="PCW_CLK2_FREQ" VALUE="10000000"/>
         <PARAMETER NAME="PCW_CLK3_FREQ" VALUE="10000000"/>
@@ -3274,11 +3880,11 @@
         <PARAMETER NAME="PCW_SPI_PERIPHERAL_DIVISOR0" VALUE="1"/>
         <PARAMETER NAME="PCW_CAN_PERIPHERAL_DIVISOR0" VALUE="1"/>
         <PARAMETER NAME="PCW_CAN_PERIPHERAL_DIVISOR1" VALUE="1"/>
-        <PARAMETER NAME="PCW_FCLK0_PERIPHERAL_DIVISOR0" VALUE="10"/>
+        <PARAMETER NAME="PCW_FCLK0_PERIPHERAL_DIVISOR0" VALUE="4"/>
         <PARAMETER NAME="PCW_FCLK1_PERIPHERAL_DIVISOR0" VALUE="4"/>
         <PARAMETER NAME="PCW_FCLK2_PERIPHERAL_DIVISOR0" VALUE="1"/>
         <PARAMETER NAME="PCW_FCLK3_PERIPHERAL_DIVISOR0" VALUE="1"/>
-        <PARAMETER NAME="PCW_FCLK0_PERIPHERAL_DIVISOR1" VALUE="8"/>
+        <PARAMETER NAME="PCW_FCLK0_PERIPHERAL_DIVISOR1" VALUE="4"/>
         <PARAMETER NAME="PCW_FCLK1_PERIPHERAL_DIVISOR1" VALUE="4"/>
         <PARAMETER NAME="PCW_FCLK2_PERIPHERAL_DIVISOR1" VALUE="1"/>
         <PARAMETER NAME="PCW_FCLK3_PERIPHERAL_DIVISOR1" VALUE="1"/>
@@ -3344,7 +3950,7 @@
         <PARAMETER NAME="PCW_USE_S_AXI_HP1" VALUE="0"/>
         <PARAMETER NAME="PCW_USE_S_AXI_HP2" VALUE="0"/>
         <PARAMETER NAME="PCW_USE_S_AXI_HP3" VALUE="0"/>
-        <PARAMETER NAME="PCW_M_AXI_GP0_FREQMHZ" VALUE="20"/>
+        <PARAMETER NAME="PCW_M_AXI_GP0_FREQMHZ" VALUE="100"/>
         <PARAMETER NAME="PCW_M_AXI_GP1_FREQMHZ" VALUE="10"/>
         <PARAMETER NAME="PCW_S_AXI_GP0_FREQMHZ" VALUE="10"/>
         <PARAMETER NAME="PCW_S_AXI_GP1_FREQMHZ" VALUE="10"/>
@@ -4115,7 +4721,7 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="M_AXI_GP0_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="M_AXI_GP0_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
@@ -4175,7 +4781,7 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="20000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
@@ -4192,9 +4798,12 @@
             <CONNECTION INSTANCE="DSP_Synthesizer_Oscillator_phase_gen_256_0" PORT="sysClk"/>
             <CONNECTION INSTANCE="DSP_Synthesizer_GainAndSum_mult_gen_0" PORT="CLK"/>
             <CONNECTION INSTANCE="DSP_Synthesizer_GainAndSum_mult_sum_0" PORT="sysClk"/>
+            <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="sysClk"/>
+            <CONNECTION INSTANCE="DSP_audio_clk_gen_0" PORT="sysClk"/>
             <CONNECTION INSTANCE="DSP_DSP_register_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="DAC_IF_0" PORT="sysClk"/>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK1">
@@ -4287,7 +4896,7 @@
           <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="8"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI3"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="20000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="12"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -5420,7 +6029,7 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="slowest_sync_clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="slowest_sync_clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>

@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sun Oct  7 23:13:39 2018
+// Date        : Wed Oct 10 22:46:47 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim
 //               F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_audio_clk_gen_0_0/design_1_audio_clk_gen_0_0_sim_netlist.v
@@ -18,191 +18,18 @@
 module design_1_audio_clk_gen_0_0
    (nReset,
     audioClk256,
+    sysClk,
     audioClk);
   input nReset;
   input audioClk256;
+  input sysClk;
   output audioClk;
 
-  wire audioClk;
-  wire audioClk256;
-  wire nReset;
+  wire \<const0> ;
 
-  design_1_audio_clk_gen_0_0_audio_clk_gen inst
-       (.audioClk(audioClk),
-        .audioClk256(audioClk256),
-        .nReset(nReset));
-endmodule
-
-(* ORIG_REF_NAME = "audio_clk_gen" *) 
-module design_1_audio_clk_gen_0_0_audio_clk_gen
-   (audioClk,
-    audioClk256,
-    nReset);
-  output audioClk;
-  input audioClk256;
-  input nReset;
-
-  wire audioClk;
-  wire audioClk256;
-  wire audioClk_INST_0_i_1_n_0;
-  wire nReset;
-  wire [7:0]p_0_in;
-  wire \prescaler[7]_i_1_n_0 ;
-  wire [7:0]prescaler_reg__0;
-
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT3 #(
-    .INIT(8'hAE)) 
-    audioClk_INST_0
-       (.I0(prescaler_reg__0[7]),
-        .I1(prescaler_reg__0[6]),
-        .I2(audioClk_INST_0_i_1_n_0),
-        .O(audioClk));
-  LUT6 #(
-    .INIT(64'h7FFFFFFFFFFFFFFF)) 
-    audioClk_INST_0_i_1
-       (.I0(prescaler_reg__0[4]),
-        .I1(prescaler_reg__0[2]),
-        .I2(prescaler_reg__0[0]),
-        .I3(prescaler_reg__0[1]),
-        .I4(prescaler_reg__0[3]),
-        .I5(prescaler_reg__0[5]),
-        .O(audioClk_INST_0_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    \prescaler[0]_i_1 
-       (.I0(prescaler_reg__0[0]),
-        .O(p_0_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT2 #(
-    .INIT(4'h6)) 
-    \prescaler[1]_i_1 
-       (.I0(prescaler_reg__0[0]),
-        .I1(prescaler_reg__0[1]),
-        .O(p_0_in[1]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT3 #(
-    .INIT(8'h78)) 
-    \prescaler[2]_i_1 
-       (.I0(prescaler_reg__0[1]),
-        .I1(prescaler_reg__0[0]),
-        .I2(prescaler_reg__0[2]),
-        .O(p_0_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h7F80)) 
-    \prescaler[3]_i_1 
-       (.I0(prescaler_reg__0[2]),
-        .I1(prescaler_reg__0[0]),
-        .I2(prescaler_reg__0[1]),
-        .I3(prescaler_reg__0[3]),
-        .O(p_0_in[3]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT5 #(
-    .INIT(32'h7FFF8000)) 
-    \prescaler[4]_i_1 
-       (.I0(prescaler_reg__0[3]),
-        .I1(prescaler_reg__0[1]),
-        .I2(prescaler_reg__0[0]),
-        .I3(prescaler_reg__0[2]),
-        .I4(prescaler_reg__0[4]),
-        .O(p_0_in[4]));
-  LUT6 #(
-    .INIT(64'h7FFFFFFF80000000)) 
-    \prescaler[5]_i_1 
-       (.I0(prescaler_reg__0[4]),
-        .I1(prescaler_reg__0[2]),
-        .I2(prescaler_reg__0[0]),
-        .I3(prescaler_reg__0[1]),
-        .I4(prescaler_reg__0[3]),
-        .I5(prescaler_reg__0[5]),
-        .O(p_0_in[5]));
-  LUT2 #(
-    .INIT(4'h9)) 
-    \prescaler[6]_i_1 
-       (.I0(audioClk_INST_0_i_1_n_0),
-        .I1(prescaler_reg__0[6]),
-        .O(p_0_in[6]));
-  LUT4 #(
-    .INIT(16'h40FF)) 
-    \prescaler[7]_i_1 
-       (.I0(audioClk_INST_0_i_1_n_0),
-        .I1(prescaler_reg__0[6]),
-        .I2(prescaler_reg__0[7]),
-        .I3(nReset),
-        .O(\prescaler[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT3 #(
-    .INIT(8'hD2)) 
-    \prescaler[7]_i_2 
-       (.I0(prescaler_reg__0[6]),
-        .I1(audioClk_INST_0_i_1_n_0),
-        .I2(prescaler_reg__0[7]),
-        .O(p_0_in[7]));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    \prescaler_reg[0] 
-       (.C(audioClk256),
-        .CE(1'b1),
-        .D(p_0_in[0]),
-        .Q(prescaler_reg__0[0]),
-        .R(\prescaler[7]_i_1_n_0 ));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    \prescaler_reg[1] 
-       (.C(audioClk256),
-        .CE(1'b1),
-        .D(p_0_in[1]),
-        .Q(prescaler_reg__0[1]),
-        .R(\prescaler[7]_i_1_n_0 ));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    \prescaler_reg[2] 
-       (.C(audioClk256),
-        .CE(1'b1),
-        .D(p_0_in[2]),
-        .Q(prescaler_reg__0[2]),
-        .R(\prescaler[7]_i_1_n_0 ));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    \prescaler_reg[3] 
-       (.C(audioClk256),
-        .CE(1'b1),
-        .D(p_0_in[3]),
-        .Q(prescaler_reg__0[3]),
-        .R(\prescaler[7]_i_1_n_0 ));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    \prescaler_reg[4] 
-       (.C(audioClk256),
-        .CE(1'b1),
-        .D(p_0_in[4]),
-        .Q(prescaler_reg__0[4]),
-        .R(\prescaler[7]_i_1_n_0 ));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    \prescaler_reg[5] 
-       (.C(audioClk256),
-        .CE(1'b1),
-        .D(p_0_in[5]),
-        .Q(prescaler_reg__0[5]),
-        .R(\prescaler[7]_i_1_n_0 ));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    \prescaler_reg[6] 
-       (.C(audioClk256),
-        .CE(1'b1),
-        .D(p_0_in[6]),
-        .Q(prescaler_reg__0[6]),
-        .R(\prescaler[7]_i_1_n_0 ));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    \prescaler_reg[7] 
-       (.C(audioClk256),
-        .CE(1'b1),
-        .D(p_0_in[7]),
-        .Q(prescaler_reg__0[7]),
-        .R(\prescaler[7]_i_1_n_0 ));
+  assign audioClk = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
 endmodule
 `ifndef GLBL
 `define GLBL

@@ -58,16 +58,25 @@
 module design_1_DSP_reset_0_0 (
   nResetExt,
   nResetInt,
-  nReset
+  sysClk,
+  audioClk256,
+  nResetSysClk,
+  nResetAudioClk
 );
 
 input wire nResetExt;
 input wire nResetInt;
-output wire nReset;
+input wire sysClk;
+input wire audioClk256;
+output wire nResetSysClk;
+output wire nResetAudioClk;
 
   DSP_reset inst (
     .nResetExt(nResetExt),
     .nResetInt(nResetInt),
-    .nReset(nReset)
+    .sysClk(sysClk),
+    .audioClk256(audioClk256),
+    .nResetSysClk(nResetSysClk),
+    .nResetAudioClk(nResetAudioClk)
   );
 endmodule

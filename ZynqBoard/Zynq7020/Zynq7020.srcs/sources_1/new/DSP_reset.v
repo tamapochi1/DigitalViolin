@@ -23,9 +23,26 @@
 module DSP_reset(
     input nResetExt,
     input nResetInt,
-    output nReset
+    input sysClk,
+    input audioClk256,
+    output nResetSysClk,
+    output nResetAudioClk
     );
-    
-assign nReset = nResetExt & nResetInt;
+
+reg [1:0] nResetSysClkBuf;
+reg [1:0] nResetAudioClkBuf;
+
+always @(negedge sysClk)
+begin
+    nResetSysClkBuf <= {nResetExt, nResetSysClkBuf[1]};
+end
+
+always @(negedge audioClk256)
+begin
+    nResetAudioClkBuf <= {nResetInt, nResetAudioClkBuf[1]};
+end
+
+assign nResetSysClk = nResetSysClkBuf[0] & nResetInt;
+assign nResetAudioClk = nResetAudioClkBuf[0] & nResetExt;
 
 endmodule

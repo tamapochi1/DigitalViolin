@@ -1,4 +1,4 @@
-NumberHits:4
-Timestamp: Sun Oct 07 14:12:03 UTC 2018
+NumberHits:5
+Timestamp: Tue Oct 09 10:23:08 UTC 2018
 VLNV: xilinx.com:ip:axi_bram_ctrl:4.0
 SynthRuntime: 47

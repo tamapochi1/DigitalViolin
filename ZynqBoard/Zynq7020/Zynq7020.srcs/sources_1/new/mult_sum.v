@@ -36,7 +36,7 @@ module mult_sum
     output signed [13:0] mult_B,
     input signed [29:0] mult_P,
     output signed [15:0] outData,
-    input [7:0] outGain
+    input [4:0] outGain
     );
     
 wire signed [40:0] mult_P_ex;
@@ -45,9 +45,11 @@ assign mult_P_ex = mult_P[29] ? {11'h7FF, mult_P[29:0]} : {11'h000, mult_P[29:0]
 reg signed [40:0] sum;
 reg signed [15:0] outDataBuffer;
 reg [CLEAR_DELAY-1:0] clear_delay;
+reg [4:0] outGainBuf;
 
 wire signed [40:0] sum_gained;
-assign sum_gained = sum >>> outGain;
+assign sum_gained = sum >>> outGainBuf;
+
 
 always @(negedge sysClk)
 begin
@@ -58,6 +60,18 @@ begin
     else
     begin
         clear_delay <= {clear,clear_delay[CLEAR_DELAY-1:1]};
+    end
+end
+
+always @(negedge sysClk)
+begin
+    if(~nReset)
+    begin
+        outGainBuf <= 5'h00;
+    end
+    else
+    begin
+        outGainBuf <= outGain;
     end
 end
     

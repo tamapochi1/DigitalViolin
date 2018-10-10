@@ -23,8 +23,11 @@
 module DAC_IF(
     input nReset,
     input sysClk,
-    input [15:0] dataL,
-    input [15:0] dataR,
+    input [31:0] s_axis_tdata,
+    input s_axis_tvalid,
+    output s_axis_tready,
+    input s_axis_aclk,
+    output FIFOnReset,
     input clk_256fs,
     output DAC_MCLK,
     output DAC_BICK,
@@ -32,14 +35,16 @@ module DAC_IF(
     output DAC_SDT
     );
     
-//reg nResetbuf;
 reg [2:0] prescalerBICK;
+reg [31:0] readDataBuf;
 reg [31:0] dataBuf;
 reg [4:0] bitCounter;
 reg SDT;
     
 wire BICK;
 wire LRCK;
+
+assign FIFOnReset = 1'b1;
     
 assign DAC_MCLK = clk_256fs & nReset;
 assign BICK = (prescalerBICK >= 3'h4);
@@ -47,17 +52,20 @@ assign DAC_BICK = BICK;
 assign DAC_LRCK = (bitCounter <= 5'hF);
 assign DAC_SDT = SDT;
 
-//always @(negedge sysClk)
-//begin
-//    if(~nReset)
-//    begin
-//        nResetbuf <= 1'b0;
-//    end
-//    else
-//    begin
-//        nResetbuf <= 1'b1;
-//    end
-//end
+always @(negedge s_axis_aclk)
+begin
+    if(~nReset)
+    begin
+        readDataBuf <= 32'h00000000;
+    end
+    else
+    begin
+        if(s_axis_tvalid)
+        begin
+            readDataBuf <= s_axis_tdata;
+        end
+    end
+end
 
 always @(negedge clk_256fs)
 begin
@@ -92,7 +100,7 @@ begin
             else
             begin
                 bitCounter <= 5'h1F;
-                dataBuf <= {dataL, dataR};
+                dataBuf <= readDataBuf;
             end
         end
     end

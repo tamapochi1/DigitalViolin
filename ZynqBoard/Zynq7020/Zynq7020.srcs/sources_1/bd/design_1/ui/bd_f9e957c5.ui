@@ -2,32 +2,32 @@
    ExpandedHierarchyInLayout: "",
    guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
 #  -string -flagsOSRD
-preplace port sync -pg 1 -y 390 -defaultsOSRD
-preplace port audioClk -pg 1 -y 160 -defaultsOSRD
-preplace port sysClk -pg 1 -y 140 -defaultsOSRD
-preplace port nReset -pg 1 -y 120 -defaultsOSRD
-preplace port s_axis_delta -pg 1 -y 100 -defaultsOSRD
-preplace port reg_index_valid -pg 1 -y 90 -defaultsOSRD
-preplace port m_axis_phase -pg 1 -y 50 -defaultsOSRD
-preplace portBus reg_index -pg 1 -y 70 -defaultsOSRD
-preplace inst phase_gen_256_0 -pg 1 -lvl 1 -y 140 -defaultsOSRD
-preplace inst blk_mem_gen_1 -pg 1 -lvl 2 -y 240 -defaultsOSRD
-preplace netloc phase_gen_256_0_m_bram_int_wraddr 1 1 1 490
-preplace netloc blk_mem_gen_1_douta 1 0 2 20 310 NJ
-preplace netloc phase_gen_256_0_m_bram_int_clk 1 1 1 460
+preplace port audioClkSync -pg 1 -y 170 -defaultsOSRD
+preplace port sync -pg 1 -y 400 -defaultsOSRD
+preplace port sysClk -pg 1 -y 150 -defaultsOSRD
+preplace port nReset -pg 1 -y 130 -defaultsOSRD
+preplace port s_axis_delta -pg 1 -y 110 -defaultsOSRD
+preplace port reg_index_valid -pg 1 -y 100 -defaultsOSRD
+preplace port m_axis_phase -pg 1 -y 60 -defaultsOSRD
+preplace portBus reg_index -pg 1 -y 80 -defaultsOSRD
+preplace inst phase_gen_256_0 -pg 1 -lvl 1 -y 150 -defaultsOSRD
+preplace inst blk_mem_gen_1 -pg 1 -lvl 2 -y 250 -defaultsOSRD
+preplace netloc phase_gen_256_0_m_bram_int_wraddr 1 1 1 480
+preplace netloc blk_mem_gen_1_douta 1 0 2 10 320 NJ
+preplace netloc phase_gen_256_0_m_bram_int_clk 1 1 1 450
 preplace netloc DSP_reg_read_0_m_axis_delta 1 0 1 NJ
-preplace netloc phase_gen_256_0_reg_index 1 1 2 NJ 70 NJ
-preplace netloc phase_gen_256_0_m_bram_int_we 1 1 1 450
-preplace netloc phase_gen_256_0_m_bram_int_wrdata 1 1 1 470
+preplace netloc phase_gen_256_0_reg_index 1 1 2 NJ 80 NJ
+preplace netloc phase_gen_256_0_m_bram_int_we 1 1 1 440
+preplace netloc phase_gen_256_0_m_bram_int_wrdata 1 1 1 460
 preplace netloc DSP_register_0_sysNReset 1 0 1 NJ
-preplace netloc phase_gen_256_0_m_bram_int_rst 1 1 1 440
-preplace netloc phase_gen_256_0_sync 1 1 2 430J 390 NJ
-preplace netloc phase_gen_256_0_m_axis_phase 1 1 2 NJ 50 NJ
+preplace netloc phase_gen_256_0_m_bram_int_rst 1 1 1 430
+preplace netloc phase_gen_256_0_sync 1 1 2 420J 400 NJ
+preplace netloc phase_gen_256_0_m_axis_phase 1 1 2 NJ 60 NJ
 preplace netloc sysClk_0_1 1 0 1 NJ
-preplace netloc phase_gen_256_0_m_bram_int_rdaddr 1 1 1 480
+preplace netloc phase_gen_256_0_m_bram_int_rdaddr 1 1 1 470
 preplace netloc audio_clk_gen_0_audioClk 1 0 1 NJ
-preplace netloc phase_gen_256_0_reg_index_valid 1 1 2 NJ 90 NJ
-levelinfo -pg 1 0 230 620 770 -top -10 -bot 410
+preplace netloc phase_gen_256_0_reg_index_valid 1 1 2 NJ 100 NJ
+levelinfo -pg 1 -10 220 610 760 -top 0 -bot 420
 ",
 }
 0

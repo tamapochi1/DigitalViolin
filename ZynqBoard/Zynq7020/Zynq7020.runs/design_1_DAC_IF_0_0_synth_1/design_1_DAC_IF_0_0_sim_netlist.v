@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Thu Oct 11 00:10:22 2018
+// Date        : Sat Oct 13 15:27:54 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_DAC_IF_0_0_sim_netlist.v
@@ -16,7 +16,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
    (DAC_SDT,
     DAC_LRCK,
     DAC_BICK,
-    clk_256fs,
+    audio256Clk,
     nReset,
     s_axis_tvalid,
     s_axis_tdata,
@@ -24,7 +24,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   output DAC_SDT;
   output DAC_LRCK;
   output DAC_BICK;
-  input clk_256fs;
+  input audio256Clk;
   input nReset;
   input s_axis_tvalid;
   input [31:0]s_axis_tdata;
@@ -48,6 +48,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   wire SDT_reg_i_5_n_0;
   wire SDT_reg_i_6_n_0;
   wire SDT_reg_i_7_n_0;
+  wire audio256Clk;
   wire bitCounter;
   wire [0:0]bitCounter0;
   wire \bitCounter[1]_i_1_n_0 ;
@@ -58,7 +59,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   wire \bitCounter[4]_i_3_n_0 ;
   wire \bitCounter[4]_i_4_n_0 ;
   wire [4:0]bitCounter_reg__0;
-  wire clk_256fs;
   wire [31:0]dataBuf;
   wire nReset;
   wire p_0_in;
@@ -169,7 +169,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     SDT_reg
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(1'b1),
         .D(SDT_i_1_n_0),
         .Q(DAC_SDT),
@@ -273,7 +273,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \bitCounter_reg[0] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(\bitCounter[4]_i_2_n_0 ),
         .D(bitCounter0),
         .Q(bitCounter_reg__0[0]),
@@ -281,7 +281,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \bitCounter_reg[1] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(\bitCounter[4]_i_2_n_0 ),
         .D(\bitCounter[1]_i_1_n_0 ),
         .Q(bitCounter_reg__0[1]),
@@ -289,7 +289,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \bitCounter_reg[2] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(\bitCounter[4]_i_2_n_0 ),
         .D(\bitCounter[2]_i_1_n_0 ),
         .Q(bitCounter_reg__0[2]),
@@ -297,7 +297,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \bitCounter_reg[3] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(\bitCounter[4]_i_2_n_0 ),
         .D(\bitCounter[3]_i_1_n_0 ),
         .Q(bitCounter_reg__0[3]),
@@ -305,7 +305,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \bitCounter_reg[4] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(\bitCounter[4]_i_2_n_0 ),
         .D(\bitCounter[4]_i_3_n_0 ),
         .Q(bitCounter_reg__0[4]),
@@ -323,7 +323,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[0] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[0]),
         .Q(dataBuf[0]),
@@ -331,7 +331,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[10] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[10]),
         .Q(dataBuf[10]),
@@ -339,7 +339,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[11] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[11]),
         .Q(dataBuf[11]),
@@ -347,7 +347,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[12] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[12]),
         .Q(dataBuf[12]),
@@ -355,7 +355,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[13] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[13]),
         .Q(dataBuf[13]),
@@ -363,7 +363,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[14] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[14]),
         .Q(dataBuf[14]),
@@ -371,7 +371,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[15] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[15]),
         .Q(dataBuf[15]),
@@ -379,7 +379,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[16] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[16]),
         .Q(dataBuf[16]),
@@ -387,7 +387,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[17] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[17]),
         .Q(dataBuf[17]),
@@ -395,7 +395,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[18] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[18]),
         .Q(dataBuf[18]),
@@ -403,7 +403,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[19] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[19]),
         .Q(dataBuf[19]),
@@ -411,7 +411,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[1] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[1]),
         .Q(dataBuf[1]),
@@ -419,7 +419,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[20] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[20]),
         .Q(dataBuf[20]),
@@ -427,7 +427,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[21] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[21]),
         .Q(dataBuf[21]),
@@ -435,7 +435,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[22] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[22]),
         .Q(dataBuf[22]),
@@ -443,7 +443,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[23] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[23]),
         .Q(dataBuf[23]),
@@ -451,7 +451,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[24] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[24]),
         .Q(dataBuf[24]),
@@ -459,7 +459,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[25] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[25]),
         .Q(dataBuf[25]),
@@ -467,7 +467,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[26] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[26]),
         .Q(dataBuf[26]),
@@ -475,7 +475,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[27] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[27]),
         .Q(dataBuf[27]),
@@ -483,7 +483,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[28] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[28]),
         .Q(dataBuf[28]),
@@ -491,7 +491,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[29] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[29]),
         .Q(dataBuf[29]),
@@ -499,7 +499,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[2] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[2]),
         .Q(dataBuf[2]),
@@ -507,7 +507,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[30] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[30]),
         .Q(dataBuf[30]),
@@ -515,7 +515,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[31] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[31]),
         .Q(dataBuf[31]),
@@ -523,7 +523,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[3] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[3]),
         .Q(dataBuf[3]),
@@ -531,7 +531,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[4] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[4]),
         .Q(dataBuf[4]),
@@ -539,7 +539,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[5] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[5]),
         .Q(dataBuf[5]),
@@ -547,7 +547,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[6] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[6]),
         .Q(dataBuf[6]),
@@ -555,7 +555,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[7] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[7]),
         .Q(dataBuf[7]),
@@ -563,7 +563,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[8] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[8]),
         .Q(dataBuf[8]),
@@ -571,7 +571,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \dataBuf_reg[9] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(bitCounter),
         .D(readDataBuf[9]),
         .Q(dataBuf[9]),
@@ -602,7 +602,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \prescalerBICK_reg[0] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(1'b1),
         .D(\prescalerBICK[0]_i_1_n_0 ),
         .Q(prescalerBICK[0]),
@@ -610,7 +610,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \prescalerBICK_reg[1] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(1'b1),
         .D(\prescalerBICK[1]_i_1_n_0 ),
         .Q(prescalerBICK[1]),
@@ -618,7 +618,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \prescalerBICK_reg[2] 
-       (.C(clk_256fs),
+       (.C(audio256Clk),
         .CE(1'b1),
         .D(\prescalerBICK[2]_i_1_n_0 ),
         .Q(DAC_BICK),
@@ -891,55 +891,48 @@ endmodule
 (* NotValidForBitStream *)
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (nReset,
-    sysClk,
     s_axis_tdata,
     s_axis_tvalid,
     s_axis_tready,
     s_axis_aclk,
-    FIFOnReset,
-    clk_256fs,
+    audio256Clk,
     DAC_MCLK,
     DAC_BICK,
     DAC_LRCK,
     DAC_SDT);
   input nReset;
-  input sysClk;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TDATA" *) input [31:0]s_axis_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TVALID" *) input s_axis_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 12288000, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK1, LAYERED_METADATA undef" *) output s_axis_tready;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s_axis_aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_aclk, ASSOCIATED_BUSIF s_axis, FREQ_HZ 12288000, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK1" *) input s_axis_aclk;
-  output FIFOnReset;
-  input clk_256fs;
+  input audio256Clk;
   output DAC_MCLK;
   output DAC_BICK;
   output DAC_LRCK;
   output DAC_SDT;
 
-  wire \<const1> ;
   wire DAC_BICK;
   wire DAC_LRCK;
   wire DAC_MCLK;
   wire DAC_SDT;
-  wire clk_256fs;
+  wire audio256Clk;
   wire nReset;
   wire s_axis_aclk;
   wire [31:0]s_axis_tdata;
   wire s_axis_tvalid;
 
-  assign FIFOnReset = \<const1> ;
+  assign s_axis_tready = nReset;
   LUT2 #(
     .INIT(4'h8)) 
     DAC_MCLK_INST_0
-       (.I0(clk_256fs),
+       (.I0(audio256Clk),
         .I1(nReset),
         .O(DAC_MCLK));
-  VCC VCC
-       (.P(\<const1> ));
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF inst
        (.DAC_BICK(DAC_BICK),
         .DAC_LRCK(DAC_LRCK),
         .DAC_SDT(DAC_SDT),
-        .clk_256fs(clk_256fs),
+        .audio256Clk(audio256Clk),
         .nReset(nReset),
         .s_axis_aclk(s_axis_aclk),
         .s_axis_tdata(s_axis_tdata),

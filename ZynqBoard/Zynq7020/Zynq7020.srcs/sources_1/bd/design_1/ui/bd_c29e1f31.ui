@@ -2,41 +2,41 @@
    ExpandedHierarchyInLayout: "",
    guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
 #  -string -flagsOSRD
-preplace port s00_axi_aresetn -pg 1 -y 390 -defaultsOSRD
-preplace port s01_axi_aclk -pg 1 -y 480 -defaultsOSRD
-preplace port DAC_nReset -pg 1 -y 360 -defaultsOSRD
-preplace port S00_AXI -pg 1 -y 350 -defaultsOSRD
-preplace port outDataValid -pg 1 -y 530 -defaultsOSRD
-preplace port sysClk -pg 1 -y 330 -defaultsOSRD
-preplace port S01_AXI -pg 1 -y 460 -defaultsOSRD
-preplace port nResetSysClk -pg 1 -y 60 -defaultsOSRD
-preplace port audioClk256 -pg 1 -y 220 -defaultsOSRD
-preplace port s01_axi_aresetn -pg 1 -y 500 -defaultsOSRD
-preplace port nResetExt -pg 1 -y 60 -defaultsOSRD
-preplace port s00_axi_aclk -pg 1 -y 370 -defaultsOSRD
-preplace portBus outData1 -pg 1 -y 320 -defaultsOSRD
-preplace portBus outData2 -pg 1 -y 340 -defaultsOSRD
-preplace inst Synthesizer -pg 1 -lvl 2 -y 520 -defaultsOSRD
-preplace inst DSP_reset_0 -pg 1 -lvl 1 -y 70 -defaultsOSRD
-preplace inst audio_clk_gen_0 -pg 1 -lvl 1 -y 220 -defaultsOSRD
-preplace inst DSP_register_0 -pg 1 -lvl 1 -y 370 -defaultsOSRD
+preplace port s00_axi_aresetn -pg 1 -y 110 -defaultsOSRD
+preplace port s01_axi_aclk -pg 1 -y 560 -defaultsOSRD
+preplace port S00_AXI -pg 1 -y 70 -defaultsOSRD
+preplace port nResetAudio256Clk -pg 1 -y 260 -defaultsOSRD
+preplace port outDataValid -pg 1 -y 610 -defaultsOSRD
+preplace port sysClk -pg 1 -y 300 -defaultsOSRD
+preplace port S01_AXI -pg 1 -y 540 -defaultsOSRD
+preplace port audio256Clk -pg 1 -y 280 -defaultsOSRD
+preplace port nResetSysClk -pg 1 -y 240 -defaultsOSRD
+preplace port s01_axi_aresetn -pg 1 -y 580 -defaultsOSRD
+preplace port nResetExt -pg 1 -y 220 -defaultsOSRD
+preplace port s00_axi_aclk -pg 1 -y 90 -defaultsOSRD
+preplace portBus outData1 -pg 1 -y 590 -defaultsOSRD
+preplace portBus outData0 -pg 1 -y 570 -defaultsOSRD
+preplace inst Synthesizer -pg 1 -lvl 2 -y 600 -defaultsOSRD
+preplace inst DSP_reset_0 -pg 1 -lvl 1 -y 250 -defaultsOSRD
+preplace inst audio_clk_gen_0 -pg 1 -lvl 1 -y 450 -defaultsOSRD
+preplace inst DSP_register_0 -pg 1 -lvl 1 -y 90 -defaultsOSRD
 preplace netloc Conn1 1 0 1 NJ
-preplace netloc Synthesizer_sync_0 1 2 2 NJ 530 NJ
-preplace netloc Conn2 1 0 2 NJ 460 N
-preplace netloc audioClk256_0_1 1 0 1 -10J
-preplace netloc s_axi_aclk_0_1 1 0 2 NJ 480 N
+preplace netloc Synthesizer_sync_0 1 2 1 NJ
+preplace netloc Conn2 1 0 2 NJ 540 N
+preplace netloc audioClk256_0_1 1 0 1 0J
+preplace netloc s_axi_aclk_0_1 1 0 2 NJ 560 N
 preplace netloc s00_axi_aresetn_0_1 1 0 1 NJ
-preplace netloc DSP_reset_0_nResetAudioClk 1 1 3 340 360 NJ 360 NJ
+preplace netloc DSP_reset_0_nResetAudioClk 1 0 3 20 350 370 260 N
 preplace netloc s00_axi_aclk_0_1 1 0 1 NJ
-preplace netloc DSP_register_0_sysNReset 1 0 2 0 470 300
-preplace netloc DSP_register_0_synth0Gain 1 1 1 310
-preplace netloc s_axi_aresetn_0_1 1 0 2 NJ 500 N
-preplace netloc mult_sum_0_out 1 2 2 N 510 640
-preplace netloc sysClk_0_1 1 0 2 -20J 520 N
-preplace netloc DSP_reset_0_nResetSysClk1 1 0 4 10 490 330J 60 NJ 60 NJ
-preplace netloc audio_clk_gen_0_audioClk 1 1 1 320
-preplace netloc nResetExt_0_1 1 0 1 -20
-levelinfo -pg 1 -40 160 470 620 660 -top -20 -bot 630
+preplace netloc DSP_register_0_sysNReset 1 0 2 30 340 350
+preplace netloc DSP_register_0_synth0Gain 1 1 1 360
+preplace netloc s_axi_aresetn_0_1 1 0 2 NJ 580 N
+preplace netloc mult_sum_0_out 1 2 1 630
+preplace netloc sysClk_0_1 1 0 2 10J 600 N
+preplace netloc DSP_reset_0_nResetSysClk1 1 0 3 30 360 380J 240 NJ
+preplace netloc audio_clk_gen_0_audioClk 1 1 1 370
+preplace netloc nResetExt_0_1 1 0 1 N
+levelinfo -pg 1 -20 190 510 650 -top 0 -bot 710
 ",
 }
 0

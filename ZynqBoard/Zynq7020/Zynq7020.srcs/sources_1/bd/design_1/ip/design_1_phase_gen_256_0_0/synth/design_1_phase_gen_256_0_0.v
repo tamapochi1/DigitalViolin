@@ -58,7 +58,7 @@
 module design_1_phase_gen_256_0_0 (
   nReset,
   sysClk,
-  audioClk,
+  audioClkSync,
   reg_index,
   reg_index_valid,
   s_axis_delta_tdata,
@@ -77,7 +77,7 @@ module design_1_phase_gen_256_0_0 (
 
 input wire nReset;
 input wire sysClk;
-input wire audioClk;
+input wire audioClkSync;
 output wire [10 : 0] reg_index;
 output wire reg_index_valid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_delta TDATA" *)
@@ -110,7 +110,7 @@ output wire sync;
   ) inst (
     .nReset(nReset),
     .sysClk(sysClk),
-    .audioClk(audioClk),
+    .audioClkSync(audioClkSync),
     .reg_index(reg_index),
     .reg_index_valid(reg_index_valid),
     .s_axis_delta_tdata(s_axis_delta_tdata),

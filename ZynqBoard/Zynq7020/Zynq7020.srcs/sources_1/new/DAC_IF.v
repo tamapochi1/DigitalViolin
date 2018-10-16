@@ -22,13 +22,11 @@
 
 module DAC_IF(
     input nReset,
-    input sysClk,
     input [31:0] s_axis_tdata,
     input s_axis_tvalid,
     output s_axis_tready,
     input s_axis_aclk,
-    output FIFOnReset,
-    input clk_256fs,
+    input audio256Clk,
     output DAC_MCLK,
     output DAC_BICK,
     output DAC_LRCK,
@@ -44,9 +42,9 @@ reg SDT;
 wire BICK;
 wire LRCK;
 
-assign FIFOnReset = 1'b1;
+assign s_axis_tready = nReset;
     
-assign DAC_MCLK = clk_256fs & nReset;
+assign DAC_MCLK = audio256Clk & nReset;
 assign BICK = (prescalerBICK >= 3'h4);
 assign DAC_BICK = BICK;
 assign DAC_LRCK = (bitCounter <= 5'hF);
@@ -67,7 +65,7 @@ begin
     end
 end
 
-always @(negedge clk_256fs)
+always @(negedge audio256Clk)
 begin
     if(~nReset)
     begin

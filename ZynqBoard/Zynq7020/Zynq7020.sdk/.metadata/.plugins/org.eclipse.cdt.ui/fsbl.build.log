@@ -1,4 +1,4 @@
-01:31:28 **** Build of configuration Debug for project fsbl ****
+16:30:43 **** Build of configuration Debug for project fsbl ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -70,9 +70,9 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size fsbl.elf  |tee "fsbl.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  69924	  11024	  70184	 151132	  24e5c	fsbl.elf
+  69924	  11072	  70184	 151180	  24e8c	fsbl.elf
 'Finished building: fsbl.elf.size'
 ' '
 
-01:31:35 Build Finished (took 7s.291ms)
+16:30:49 Build Finished (took 6s.734ms)
 

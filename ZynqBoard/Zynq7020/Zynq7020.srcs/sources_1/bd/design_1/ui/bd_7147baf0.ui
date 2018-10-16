@@ -1,0 +1,35 @@
+{
+   ExpandedHierarchyInLayout: "",
+   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
+#  -string -flagsOSRD
+preplace port nResetAudio256Clk -pg 1 -y 20 -defaultsOSRD
+preplace port sysClk -pg 1 -y 220 -defaultsOSRD
+preplace port DAC_MCLK_0 -pg 1 -y 120 -defaultsOSRD
+preplace port audio256Clk -pg 1 -y 200 -defaultsOSRD
+preplace port fifo_aresetn -pg 1 -y 180 -defaultsOSRD
+preplace port DataValid -pg 1 -y 120 -defaultsOSRD
+preplace port DAC_SDT_0 -pg 1 -y 180 -defaultsOSRD
+preplace port DAC_BICK_0 -pg 1 -y 140 -defaultsOSRD
+preplace port DAC_LRCK_0 -pg 1 -y 160 -defaultsOSRD
+preplace portBus Data0 -pg 1 -y 80 -defaultsOSRD
+preplace portBus Data1 -pg 1 -y 100 -defaultsOSRD
+preplace inst DAC_IF_0 -pg 1 -lvl 3 -y 150 -defaultsOSRD
+preplace inst DAC_FIFO_0 -pg 1 -lvl 1 -y 100 -defaultsOSRD
+preplace inst fifo_generator_0 -pg 1 -lvl 2 -y 130 -defaultsOSRD
+preplace netloc DSP_outData2 1 0 1 N
+preplace netloc DAC_IF_0_DAC_BCLK 1 3 1 NJ
+preplace netloc Data0_1 1 0 1 N
+preplace netloc fifo_generator_0_M_AXIS 1 2 1 610
+preplace netloc DSP_nResetSysClk 1 0 2 NJ 180 280J
+preplace netloc DAC_IF_0_DAC_SDT 1 3 1 NJ
+preplace netloc DAC_IF_0_DAC_LRCK 1 3 1 NJ
+preplace netloc DSP_outDataValid 1 0 3 NJ 20 NJ 20 620J
+preplace netloc clk_wiz_0_clk_out1 1 0 3 NJ 200 270 220 610
+preplace netloc DAC_IF_0_DAC_MCLK 1 3 1 NJ
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 2 NJ 220 260
+preplace netloc DSP_outDataValid1 1 0 1 NJ
+preplace netloc DAC_FIFO_0_m_axis 1 1 1 N
+levelinfo -pg 1 -10 140 450 750 900 -top 0 -bot 250
+",
+}
+0

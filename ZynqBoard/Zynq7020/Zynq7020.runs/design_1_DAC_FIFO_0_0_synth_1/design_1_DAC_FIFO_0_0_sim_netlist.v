@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Thu Oct 11 00:33:39 2018
+// Date        : Sat Oct 13 15:27:54 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_DAC_FIFO_0_0_sim_netlist.v
@@ -16,27 +16,27 @@
 (* X_CORE_INFO = "DAC_FIFO,Vivado 2018.2" *) 
 (* NotValidForBitStream *)
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
-   (Data1,
-    Data2,
+   (Data0,
+    Data1,
     DataValid,
     m_axis_tdata,
     m_axis_tready,
     m_axis_tvalid);
+  input [15:0]Data0;
   input [15:0]Data1;
-  input [15:0]Data2;
   input DataValid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TDATA" *) output [31:0]m_axis_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TREADY" *) input m_axis_tready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *) output m_axis_tvalid;
 
+  wire [15:0]Data0;
   wire [15:0]Data1;
-  wire [15:0]Data2;
   wire DataValid;
   wire m_axis_tready;
   wire m_axis_tvalid;
 
-  assign m_axis_tdata[31:16] = Data1;
-  assign m_axis_tdata[15:0] = Data2;
+  assign m_axis_tdata[31:16] = Data0;
+  assign m_axis_tdata[15:0] = Data1;
   LUT2 #(
     .INIT(4'h8)) 
     m_axis_tvalid_INST_0

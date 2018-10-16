@@ -55,16 +55,16 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_DAC_FIFO_0_0 (
+  Data0,
   Data1,
-  Data2,
   DataValid,
   m_axis_tdata,
   m_axis_tready,
   m_axis_tvalid
 );
 
+input wire [15 : 0] Data0;
 input wire [15 : 0] Data1;
-input wire [15 : 0] Data2;
 input wire DataValid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TDATA" *)
 output wire [31 : 0] m_axis_tdata;
@@ -75,8 +75,8 @@ input wire m_axis_tready;
 output wire m_axis_tvalid;
 
   DAC_FIFO inst (
+    .Data0(Data0),
     .Data1(Data1),
-    .Data2(Data2),
     .DataValid(DataValid),
     .m_axis_tdata(m_axis_tdata),
     .m_axis_tready(m_axis_tready),

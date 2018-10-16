@@ -556,47 +556,8 @@
         <spirit:componentRef spirit:library="BlockDiagram/design_1_imp" spirit:name="DSP" spirit:vendor="xilinx.com" spirit:version="1.00.a"/>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>DAC_IF_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="DAC_IF" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_DAC_IF_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">DAC_IF</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>DAC_FIFO_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="DAC_FIFO" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_DAC_FIFO_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">DAC_FIFO</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>fifo_generator_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.2"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_fifo_generator_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="INTERFACE_TYPE">AXI_STREAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Full_Flags_Reset_Value">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Clock_Type_AXI">Independent_Clock</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="TDATA_NUM_BYTES">4</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="TUSER_WIDTH">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_wach">Independent_Clocks_Distributed_RAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_wdch">Independent_Clocks_Block_RAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_wrch">Independent_Clocks_Distributed_RAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_rach">Independent_Clocks_Distributed_RAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_rdch">Independent_Clocks_Block_RAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_axis">Independent_Clocks_Block_RAM</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Input_Depth_axis">16</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Use_Embedded_Registers_axis">false</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Enable_Safety_Circuit">true</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
+        <spirit:instanceName>DAC_Interface</spirit:instanceName>
+        <spirit:componentRef spirit:library="BlockDiagram/design_1_imp" spirit:name="DAC_Interface" spirit:vendor="xilinx.com" spirit:version="1.00.a"/>
       </spirit:componentInstance>
     </spirit:componentInstances>
     <spirit:interconnections>
@@ -619,16 +580,6 @@
         <spirit:name>ps7_0_axi_periph_M02_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="M02_AXI" spirit:componentRef="ps7_0_axi_periph"/>
         <spirit:activeInterface spirit:busRef="S01_AXI" spirit:componentRef="DSP"/>
-      </spirit:interconnection>
-      <spirit:interconnection>
-        <spirit:name>DAC_FIFO_0_m_axis</spirit:name>
-        <spirit:activeInterface spirit:busRef="S_AXIS" spirit:componentRef="fifo_generator_0"/>
-        <spirit:activeInterface spirit:busRef="m_axis" spirit:componentRef="DAC_FIFO_0"/>
-      </spirit:interconnection>
-      <spirit:interconnection>
-        <spirit:name>fifo_generator_0_M_AXIS</spirit:name>
-        <spirit:activeInterface spirit:busRef="M_AXIS" spirit:componentRef="fifo_generator_0"/>
-        <spirit:activeInterface spirit:busRef="s_axis" spirit:componentRef="DAC_IF_0"/>
       </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
@@ -666,28 +617,23 @@
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DAC_IF_0_DAC_BCLK</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="DAC_BICK"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_Interface" spirit:portRef="DAC_BICK_0"/>
         <spirit:externalPortReference spirit:portRef="DAC_BICK_0"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DAC_IF_0_DAC_MCLK</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="DAC_MCLK"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_Interface" spirit:portRef="DAC_MCLK_0"/>
         <spirit:externalPortReference spirit:portRef="DAC_MCLK_0"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DAC_IF_0_DAC_SDT</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="DAC_SDT"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_Interface" spirit:portRef="DAC_SDT_0"/>
         <spirit:externalPortReference spirit:portRef="DAC_SDT_0"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DAC_IF_0_DAC_LRCK</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="DAC_LRCK"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_Interface" spirit:portRef="DAC_LRCK_0"/>
         <spirit:externalPortReference spirit:portRef="DAC_LRCK_0"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>DSP_outDataValid</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="DAC_nReset"/>
-        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="nReset"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_CLK0</spirit:name>
@@ -703,8 +649,7 @@
         <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="sysClk"/>
         <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="s01_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="sysClk"/>
-        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="s_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_Interface" spirit:portRef="sysClk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_CLK1</spirit:name>
@@ -719,60 +664,33 @@
       <spirit:adHocConnection>
         <spirit:name>clk_wiz_0_clk_out1</spirit:name>
         <spirit:internalPortReference spirit:componentRef="clk_wiz_0" spirit:portRef="clk_out1"/>
-        <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="audioClk256"/>
-        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="s_axis_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="clk_256fs"/>
-        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="m_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="audio256Clk"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_Interface" spirit:portRef="audio256Clk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DSP_outData1</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="outData1"/>
-        <spirit:internalPortReference spirit:componentRef="DAC_FIFO_0" spirit:portRef="Data1"/>
+        <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="outData0"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_Interface" spirit:portRef="Data0"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DSP_outData2</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="outData2"/>
-        <spirit:internalPortReference spirit:componentRef="DAC_FIFO_0" spirit:portRef="Data2"/>
+        <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="outData1"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_Interface" spirit:portRef="Data1"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DSP_outDataValid1</spirit:name>
         <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="outDataValid"/>
-        <spirit:internalPortReference spirit:componentRef="DAC_FIFO_0" spirit:portRef="DataValid"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_Interface" spirit:portRef="DataValid"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DSP_nResetSysClk</spirit:name>
         <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="nResetSysClk"/>
-        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="s_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_Interface" spirit:portRef="fifo_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>DAC_FIFO_0_m_axis_tdata</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DAC_FIFO_0" spirit:portRef="m_axis_tdata"/>
-        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="s_axis_tdata"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>DAC_FIFO_0_m_axis_tvalid</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DAC_FIFO_0" spirit:portRef="m_axis_tvalid"/>
-        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="s_axis_tvalid"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>fifo_generator_0_s_axis_tready</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="s_axis_tready"/>
-        <spirit:internalPortReference spirit:componentRef="DAC_FIFO_0" spirit:portRef="m_axis_tready"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>fifo_generator_0_m_axis_tdata</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="m_axis_tdata"/>
-        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="s_axis_tdata"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>DAC_IF_0_s_axis_tready</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="s_axis_tready"/>
-        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="m_axis_tready"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>fifo_generator_0_m_axis_tvalid</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="m_axis_tvalid"/>
-        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="s_axis_tvalid"/>
+        <spirit:name>DSP_outDataValid</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DSP" spirit:portRef="nResetAudio256Clk"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_Interface" spirit:portRef="nResetAudio256Clk"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -786,6 +704,259 @@
         <spirit:activeInterface spirit:busRef="UART_1" spirit:componentRef="processing_system7_0"/>
       </spirit:hierConnection>
     </spirit:hierConnections>
+  </spirit:design>
+
+  <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+    <spirit:vendor>xilinx.com</spirit:vendor>
+    <spirit:library>BlockDiagram/design_1_imp</spirit:library>
+    <spirit:name>DAC_Interface</spirit:name>
+    <spirit:version>1.00.a</spirit:version>
+    <spirit:busInterfaces>
+      <spirit:busInterface>
+        <spirit:name>CLK.AUDIO256CLK</spirit:name>
+        <spirit:displayName>Clk</spirit:displayName>
+        <spirit:description>Clock</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="clock" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="clock_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>CLK</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>audio256Clk</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>RST.FIFO_ARESETN</spirit:name>
+        <spirit:displayName>Reset</spirit:displayName>
+        <spirit:description>Reset</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>RST</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>fifo_aresetn</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+      </spirit:busInterface>
+    </spirit:busInterfaces>
+    <spirit:model>
+      <spirit:views>
+        <spirit:view>
+          <spirit:name>BlockDiagram</spirit:name>
+          <spirit:envIdentifier>:vivado.xilinx.com:</spirit:envIdentifier>
+          <spirit:hierarchyRef spirit:library="BlockDiagram/design_1_imp" spirit:name="DAC_Interface_imp" spirit:vendor="xilinx.com" spirit:version="1.00.a"/>
+        </spirit:view>
+      </spirit:views>
+      <spirit:ports>
+        <spirit:port>
+          <spirit:name>Data0</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+            <spirit:vector>
+              <spirit:left>15</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>Data1</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+            <spirit:vector>
+              <spirit:left>15</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>DataValid</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>audio256Clk</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>sysClk</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>fifo_aresetn</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>nResetAudio256Clk</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>DAC_MCLK_0</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>DAC_BICK_0</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>DAC_LRCK_0</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>DAC_SDT_0</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+      </spirit:ports>
+    </spirit:model>
+  </spirit:component>
+
+  <spirit:design xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
+    <spirit:vendor>xilinx.com</spirit:vendor>
+    <spirit:library>BlockDiagram/design_1_imp</spirit:library>
+    <spirit:name>DAC_Interface_imp</spirit:name>
+    <spirit:version>1.00.a</spirit:version>
+    <spirit:componentInstances>
+      <spirit:componentInstance>
+        <spirit:instanceName>fifo_generator_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="fifo_generator" spirit:vendor="xilinx.com" spirit:version="13.2"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_fifo_generator_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="INTERFACE_TYPE">AXI_STREAM</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Full_Flags_Reset_Value">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Clock_Type_AXI">Independent_Clock</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="TDATA_NUM_BYTES">4</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="TUSER_WIDTH">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_wach">Independent_Clocks_Distributed_RAM</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_wdch">Independent_Clocks_Block_RAM</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_wrch">Independent_Clocks_Distributed_RAM</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_rach">Independent_Clocks_Distributed_RAM</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_rdch">Independent_Clocks_Block_RAM</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FIFO_Implementation_axis">Independent_Clocks_Block_RAM</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Input_Depth_axis">16</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Use_Embedded_Registers_axis">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_Safety_Circuit">true</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>DAC_FIFO_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="DAC_FIFO" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_DAC_FIFO_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">DAC_FIFO</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>DAC_IF_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="DAC_IF" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_DAC_IF_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">DAC_IF</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+    </spirit:componentInstances>
+    <spirit:interconnections>
+      <spirit:interconnection>
+        <spirit:name>DAC_FIFO_0_m_axis</spirit:name>
+        <spirit:activeInterface spirit:busRef="S_AXIS" spirit:componentRef="fifo_generator_0"/>
+        <spirit:activeInterface spirit:busRef="m_axis" spirit:componentRef="DAC_FIFO_0"/>
+      </spirit:interconnection>
+      <spirit:interconnection>
+        <spirit:name>fifo_generator_0_M_AXIS</spirit:name>
+        <spirit:activeInterface spirit:busRef="M_AXIS" spirit:componentRef="fifo_generator_0"/>
+        <spirit:activeInterface spirit:busRef="s_axis" spirit:componentRef="DAC_IF_0"/>
+      </spirit:interconnection>
+    </spirit:interconnections>
+    <spirit:adHocConnections>
+      <spirit:adHocConnection>
+        <spirit:name>DSP_outDataValid1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="DataValid"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_FIFO_0" spirit:portRef="DataValid"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>clk_wiz_0_clk_out1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="audio256Clk"/>
+        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="m_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="s_axis_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="audio256Clk"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>processing_system7_0_FCLK_CLK0</spirit:name>
+        <spirit:externalPortReference spirit:portRef="sysClk"/>
+        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="s_aclk"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DSP_nResetSysClk</spirit:name>
+        <spirit:externalPortReference spirit:portRef="fifo_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="fifo_generator_0" spirit:portRef="s_aresetn"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DSP_outDataValid</spirit:name>
+        <spirit:externalPortReference spirit:portRef="nResetAudio256Clk"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="nReset"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DAC_IF_0_DAC_MCLK</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="DAC_MCLK"/>
+        <spirit:externalPortReference spirit:portRef="DAC_MCLK_0"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DAC_IF_0_DAC_BCLK</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="DAC_BICK"/>
+        <spirit:externalPortReference spirit:portRef="DAC_BICK_0"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DAC_IF_0_DAC_LRCK</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="DAC_LRCK"/>
+        <spirit:externalPortReference spirit:portRef="DAC_LRCK_0"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DAC_IF_0_DAC_SDT</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="DAC_IF_0" spirit:portRef="DAC_SDT"/>
+        <spirit:externalPortReference spirit:portRef="DAC_SDT_0"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>DSP_outData2</spirit:name>
+        <spirit:externalPortReference spirit:portRef="Data1"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_FIFO_0" spirit:portRef="Data1"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>Data0_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="Data0"/>
+        <spirit:internalPortReference spirit:componentRef="DAC_FIFO_0" spirit:portRef="Data0"/>
+      </spirit:adHocConnection>
+    </spirit:adHocConnections>
   </spirit:design>
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
@@ -889,7 +1060,7 @@
       </spirit:views>
       <spirit:ports>
         <spirit:port>
-          <spirit:name>outData1</spirit:name>
+          <spirit:name>outData0</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
             <spirit:vector>
@@ -917,12 +1088,6 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>DAC_nReset</spirit:name>
-          <spirit:wire>
-            <spirit:direction>out</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
           <spirit:name>s01_axi_aresetn</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
@@ -935,7 +1100,7 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>outData2</spirit:name>
+          <spirit:name>outData1</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
             <spirit:vector>
@@ -945,7 +1110,7 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>audioClk256</spirit:name>
+          <spirit:name>audio256Clk</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
@@ -964,6 +1129,12 @@
         </spirit:port>
         <spirit:port>
           <spirit:name>nResetSysClk</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>nResetAudio256Clk</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
           </spirit:wire>
@@ -1033,8 +1204,8 @@
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>audio_clk_gen_0_audioClk</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="audio_clk_gen_0" spirit:portRef="audioClk"/>
-        <spirit:internalPortReference spirit:componentRef="Synthesizer" spirit:portRef="audioClk"/>
+        <spirit:internalPortReference spirit:componentRef="audio_clk_gen_0" spirit:portRef="audioClkSync"/>
+        <spirit:internalPortReference spirit:componentRef="Synthesizer" spirit:portRef="audioClkSync"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>s_axi_aresetn_0_1</spirit:name>
@@ -1049,14 +1220,14 @@
       <spirit:adHocConnection>
         <spirit:name>mult_sum_0_out</spirit:name>
         <spirit:internalPortReference spirit:componentRef="Synthesizer" spirit:portRef="outData"/>
-        <spirit:externalPortReference spirit:portRef="outData2"/>
         <spirit:externalPortReference spirit:portRef="outData1"/>
+        <spirit:externalPortReference spirit:portRef="outData0"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>audioClk256_0_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="audioClk256"/>
-        <spirit:internalPortReference spirit:componentRef="DSP_reset_0" spirit:portRef="audioClk256"/>
-        <spirit:internalPortReference spirit:componentRef="audio_clk_gen_0" spirit:portRef="audioClk256"/>
+        <spirit:externalPortReference spirit:portRef="audio256Clk"/>
+        <spirit:internalPortReference spirit:componentRef="DSP_reset_0" spirit:portRef="audio256Clk"/>
+        <spirit:internalPortReference spirit:componentRef="audio_clk_gen_0" spirit:portRef="audio256Clk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DSP_register_0_sysNReset</spirit:name>
@@ -1080,15 +1251,16 @@
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DSP_reset_0_nResetAudioClk</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="DSP_reset_0" spirit:portRef="nResetAudioClk"/>
-        <spirit:externalPortReference spirit:portRef="DAC_nReset"/>
+        <spirit:internalPortReference spirit:componentRef="DSP_reset_0" spirit:portRef="nResetAudio256Clk"/>
+        <spirit:internalPortReference spirit:componentRef="audio_clk_gen_0" spirit:portRef="nResetAudio256Clk"/>
+        <spirit:externalPortReference spirit:portRef="nResetAudio256Clk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>DSP_reset_0_nResetSysClk1</spirit:name>
         <spirit:internalPortReference spirit:componentRef="DSP_reset_0" spirit:portRef="nResetSysClk"/>
         <spirit:externalPortReference spirit:portRef="nResetSysClk"/>
         <spirit:internalPortReference spirit:componentRef="Synthesizer" spirit:portRef="nReset"/>
-        <spirit:internalPortReference spirit:componentRef="audio_clk_gen_0" spirit:portRef="nReset"/>
+        <spirit:internalPortReference spirit:componentRef="audio_clk_gen_0" spirit:portRef="nResetSysClk"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -1206,7 +1378,7 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>audioClk</spirit:name>
+          <spirit:name>audioClkSync</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
@@ -1365,8 +1537,8 @@
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>audio_clk_gen_0_audioClk</spirit:name>
-        <spirit:externalPortReference spirit:portRef="audioClk"/>
-        <spirit:internalPortReference spirit:componentRef="Oscillator" spirit:portRef="audioClk"/>
+        <spirit:externalPortReference spirit:portRef="audioClkSync"/>
+        <spirit:internalPortReference spirit:componentRef="Oscillator" spirit:portRef="audioClkSync"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>outGain_0_1</spirit:name>
@@ -1621,7 +1793,7 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>audioClk</spirit:name>
+          <spirit:name>audioClkSync</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
@@ -1745,8 +1917,8 @@
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>audio_clk_gen_0_audioClk</spirit:name>
-        <spirit:externalPortReference spirit:portRef="audioClk"/>
-        <spirit:internalPortReference spirit:componentRef="phase_gen_256_0" spirit:portRef="audioClk"/>
+        <spirit:externalPortReference spirit:portRef="audioClkSync"/>
+        <spirit:internalPortReference spirit:componentRef="phase_gen_256_0" spirit:portRef="audioClkSync"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>phase_gen_256_0_reg_index</spirit:name>

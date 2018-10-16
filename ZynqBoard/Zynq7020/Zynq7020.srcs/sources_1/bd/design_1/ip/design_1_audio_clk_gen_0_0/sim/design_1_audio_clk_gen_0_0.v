@@ -55,21 +55,24 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_audio_clk_gen_0_0 (
-  nReset,
-  audioClk256,
+  nResetSysClk,
+  nResetAudio256Clk,
+  audio256Clk,
   sysClk,
-  audioClk
+  audioClkSync
 );
 
-input wire nReset;
-input wire audioClk256;
+input wire nResetSysClk;
+input wire nResetAudio256Clk;
+input wire audio256Clk;
 input wire sysClk;
-output wire audioClk;
+output wire audioClkSync;
 
   audio_clk_gen inst (
-    .nReset(nReset),
-    .audioClk256(audioClk256),
+    .nResetSysClk(nResetSysClk),
+    .nResetAudio256Clk(nResetAudio256Clk),
+    .audio256Clk(audio256Clk),
     .sysClk(sysClk),
-    .audioClk(audioClk)
+    .audioClkSync(audioClkSync)
   );
 endmodule

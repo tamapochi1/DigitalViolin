@@ -22,7 +22,7 @@
 module phase_gen_256(
     input nReset,
     input sysClk,
-    input audioClk,
+    input audioClkSync,
 
     output [10:0] reg_index,
     output reg_index_valid,
@@ -47,7 +47,6 @@ parameter signed [23:0] M_TWO = 24'hC00000;
 parameter signed [23:0] M_ONE = 24'hE00000;
 parameter signed [23:0] ONE = 24'h200000;
     
-//reg [1:0] preAudioClk;
 reg [10:0] index;
 reg index_valid;
 reg [10:0] bram_int_rdIndex;
@@ -56,18 +55,6 @@ reg signed [23:0] phase;
 reg phase_valid;
 reg signed [23:0] phasePlusDelta;
 reg phasePlusDeltaValid;
-
-//always @(negedge sysClk)
-//begin
-//    if(~nReset)
-//    begin
-//        preAudioClk <= 3'b000;
-//    end
-//    else
-//    begin
-//        preAudioClk <= {preAudioClk[0], audioClk};
-//    end
-//end
     
 always @(negedge sysClk)
 begin
@@ -78,7 +65,7 @@ begin
     end
     else
     begin
-        if(audioClk)
+        if(audioClkSync)
         begin
             index_valid <= 1'b1;
             index <= 11'h000;

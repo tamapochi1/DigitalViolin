@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1539186662">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1539414389">
   <File Type="PA-TCL" Name="design_1_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="design_1_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="design_1_wrapper_reports.tcl"/>
@@ -128,14 +128,14 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_delay_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_DAC_FIFO_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_delay_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_DSP_reg_read_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_audio_clk_gen_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_mult_sum_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_DSP_reset_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_phase_gen_256_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_DAC_IF_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_fifo_generator_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_DAC_IF_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_phase_gen_256_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_DSP_reset_0_0"/>
 </GenRun>

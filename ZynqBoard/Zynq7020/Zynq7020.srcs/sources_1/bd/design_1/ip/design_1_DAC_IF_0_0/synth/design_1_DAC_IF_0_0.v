@@ -57,13 +57,11 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_DAC_IF_0_0 (
   nReset,
-  sysClk,
   s_axis_tdata,
   s_axis_tvalid,
   s_axis_tready,
   s_axis_aclk,
-  FIFOnReset,
-  clk_256fs,
+  audio256Clk,
   DAC_MCLK,
   DAC_BICK,
   DAC_LRCK,
@@ -71,7 +69,6 @@ module design_1_DAC_IF_0_0 (
 );
 
 input wire nReset;
-input wire sysClk;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TDATA" *)
 input wire [31 : 0] s_axis_tdata;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TVALID" *)
@@ -82,8 +79,7 @@ output wire s_axis_tready;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_aclk, ASSOCIATED_BUSIF s_axis, FREQ_HZ 12288000, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK1" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s_axis_aclk CLK" *)
 input wire s_axis_aclk;
-output wire FIFOnReset;
-input wire clk_256fs;
+input wire audio256Clk;
 output wire DAC_MCLK;
 output wire DAC_BICK;
 output wire DAC_LRCK;
@@ -91,13 +87,11 @@ output wire DAC_SDT;
 
   DAC_IF inst (
     .nReset(nReset),
-    .sysClk(sysClk),
     .s_axis_tdata(s_axis_tdata),
     .s_axis_tvalid(s_axis_tvalid),
     .s_axis_tready(s_axis_tready),
     .s_axis_aclk(s_axis_aclk),
-    .FIFOnReset(FIFOnReset),
-    .clk_256fs(clk_256fs),
+    .audio256Clk(audio256Clk),
     .DAC_MCLK(DAC_MCLK),
     .DAC_BICK(DAC_BICK),
     .DAC_LRCK(DAC_LRCK),

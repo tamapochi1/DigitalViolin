@@ -21,49 +21,63 @@
 
 
 module audio_clk_gen(
-    input nReset,
-    input audioClk256,
+    input nResetSysClk,
+    input nResetAudio256Clk,
+    input audio256Clk,
     input sysClk,
-    output audioClk
+    output audioClkSync
     );
     
-reg [2:0] audioClk256Buf;
+(* ASYNC_REG = "TRUE" *) reg [2:0] audioClkSyncBuf;
 reg [7:0] prescaler;
 reg audioClkBuf;
+reg audioClkSyncOutBuf;
 
-always @(negedge sysClk)
+always @(negedge audio256Clk)
 begin
-    audioClk256Buf <= {audioClk256Buf[2:1], audioClk256};
-end
-
-always @(negedge sysClk)
-begin
-    if(~nReset)
+    if(~nResetAudio256Clk)
     begin
         prescaler <= 8'h00;
     end
     else
     begin
-        if(audioClk256Buf[2:1] == 2'b01)
+        if(prescaler < 8'hFF)
         begin
-            if(prescaler < 8'hFF)
-            begin
-                prescaler <= prescaler + 8'h01;
-                audioClkBuf <= 1'b0;
-            end
-            else
-            begin
-                prescaler <= 8'h00;
-                audioClkBuf <= 1'b1;
-            end
+            prescaler <= prescaler + 8'h01;
+            audioClkBuf <= 1'b0;
         end
         else
         begin
-            audioClkBuf<=1'b0;
+            prescaler <= 8'h00;
+            audioClkBuf <= 1'b1;
         end
     end
 end
 
-assign audioClk = audioClkBuf;
+always @(negedge sysClk)
+begin
+    audioClkSyncBuf <= {audioClkSyncBuf[1:0], audioClkBuf};
+end
+
+always @(negedge sysClk)
+begin
+    if(~nResetSysClk)
+    begin
+        audioClkSyncOutBuf <= 1'b0;
+    end
+    else
+    begin
+        if(audioClkSyncBuf[2:1] == 2'b01)
+        begin
+            audioClkSyncOutBuf <= 1'b1;
+        end
+        else
+        begin
+            audioClkSyncOutBuf <= 1'b0;
+        end
+    end
+end
+
+assign audioClkSync = audioClkSyncOutBuf;
 
 endmodule

@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Wed Oct 10 20:54:49 2018
+// Date        : Sat Oct 13 15:27:54 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_DSP_reset_0_0_sim_netlist.v
@@ -14,71 +14,85 @@
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reset
    (nResetSysClk,
-    nResetAudioClk,
+    nResetAudio256Clk,
     nResetExt,
     sysClk,
     nResetInt,
-    audioClk256);
+    audio256Clk);
   output nResetSysClk;
-  output nResetAudioClk;
+  output nResetAudio256Clk;
   input nResetExt;
   input sysClk;
   input nResetInt;
-  input audioClk256;
+  input audio256Clk;
 
-  wire audioClk256;
-  wire nResetAudioClk;
-  wire \nResetAudioClkBuf_reg_n_0_[0] ;
-  wire \nResetAudioClkBuf_reg_n_0_[1] ;
+  wire audio256Clk;
+  wire nResetAudio256Clk;
+  (* async_reg = "true" *) wire [1:0]nResetAudio256ClkBuf;
   wire nResetExt;
   wire nResetInt;
   wire nResetSysClk;
-  wire \nResetSysClkBuf_reg_n_0_[0] ;
-  wire [0:0]p_0_in;
+  (* async_reg = "true" *) wire [1:0]nResetSysClkBuf;
   wire sysClk;
 
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  (* XILINX_LEGACY_PRIM = "FD_1" *) 
   FDRE #(
+    .INIT(1'b0),
     .IS_C_INVERTED(1'b1)) 
-    \nResetAudioClkBuf_reg[0] 
-       (.C(audioClk256),
+    \nResetAudio256ClkBuf_reg[0] 
+       (.C(audio256Clk),
         .CE(1'b1),
-        .D(\nResetAudioClkBuf_reg_n_0_[1] ),
-        .Q(\nResetAudioClkBuf_reg_n_0_[0] ),
+        .D(nResetAudio256ClkBuf[1]),
+        .Q(nResetAudio256ClkBuf[0]),
         .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  (* XILINX_LEGACY_PRIM = "FD_1" *) 
   FDRE #(
+    .INIT(1'b0),
     .IS_C_INVERTED(1'b1)) 
-    \nResetAudioClkBuf_reg[1] 
-       (.C(audioClk256),
+    \nResetAudio256ClkBuf_reg[1] 
+       (.C(audio256Clk),
         .CE(1'b1),
         .D(nResetInt),
-        .Q(\nResetAudioClkBuf_reg_n_0_[1] ),
+        .Q(nResetAudio256ClkBuf[1]),
         .R(1'b0));
   LUT2 #(
     .INIT(4'h8)) 
-    nResetAudioClk_INST_0
-       (.I0(\nResetAudioClkBuf_reg_n_0_[0] ),
+    nResetAudio256Clk_INST_0
+       (.I0(nResetAudio256ClkBuf[0]),
         .I1(nResetExt),
-        .O(nResetAudioClk));
+        .O(nResetAudio256Clk));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  (* XILINX_LEGACY_PRIM = "FD_1" *) 
   FDRE #(
+    .INIT(1'b0),
     .IS_C_INVERTED(1'b1)) 
     \nResetSysClkBuf_reg[0] 
        (.C(sysClk),
         .CE(1'b1),
-        .D(p_0_in),
-        .Q(\nResetSysClkBuf_reg_n_0_[0] ),
+        .D(nResetSysClkBuf[1]),
+        .Q(nResetSysClkBuf[0]),
         .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  (* XILINX_LEGACY_PRIM = "FD_1" *) 
   FDRE #(
+    .INIT(1'b0),
     .IS_C_INVERTED(1'b1)) 
     \nResetSysClkBuf_reg[1] 
        (.C(sysClk),
         .CE(1'b1),
         .D(nResetExt),
-        .Q(p_0_in),
+        .Q(nResetSysClkBuf[1]),
         .R(1'b0));
   LUT2 #(
     .INIT(4'h8)) 
     nResetSysClk_INST_0
-       (.I0(\nResetSysClkBuf_reg_n_0_[0] ),
+       (.I0(nResetSysClkBuf[0]),
         .I1(nResetInt),
         .O(nResetSysClk));
 endmodule
@@ -90,26 +104,26 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (nResetExt,
     nResetInt,
     sysClk,
-    audioClk256,
+    audio256Clk,
     nResetSysClk,
-    nResetAudioClk);
+    nResetAudio256Clk);
   input nResetExt;
   input nResetInt;
   input sysClk;
-  input audioClk256;
+  input audio256Clk;
   output nResetSysClk;
-  output nResetAudioClk;
+  output nResetAudio256Clk;
 
-  wire audioClk256;
-  wire nResetAudioClk;
+  wire audio256Clk;
+  wire nResetAudio256Clk;
   wire nResetExt;
   wire nResetInt;
   wire nResetSysClk;
   wire sysClk;
 
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reset inst
-       (.audioClk256(audioClk256),
-        .nResetAudioClk(nResetAudioClk),
+       (.audio256Clk(audio256Clk),
+        .nResetAudio256Clk(nResetAudio256Clk),
         .nResetExt(nResetExt),
         .nResetInt(nResetInt),
         .nResetSysClk(nResetSysClk),

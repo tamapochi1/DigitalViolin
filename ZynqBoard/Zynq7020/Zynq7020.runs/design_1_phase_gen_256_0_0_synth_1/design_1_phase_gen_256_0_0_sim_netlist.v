@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Wed Oct 10 22:46:46 2018
+// Date        : Sat Oct 13 15:27:55 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_phase_gen_256_0_0_sim_netlist.v
@@ -18,7 +18,7 @@
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (nReset,
     sysClk,
-    audioClk,
+    audioClkSync,
     reg_index,
     reg_index_valid,
     s_axis_delta_tdata,
@@ -35,7 +35,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
     sync);
   input nReset;
   input sysClk;
-  input audioClk;
+  input audioClkSync;
   output [10:0]reg_index;
   output reg_index_valid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_delta TDATA" *) input [23:0]s_axis_delta_tdata;
@@ -51,7 +51,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_phase TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_phase, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *) output m_axis_phase_tvalid;
   output sync;
 
-  wire audioClk;
+  wire audioClkSync;
   wire [15:0]m_axis_phase_tdata;
   wire m_axis_phase_tvalid;
   wire [10:0]m_bram_int_rdaddr;
@@ -73,7 +73,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   assign m_bram_int_wrdata[7:0] = \^m_bram_int_wrdata [7:0];
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_phase_gen_256 inst
        (.SR(m_bram_int_rst),
-        .audioClk(audioClk),
+        .audioClkSync(audioClkSync),
         .m_axis_phase_tvalid(m_axis_phase_tvalid),
         .m_bram_int_rdaddr(m_bram_int_rdaddr),
         .m_bram_int_rddata(m_bram_int_rddata),
@@ -97,7 +97,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_phase_gen_256
     m_bram_int_rdaddr,
     m_bram_int_wraddr,
     sync,
-    audioClk,
+    audioClkSync,
     nReset,
     s_axis_delta_tvalid,
     sysClk,
@@ -111,7 +111,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_phase_gen_256
   output [10:0]m_bram_int_rdaddr;
   output [10:0]m_bram_int_wraddr;
   output sync;
-  input audioClk;
+  input audioClkSync;
   input nReset;
   input s_axis_delta_tvalid;
   input sysClk;
@@ -119,7 +119,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_phase_gen_256
   input [23:0]s_axis_delta_tdata;
 
   wire [0:0]SR;
-  wire audioClk;
+  wire audioClkSync;
   wire \bram_int_rdIndex[10]_i_1_n_0 ;
   wire \bram_int_rdIndex[10]_i_3_n_0 ;
   wire \bram_int_wrIndex[10]_i_1_n_0 ;
@@ -615,7 +615,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_phase_gen_256
   LUT2 #(
     .INIT(4'hB)) 
     \index[10]_i_1 
-       (.I0(audioClk),
+       (.I0(audioClkSync),
         .I1(nReset),
         .O(\index[10]_i_1_n_0 ));
   LUT6 #(
@@ -818,7 +818,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_phase_gen_256
     .INIT(4'hE)) 
     index_valid_i_1
        (.I0(sel),
-        .I1(audioClk),
+        .I1(audioClkSync),
         .O(index_valid_i_1_n_0));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 

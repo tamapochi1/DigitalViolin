@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Wed Oct 10 22:46:45 2018
+// Date        : Sat Oct 13 15:27:54 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_audio_clk_gen_0_0_sim_netlist.v
@@ -12,24 +12,275 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_audio_clk_gen
+   (audioClkSync,
+    nResetSysClk,
+    sysClk,
+    audio256Clk,
+    nResetAudio256Clk);
+  output audioClkSync;
+  input nResetSysClk;
+  input sysClk;
+  input audio256Clk;
+  input nResetAudio256Clk;
+
+  wire audio256Clk;
+  wire audioClkBuf;
+  wire audioClkBuf_i_1_n_0;
+  wire audioClkSync;
+  (* async_reg = "true" *) wire [2:0]audioClkSyncBuf;
+  wire audioClkSyncOutBuf_i_1_n_0;
+  wire nResetAudio256Clk;
+  wire nResetSysClk;
+  wire [7:0]p_0_in;
+  wire \prescaler[7]_i_1_n_0 ;
+  wire \prescaler[7]_i_3_n_0 ;
+  wire [7:0]prescaler_reg__0;
+  wire sysClk;
+
+  LUT5 #(
+    .INIT(32'h40FF4000)) 
+    audioClkBuf_i_1
+       (.I0(\prescaler[7]_i_3_n_0 ),
+        .I1(prescaler_reg__0[6]),
+        .I2(prescaler_reg__0[7]),
+        .I3(nResetAudio256Clk),
+        .I4(audioClkBuf),
+        .O(audioClkBuf_i_1_n_0));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    audioClkBuf_reg
+       (.C(audio256Clk),
+        .CE(1'b1),
+        .D(audioClkBuf_i_1_n_0),
+        .Q(audioClkBuf),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  (* XILINX_LEGACY_PRIM = "FD_1" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b1)) 
+    \audioClkSyncBuf_reg[0] 
+       (.C(sysClk),
+        .CE(1'b1),
+        .D(audioClkBuf),
+        .Q(audioClkSyncBuf[0]),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  (* XILINX_LEGACY_PRIM = "FD_1" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b1)) 
+    \audioClkSyncBuf_reg[1] 
+       (.C(sysClk),
+        .CE(1'b1),
+        .D(audioClkSyncBuf[0]),
+        .Q(audioClkSyncBuf[1]),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  (* XILINX_LEGACY_PRIM = "FD_1" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b1)) 
+    \audioClkSyncBuf_reg[2] 
+       (.C(sysClk),
+        .CE(1'b1),
+        .D(audioClkSyncBuf[1]),
+        .Q(audioClkSyncBuf[2]),
+        .R(1'b0));
+  LUT3 #(
+    .INIT(8'h20)) 
+    audioClkSyncOutBuf_i_1
+       (.I0(nResetSysClk),
+        .I1(audioClkSyncBuf[2]),
+        .I2(audioClkSyncBuf[1]),
+        .O(audioClkSyncOutBuf_i_1_n_0));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    audioClkSyncOutBuf_reg
+       (.C(sysClk),
+        .CE(1'b1),
+        .D(audioClkSyncOutBuf_i_1_n_0),
+        .Q(audioClkSync),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \prescaler[0]_i_1 
+       (.I0(prescaler_reg__0[0]),
+        .O(p_0_in[0]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \prescaler[1]_i_1 
+       (.I0(prescaler_reg__0[0]),
+        .I1(prescaler_reg__0[1]),
+        .O(p_0_in[1]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \prescaler[2]_i_1 
+       (.I0(prescaler_reg__0[1]),
+        .I1(prescaler_reg__0[0]),
+        .I2(prescaler_reg__0[2]),
+        .O(p_0_in[2]));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \prescaler[3]_i_1 
+       (.I0(prescaler_reg__0[2]),
+        .I1(prescaler_reg__0[0]),
+        .I2(prescaler_reg__0[1]),
+        .I3(prescaler_reg__0[3]),
+        .O(p_0_in[3]));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'h7FFF8000)) 
+    \prescaler[4]_i_1 
+       (.I0(prescaler_reg__0[3]),
+        .I1(prescaler_reg__0[1]),
+        .I2(prescaler_reg__0[0]),
+        .I3(prescaler_reg__0[2]),
+        .I4(prescaler_reg__0[4]),
+        .O(p_0_in[4]));
+  LUT6 #(
+    .INIT(64'h7FFFFFFF80000000)) 
+    \prescaler[5]_i_1 
+       (.I0(prescaler_reg__0[4]),
+        .I1(prescaler_reg__0[2]),
+        .I2(prescaler_reg__0[0]),
+        .I3(prescaler_reg__0[1]),
+        .I4(prescaler_reg__0[3]),
+        .I5(prescaler_reg__0[5]),
+        .O(p_0_in[5]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    \prescaler[6]_i_1 
+       (.I0(\prescaler[7]_i_3_n_0 ),
+        .I1(prescaler_reg__0[6]),
+        .O(p_0_in[6]));
+  LUT4 #(
+    .INIT(16'h40FF)) 
+    \prescaler[7]_i_1 
+       (.I0(\prescaler[7]_i_3_n_0 ),
+        .I1(prescaler_reg__0[6]),
+        .I2(prescaler_reg__0[7]),
+        .I3(nResetAudio256Clk),
+        .O(\prescaler[7]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT3 #(
+    .INIT(8'hD2)) 
+    \prescaler[7]_i_2 
+       (.I0(prescaler_reg__0[6]),
+        .I1(\prescaler[7]_i_3_n_0 ),
+        .I2(prescaler_reg__0[7]),
+        .O(p_0_in[7]));
+  LUT6 #(
+    .INIT(64'h7FFFFFFFFFFFFFFF)) 
+    \prescaler[7]_i_3 
+       (.I0(prescaler_reg__0[4]),
+        .I1(prescaler_reg__0[2]),
+        .I2(prescaler_reg__0[0]),
+        .I3(prescaler_reg__0[1]),
+        .I4(prescaler_reg__0[3]),
+        .I5(prescaler_reg__0[5]),
+        .O(\prescaler[7]_i_3_n_0 ));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \prescaler_reg[0] 
+       (.C(audio256Clk),
+        .CE(1'b1),
+        .D(p_0_in[0]),
+        .Q(prescaler_reg__0[0]),
+        .R(\prescaler[7]_i_1_n_0 ));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \prescaler_reg[1] 
+       (.C(audio256Clk),
+        .CE(1'b1),
+        .D(p_0_in[1]),
+        .Q(prescaler_reg__0[1]),
+        .R(\prescaler[7]_i_1_n_0 ));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \prescaler_reg[2] 
+       (.C(audio256Clk),
+        .CE(1'b1),
+        .D(p_0_in[2]),
+        .Q(prescaler_reg__0[2]),
+        .R(\prescaler[7]_i_1_n_0 ));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \prescaler_reg[3] 
+       (.C(audio256Clk),
+        .CE(1'b1),
+        .D(p_0_in[3]),
+        .Q(prescaler_reg__0[3]),
+        .R(\prescaler[7]_i_1_n_0 ));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \prescaler_reg[4] 
+       (.C(audio256Clk),
+        .CE(1'b1),
+        .D(p_0_in[4]),
+        .Q(prescaler_reg__0[4]),
+        .R(\prescaler[7]_i_1_n_0 ));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \prescaler_reg[5] 
+       (.C(audio256Clk),
+        .CE(1'b1),
+        .D(p_0_in[5]),
+        .Q(prescaler_reg__0[5]),
+        .R(\prescaler[7]_i_1_n_0 ));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \prescaler_reg[6] 
+       (.C(audio256Clk),
+        .CE(1'b1),
+        .D(p_0_in[6]),
+        .Q(prescaler_reg__0[6]),
+        .R(\prescaler[7]_i_1_n_0 ));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \prescaler_reg[7] 
+       (.C(audio256Clk),
+        .CE(1'b1),
+        .D(p_0_in[7]),
+        .Q(prescaler_reg__0[7]),
+        .R(\prescaler[7]_i_1_n_0 ));
+endmodule
+
 (* CHECK_LICENSE_TYPE = "design_1_audio_clk_gen_0_0,audio_clk_gen,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
 (* X_CORE_INFO = "audio_clk_gen,Vivado 2018.2" *) 
 (* NotValidForBitStream *)
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
-   (nReset,
-    audioClk256,
+   (nResetSysClk,
+    nResetAudio256Clk,
+    audio256Clk,
     sysClk,
-    audioClk);
-  input nReset;
-  input audioClk256;
+    audioClkSync);
+  input nResetSysClk;
+  input nResetAudio256Clk;
+  input audio256Clk;
   input sysClk;
-  output audioClk;
+  output audioClkSync;
 
-  wire \<const0> ;
+  wire audio256Clk;
+  wire audioClkSync;
+  wire nResetAudio256Clk;
+  wire nResetSysClk;
+  wire sysClk;
 
-  assign audioClk = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_audio_clk_gen inst
+       (.audio256Clk(audio256Clk),
+        .audioClkSync(audioClkSync),
+        .nResetAudio256Clk(nResetAudio256Clk),
+        .nResetSysClk(nResetSysClk),
+        .sysClk(sysClk));
 endmodule
 `ifndef GLBL
 `define GLBL

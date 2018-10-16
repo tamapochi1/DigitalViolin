@@ -1,34 +1,34 @@
 {
    ExpandedHierarchyInLayout: "",
-   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
+   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS-threadsafe
 #  -string -flagsOSRD
 preplace port sysClk -pg 1 -y 130 -defaultsOSRD
-preplace port index_valid -pg 1 -y 310 -defaultsOSRD
+preplace port index_valid -pg 1 -y 190 -defaultsOSRD
 preplace port nReset -pg 1 -y 110 -defaultsOSRD
 preplace port m_axis_gain -pg 1 -y 100 -defaultsOSRD
 preplace port BRAM_PORTA -pg 1 -y 20 -defaultsOSRD
 preplace port m_axis_delta -pg 1 -y 80 -defaultsOSRD
-preplace portBus index -pg 1 -y 290 -defaultsOSRD
+preplace portBus index -pg 1 -y 170 -defaultsOSRD
 preplace inst blk_mem_gen_0 -pg 1 -lvl 3 -y 230 -defaultsOSRD
-preplace inst mult_gen_1 -pg 1 -lvl 1 -y 210 -defaultsOSRD
+preplace inst mult_gen_1 -pg 1 -lvl 1 -y 270 -defaultsOSRD
 preplace inst DSP_reg_read_0 -pg 1 -lvl 2 -y 160 -defaultsOSRD
-preplace netloc mult_gen_1_P 1 1 1 N
+preplace netloc mult_gen_1_P 1 1 1 210
 preplace netloc DSP_reg_read_0_m_axis_delta 1 2 2 NJ 80 NJ
-preplace netloc phase_gen_256_0_reg_index 1 0 2 10J 130 210J
-preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 0 3 NJ 20 NJ 20 670J
+preplace netloc phase_gen_256_0_reg_index 1 0 2 NJ 170 NJ
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 0 3 NJ 20 NJ 20 660J
 preplace netloc DSP_reg_read_0_m_axis_gain 1 2 2 NJ 100 NJ
 preplace netloc DSP_register_0_sysNReset 1 0 2 NJ 110 NJ
-preplace netloc phase_gen_256_0_bram_rst 1 2 1 630
-preplace netloc phase_gen_256_0_s_bram_addr 1 2 1 660
-preplace netloc DSP_reg_read_0_freq 1 0 3 20 330 NJ 330 600
-preplace netloc sysClk_0_1 1 0 2 0 100 220J
-preplace netloc blk_mem_gen_0_doutb 1 1 2 220 300 610J
-preplace netloc DSP_reg_read_0_const 1 0 3 30 320 NJ 320 590
-preplace netloc phase_gen_256_0_s_bram_clk 1 2 1 650
-preplace netloc phase_gen_256_0_reg_index_valid 1 0 2 NJ 310 210J
-preplace netloc phase_gen_256_0_m_bram_we 1 2 1 620
-preplace netloc phase_gen_256_0_bram_en 1 2 1 640
-levelinfo -pg 1 -20 120 410 800 950 -top 0 -bot 360
+preplace netloc phase_gen_256_0_bram_rst 1 2 1 620
+preplace netloc phase_gen_256_0_s_bram_addr 1 2 1 650
+preplace netloc DSP_reg_read_0_freq 1 0 3 20 360 NJ 360 590
+preplace netloc sysClk_0_1 1 0 2 20 130 NJ
+preplace netloc blk_mem_gen_0_doutb 1 1 2 220 300 600J
+preplace netloc DSP_reg_read_0_const 1 0 3 30 350 NJ 350 580
+preplace netloc phase_gen_256_0_s_bram_clk 1 2 1 640
+preplace netloc phase_gen_256_0_reg_index_valid 1 0 2 NJ 190 NJ
+preplace netloc phase_gen_256_0_m_bram_we 1 2 1 610
+preplace netloc phase_gen_256_0_bram_en 1 2 1 630
+levelinfo -pg 1 0 120 400 790 940 -top 0 -bot 370
 ",
 }
 0

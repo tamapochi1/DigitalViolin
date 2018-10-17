@@ -319,7 +319,7 @@
 <allocatable id="SCI6" name="SCI6">
 <isocket id="CountingClockB" selection="Clock.tool_clock_pclkb" value="3.2E7"/>
 <isocket id="CountingClockA" value="6.0E7"/>
-<option enabled="true" id="TransDir" selection="MSBFirst">
+<option enabled="true" id="TransDir" selection="LSBFirst">
 <item id="LSBFirst" input="" vlaue="0"/>
 <item id="MSBFirst" input="" vlaue="0"/>
 </option>
@@ -327,8 +327,8 @@
 <item id="Internal" input="" vlaue="0"/>
 <item id="External" input="" vlaue="0"/>
 </option>
-<option enabled="true" id="Bitrate" selection="500000">
-<item id="FreeValue" input="500000" vlaue="5000"/>
+<option enabled="true" id="Bitrate" selection="FreeValue">
+<item id="FreeValue" input="1600000" vlaue="5000"/>
 <item id="10000" input="" vlaue="0"/>
 <item id="5000" input="" vlaue="0"/>
 <item id="25000" input="" vlaue="0"/>
@@ -339,7 +339,7 @@
 <item id="750000" input="" vlaue="0"/>
 <item id="1500000" input="" vlaue="0"/>
 </option>
-<option enabled="true" id="DutyCorrection" selection="Enable">
+<option enabled="true" id="DutyCorrection" selection="Disable">
 <item id="Enable" input="" vlaue="0"/>
 <item id="Disable" input="" vlaue="0"/>
 </option>
@@ -347,7 +347,7 @@
 <item id="NotDelay" input="" vlaue="0"/>
 <item id="Delay" input="" vlaue="0"/>
 </option>
-<option enabled="true" id="Polarity" selection="Enable">
+<option enabled="true" id="Polarity" selection="Disable">
 <item id="Enable" input="" vlaue="0"/>
 <item id="Disable" input="" vlaue="0"/>
 </option>

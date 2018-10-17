@@ -22,7 +22,7 @@
 * Version      : 1.0.0
 * Device(s)    : R5F51303AxFN
 * Description  : This file implements device driver for Config_SCI6.
-* Creation Date: 2018-08-19
+* Creation Date: 2018-10-17
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -76,14 +76,13 @@ void R_Config_SCI6_Create(void)
     SCI6.SIMR1.BIT.IICM = 0U;
 
     /* Set control registers */
-    SCI6.SPMR.BYTE = _00_SCI_RTS | _40_SCI_CLOCK_INVERTED | _00_SCI_CLOCK_NOT_DELAYED;
-    SCI6.SMR.BYTE = _01_SCI_CLOCK_PCLK_4 | _00_SCI_DATA_LENGTH_8 | _80_SCI_CLOCK_SYNCHRONOUS_OR_SPI_MODE;
-    SCI6.SCMR.BYTE = _00_SCI_SERIAL_MODE | _00_SCI_DATA_INVERT_NONE | _08_SCI_DATA_MSB_FIRST | _62_SCI_SCMR_DEFAULT;
-    SCI6.SEMR.BYTE = _04_SCI_BIT_MODULATION_ENABLE;
+    SCI6.SPMR.BYTE = _00_SCI_RTS | _00_SCI_CLOCK_NOT_INVERTED | _00_SCI_CLOCK_NOT_DELAYED;
+    SCI6.SMR.BYTE = _00_SCI_CLOCK_PCLK | _00_SCI_DATA_LENGTH_8 | _80_SCI_CLOCK_SYNCHRONOUS_OR_SPI_MODE;
+    SCI6.SCMR.BYTE = _00_SCI_SERIAL_MODE | _00_SCI_DATA_INVERT_NONE | _00_SCI_DATA_LSB_FIRST | _62_SCI_SCMR_DEFAULT;
+    SCI6.SEMR.BYTE = _00_SCI_BIT_MODULATION_DISABLE;
 
     /* Set bit rate */
-    SCI6.BRR = 0x01U;
-    SCI6.MDDR = 0x80U;
+    SCI6.BRR = 0x04U;
 
     /* Set RXD6 pin */
     MPC.PD1PFS.BYTE = 0x0BU;

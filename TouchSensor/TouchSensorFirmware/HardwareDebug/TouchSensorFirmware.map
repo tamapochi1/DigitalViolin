@@ -1,10 +1,11 @@
-Renesas Optimizing Linker (W2.07.00 )             20-Aug-2018 01:22:07
+Renesas Optimizing Linker (W2.07.00 )             17-Oct-2018 14:23:56
 
 *** Options ***
 
 -noprelink
 -subcommand=LinkerSubCommand.tmp
 -input=".\src\CTSUa.obj"
+-input=".\src\Registers.obj"
 -input=".\src\TouchSensorFirmware.obj"
 -input=".\src/smc_gen/Config_CMT0\Config_CMT0.obj"
 -input=".\src/smc_gen/Config_CMT0\Config_CMT0_user.obj"
@@ -50,17 +51,17 @@ SU
 SI
                                   00000404  00000503       100   4
 B_1
-                                  00000504  0000052b        28   1
+                                  00000504  0000052e        2b   1
 R_1
-                                  0000052c  0000057b        50   1
+                                  0000052f  0000057f        51   1
 B_2
-                                  0000057c  0000058b        10   2
+                                  00000580  0000090f       390   2
 R_2
-                                  0000058c  0000058c         0   1
+                                  00000910  00000917         8   2
 B
-                                  0000058c  00000b07       57c   4
+                                  00000918  00000e97       580   4
 R
-                                  00000b08  00000bff        f8   4
+                                  00000e98  00000f93        fc   4
 C_1
                                   ffff0000  ffff0000         0   1
 C_2
@@ -74,20 +75,20 @@ C$BSEC
 C$VECT
                                   ffff00bc  ffff04bb       400   4
 D
-                                  ffff04bc  ffff05b3        f8   4
-D_1
-                                  ffff05b4  ffff0603        50   1
+                                  ffff04bc  ffff05b7        fc   4
 D_2
-                                  ffff0604  ffff0604         0   1
+                                  ffff05b8  ffff05bf         8   2
+D_1
+                                  ffff05c0  ffff0610        51   1
 W
-                                  ffff0604  ffff0604         0   1
+                                  ffff0611  ffff0611         0   1
 W_1
-                                  ffff0604  ffff0604         0   1
+                                  ffff0611  ffff0611         0   1
 W_2
-                                  ffff0604  ffff0604         0   1
+                                  ffff0611  ffff0611         0   1
 L
-                                  ffff0604  ffff0649        46   4
+                                  ffff0614  ffff0659        46   4
 P
-                                  ffff064a  ffff1f12      18c9   1
+                                  ffff065a  ffff20f1      1a98   1
 FIXEDVECT
                                   ffffff80  ffffffff        80   4

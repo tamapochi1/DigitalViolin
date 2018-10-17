@@ -6,14 +6,18 @@
  */
 
 #include "CTSUa.h"
+#include "Registers.h"
 #include "r_cg_macrodriver.h"
 
 uint16_t sensorDataBuffer[448];
 uint32_t sensorDataBuffer_index = 0U;
+void(*end)(void);
 
-void CTSUa_Init(void)
+void CTSUa_Init(void(*callback_end)(void))
 {
 	uint32_t i;
+
+	end = callback_end;
 
 	// TSCAP端子を汎用ポート機能として活用し、Lowレベルを一定期間ドライブすることによって、TSCAP端子の外部に接続されているLPF容量を放電
 	PORTC.PMR.BIT.B4 = 1U;
@@ -33,7 +37,7 @@ void CTSUa_Init(void)
 	CTSU.CTSUCR1.BIT.CTSUCLK = 0x0U;	// PCLK/1
 
 	// CTSU送信電源選択
-	CTSU.CTSUCR0.BIT.CTSUTXVSEL = 1U;	// 内部ロジック電源を選択
+	CTSU.CTSUCR0.BIT.CTSUTXVSEL = 0U;	// VCCを選択
 
 	// TSCAP端子を設定
 	R_BSP_RegisterProtectDisable(BSP_REG_PROTECT_MPC);
@@ -92,10 +96,10 @@ void CTSUa_Measure(void)
 static void CTSUa_CTSUWR(void)
 {
 	// 高域ノイズ低減スペクトラム拡散制御設定
-	CTSU.CTSUSSC.BIT.CTSUSSDIV = 0x0000U;
+	CTSU.CTSUSSC.BIT.CTSUSSDIV = REG_CTSUSSDIV;
 
 	// センサオフセット調整
-	CTSU.CTSUSO0.BIT.CTSUSO = 0x0000U;
+	CTSU.CTSUSO0.BIT.CTSUSO = REG_CTSUSO;
 
 	// 計測回数設定
 	CTSU.CTSUSO0.BIT.CTSUSNUM = 0x0000U;
@@ -104,7 +108,7 @@ static void CTSUa_CTSUWR(void)
 	// CTSUリファレンスICO電流 : 0
 	// CTSUベースクロック : 動作クロックの2分周
 	// CTSU ICOゲイン : ゲイン100%
-	CTSU.CTSUSO1.WORD = 0x0000U;
+	CTSU.CTSUSO1.WORD = 0x00FFU + (REG_CTSUSDPA << 8);
 }
 
 // 測定データ転送要求割り込み
@@ -122,4 +126,9 @@ static void CTSUa_CTSURD(void)
 static void CTSUa_CTSUFN(void)
 {
 	sensorDataBuffer_index = 0U;
+
+	if(*end != NULL)
+	{
+		end();
+	}
 }

@@ -1,4 +1,5 @@
 -input=".\src\CTSUa.obj"
+-input=".\src\Registers.obj"
 -input=".\src\TouchSensorFirmware.obj"
 -input=".\src/smc_gen/Config_CMT0\Config_CMT0.obj"
 -input=".\src/smc_gen/Config_CMT0\Config_CMT0_user.obj"

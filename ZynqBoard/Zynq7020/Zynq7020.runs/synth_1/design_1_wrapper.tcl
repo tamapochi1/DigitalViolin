@@ -17,7 +17,11 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param tcl.collectionResultDisplayLimit 0
+set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL-1065} -limit 10000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -34,6 +38,7 @@ set_property ip_repo_paths {
   f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo
   f:/Git/DigitalViolin/ZynqBoard/ip_repo/myDSP_1.0
   f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/myip_1.0
+  c:/Users/Reiji/AppData/Roaming/Xilinx/ip_repo
 } [current_project]
 set_property ip_output_repo f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
@@ -57,9 +62,14 @@ set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/Z
 set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_0/design_1_fifo_generator_0_0.xdc]
 set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_0/design_1_fifo_generator_0_0_clocks.xdc]
 set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_0/design_1_fifo_generator_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_1/design_1_fifo_generator_0_1.xdc]
+set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_1/design_1_fifo_generator_0_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_2/design_1_fifo_generator_0_2.xdc]
+set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_2/design_1_fifo_generator_0_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_3/design_1_auto_pc_3_ooc.xdc]
 set_property used_in_implementation false [get_files -all F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Sat Oct 13 16:07:24 2018
+| Date         : Fri Oct 19 00:27:26 2018
 | Host         : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   10 |     0 |       200 |  5.00 |
+| Bonded IOB                  |   14 |     0 |       200 |  7.00 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | Bonded IOPADs               |    0 |     0 |       130 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         4 |  0.00 |
@@ -146,8 +146,8 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| OBUF     |    9 |                  IO |
-| IBUF     |    1 |                  IO |
+| OBUF     |   11 |                  IO |
+| IBUF     |    3 |                  IO |
 +----------+------+---------------------+
 
 
@@ -165,6 +165,8 @@ Table of Contents
 | design_1_mult_sum_0_0           |    1 |
 | design_1_mult_gen_1_0           |    1 |
 | design_1_mult_gen_0_1           |    1 |
+| design_1_fifo_generator_0_2     |    1 |
+| design_1_fifo_generator_0_1     |    1 |
 | design_1_fifo_generator_0_0     |    1 |
 | design_1_delay_0_0              |    1 |
 | design_1_cordic_0_1             |    1 |
@@ -172,10 +174,13 @@ Table of Contents
 | design_1_blk_mem_gen_1_0        |    1 |
 | design_1_blk_mem_gen_0_1        |    1 |
 | design_1_axi_bram_ctrl_0_0      |    1 |
+| design_1_auto_pc_3              |    1 |
 | design_1_auto_pc_2              |    1 |
 | design_1_auto_pc_1              |    1 |
 | design_1_auto_pc_0              |    1 |
 | design_1_audio_clk_gen_0_0      |    1 |
+| design_1_UIF_SerialSlave_0_1    |    1 |
+| design_1_UIF_AXI_0_0            |    1 |
 | design_1_DSP_reset_0_0          |    1 |
 | design_1_DSP_register_0_0       |    1 |
 | design_1_DSP_reg_read_0_0       |    1 |

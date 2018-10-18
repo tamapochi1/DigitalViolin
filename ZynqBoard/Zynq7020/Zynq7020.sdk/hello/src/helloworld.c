@@ -83,7 +83,7 @@ int i2c_write(XIicPs *Iic, u8 addr, u8 command, u16 i2c_adder)
 
 int main()
 {
-	u32 i, freq, upDown, addr;
+	u32 i, freq, upDown, addr, rddata[10];
 	int note;
 	float gain;
 	int status;
@@ -168,13 +168,24 @@ int main()
     gain = 2.0;
     upDown = 1;
 
+    Xil_Out32(0x43C20000, (u32)0);
+    usleep(100000);
+//    Xil_Out32(0x43C20000, (u32)2);
+//    usleep(100000);
+    Xil_Out32(0x43C20000, (u32)3);
+
+	Xil_Out32(0x43C20000 + 8, (u32)0x81);
+	Xil_Out32(0x43C20000 + 8, (u32)0x8F);
+	Xil_Out32(0x43C20000 + 8, (u32)0x21);
+	Xil_Out32(0x43C20000 + 8, (u32)0x23);
+
 	while(1)
 	{
 //		print("Hello World\n\r");
-		MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x3);
-		usleep(200000);
-		MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x1);
-		usleep(200000);
+//		MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x3);
+//		usleep(20000);
+//		MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x1);
+//		usleep(20000);
 
 //		if(upDown)
 //		{
@@ -204,6 +215,13 @@ int main()
 //		{
 //			Xil_Out32(0x40000000 + i * 4, 0x0A000000 + (u32)((float)0x400000/((float)48000/((float)freq * (i * 0.005 + (float)rand()/RAND_MAX)))));
 //		}
+
+		while(Xil_In32(0x43C20000 + 4) < 6);
+
+		for(i=0; i < 10; i++)
+		{
+			rddata[i] = Xil_In32(0x43C2000C);
+		}
 
 		freq = 442 * powf(2.0f, (float)(scale[note]) / 12);
 

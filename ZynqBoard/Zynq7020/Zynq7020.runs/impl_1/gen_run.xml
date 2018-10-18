@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1539414389">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1539876344">
   <File Type="BITSTR-BMM" Name="design_1_wrapper_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="design_1_wrapper_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="design_1_wrapper_timing_summary_init.rpt"/>
@@ -127,6 +127,20 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/UIF_AXI.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/UIF_SerialSlave.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -158,6 +172,14 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/phase_generator.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/UIF_SerialMaster.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -206,4 +228,9 @@
   <BlockFileSet Type="BlockSrcs" Name="design_1_DAC_IF_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_phase_gen_256_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_DSP_reset_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_fifo_generator_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_fifo_generator_0_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_UIF_SerialSlave_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_UIF_AXI_0_0"/>
 </GenRun>

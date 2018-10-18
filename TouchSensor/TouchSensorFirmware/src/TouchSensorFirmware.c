@@ -12,6 +12,7 @@ void main(void)
 {
 	uint8_t txData[3];
 	uint8_t index;
+	uint32_t counter = 0;
 
 	CTSUa_Init(CTSUa_csllbsck);
 	R_Config_SCI6_Start();

@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Sat Oct 13 15:26:52 2018
+//Date        : Fri Oct 19 00:25:26 2018
 //Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -38,6 +38,10 @@ module design_1_wrapper
     RGB_OUT_0,
     UART_1_rxd,
     UART_1_txd,
+    UIF_Res_1,
+    UIF_Slave_1_s_rxd,
+    UIF_Slave_1_s_sck,
+    UIF_Slave_1_s_txd,
     USB_nRESET_0);
   output DAC_BICK_0;
   output DAC_LRCK_0;
@@ -67,6 +71,10 @@ module design_1_wrapper
   output [2:0]RGB_OUT_0;
   input UART_1_rxd;
   output UART_1_txd;
+  output UIF_Res_1;
+  output UIF_Slave_1_s_rxd;
+  input UIF_Slave_1_s_sck;
+  input UIF_Slave_1_s_txd;
   output USB_nRESET_0;
 
   wire DAC_BICK_0;
@@ -97,6 +105,10 @@ module design_1_wrapper
   wire [2:0]RGB_OUT_0;
   wire UART_1_rxd;
   wire UART_1_txd;
+  wire UIF_Res_1;
+  wire UIF_Slave_1_s_rxd;
+  wire UIF_Slave_1_s_sck;
+  wire UIF_Slave_1_s_txd;
   wire USB_nRESET_0;
 
   design_1 design_1_i
@@ -128,5 +140,9 @@ module design_1_wrapper
         .RGB_OUT_0(RGB_OUT_0),
         .UART_1_rxd(UART_1_rxd),
         .UART_1_txd(UART_1_txd),
+        .UIF_Res_1(UIF_Res_1),
+        .UIF_Slave_1_s_rxd(UIF_Slave_1_s_rxd),
+        .UIF_Slave_1_s_sck(UIF_Slave_1_s_sck),
+        .UIF_Slave_1_s_txd(UIF_Slave_1_s_txd),
         .USB_nRESET_0(USB_nRESET_0));
 endmodule

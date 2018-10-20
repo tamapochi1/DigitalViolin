@@ -1365,14 +1365,8 @@ proc create_root_design { parentCell } {
 HDL_ATTRIBUTE.DEBUG {true} \
  ] [get_bd_intf_nets UIF_SerialSlave_0_UIF_Slave]
   connect_bd_intf_net -intf_net UIF_SerialSlave_0_m_axis_st [get_bd_intf_pins UIF_SerialSlave_0/m_axis_st] [get_bd_intf_pins fifo_generator_1/S_AXIS]
-  set_property -dict [ list \
-HDL_ATTRIBUTE.DEBUG {true} \
- ] [get_bd_intf_nets UIF_SerialSlave_0_m_axis_st]
   connect_bd_intf_net -intf_net fifo_generator_0_M_AXIS [get_bd_intf_pins UIF_SerialSlave_0/s_axis_sr] [get_bd_intf_pins fifo_generator_0/M_AXIS]
   connect_bd_intf_net -intf_net fifo_generator_1_M_AXIS [get_bd_intf_pins UIF_AXI_0/s_axis_st] [get_bd_intf_pins fifo_generator_1/M_AXIS]
-  set_property -dict [ list \
-HDL_ATTRIBUTE.DEBUG {true} \
- ] [get_bd_intf_nets fifo_generator_1_M_AXIS]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]

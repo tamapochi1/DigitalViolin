@@ -115,17 +115,16 @@ begin
         end
         else
         begin
+            RXDBufferValid <= 1'b0;
+            RXDBuffer <= RXDBuffer;
+            
             if(timeOutCounter > 8'h7F)
             begin
-                RXDBuffer <= 8'h00;
                 RXDBufferCount <= 3'h0;
-                RXDBufferValid <= 1'b0;
             end
             else
             begin
                 RXDBufferCount <= RXDBufferCount;
-                RXDBuffer <= RXDBuffer;
-                RXDBufferValid <= 1'b0;
             end
         end
     end
@@ -146,36 +145,35 @@ begin
     end
     else
     begin
-            if(SCKFallEdge)
+        if(SCKFallEdge)
+        begin
+            if(TXDBufferCount < 3'h7)
             begin
-                if(TXDBufferCount < 3'h7)
-                begin
-                    TXDBufferCount <= TXDBufferCount + 3'h1;
-                    TXDBufferReady <= 1'b0;
-                    TXDBuffer <= {TXDBuffer[7], TXDBuffer[7:1]};
-                end
-                else
-                begin
-                    TXDBufferCount <= 3'h0;
-                    TXDBufferReady <= s_axis_sr_tvalid;
-                    TXDBuffer <= s_axis_sr_tdata;
-                end
+                TXDBufferCount <= TXDBufferCount + 3'h1;
+                TXDBufferReady <= 1'b0;
+                TXDBuffer <= {TXDBuffer[7], TXDBuffer[7:1]};
             end
             else
             begin
-                if(timeOutCounter > 8'h7F)
-                begin
-                    TXDBuffer <= 8'h00;
-                    TXDBufferCount <= 3'h7;
-                    TXDBufferReady <= 1'b0;
-                end
-                else
-                begin
-                    TXDBuffer <= TXDBuffer;
-                    TXDBufferCount <= TXDBufferCount;
-                    TXDBufferReady <= 1'b0;
-                end
+                TXDBufferCount <= 3'h0;
+                TXDBufferReady <= s_axis_sr_tvalid;
+                TXDBuffer <= s_axis_sr_tdata;
             end
+        end
+        else
+        begin
+            TXDBufferReady <= 1'b0;
+            TXDBuffer <= TXDBuffer;
+            
+            if(timeOutCounter > 8'h7F)
+            begin
+                TXDBufferCount <= 3'h7;
+            end
+            else
+            begin
+                TXDBufferCount <= TXDBufferCount;
+            end
+        end
     end
 end
 

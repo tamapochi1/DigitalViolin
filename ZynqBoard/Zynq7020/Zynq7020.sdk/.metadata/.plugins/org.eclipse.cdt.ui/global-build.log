@@ -1,4 +1,4 @@
-17:13:10 **** Build of project hello_bsp ****
+23:03:24 **** Build of project hello_bsp ****
 make -k all 
 "Running Make include in ps7_cortexa9_0/libsrc/bram_v4_2/src"
 make -C ps7_cortexa9_0/libsrc/bram_v4_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
@@ -101,7 +101,7 @@ make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm
 make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 "Compiling xadcps"
 'Finished building libraries'
-17:13:37 **** Build of configuration Debug for project hello ****
+23:03:52 **** Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -113,13 +113,13 @@ arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcp
   int status;
       ^~~~~~
 ../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
+  u32 i, freq, upDown, addr, rddata[672];
                              ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata;
+  u32 i, freq, upDown, addr, rddata[672];
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
+  u32 i, freq, upDown, addr, rddata[672];
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -136,963 +136,45 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37824	   1200	520022648	520061672	1eff82e8	hello.elf
-'Finished building: hello.elf.size'
-' '
-17:16:37 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata;
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37864	   1200	520022648	520061712	1eff8310	hello.elf
-'Finished building: hello.elf.size'
-' '
-17:17:16 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata;
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37872	   1200	520022648	520061720	1eff8318	hello.elf
-'Finished building: hello.elf.size'
-' '
-17:17:42 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-17:21:47 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata;
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37872	   1200	520022648	520061720	1eff8318	hello.elf
-'Finished building: hello.elf.size'
-' '
-17:47:11 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-17:48:30 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-17:52:04 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:00:24 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata;
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37872	   1200	520022648	520061720	1eff8318	hello.elf
-'Finished building: hello.elf.size'
-' '
-18:19:08 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata;
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37896	   1200	520022648	520061744	1eff8330	hello.elf
-'Finished building: hello.elf.size'
-' '
-18:28:52 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:33:07 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:38:00 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata;
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata;
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37896	   1200	520022648	520061744	1eff8330	hello.elf
-'Finished building: hello.elf.size'
-' '
-18:39:51 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:40:33 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:41:57 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:42:25 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:42:55 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:43:53 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:45:46 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37952	   1200	520022648	520061800	1eff8368	hello.elf
-'Finished building: hello.elf.size'
-' '
-18:46:15 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:48:19 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:49:29 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:50:23 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:50:46 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:52:40 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
-'Finished building: hello.elf.size'
-' '
-18:53:47 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:54:19 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:54:37 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:54:58 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:55:22 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:55:57 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:56:52 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
-'Finished building: hello.elf.size'
-' '
-18:57:33 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:57:58 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
-'Finished building: hello.elf.size'
-' '
-18:58:13 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
-'Finished building: hello.elf.size'
-' '
-18:58:36 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-18:59:55 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:00:20 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:00:44 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:01:43 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:02:32 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:03:53 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
-'Finished building: hello.elf.size'
-' '
-19:05:53 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:20:57 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:22:18 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:23:10 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:23:38 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:24:03 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:25:06 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37920	   1200	520022648	520061768	1eff8348	hello.elf
-'Finished building: hello.elf.size'
-' '
-19:25:36 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:26:19 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:34:33 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
-'Finished building: hello.elf.size'
-' '
-19:35:50 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
-'Finished building: hello.elf.size'
-' '
-19:36:35 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:38:20 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:38:56 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:39:22 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-19:39:37 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-20:04:08 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-20:04:47 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-20:05:34 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-20:07:17 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-20:10:05 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37976	   1200	520022648	520061824	1eff8380	hello.elf
-'Finished building: hello.elf.size'
-' '
-20:10:31 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-20:26:25 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-20:38:55 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-20:41:16 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37976	   1200	520022648	520061824	1eff8380	hello.elf
-'Finished building: hello.elf.size'
-' '
-20:42:43 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37976	   1200	520022648	520061824	1eff8380	hello.elf
-'Finished building: hello.elf.size'
-' '
-20:43:04 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-20:43:53 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37976	   1200	520022648	520061824	1eff8380	hello.elf
-'Finished building: hello.elf.size'
-' '
-21:12:02 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37992	   1200	520022648	520061840	1eff8390	hello.elf
-'Finished building: hello.elf.size'
-' '
-21:14:08 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
   37968	   1200	520022648	520061816	1eff8378	hello.elf
 'Finished building: hello.elf.size'
 ' '
-21:17:22 **** Incremental Build of configuration Debug for project hello ****
+23:04:21 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: `main-build' に対して行うべき事はありません.
-21:19:15 **** Incremental Build of configuration Debug for project hello ****
+23:04:41 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:05:40 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:06:46 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:07:15 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:08:29 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:09:23 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:11:25 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1104,13 +186,13 @@ arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcp
   int status;
       ^~~~~~
 ../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672];
                              ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672];
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672];
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1122,10 +204,106 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37992	   1200	520022648	520061840	1eff8390	hello.elf
+  37904	   1200	520022648	520061752	1eff8338	hello.elf
 'Finished building: hello.elf.size'
 ' '
-21:30:58 **** Incremental Build of configuration Debug for project hello ****
+23:14:26 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:17:44 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:18:28 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:18:55 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:19:14 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:20:45 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:21:15 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:21:33 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:21:46 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:22:39 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:23:19 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:39:52 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:41:31 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:44:36 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: `main-build' に対して行うべき事はありません.
+23:59:34 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:226:3: error: too many arguments to function 'print'
+   print("%d", (((u16)rddata[2]) << 8) + (u16)rddata[1]);
+   ^~~~~
+In file included from ../../hello_bsp/ps7_cortexa9_0/include/xil_io.h:65:0,
+                 from ../src/helloworld.c:51:
+../../hello_bsp/ps7_cortexa9_0/include/xil_printf.h:40:6: note: declared here
+ void print( const char8 *ptr);
+      ^~~~~
+../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, freq, upDown, addr, rddata[672];
+                       ^~~~
+../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, freq, upDown, addr, rddata[672];
+               ^~~~~~
+make: *** [src/helloworld.o] エラー 1
+00:00:05 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1136,14 +314,11 @@ arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcp
 ../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
   int status;
       ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672];
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672];
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1155,10 +330,10 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37992	   1200	520022648	520061840	1eff8390	hello.elf
+  88584	   2636	520023408	520114628	1f0051c4	hello.elf
 'Finished building: hello.elf.size'
 ' '
-21:33:29 **** Incremental Build of configuration Debug for project hello ****
+00:01:13 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1170,10 +345,10 @@ arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcp
   int status;
       ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672];
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672];
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1185,10 +360,10 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  38000	   1200	520022648	520061848	1eff8398	hello.elf
+  88584	   2636	520023408	520114628	1f0051c4	hello.elf
 'Finished building: hello.elf.size'
 ' '
-21:34:21 **** Incremental Build of configuration Debug for project hello ****
+00:10:50 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1196,17 +371,18 @@ a9-linaro-pre-build-step
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
+../src/helloworld.c:241:13: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long unsigned int' [-Wformat=]
+    printf("%d\n", sum / 10);
+            ~^     ~~~~~~~~
+            %ld
 ../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
   int status;
       ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1218,15 +394,10 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37992	   1200	520022648	520061840	1eff8390	hello.elf
+  88840	   2636	520023408	520114884	1f0052c4	hello.elf
 'Finished building: hello.elf.size'
 ' '
-21:34:56 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-21:50:55 **** Incremental Build of configuration Debug for project hello ****
+00:13:38 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1234,17 +405,18 @@ a9-linaro-pre-build-step
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
+../src/helloworld.c:241:13: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long unsigned int' [-Wformat=]
+    printf("%d\n", sum / 10);
+            ~^     ~~~~~~~~
+            %ld
 ../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
   int status;
       ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1256,10 +428,10 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
+  88840	   2636	520023408	520114884	1f0052c4	hello.elf
 'Finished building: hello.elf.size'
 ' '
-21:52:00 **** Incremental Build of configuration Debug for project hello ****
+00:15:25 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1267,17 +439,18 @@ a9-linaro-pre-build-step
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
+../src/helloworld.c:241:13: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long unsigned int' [-Wformat=]
+    printf("%d\n", sum / 10);
+            ~^     ~~~~~~~~
+            %ld
 ../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
   int status;
       ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1289,45 +462,15 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
+  88840	   2636	520023408	520114884	1f0052c4	hello.elf
 'Finished building: hello.elf.size'
 ' '
-21:52:40 **** Incremental Build of configuration Debug for project hello ****
+00:18:55 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: `main-build' に対して行うべき事はありません.
-21:53:04 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-21:53:54 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-21:58:05 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-21:58:26 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-22:09:56 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-22:10:59 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-22:11:23 **** Incremental Build of configuration Debug for project hello ****
+00:20:39 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1335,17 +478,18 @@ a9-linaro-pre-build-step
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
+../src/helloworld.c:241:13: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long unsigned int' [-Wformat=]
+    printf("%d\n", sum / 10);
+            ~^     ~~~~~~~~
+            %ld
 ../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
   int status;
       ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1357,10 +501,10 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
+  88840	   2636	520023408	520114884	1f0052c4	hello.elf
 'Finished building: hello.elf.size'
 ' '
-23:06:02 **** Incremental Build of configuration Debug for project hello ****
+00:21:32 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1368,17 +512,18 @@ a9-linaro-pre-build-step
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
+../src/helloworld.c:241:13: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long unsigned int' [-Wformat=]
+    printf("%d\n", sum / 10);
+            ~^     ~~~~~~~~
+            %ld
 ../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
   int status;
       ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1390,10 +535,10 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
+  88840	   2636	520023408	520114884	1f0052c4	hello.elf
 'Finished building: hello.elf.size'
 ' '
-23:08:12 **** Incremental Build of configuration Debug for project hello ****
+00:22:57 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1401,17 +546,18 @@ a9-linaro-pre-build-step
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
+../src/helloworld.c:241:13: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long unsigned int' [-Wformat=]
+    printf("%d\n", sum / 10);
+            ~^     ~~~~~~~~
+            %ld
 ../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
   int status;
       ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1423,60 +569,10 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
+  88840	   2636	520023408	520114884	1f0052c4	hello.elf
 'Finished building: hello.elf.size'
 ' '
-23:09:26 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-23:20:11 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-23:39:23 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-23:46:56 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-23:55:53 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-23:56:09 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-00:12:35 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-00:13:53 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-00:35:25 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-00:36:01 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-00:36:26 **** Incremental Build of configuration Debug for project hello ****
+00:24:01 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1484,17 +580,18 @@ a9-linaro-pre-build-step
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
+../src/helloworld.c:241:13: warning: format '%d' expects argument of type 'int', but argument 2 has type 'long unsigned int' [-Wformat=]
+    printf("%d\n", sum / 10);
+            ~^     ~~~~~~~~
+            %ld
 ../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
   int status;
       ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1506,20 +603,10 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
+  88776	   2636	520023408	520114820	1f005284	hello.elf
 'Finished building: hello.elf.size'
 ' '
-00:36:30 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-00:38:14 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: `main-build' に対して行うべき事はありません.
-00:38:58 **** Incremental Build of configuration Debug for project hello ****
+00:25:51 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1527,17 +614,22 @@ a9-linaro-pre-build-step
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
+../src/helloworld.c:241:10: warning: passing argument 1 of 'print' makes pointer from integer without a cast [-Wint-conversion]
+    print(sum/10);
+          ^~~
+In file included from ../../hello_bsp/ps7_cortexa9_0/include/xil_io.h:65:0,
+                 from ../src/helloworld.c:51:
+../../hello_bsp/ps7_cortexa9_0/include/xil_printf.h:40:6: note: expected 'const char8 * {aka const char *}' but argument is of type 'long unsigned int'
+ void print( const char8 *ptr);
+      ^~~~~
 ../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
   int status;
       ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1549,10 +641,10 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
+  46088	   2240	520022696	520071024	1effa770	hello.elf
 'Finished building: hello.elf.size'
 ' '
-00:44:38 **** Incremental Build of configuration Debug for project hello ****
+00:27:01 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1560,17 +652,22 @@ a9-linaro-pre-build-step
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
+../src/helloworld.c:241:10: warning: passing argument 1 of 'print' from incompatible pointer type [-Wincompatible-pointer-types]
+    print(rddata);
+          ^~~~~~
+In file included from ../../hello_bsp/ps7_cortexa9_0/include/xil_io.h:65:0,
+                 from ../src/helloworld.c:51:
+../../hello_bsp/ps7_cortexa9_0/include/xil_printf.h:40:6: note: expected 'const char8 * {aka const char *}' but argument is of type 'u32 * {aka long unsigned int *}'
+ void print( const char8 *ptr);
+      ^~~~~
 ../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
   int status;
       ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
 ../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                        ^~~~
 ../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
+  u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
                ^~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -1582,39 +679,6 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
-'Finished building: hello.elf.size'
-' '
-00:46:16 **** Incremental Build of configuration Debug for project hello ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:89:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:86:29: warning: variable 'rddata' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                             ^~~~~~
-../src/helloworld.c:86:23: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-                       ^~~~
-../src/helloworld.c:86:15: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, freq, upDown, addr, rddata[10];
-               ^~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37944	   1200	520022648	520061792	1eff8360	hello.elf
+  46080	   2240	520022696	520071016	1effa768	hello.elf
 'Finished building: hello.elf.size'
 ' '

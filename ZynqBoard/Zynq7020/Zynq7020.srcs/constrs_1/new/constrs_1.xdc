@@ -60,6 +60,11 @@ set_property IOSTANDARD LVCMOS33 [get_ports UIF_Res_1]
 set_property PACKAGE_PIN W21 [get_ports UIF_Res_1]
 set_property DRIVE 12 [get_ports UIF_Res_1]
 
+connect_debug_port u_ila_0/probe6 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_RXD]]
+connect_debug_port u_ila_0/probe7 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_SCK]]
+connect_debug_port u_ila_0/probe8 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_TXD]]
+
+
 create_debug_core u_ila_0 ila
 set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
 set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
@@ -72,40 +77,16 @@ set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
 set_property port_width 1 [get_debug_ports u_ila_0/clk]
 connect_debug_port u_ila_0/clk [get_nets [list design_1_i/processing_system7_0/inst/FCLK_CLK0]]
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
-set_property port_width 8 [get_debug_ports u_ila_0/probe0]
-connect_debug_port u_ila_0/probe0 [get_nets [list {design_1_i/fifo_generator_1_M_AXIS_TDATA[0]} {design_1_i/fifo_generator_1_M_AXIS_TDATA[1]} {design_1_i/fifo_generator_1_M_AXIS_TDATA[2]} {design_1_i/fifo_generator_1_M_AXIS_TDATA[3]} {design_1_i/fifo_generator_1_M_AXIS_TDATA[4]} {design_1_i/fifo_generator_1_M_AXIS_TDATA[5]} {design_1_i/fifo_generator_1_M_AXIS_TDATA[6]} {design_1_i/fifo_generator_1_M_AXIS_TDATA[7]}]]
+set_property port_width 1 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_RXD]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
-set_property port_width 8 [get_debug_ports u_ila_0/probe1]
-connect_debug_port u_ila_0/probe1 [get_nets [list {design_1_i/UIF_SerialSlave_0_m_axis_st_TDATA[0]} {design_1_i/UIF_SerialSlave_0_m_axis_st_TDATA[1]} {design_1_i/UIF_SerialSlave_0_m_axis_st_TDATA[2]} {design_1_i/UIF_SerialSlave_0_m_axis_st_TDATA[3]} {design_1_i/UIF_SerialSlave_0_m_axis_st_TDATA[4]} {design_1_i/UIF_SerialSlave_0_m_axis_st_TDATA[5]} {design_1_i/UIF_SerialSlave_0_m_axis_st_TDATA[6]} {design_1_i/UIF_SerialSlave_0_m_axis_st_TDATA[7]}]]
+set_property port_width 1 [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_SCK]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
 set_property port_width 1 [get_debug_ports u_ila_0/probe2]
-connect_debug_port u_ila_0/probe2 [get_nets [list design_1_i/fifo_generator_1_M_AXIS_TREADY]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
-set_property port_width 1 [get_debug_ports u_ila_0/probe3]
-connect_debug_port u_ila_0/probe3 [get_nets [list design_1_i/fifo_generator_1_M_AXIS_TVALID]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
-set_property port_width 1 [get_debug_ports u_ila_0/probe4]
-connect_debug_port u_ila_0/probe4 [get_nets [list design_1_i/UIF_SerialSlave_0_m_axis_st_TREADY]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
-set_property port_width 1 [get_debug_ports u_ila_0/probe5]
-connect_debug_port u_ila_0/probe5 [get_nets [list design_1_i/UIF_SerialSlave_0_m_axis_st_TVALID]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
-set_property port_width 1 [get_debug_ports u_ila_0/probe6]
-connect_debug_port u_ila_0/probe6 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_RXD]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
-set_property port_width 1 [get_debug_ports u_ila_0/probe7]
-connect_debug_port u_ila_0/probe7 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_SCK]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
-set_property port_width 1 [get_debug_ports u_ila_0/probe8]
-connect_debug_port u_ila_0/probe8 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_TXD]]
+connect_debug_port u_ila_0/probe2 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_TXD]]
 set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
 set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]

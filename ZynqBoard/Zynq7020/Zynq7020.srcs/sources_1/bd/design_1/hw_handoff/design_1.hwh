@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Oct 19 00:25:28 2018" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Oct 19 23:24:28 2018" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="design_1" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -27,6 +27,9 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
     <PORT DIR="O" NAME="UART_1_txd" SIGIS="undef"/>
     <PORT DIR="I" NAME="UART_1_rxd" SIGIS="undef"/>
+    <PORT DIR="I" NAME="UIF_Slave_1_s_sck" SIGIS="undef"/>
+    <PORT DIR="O" NAME="UIF_Slave_1_s_rxd" SIGIS="undef"/>
+    <PORT DIR="I" NAME="UIF_Slave_1_s_txd" SIGIS="undef"/>
     <PORT DIR="O" LEFT="2" NAME="RGB_OUT_0" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_RGB_OUT">
       <CONNECTIONS>
         <CONNECTION INSTANCE="myip_0" PORT="RGB_OUT"/>
@@ -57,9 +60,6 @@
         <CONNECTION INSTANCE="DAC_Interface_DAC_IF_0" PORT="DAC_LRCK"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="UIF_Slave_1_s_sck" SIGIS="undef"/>
-    <PORT DIR="O" NAME="UIF_Slave_1_s_rxd" SIGIS="undef"/>
-    <PORT DIR="I" NAME="UIF_Slave_1_s_txd" SIGIS="undef"/>
     <PORT DIR="O" NAME="UIF_Res_1" SIGIS="undef" SIGNAME="UIF_AXI_0_UIF_res">
       <CONNECTIONS>
         <CONNECTION INSTANCE="UIF_AXI_0" PORT="UIF_res"/>
@@ -1107,8 +1107,8 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="outData" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_GainAndSum_mult_sum_0_outData">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DAC_Interface_DAC_FIFO_0" PORT="Data1"/>
             <CONNECTION INSTANCE="DAC_Interface_DAC_FIFO_0" PORT="Data0"/>
+            <CONNECTION INSTANCE="DAC_Interface_DAC_FIFO_0" PORT="Data1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="4" NAME="outGain" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_register_0_synth0Gain">
@@ -6065,6 +6065,8 @@
             <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="myip_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_aclk"/>
+            <CONNECTION INSTANCE="fifo_generator_1" PORT="s_aclk"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ACLK"/>
@@ -6083,10 +6085,8 @@
             <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="DAC_Interface_fifo_generator_0" PORT="s_aclk"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_ACLK"/>
-            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_aclk"/>
-            <CONNECTION INSTANCE="fifo_generator_1" PORT="s_aclk"/>
-            <CONNECTION INSTANCE="UIF_SerialSlave_0" PORT="sysClk"/>
             <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_ACLK"/>
+            <CONNECTION INSTANCE="UIF_SerialSlave_0" PORT="sysClk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK1">

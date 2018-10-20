@@ -61,14 +61,11 @@ proc step_failed { step } {
 }
 
 set_msg_config -id {HDL-1065} -limit 10000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param tcl.collectionResultDisplayLimit 0
   set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7z020clg484-1
   set_property design_mode GateLvl [current_fileset]
@@ -76,10 +73,10 @@ set rc [catch {
   set_property webtalk.parent_dir F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/wt [current_project]
   set_property parent.project_path F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.xpr [current_project]
   set_property ip_repo_paths {
-  f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/DSP_register_1.0
-  f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo
-  f:/Git/DigitalViolin/ZynqBoard/ip_repo/myDSP_1.0
-  f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/myip_1.0
+  F:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/DSP_register_1.0
+  F:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo
+  F:/Git/DigitalViolin/ZynqBoard/ip_repo/myDSP_1.0
+  F:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/myip_1.0
   C:/Users/Reiji/AppData/Roaming/Xilinx/ip_repo
 } [current_project]
   set_property ip_output_repo F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/ip [current_project]

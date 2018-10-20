@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Thu Oct 18 20:33:29 2018
+// Date        : Fri Oct 19 21:56:50 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim
-//               f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_SerialSlave_0_1/design_1_UIF_SerialSlave_0_1_sim_netlist.v
+//               F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_SerialSlave_0_1/design_1_UIF_SerialSlave_0_1_sim_netlist.v
 // Design      : design_1_UIF_SerialSlave_0_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -71,10 +71,10 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
     m_axis_st_tdata,
     m_axis_st_tvalid,
     s_axis_sr_tready,
-    UIF_Slave_S_SCK,
-    sysClk,
-    s_axis_sr_tdata,
     nReset,
+    sysClk,
+    UIF_Slave_S_SCK,
+    s_axis_sr_tdata,
     UIF_Slave_S_TXD,
     s_axis_sr_tvalid,
     m_axis_st_tready);
@@ -82,10 +82,10 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
   output [7:0]m_axis_st_tdata;
   output m_axis_st_tvalid;
   output s_axis_sr_tready;
-  input UIF_Slave_S_SCK;
-  input sysClk;
-  input [7:0]s_axis_sr_tdata;
   input nReset;
+  input sysClk;
+  input UIF_Slave_S_SCK;
+  input [7:0]s_axis_sr_tdata;
   input UIF_Slave_S_TXD;
   input s_axis_sr_tvalid;
   input m_axis_st_tready;
@@ -94,14 +94,15 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
   wire \RXDBufferCount[0]_i_1_n_0 ;
   wire \RXDBufferCount[1]_i_1_n_0 ;
   wire \RXDBufferCount[2]_i_1_n_0 ;
+  wire \RXDBufferCount[2]_i_2_n_0 ;
   wire RXDBufferValid_i_1_n_0;
   wire RXDBufferValid_reg_n_0;
-  wire \RXDBuffer[7]_i_1_n_0 ;
   wire [1:0]RXDSync;
   wire [1:0]SCKEdgeBuffer;
+  wire SCKFallEdge;
   wire SCKRiseEdge;
   wire [1:0]SCKSync;
-  wire [0:0]TXDBuffer;
+  wire [7:1]TXDBuffer;
   wire \TXDBufferCount[0]_i_1_n_0 ;
   wire \TXDBufferCount[1]_i_1_n_0 ;
   wire \TXDBufferCount[2]_i_1_n_0 ;
@@ -109,17 +110,10 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
   wire \TXDBufferCount_reg_n_0_[1] ;
   wire \TXDBufferCount_reg_n_0_[2] ;
   wire TXDBufferReady_i_1_n_0;
+  wire TXDBufferReady_i_2_n_0;
   wire \TXDBuffer[0]_i_1_n_0 ;
-  wire \TXDBuffer[0]_i_4_n_0 ;
   wire \TXDBuffer[7]_i_1_n_0 ;
   wire \TXDBuffer[7]_i_2_n_0 ;
-  wire \TXDBuffer_reg_n_0_[1] ;
-  wire \TXDBuffer_reg_n_0_[2] ;
-  wire \TXDBuffer_reg_n_0_[3] ;
-  wire \TXDBuffer_reg_n_0_[4] ;
-  wire \TXDBuffer_reg_n_0_[5] ;
-  wire \TXDBuffer_reg_n_0_[6] ;
-  wire \TXDBuffer_reg_n_0_[7] ;
   wire UIF_Slave_S_RXD;
   wire UIF_Slave_S_SCK;
   wire UIF_Slave_S_TXD;
@@ -137,35 +131,41 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
   wire \timeOutCounter[7]_i_3_n_0 ;
   wire [7:0]timeOutCounter_reg__0;
 
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT4 #(
-    .INIT(16'h4510)) 
+    .INIT(16'h1900)) 
     \RXDBufferCount[0]_i_1 
-       (.I0(\RXDBuffer[7]_i_1_n_0 ),
-        .I1(SCKEdgeBuffer[0]),
-        .I2(SCKEdgeBuffer[1]),
-        .I3(RXDBufferCount[0]),
+       (.I0(RXDBufferCount[0]),
+        .I1(\RXDBufferCount[2]_i_2_n_0 ),
+        .I2(timeOutCounter_reg__0[7]),
+        .I3(nReset),
         .O(\RXDBufferCount[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'h45105500)) 
+    .INIT(32'h06C60000)) 
     \RXDBufferCount[1]_i_1 
-       (.I0(\RXDBuffer[7]_i_1_n_0 ),
-        .I1(SCKEdgeBuffer[0]),
-        .I2(SCKEdgeBuffer[1]),
-        .I3(RXDBufferCount[1]),
-        .I4(RXDBufferCount[0]),
+       (.I0(RXDBufferCount[0]),
+        .I1(RXDBufferCount[1]),
+        .I2(\RXDBufferCount[2]_i_2_n_0 ),
+        .I3(timeOutCounter_reg__0[7]),
+        .I4(nReset),
         .O(\RXDBufferCount[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h4510550055005500)) 
+    .INIT(64'h0078F07800000000)) 
     \RXDBufferCount[2]_i_1 
-       (.I0(\RXDBuffer[7]_i_1_n_0 ),
-        .I1(SCKEdgeBuffer[0]),
-        .I2(SCKEdgeBuffer[1]),
-        .I3(RXDBufferCount[2]),
-        .I4(RXDBufferCount[1]),
-        .I5(RXDBufferCount[0]),
+       (.I0(RXDBufferCount[0]),
+        .I1(RXDBufferCount[1]),
+        .I2(RXDBufferCount[2]),
+        .I3(\RXDBufferCount[2]_i_2_n_0 ),
+        .I4(timeOutCounter_reg__0[7]),
+        .I5(nReset),
         .O(\RXDBufferCount[2]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'hB)) 
+    \RXDBufferCount[2]_i_2 
+       (.I0(SCKEdgeBuffer[0]),
+        .I1(SCKEdgeBuffer[1]),
+        .O(\RXDBufferCount[2]_i_2_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \RXDBufferCount_reg[0] 
@@ -208,17 +208,9 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .D(RXDBufferValid_i_1_n_0),
         .Q(RXDBufferValid_reg_n_0),
         .R(1'b0));
-  LUT4 #(
-    .INIT(16'h8AFF)) 
-    \RXDBuffer[7]_i_1 
-       (.I0(timeOutCounter_reg__0[7]),
-        .I1(SCKEdgeBuffer[0]),
-        .I2(SCKEdgeBuffer[1]),
-        .I3(nReset),
-        .O(\RXDBuffer[7]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'h2)) 
-    \RXDBuffer[7]_i_2 
+    \RXDBuffer[7]_i_1 
        (.I0(SCKEdgeBuffer[1]),
         .I1(SCKEdgeBuffer[0]),
         .O(SCKRiseEdge));
@@ -229,7 +221,7 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .CE(SCKRiseEdge),
         .D(m_axis_st_tdata[1]),
         .Q(m_axis_st_tdata[0]),
-        .R(\RXDBuffer[7]_i_1_n_0 ));
+        .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \RXDBuffer_reg[1] 
@@ -237,7 +229,7 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .CE(SCKRiseEdge),
         .D(m_axis_st_tdata[2]),
         .Q(m_axis_st_tdata[1]),
-        .R(\RXDBuffer[7]_i_1_n_0 ));
+        .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \RXDBuffer_reg[2] 
@@ -245,7 +237,7 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .CE(SCKRiseEdge),
         .D(m_axis_st_tdata[3]),
         .Q(m_axis_st_tdata[2]),
-        .R(\RXDBuffer[7]_i_1_n_0 ));
+        .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \RXDBuffer_reg[3] 
@@ -253,7 +245,7 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .CE(SCKRiseEdge),
         .D(m_axis_st_tdata[4]),
         .Q(m_axis_st_tdata[3]),
-        .R(\RXDBuffer[7]_i_1_n_0 ));
+        .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \RXDBuffer_reg[4] 
@@ -261,7 +253,7 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .CE(SCKRiseEdge),
         .D(m_axis_st_tdata[5]),
         .Q(m_axis_st_tdata[4]),
-        .R(\RXDBuffer[7]_i_1_n_0 ));
+        .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \RXDBuffer_reg[5] 
@@ -269,7 +261,7 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .CE(SCKRiseEdge),
         .D(m_axis_st_tdata[6]),
         .Q(m_axis_st_tdata[5]),
-        .R(\RXDBuffer[7]_i_1_n_0 ));
+        .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \RXDBuffer_reg[6] 
@@ -277,7 +269,7 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .CE(SCKRiseEdge),
         .D(m_axis_st_tdata[7]),
         .Q(m_axis_st_tdata[6]),
-        .R(\RXDBuffer[7]_i_1_n_0 ));
+        .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \RXDBuffer_reg[7] 
@@ -285,7 +277,7 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .CE(SCKRiseEdge),
         .D(RXDSync[0]),
         .Q(m_axis_st_tdata[7]),
-        .R(\RXDBuffer[7]_i_1_n_0 ));
+        .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \RXDSync_reg[0] 
@@ -335,68 +327,76 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .Q(SCKSync[1]),
         .R(1'b0));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT4 #(
-    .INIT(16'hC5CC)) 
+  LUT5 #(
+    .INIT(32'hDF9AFFFF)) 
     \TXDBufferCount[0]_i_1 
        (.I0(\TXDBufferCount_reg_n_0_[0] ),
-        .I1(timeOutCounter_reg__0[7]),
-        .I2(SCKEdgeBuffer[1]),
-        .I3(SCKEdgeBuffer[0]),
-        .O(\TXDBufferCount[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT5 #(
-    .INIT(32'h8ABABA8A)) 
-    \TXDBufferCount[1]_i_1 
-       (.I0(timeOutCounter_reg__0[7]),
         .I1(SCKEdgeBuffer[1]),
         .I2(SCKEdgeBuffer[0]),
-        .I3(\TXDBufferCount_reg_n_0_[1] ),
+        .I3(timeOutCounter_reg__0[7]),
+        .I4(nReset),
+        .O(\TXDBufferCount[0]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hDF9AEFAAFFFFFFFF)) 
+    \TXDBufferCount[1]_i_1 
+       (.I0(\TXDBufferCount_reg_n_0_[1] ),
+        .I1(SCKEdgeBuffer[1]),
+        .I2(SCKEdgeBuffer[0]),
+        .I3(timeOutCounter_reg__0[7]),
         .I4(\TXDBufferCount_reg_n_0_[0] ),
+        .I5(nReset),
         .O(\TXDBufferCount[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hAAAAAAAA3FC0AAAA)) 
+    .INIT(64'hD9EAEAEAFFFFFFFF)) 
     \TXDBufferCount[2]_i_1 
-       (.I0(timeOutCounter_reg__0[7]),
-        .I1(\TXDBufferCount_reg_n_0_[0] ),
-        .I2(\TXDBufferCount_reg_n_0_[1] ),
-        .I3(\TXDBufferCount_reg_n_0_[2] ),
-        .I4(SCKEdgeBuffer[0]),
-        .I5(SCKEdgeBuffer[1]),
+       (.I0(\TXDBufferCount_reg_n_0_[2] ),
+        .I1(TXDBufferReady_i_2_n_0),
+        .I2(timeOutCounter_reg__0[7]),
+        .I3(\TXDBufferCount_reg_n_0_[0] ),
+        .I4(\TXDBufferCount_reg_n_0_[1] ),
+        .I5(nReset),
         .O(\TXDBufferCount[2]_i_1_n_0 ));
-  FDSE #(
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \TXDBufferCount_reg[0] 
        (.C(sysClk),
-        .CE(TXDBuffer),
+        .CE(1'b1),
         .D(\TXDBufferCount[0]_i_1_n_0 ),
         .Q(\TXDBufferCount_reg_n_0_[0] ),
-        .S(\TXDBuffer[0]_i_1_n_0 ));
-  FDSE #(
+        .R(1'b0));
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \TXDBufferCount_reg[1] 
        (.C(sysClk),
-        .CE(TXDBuffer),
+        .CE(1'b1),
         .D(\TXDBufferCount[1]_i_1_n_0 ),
         .Q(\TXDBufferCount_reg_n_0_[1] ),
-        .S(\TXDBuffer[0]_i_1_n_0 ));
-  FDSE #(
+        .R(1'b0));
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \TXDBufferCount_reg[2] 
        (.C(sysClk),
-        .CE(TXDBuffer),
+        .CE(1'b1),
         .D(\TXDBufferCount[2]_i_1_n_0 ),
         .Q(\TXDBufferCount_reg_n_0_[2] ),
-        .S(\TXDBuffer[0]_i_1_n_0 ));
+        .R(1'b0));
   LUT6 #(
-    .INIT(64'h0800000000000000)) 
+    .INIT(64'h4000000000000000)) 
     TXDBufferReady_i_1
-       (.I0(s_axis_sr_tvalid),
+       (.I0(TXDBufferReady_i_2_n_0),
         .I1(nReset),
-        .I2(\TXDBuffer[0]_i_4_n_0 ),
-        .I3(\TXDBufferCount_reg_n_0_[1] ),
+        .I2(s_axis_sr_tvalid),
+        .I3(\TXDBufferCount_reg_n_0_[2] ),
         .I4(\TXDBufferCount_reg_n_0_[0] ),
-        .I5(\TXDBufferCount_reg_n_0_[2] ),
+        .I5(\TXDBufferCount_reg_n_0_[1] ),
         .O(TXDBufferReady_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT2 #(
+    .INIT(4'hB)) 
+    TXDBufferReady_i_2
+       (.I0(SCKEdgeBuffer[1]),
+        .I1(SCKEdgeBuffer[0]),
+        .O(TXDBufferReady_i_2_n_0));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     TXDBufferReady_reg
@@ -410,115 +410,99 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
     \TXDBuffer[0]_i_1 
        (.I0(nReset),
         .O(\TXDBuffer[0]_i_1_n_0 ));
-  LUT3 #(
-    .INIT(8'hAE)) 
-    \TXDBuffer[0]_i_2 
-       (.I0(timeOutCounter_reg__0[7]),
-        .I1(SCKEdgeBuffer[0]),
-        .I2(SCKEdgeBuffer[1]),
-        .O(TXDBuffer));
-  LUT6 #(
-    .INIT(64'h00000000ACCCCCCC)) 
-    \TXDBuffer[0]_i_3 
-       (.I0(s_axis_sr_tdata[0]),
-        .I1(\TXDBuffer_reg_n_0_[1] ),
-        .I2(\TXDBufferCount_reg_n_0_[2] ),
-        .I3(\TXDBufferCount_reg_n_0_[0] ),
-        .I4(\TXDBufferCount_reg_n_0_[1] ),
-        .I5(\TXDBuffer[0]_i_4_n_0 ),
-        .O(p_1_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT2 #(
-    .INIT(4'hB)) 
-    \TXDBuffer[0]_i_4 
-       (.I0(SCKEdgeBuffer[1]),
-        .I1(SCKEdgeBuffer[0]),
-        .O(\TXDBuffer[0]_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'h00000000ACCCCCCC)) 
+    .INIT(4'h2)) 
+    \TXDBuffer[0]_i_2 
+       (.I0(SCKEdgeBuffer[0]),
+        .I1(SCKEdgeBuffer[1]),
+        .O(SCKFallEdge));
+  LUT5 #(
+    .INIT(32'hEAAA2AAA)) 
+    \TXDBuffer[0]_i_3 
+       (.I0(TXDBuffer[1]),
+        .I1(\TXDBufferCount_reg_n_0_[1] ),
+        .I2(\TXDBufferCount_reg_n_0_[0] ),
+        .I3(\TXDBufferCount_reg_n_0_[2] ),
+        .I4(s_axis_sr_tdata[0]),
+        .O(p_1_in[0]));
+  LUT5 #(
+    .INIT(32'hEAAA2AAA)) 
     \TXDBuffer[1]_i_1 
-       (.I0(s_axis_sr_tdata[1]),
-        .I1(\TXDBuffer_reg_n_0_[2] ),
-        .I2(\TXDBufferCount_reg_n_0_[2] ),
-        .I3(\TXDBufferCount_reg_n_0_[0] ),
-        .I4(\TXDBufferCount_reg_n_0_[1] ),
-        .I5(\TXDBuffer[0]_i_4_n_0 ),
+       (.I0(TXDBuffer[2]),
+        .I1(\TXDBufferCount_reg_n_0_[1] ),
+        .I2(\TXDBufferCount_reg_n_0_[0] ),
+        .I3(\TXDBufferCount_reg_n_0_[2] ),
+        .I4(s_axis_sr_tdata[1]),
         .O(p_1_in[1]));
-  LUT6 #(
-    .INIT(64'h00000000ACCCCCCC)) 
+  LUT5 #(
+    .INIT(32'hEAAA2AAA)) 
     \TXDBuffer[2]_i_1 
-       (.I0(s_axis_sr_tdata[2]),
-        .I1(\TXDBuffer_reg_n_0_[3] ),
-        .I2(\TXDBufferCount_reg_n_0_[2] ),
-        .I3(\TXDBufferCount_reg_n_0_[0] ),
-        .I4(\TXDBufferCount_reg_n_0_[1] ),
-        .I5(\TXDBuffer[0]_i_4_n_0 ),
+       (.I0(TXDBuffer[3]),
+        .I1(\TXDBufferCount_reg_n_0_[1] ),
+        .I2(\TXDBufferCount_reg_n_0_[0] ),
+        .I3(\TXDBufferCount_reg_n_0_[2] ),
+        .I4(s_axis_sr_tdata[2]),
         .O(p_1_in[2]));
-  LUT6 #(
-    .INIT(64'h00000000ACCCCCCC)) 
+  LUT5 #(
+    .INIT(32'hEAAA2AAA)) 
     \TXDBuffer[3]_i_1 
-       (.I0(s_axis_sr_tdata[3]),
-        .I1(\TXDBuffer_reg_n_0_[4] ),
-        .I2(\TXDBufferCount_reg_n_0_[2] ),
-        .I3(\TXDBufferCount_reg_n_0_[0] ),
-        .I4(\TXDBufferCount_reg_n_0_[1] ),
-        .I5(\TXDBuffer[0]_i_4_n_0 ),
+       (.I0(TXDBuffer[4]),
+        .I1(\TXDBufferCount_reg_n_0_[1] ),
+        .I2(\TXDBufferCount_reg_n_0_[0] ),
+        .I3(\TXDBufferCount_reg_n_0_[2] ),
+        .I4(s_axis_sr_tdata[3]),
         .O(p_1_in[3]));
-  LUT6 #(
-    .INIT(64'h00000000ACCCCCCC)) 
+  LUT5 #(
+    .INIT(32'hEAAA2AAA)) 
     \TXDBuffer[4]_i_1 
-       (.I0(s_axis_sr_tdata[4]),
-        .I1(\TXDBuffer_reg_n_0_[5] ),
-        .I2(\TXDBufferCount_reg_n_0_[2] ),
-        .I3(\TXDBufferCount_reg_n_0_[0] ),
-        .I4(\TXDBufferCount_reg_n_0_[1] ),
-        .I5(\TXDBuffer[0]_i_4_n_0 ),
+       (.I0(TXDBuffer[5]),
+        .I1(\TXDBufferCount_reg_n_0_[1] ),
+        .I2(\TXDBufferCount_reg_n_0_[0] ),
+        .I3(\TXDBufferCount_reg_n_0_[2] ),
+        .I4(s_axis_sr_tdata[4]),
         .O(p_1_in[4]));
-  LUT6 #(
-    .INIT(64'h00000000ACCCCCCC)) 
+  LUT5 #(
+    .INIT(32'hEAAA2AAA)) 
     \TXDBuffer[5]_i_1 
-       (.I0(s_axis_sr_tdata[5]),
-        .I1(\TXDBuffer_reg_n_0_[6] ),
-        .I2(\TXDBufferCount_reg_n_0_[2] ),
-        .I3(\TXDBufferCount_reg_n_0_[0] ),
-        .I4(\TXDBufferCount_reg_n_0_[1] ),
-        .I5(\TXDBuffer[0]_i_4_n_0 ),
+       (.I0(TXDBuffer[6]),
+        .I1(\TXDBufferCount_reg_n_0_[1] ),
+        .I2(\TXDBufferCount_reg_n_0_[0] ),
+        .I3(\TXDBufferCount_reg_n_0_[2] ),
+        .I4(s_axis_sr_tdata[5]),
         .O(p_1_in[5]));
-  LUT6 #(
-    .INIT(64'h00000000ACCCCCCC)) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'hEAAA2AAA)) 
     \TXDBuffer[6]_i_1 
-       (.I0(s_axis_sr_tdata[6]),
-        .I1(\TXDBuffer_reg_n_0_[7] ),
-        .I2(\TXDBufferCount_reg_n_0_[2] ),
-        .I3(\TXDBufferCount_reg_n_0_[0] ),
-        .I4(\TXDBufferCount_reg_n_0_[1] ),
-        .I5(\TXDBuffer[0]_i_4_n_0 ),
+       (.I0(TXDBuffer[7]),
+        .I1(\TXDBufferCount_reg_n_0_[1] ),
+        .I2(\TXDBufferCount_reg_n_0_[0] ),
+        .I3(\TXDBufferCount_reg_n_0_[2] ),
+        .I4(s_axis_sr_tdata[6]),
         .O(p_1_in[6]));
   LUT6 #(
-    .INIT(64'h0E2E022200000000)) 
+    .INIT(64'hABAAA8AA00000000)) 
     \TXDBuffer[7]_i_1 
-       (.I0(\TXDBuffer_reg_n_0_[7] ),
+       (.I0(TXDBuffer[7]),
         .I1(\TXDBuffer[7]_i_2_n_0 ),
-        .I2(\TXDBuffer[0]_i_4_n_0 ),
-        .I3(timeOutCounter_reg__0[7]),
+        .I2(SCKEdgeBuffer[1]),
+        .I3(SCKEdgeBuffer[0]),
         .I4(s_axis_sr_tdata[7]),
         .I5(nReset),
         .O(\TXDBuffer[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT5 #(
-    .INIT(32'h00008000)) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT3 #(
+    .INIT(8'h7F)) 
     \TXDBuffer[7]_i_2 
-       (.I0(\TXDBufferCount_reg_n_0_[2] ),
+       (.I0(\TXDBufferCount_reg_n_0_[1] ),
         .I1(\TXDBufferCount_reg_n_0_[0] ),
-        .I2(\TXDBufferCount_reg_n_0_[1] ),
-        .I3(SCKEdgeBuffer[0]),
-        .I4(SCKEdgeBuffer[1]),
+        .I2(\TXDBufferCount_reg_n_0_[2] ),
         .O(\TXDBuffer[7]_i_2_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \TXDBuffer_reg[0] 
        (.C(sysClk),
-        .CE(TXDBuffer),
+        .CE(SCKFallEdge),
         .D(p_1_in[0]),
         .Q(UIF_Slave_S_RXD),
         .R(\TXDBuffer[0]_i_1_n_0 ));
@@ -526,49 +510,49 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
     .IS_C_INVERTED(1'b1)) 
     \TXDBuffer_reg[1] 
        (.C(sysClk),
-        .CE(TXDBuffer),
+        .CE(SCKFallEdge),
         .D(p_1_in[1]),
-        .Q(\TXDBuffer_reg_n_0_[1] ),
+        .Q(TXDBuffer[1]),
         .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \TXDBuffer_reg[2] 
        (.C(sysClk),
-        .CE(TXDBuffer),
+        .CE(SCKFallEdge),
         .D(p_1_in[2]),
-        .Q(\TXDBuffer_reg_n_0_[2] ),
+        .Q(TXDBuffer[2]),
         .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \TXDBuffer_reg[3] 
        (.C(sysClk),
-        .CE(TXDBuffer),
+        .CE(SCKFallEdge),
         .D(p_1_in[3]),
-        .Q(\TXDBuffer_reg_n_0_[3] ),
+        .Q(TXDBuffer[3]),
         .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \TXDBuffer_reg[4] 
        (.C(sysClk),
-        .CE(TXDBuffer),
+        .CE(SCKFallEdge),
         .D(p_1_in[4]),
-        .Q(\TXDBuffer_reg_n_0_[4] ),
+        .Q(TXDBuffer[4]),
         .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \TXDBuffer_reg[5] 
        (.C(sysClk),
-        .CE(TXDBuffer),
+        .CE(SCKFallEdge),
         .D(p_1_in[5]),
-        .Q(\TXDBuffer_reg_n_0_[5] ),
+        .Q(TXDBuffer[5]),
         .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \TXDBuffer_reg[6] 
        (.C(sysClk),
-        .CE(TXDBuffer),
+        .CE(SCKFallEdge),
         .D(p_1_in[6]),
-        .Q(\TXDBuffer_reg_n_0_[6] ),
+        .Q(TXDBuffer[6]),
         .R(\TXDBuffer[0]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
@@ -576,7 +560,7 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
        (.C(sysClk),
         .CE(1'b1),
         .D(\TXDBuffer[7]_i_1_n_0 ),
-        .Q(\TXDBuffer_reg_n_0_[7] ),
+        .Q(TXDBuffer[7]),
         .R(1'b0));
   LUT2 #(
     .INIT(4'h8)) 
@@ -604,7 +588,7 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .I1(timeOutCounter_reg__0[0]),
         .I2(timeOutCounter_reg__0[2]),
         .O(p_0_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \timeOutCounter[3]_i_1 
@@ -613,7 +597,7 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .I2(timeOutCounter_reg__0[1]),
         .I3(timeOutCounter_reg__0[3]),
         .O(p_0_in[3]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \timeOutCounter[4]_i_1 
@@ -641,11 +625,11 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .I1(timeOutCounter_reg__0[6]),
         .O(p_0_in[6]));
   LUT6 #(
-    .INIT(64'h7DFF7D7D7D7D7D7D)) 
+    .INIT(64'h6FFF6F6F6F6F6F6F)) 
     \timeOutCounter[7]_i_1 
-       (.I0(nReset),
-        .I1(SCKEdgeBuffer[0]),
-        .I2(SCKEdgeBuffer[1]),
+       (.I0(SCKEdgeBuffer[0]),
+        .I1(SCKEdgeBuffer[1]),
+        .I2(nReset),
         .I3(\timeOutCounter[7]_i_3_n_0 ),
         .I4(timeOutCounter_reg__0[6]),
         .I5(timeOutCounter_reg__0[7]),

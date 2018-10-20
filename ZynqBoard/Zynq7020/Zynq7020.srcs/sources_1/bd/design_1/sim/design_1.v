@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Fri Oct 19 00:25:26 2018
+//Date        : Fri Oct 19 23:24:27 2018
 //Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -1021,9 +1021,9 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_1 RxD" *) input UART_1_rxd;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_1 TxD" *) output UART_1_txd;
   output UIF_Res_1;
-  (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Slave:1.0 UIF_Slave_1 " *) output UIF_Slave_1_s_rxd;
-  (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Slave:1.0 UIF_Slave_1 " *) input UIF_Slave_1_s_sck;
-  (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Slave:1.0 UIF_Slave_1 " *) input UIF_Slave_1_s_txd;
+  (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Slave:1.0 UIF_Slave_1 S_RXD" *) output UIF_Slave_1_s_rxd;
+  (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Slave:1.0 UIF_Slave_1 S_SCK" *) input UIF_Slave_1_s_sck;
+  (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Slave:1.0 UIF_Slave_1 S_TXD" *) input UIF_Slave_1_s_txd;
   output USB_nRESET_0;
 
   wire DAC_IF_0_DAC_BCLK;
@@ -1062,17 +1062,17 @@ module design_1
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_SerialSlave_0_UIF_Slave_S_RXD;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_SerialSlave_0_UIF_Slave_S_SCK;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_SerialSlave_0_UIF_Slave_S_TXD;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]UIF_SerialSlave_0_m_axis_st_TDATA;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_SerialSlave_0_m_axis_st_TREADY;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_SerialSlave_0_m_axis_st_TVALID;
+  wire [7:0]UIF_SerialSlave_0_m_axis_st_TDATA;
+  wire UIF_SerialSlave_0_m_axis_st_TREADY;
+  wire UIF_SerialSlave_0_m_axis_st_TVALID;
   wire clk_wiz_0_clk_out1;
   wire clk_wiz_0_locked;
   wire [7:0]fifo_generator_0_M_AXIS_TDATA;
   wire fifo_generator_0_M_AXIS_TREADY;
   wire fifo_generator_0_M_AXIS_TVALID;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [7:0]fifo_generator_1_M_AXIS_TDATA;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire fifo_generator_1_M_AXIS_TREADY;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire fifo_generator_1_M_AXIS_TVALID;
+  wire [7:0]fifo_generator_1_M_AXIS_TDATA;
+  wire fifo_generator_1_M_AXIS_TREADY;
+  wire fifo_generator_1_M_AXIS_TVALID;
   wire [11:0]fifo_generator_1_axis_data_count;
   wire [2:0]myip_0_RGB_OUT;
   wire myip_0_USB_nRESET;

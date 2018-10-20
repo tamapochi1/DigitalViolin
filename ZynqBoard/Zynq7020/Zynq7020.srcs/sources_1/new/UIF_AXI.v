@@ -131,9 +131,6 @@ localparam integer OPT_MEM_ADDR_BITS = 1;
 //------------------------------------------------
 //-- Number of Slave Registers 4
 reg [C_S_AXI_DATA_WIDTH-1:0]    slv_reg0;
-reg [C_S_AXI_DATA_WIDTH-1:0]    slv_reg1;
-//reg [C_S_AXI_DATA_WIDTH-1:0]    slv_reg2;
-reg [C_S_AXI_DATA_WIDTH-1:0]    slv_reg3;
 wire     slv_reg_rden;
 wire     slv_reg_wren;
 reg [C_S_AXI_DATA_WIDTH-1:0]     reg_data_out;
@@ -259,10 +256,6 @@ begin
   if ( S_AXI_ARESETN == 1'b0 )
     begin
       slv_reg0 <= 0;
-      slv_reg1 <= 0;
-//      slv_reg2 <= 0;
-      slv_reg3 <= 0;
-      
       sr_tdata <= 8'h00;
       sr_tvalid <= 1'b0;
     end 
@@ -276,37 +269,14 @@ begin
                 // Respective byte enables are asserted as per write strobes 
                 // Slave register 0
                 slv_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-              end  
-          2'h1:
-            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
-              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-                // Respective byte enables are asserted as per write strobes 
-                // Slave register 1
-                slv_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-              end  
+              end
           2'h2:
           begin
-//            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
-//              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-//                // Respective byte enables are asserted as per write strobes 
-//                // Slave register 2
-//                slv_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-//              end
             sr_tdata <= S_AXI_WDATA[7:0];
             sr_tvalid <= 1'b1; 
           end
-          2'h3:
-            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
-              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-                // Respective byte enables are asserted as per write strobes 
-                // Slave register 3
-                slv_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-              end  
           default : begin
                       slv_reg0 <= slv_reg0;
-                      slv_reg1 <= slv_reg1;
-//                      slv_reg2 <= slv_reg2;
-                      slv_reg3 <= slv_reg3;
                       sr_tdata <= 8'h00;
                       sr_tvalid <= 1'b0;
                     end

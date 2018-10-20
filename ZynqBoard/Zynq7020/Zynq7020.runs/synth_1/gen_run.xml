@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1539876340">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1539959220">
   <File Type="PA-TCL" Name="design_1_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="design_1_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="design_1_wrapper_reports.tcl"/>
@@ -163,6 +163,6 @@
   <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_fifo_generator_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_fifo_generator_0_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_UIF_SerialSlave_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_UIF_AXI_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_UIF_SerialSlave_0_1"/>
 </GenRun>

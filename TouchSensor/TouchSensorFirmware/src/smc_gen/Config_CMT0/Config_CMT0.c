@@ -22,7 +22,7 @@
 * Version      : 1.2.0
 * Device(s)    : R5F51303AxFN
 * Description  : This file implements device driver for Config_CMT0.
-* Creation Date: 2018-10-17
+* Creation Date: 2018-10-21
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -65,7 +65,7 @@ void R_Config_CMT0_Create(void)
     CMT0.CMCR.WORD = _0003_CMT_CMCR_CLOCK_PCLK512 | _0040_CMT_CMCR_CMIE_ENABLE | _0080_CMT_CMCR_DEFAULT;
 	
     /* Set compare match register */
-    CMT0.CMCOR = _04E1_CMT0_CMCOR_VALUE;
+    CMT0.CMCOR = _03A9_CMT0_CMCOR_VALUE;
     
     /* Set CMI0 priority level */
     IPR(CMT0,CMI0) = _0F_CMT_PRIORITY_LEVEL15;

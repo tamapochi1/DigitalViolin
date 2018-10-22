@@ -421,7 +421,7 @@
 <item id="Devide512" input="" vlaue="0"/>
 </option>
 <option enabled="true" id="IntervalValue" selection="IntervalValue">
-<item id="IntervalValue" input="20" vlaue="65535"/>
+<item id="IntervalValue" input="15" vlaue="65535"/>
 </option>
 <option enabled="true" id="IntervalUnit" selection="ms">
 <item id="ms" input="" vlaue="0"/>
@@ -430,7 +430,7 @@
 <item id="Count" input="" vlaue="0"/>
 </option>
 <option enabled="true" id="CNTRegValue" selection="CNTRegValue">
-<item id="CNTRegValue" input="1249" vlaue="1249"/>
+<item id="CNTRegValue" input="937" vlaue="937"/>
 </option>
 <option enabled="true" id="IntCMWIEnable" selection="Enable">
 <item id="Enable" input="" vlaue="0"/>

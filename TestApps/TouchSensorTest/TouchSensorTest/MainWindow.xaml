@@ -7,7 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Set Average" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <Canvas Name="ViewArea" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,50,10,10"/>
+        <Button x:Name="SetAverageButton" Content="Set Average" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="SetAverageButton_Click"/>
+        <Canvas x:Name="ViewArea" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,50,10,10">
+            <Border x:Name="FingerPos1" Width="30" Height="30" CornerRadius="15" BorderThickness="3" BorderBrush="#FFFF5ECC" Background="#75FFCCCC" HorizontalAlignment="Left" VerticalAlignment="Top" Panel.ZIndex="1"/>
+            <Border x:Name="FingerPos2" Width="30" Height="30" CornerRadius="15" BorderThickness="3" BorderBrush="#FFFF5ECC" Background="#75FFCCCC" HorizontalAlignment="Left" VerticalAlignment="Top" Panel.ZIndex="1"/>
+            <Border x:Name="FingerPos3" Width="30" Height="30" CornerRadius="15" BorderThickness="3" BorderBrush="#FFFF5ECC" Background="#75FFCCCC" HorizontalAlignment="Left" VerticalAlignment="Top" Panel.ZIndex="1"/>
+            <Border x:Name="FingerPos4" Width="30" Height="30" CornerRadius="15" BorderThickness="3" BorderBrush="#FFFF5ECC" Background="#75FFCCCC" HorizontalAlignment="Left" VerticalAlignment="Top" Panel.ZIndex="1"/>
+        </Canvas>
+        <Button x:Name="ResetButton" Content="Reset" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="60" Click="ResetButton_Click"/>
+        <TextBox x:Name="CTSUSOTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="24" Margin="180,10,0,0" KeyDown="CTSUSOTextBox_KeyDown"/>
+        <TextBox x:Name="CTSUSDPATextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="24" Margin="235,10,0,0" KeyDown="CTSUSDPATextBox_KeyDown"/>
     </Grid>
 </Window>

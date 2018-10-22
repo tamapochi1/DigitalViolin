@@ -22,6 +22,18 @@
 
 module UIF_SerialMaster(
     input nReset,
-    input sysClk
+    input sysClk,
+    input UIF_Master_H_SCK,
+    input UIF_Master_H_RXD,
+    output UIF_Master_H_TXD,
+    
+    output [7:0] m_axis_hr_tdata,
+    input m_axis_hr_tready,
+    output m_axis_hr_tvalid,
+    
+    input [7:0] s_axis_ht_tdata,
+    output s_axis_ht_tready,
+    input s_axis_ht_tvalid
     );
+    
 endmodule

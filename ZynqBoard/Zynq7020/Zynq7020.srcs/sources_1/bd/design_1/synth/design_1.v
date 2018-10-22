@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Fri Oct 19 23:24:27 2018
+//Date        : Mon Oct 22 20:29:05 2018
 //Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -957,7 +957,188 @@ module Synthesizer_imp_5BWTWR
         .s_axis_in_tvalid(DSP_reg_read_0_m_axis_gain_TVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=41,numReposBlks=29,numNonXlnxBlks=0,numHierBlks=12,maxHierDepth=2,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=10,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+module UIF_imp_1KE81ZA
+   (S_AXI_ARESETN,
+    S_AXI_araddr,
+    S_AXI_arprot,
+    S_AXI_arready,
+    S_AXI_arvalid,
+    S_AXI_awaddr,
+    S_AXI_awprot,
+    S_AXI_awready,
+    S_AXI_awvalid,
+    S_AXI_bready,
+    S_AXI_bresp,
+    S_AXI_bvalid,
+    S_AXI_rdata,
+    S_AXI_rready,
+    S_AXI_rresp,
+    S_AXI_rvalid,
+    S_AXI_wdata,
+    S_AXI_wready,
+    S_AXI_wstrb,
+    S_AXI_wvalid,
+    UIF_Res_1,
+    UIF_Slave_1_s_rxd,
+    UIF_Slave_1_s_sck,
+    UIF_Slave_1_s_txd,
+    s_aclk);
+  input S_AXI_ARESETN;
+  input [31:0]S_AXI_araddr;
+  input [2:0]S_AXI_arprot;
+  output S_AXI_arready;
+  input S_AXI_arvalid;
+  input [31:0]S_AXI_awaddr;
+  input [2:0]S_AXI_awprot;
+  output S_AXI_awready;
+  input S_AXI_awvalid;
+  input S_AXI_bready;
+  output [1:0]S_AXI_bresp;
+  output S_AXI_bvalid;
+  output [31:0]S_AXI_rdata;
+  input S_AXI_rready;
+  output [1:0]S_AXI_rresp;
+  output S_AXI_rvalid;
+  input [31:0]S_AXI_wdata;
+  output S_AXI_wready;
+  input [3:0]S_AXI_wstrb;
+  input S_AXI_wvalid;
+  output UIF_Res_1;
+  output UIF_Slave_1_s_rxd;
+  input UIF_Slave_1_s_sck;
+  input UIF_Slave_1_s_txd;
+  input s_aclk;
+
+  wire UIF_AXI_0_UIF_res;
+  wire [7:0]UIF_AXI_0_m_axis_sr_TDATA;
+  wire UIF_AXI_0_m_axis_sr_TREADY;
+  wire UIF_AXI_0_m_axis_sr_TVALID;
+  wire UIF_AXI_0_sys_nReset;
+  wire UIF_SerialSlave_0_UIF_Slave_S_RXD;
+  wire UIF_SerialSlave_0_UIF_Slave_S_SCK;
+  wire UIF_SerialSlave_0_UIF_Slave_S_TXD;
+  wire [7:0]UIF_SerialSlave_0_m_axis_st_TDATA;
+  wire UIF_SerialSlave_0_m_axis_st_TREADY;
+  wire UIF_SerialSlave_0_m_axis_st_TVALID;
+  wire [7:0]fifo_generator_0_M_AXIS_TDATA;
+  wire fifo_generator_0_M_AXIS_TREADY;
+  wire fifo_generator_0_M_AXIS_TVALID;
+  wire [7:0]fifo_generator_1_M_AXIS_TDATA;
+  wire fifo_generator_1_M_AXIS_TREADY;
+  wire fifo_generator_1_M_AXIS_TVALID;
+  wire [11:0]fifo_generator_1_axis_data_count;
+  wire processing_system7_0_FCLK_CLK0;
+  wire [31:0]ps7_0_axi_periph_M03_AXI_ARADDR;
+  wire [2:0]ps7_0_axi_periph_M03_AXI_ARPROT;
+  wire ps7_0_axi_periph_M03_AXI_ARREADY;
+  wire ps7_0_axi_periph_M03_AXI_ARVALID;
+  wire [31:0]ps7_0_axi_periph_M03_AXI_AWADDR;
+  wire [2:0]ps7_0_axi_periph_M03_AXI_AWPROT;
+  wire ps7_0_axi_periph_M03_AXI_AWREADY;
+  wire ps7_0_axi_periph_M03_AXI_AWVALID;
+  wire ps7_0_axi_periph_M03_AXI_BREADY;
+  wire [1:0]ps7_0_axi_periph_M03_AXI_BRESP;
+  wire ps7_0_axi_periph_M03_AXI_BVALID;
+  wire [31:0]ps7_0_axi_periph_M03_AXI_RDATA;
+  wire ps7_0_axi_periph_M03_AXI_RREADY;
+  wire [1:0]ps7_0_axi_periph_M03_AXI_RRESP;
+  wire ps7_0_axi_periph_M03_AXI_RVALID;
+  wire [31:0]ps7_0_axi_periph_M03_AXI_WDATA;
+  wire ps7_0_axi_periph_M03_AXI_WREADY;
+  wire [3:0]ps7_0_axi_periph_M03_AXI_WSTRB;
+  wire ps7_0_axi_periph_M03_AXI_WVALID;
+  wire rst_ps7_0_50M_peripheral_aresetn;
+
+  assign S_AXI_arready = ps7_0_axi_periph_M03_AXI_ARREADY;
+  assign S_AXI_awready = ps7_0_axi_periph_M03_AXI_AWREADY;
+  assign S_AXI_bresp[1:0] = ps7_0_axi_periph_M03_AXI_BRESP;
+  assign S_AXI_bvalid = ps7_0_axi_periph_M03_AXI_BVALID;
+  assign S_AXI_rdata[31:0] = ps7_0_axi_periph_M03_AXI_RDATA;
+  assign S_AXI_rresp[1:0] = ps7_0_axi_periph_M03_AXI_RRESP;
+  assign S_AXI_rvalid = ps7_0_axi_periph_M03_AXI_RVALID;
+  assign S_AXI_wready = ps7_0_axi_periph_M03_AXI_WREADY;
+  assign UIF_Res_1 = UIF_AXI_0_UIF_res;
+  assign UIF_SerialSlave_0_UIF_Slave_S_SCK = UIF_Slave_1_s_sck;
+  assign UIF_SerialSlave_0_UIF_Slave_S_TXD = UIF_Slave_1_s_txd;
+  assign UIF_Slave_1_s_rxd = UIF_SerialSlave_0_UIF_Slave_S_RXD;
+  assign processing_system7_0_FCLK_CLK0 = s_aclk;
+  assign ps7_0_axi_periph_M03_AXI_ARADDR = S_AXI_araddr[31:0];
+  assign ps7_0_axi_periph_M03_AXI_ARPROT = S_AXI_arprot[2:0];
+  assign ps7_0_axi_periph_M03_AXI_ARVALID = S_AXI_arvalid;
+  assign ps7_0_axi_periph_M03_AXI_AWADDR = S_AXI_awaddr[31:0];
+  assign ps7_0_axi_periph_M03_AXI_AWPROT = S_AXI_awprot[2:0];
+  assign ps7_0_axi_periph_M03_AXI_AWVALID = S_AXI_awvalid;
+  assign ps7_0_axi_periph_M03_AXI_BREADY = S_AXI_bready;
+  assign ps7_0_axi_periph_M03_AXI_RREADY = S_AXI_rready;
+  assign ps7_0_axi_periph_M03_AXI_WDATA = S_AXI_wdata[31:0];
+  assign ps7_0_axi_periph_M03_AXI_WSTRB = S_AXI_wstrb[3:0];
+  assign ps7_0_axi_periph_M03_AXI_WVALID = S_AXI_wvalid;
+  assign rst_ps7_0_50M_peripheral_aresetn = S_AXI_ARESETN;
+  design_1_UIF_AXI_0_0 UIF_AXI_0
+       (.S_AXI_ACLK(processing_system7_0_FCLK_CLK0),
+        .S_AXI_ARADDR(ps7_0_axi_periph_M03_AXI_ARADDR[3:0]),
+        .S_AXI_ARESETN(rst_ps7_0_50M_peripheral_aresetn),
+        .S_AXI_ARPROT(ps7_0_axi_periph_M03_AXI_ARPROT),
+        .S_AXI_ARREADY(ps7_0_axi_periph_M03_AXI_ARREADY),
+        .S_AXI_ARVALID(ps7_0_axi_periph_M03_AXI_ARVALID),
+        .S_AXI_AWADDR(ps7_0_axi_periph_M03_AXI_AWADDR[3:0]),
+        .S_AXI_AWPROT(ps7_0_axi_periph_M03_AXI_AWPROT),
+        .S_AXI_AWREADY(ps7_0_axi_periph_M03_AXI_AWREADY),
+        .S_AXI_AWVALID(ps7_0_axi_periph_M03_AXI_AWVALID),
+        .S_AXI_BREADY(ps7_0_axi_periph_M03_AXI_BREADY),
+        .S_AXI_BRESP(ps7_0_axi_periph_M03_AXI_BRESP),
+        .S_AXI_BVALID(ps7_0_axi_periph_M03_AXI_BVALID),
+        .S_AXI_RDATA(ps7_0_axi_periph_M03_AXI_RDATA),
+        .S_AXI_RREADY(ps7_0_axi_periph_M03_AXI_RREADY),
+        .S_AXI_RRESP(ps7_0_axi_periph_M03_AXI_RRESP),
+        .S_AXI_RVALID(ps7_0_axi_periph_M03_AXI_RVALID),
+        .S_AXI_WDATA(ps7_0_axi_periph_M03_AXI_WDATA),
+        .S_AXI_WREADY(ps7_0_axi_periph_M03_AXI_WREADY),
+        .S_AXI_WSTRB(ps7_0_axi_periph_M03_AXI_WSTRB),
+        .S_AXI_WVALID(ps7_0_axi_periph_M03_AXI_WVALID),
+        .UIF_res(UIF_AXI_0_UIF_res),
+        .m_axis_sr_tdata(UIF_AXI_0_m_axis_sr_TDATA),
+        .m_axis_sr_tready(UIF_AXI_0_m_axis_sr_TREADY),
+        .m_axis_sr_tvalid(UIF_AXI_0_m_axis_sr_TVALID),
+        .s_axis_st_tdata(fifo_generator_1_M_AXIS_TDATA),
+        .s_axis_st_tready(fifo_generator_1_M_AXIS_TREADY),
+        .s_axis_st_tvalid(fifo_generator_1_M_AXIS_TVALID),
+        .st_fifo_count(fifo_generator_1_axis_data_count),
+        .sys_nReset(UIF_AXI_0_sys_nReset));
+  design_1_UIF_SerialSlave_0_1 UIF_SerialSlave_0
+       (.UIF_Slave_S_RXD(UIF_SerialSlave_0_UIF_Slave_S_RXD),
+        .UIF_Slave_S_SCK(UIF_SerialSlave_0_UIF_Slave_S_SCK),
+        .UIF_Slave_S_TXD(UIF_SerialSlave_0_UIF_Slave_S_TXD),
+        .m_axis_st_tdata(UIF_SerialSlave_0_m_axis_st_TDATA),
+        .m_axis_st_tready(UIF_SerialSlave_0_m_axis_st_TREADY),
+        .m_axis_st_tvalid(UIF_SerialSlave_0_m_axis_st_TVALID),
+        .nReset(UIF_AXI_0_sys_nReset),
+        .s_axis_sr_tdata(fifo_generator_0_M_AXIS_TDATA),
+        .s_axis_sr_tready(fifo_generator_0_M_AXIS_TREADY),
+        .s_axis_sr_tvalid(fifo_generator_0_M_AXIS_TVALID),
+        .sysClk(processing_system7_0_FCLK_CLK0));
+  design_1_fifo_generator_0_1 fifo_generator_0
+       (.m_axis_tdata(fifo_generator_0_M_AXIS_TDATA),
+        .m_axis_tready(fifo_generator_0_M_AXIS_TREADY),
+        .m_axis_tvalid(fifo_generator_0_M_AXIS_TVALID),
+        .s_aclk(processing_system7_0_FCLK_CLK0),
+        .s_aresetn(UIF_AXI_0_sys_nReset),
+        .s_axis_tdata(UIF_AXI_0_m_axis_sr_TDATA),
+        .s_axis_tready(UIF_AXI_0_m_axis_sr_TREADY),
+        .s_axis_tvalid(UIF_AXI_0_m_axis_sr_TVALID));
+  design_1_fifo_generator_0_2 fifo_generator_1
+       (.axis_data_count(fifo_generator_1_axis_data_count),
+        .m_axis_tdata(fifo_generator_1_M_AXIS_TDATA),
+        .m_axis_tready(fifo_generator_1_M_AXIS_TREADY),
+        .m_axis_tvalid(fifo_generator_1_M_AXIS_TVALID),
+        .s_aclk(processing_system7_0_FCLK_CLK0),
+        .s_aresetn(UIF_AXI_0_sys_nReset),
+        .s_axis_tdata(UIF_SerialSlave_0_m_axis_st_TDATA),
+        .s_axis_tready(UIF_SerialSlave_0_m_axis_st_TREADY),
+        .s_axis_tvalid(UIF_SerialSlave_0_m_axis_st_TVALID));
+endmodule
+
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=42,numReposBlks=29,numNonXlnxBlks=0,numHierBlks=13,maxHierDepth=2,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=10,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (DAC_BICK_0,
     DAC_LRCK_0,
@@ -1055,25 +1236,11 @@ module design_1
   wire [3:0]S00_AXI_0_1_WSTRB;
   wire S00_AXI_0_1_WVALID;
   wire UIF_AXI_0_UIF_res;
-  wire [7:0]UIF_AXI_0_m_axis_sr_TDATA;
-  wire UIF_AXI_0_m_axis_sr_TREADY;
-  wire UIF_AXI_0_m_axis_sr_TVALID;
-  wire UIF_AXI_0_sys_nReset;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_SerialSlave_0_UIF_Slave_S_RXD;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_SerialSlave_0_UIF_Slave_S_SCK;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_SerialSlave_0_UIF_Slave_S_TXD;
-  wire [7:0]UIF_SerialSlave_0_m_axis_st_TDATA;
-  wire UIF_SerialSlave_0_m_axis_st_TREADY;
-  wire UIF_SerialSlave_0_m_axis_st_TVALID;
+  wire UIF_SerialSlave_0_UIF_Slave_S_RXD;
+  wire UIF_SerialSlave_0_UIF_Slave_S_SCK;
+  wire UIF_SerialSlave_0_UIF_Slave_S_TXD;
   wire clk_wiz_0_clk_out1;
   wire clk_wiz_0_locked;
-  wire [7:0]fifo_generator_0_M_AXIS_TDATA;
-  wire fifo_generator_0_M_AXIS_TREADY;
-  wire fifo_generator_0_M_AXIS_TVALID;
-  wire [7:0]fifo_generator_1_M_AXIS_TDATA;
-  wire fifo_generator_1_M_AXIS_TREADY;
-  wire fifo_generator_1_M_AXIS_TVALID;
-  wire [11:0]fifo_generator_1_axis_data_count;
   wire [2:0]myip_0_RGB_OUT;
   wire myip_0_USB_nRESET;
   wire [14:0]processing_system7_0_DDR_ADDR;
@@ -1299,73 +1466,37 @@ module design_1
         .s01_axi_aclk(processing_system7_0_FCLK_CLK0),
         .s01_axi_aresetn(rst_ps7_0_50M_peripheral_aresetn),
         .sysClk(processing_system7_0_FCLK_CLK0));
-  design_1_UIF_AXI_0_0 UIF_AXI_0
-       (.S_AXI_ACLK(processing_system7_0_FCLK_CLK0),
-        .S_AXI_ARADDR(ps7_0_axi_periph_M03_AXI_ARADDR[3:0]),
-        .S_AXI_ARESETN(rst_ps7_0_50M_peripheral_aresetn),
-        .S_AXI_ARPROT(ps7_0_axi_periph_M03_AXI_ARPROT),
-        .S_AXI_ARREADY(ps7_0_axi_periph_M03_AXI_ARREADY),
-        .S_AXI_ARVALID(ps7_0_axi_periph_M03_AXI_ARVALID),
-        .S_AXI_AWADDR(ps7_0_axi_periph_M03_AXI_AWADDR[3:0]),
-        .S_AXI_AWPROT(ps7_0_axi_periph_M03_AXI_AWPROT),
-        .S_AXI_AWREADY(ps7_0_axi_periph_M03_AXI_AWREADY),
-        .S_AXI_AWVALID(ps7_0_axi_periph_M03_AXI_AWVALID),
-        .S_AXI_BREADY(ps7_0_axi_periph_M03_AXI_BREADY),
-        .S_AXI_BRESP(ps7_0_axi_periph_M03_AXI_BRESP),
-        .S_AXI_BVALID(ps7_0_axi_periph_M03_AXI_BVALID),
-        .S_AXI_RDATA(ps7_0_axi_periph_M03_AXI_RDATA),
-        .S_AXI_RREADY(ps7_0_axi_periph_M03_AXI_RREADY),
-        .S_AXI_RRESP(ps7_0_axi_periph_M03_AXI_RRESP),
-        .S_AXI_RVALID(ps7_0_axi_periph_M03_AXI_RVALID),
-        .S_AXI_WDATA(ps7_0_axi_periph_M03_AXI_WDATA),
-        .S_AXI_WREADY(ps7_0_axi_periph_M03_AXI_WREADY),
-        .S_AXI_WSTRB(ps7_0_axi_periph_M03_AXI_WSTRB),
-        .S_AXI_WVALID(ps7_0_axi_periph_M03_AXI_WVALID),
-        .UIF_res(UIF_AXI_0_UIF_res),
-        .fifo_count(fifo_generator_1_axis_data_count),
-        .m_axis_sr_tdata(UIF_AXI_0_m_axis_sr_TDATA),
-        .m_axis_sr_tready(UIF_AXI_0_m_axis_sr_TREADY),
-        .m_axis_sr_tvalid(UIF_AXI_0_m_axis_sr_TVALID),
-        .s_axis_st_tdata(fifo_generator_1_M_AXIS_TDATA),
-        .s_axis_st_tready(fifo_generator_1_M_AXIS_TREADY),
-        .s_axis_st_tvalid(fifo_generator_1_M_AXIS_TVALID),
-        .sys_nReset(UIF_AXI_0_sys_nReset));
-  design_1_UIF_SerialSlave_0_1 UIF_SerialSlave_0
-       (.UIF_Slave_S_RXD(UIF_SerialSlave_0_UIF_Slave_S_RXD),
-        .UIF_Slave_S_SCK(UIF_SerialSlave_0_UIF_Slave_S_SCK),
-        .UIF_Slave_S_TXD(UIF_SerialSlave_0_UIF_Slave_S_TXD),
-        .m_axis_st_tdata(UIF_SerialSlave_0_m_axis_st_TDATA),
-        .m_axis_st_tready(UIF_SerialSlave_0_m_axis_st_TREADY),
-        .m_axis_st_tvalid(UIF_SerialSlave_0_m_axis_st_TVALID),
-        .nReset(UIF_AXI_0_sys_nReset),
-        .s_axis_sr_tdata(fifo_generator_0_M_AXIS_TDATA),
-        .s_axis_sr_tready(fifo_generator_0_M_AXIS_TREADY),
-        .s_axis_sr_tvalid(fifo_generator_0_M_AXIS_TVALID),
-        .sysClk(processing_system7_0_FCLK_CLK0));
+  UIF_imp_1KE81ZA UIF
+       (.S_AXI_ARESETN(rst_ps7_0_50M_peripheral_aresetn),
+        .S_AXI_araddr(ps7_0_axi_periph_M03_AXI_ARADDR),
+        .S_AXI_arprot(ps7_0_axi_periph_M03_AXI_ARPROT),
+        .S_AXI_arready(ps7_0_axi_periph_M03_AXI_ARREADY),
+        .S_AXI_arvalid(ps7_0_axi_periph_M03_AXI_ARVALID),
+        .S_AXI_awaddr(ps7_0_axi_periph_M03_AXI_AWADDR),
+        .S_AXI_awprot(ps7_0_axi_periph_M03_AXI_AWPROT),
+        .S_AXI_awready(ps7_0_axi_periph_M03_AXI_AWREADY),
+        .S_AXI_awvalid(ps7_0_axi_periph_M03_AXI_AWVALID),
+        .S_AXI_bready(ps7_0_axi_periph_M03_AXI_BREADY),
+        .S_AXI_bresp(ps7_0_axi_periph_M03_AXI_BRESP),
+        .S_AXI_bvalid(ps7_0_axi_periph_M03_AXI_BVALID),
+        .S_AXI_rdata(ps7_0_axi_periph_M03_AXI_RDATA),
+        .S_AXI_rready(ps7_0_axi_periph_M03_AXI_RREADY),
+        .S_AXI_rresp(ps7_0_axi_periph_M03_AXI_RRESP),
+        .S_AXI_rvalid(ps7_0_axi_periph_M03_AXI_RVALID),
+        .S_AXI_wdata(ps7_0_axi_periph_M03_AXI_WDATA),
+        .S_AXI_wready(ps7_0_axi_periph_M03_AXI_WREADY),
+        .S_AXI_wstrb(ps7_0_axi_periph_M03_AXI_WSTRB),
+        .S_AXI_wvalid(ps7_0_axi_periph_M03_AXI_WVALID),
+        .UIF_Res_1(UIF_AXI_0_UIF_res),
+        .UIF_Slave_1_s_rxd(UIF_SerialSlave_0_UIF_Slave_S_RXD),
+        .UIF_Slave_1_s_sck(UIF_SerialSlave_0_UIF_Slave_S_SCK),
+        .UIF_Slave_1_s_txd(UIF_SerialSlave_0_UIF_Slave_S_TXD),
+        .s_aclk(processing_system7_0_FCLK_CLK0));
   design_1_clk_wiz_0_0 clk_wiz_0
        (.clk_in1(processing_system7_0_FCLK_CLK1),
         .clk_out1(clk_wiz_0_clk_out1),
         .locked(clk_wiz_0_locked),
         .resetn(processing_system7_0_FCLK_RESET0_N));
-  design_1_fifo_generator_0_1 fifo_generator_0
-       (.m_axis_tdata(fifo_generator_0_M_AXIS_TDATA),
-        .m_axis_tready(fifo_generator_0_M_AXIS_TREADY),
-        .m_axis_tvalid(fifo_generator_0_M_AXIS_TVALID),
-        .s_aclk(processing_system7_0_FCLK_CLK0),
-        .s_aresetn(UIF_AXI_0_sys_nReset),
-        .s_axis_tdata(UIF_AXI_0_m_axis_sr_TDATA),
-        .s_axis_tready(UIF_AXI_0_m_axis_sr_TREADY),
-        .s_axis_tvalid(UIF_AXI_0_m_axis_sr_TVALID));
-  design_1_fifo_generator_0_2 fifo_generator_1
-       (.axis_data_count(fifo_generator_1_axis_data_count),
-        .m_axis_tdata(fifo_generator_1_M_AXIS_TDATA),
-        .m_axis_tready(fifo_generator_1_M_AXIS_TREADY),
-        .m_axis_tvalid(fifo_generator_1_M_AXIS_TVALID),
-        .s_aclk(processing_system7_0_FCLK_CLK0),
-        .s_aresetn(UIF_AXI_0_sys_nReset),
-        .s_axis_tdata(UIF_SerialSlave_0_m_axis_st_TDATA),
-        .s_axis_tready(UIF_SerialSlave_0_m_axis_st_TREADY),
-        .s_axis_tvalid(UIF_SerialSlave_0_m_axis_st_TVALID));
   design_1_myip_0_0 myip_0
        (.RGB_OUT(myip_0_RGB_OUT),
         .USB_nRESET(myip_0_USB_nRESET),

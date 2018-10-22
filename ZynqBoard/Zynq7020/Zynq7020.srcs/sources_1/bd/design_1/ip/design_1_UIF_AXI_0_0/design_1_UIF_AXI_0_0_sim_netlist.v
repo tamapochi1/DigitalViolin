@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Fri Oct 19 21:56:50 2018
+// Date        : Mon Oct 22 20:30:02 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim
 //               F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_AXI_0_0/design_1_UIF_AXI_0_0_sim_netlist.v
@@ -43,7 +43,7 @@ module design_1_UIF_AXI_0_0
     s_axis_st_tdata,
     s_axis_st_tready,
     s_axis_st_tvalid,
-    fifo_count,
+    st_fifo_count,
     sys_nReset,
     UIF_res);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET S_AXI_ARESETN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *) input S_AXI_ACLK;
@@ -73,7 +73,7 @@ module design_1_UIF_AXI_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_st TDATA" *) input [7:0]s_axis_st_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_st TREADY" *) output s_axis_st_tready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_st TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_st, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *) input s_axis_st_tvalid;
-  input [11:0]fifo_count;
+  input [11:0]st_fifo_count;
   output sys_nReset;
   output UIF_res;
 
@@ -96,13 +96,13 @@ module design_1_UIF_AXI_0_0
   wire [3:0]S_AXI_WSTRB;
   wire S_AXI_WVALID;
   wire UIF_res;
-  wire [11:0]fifo_count;
   wire [7:0]m_axis_sr_tdata;
   wire m_axis_sr_tready;
   wire m_axis_sr_tvalid;
   wire [7:0]s_axis_st_tdata;
   wire s_axis_st_tready;
   wire s_axis_st_tvalid;
+  wire [11:0]st_fifo_count;
   wire sys_nReset;
 
   assign S_AXI_BRESP[1] = \<const0> ;
@@ -130,13 +130,13 @@ module design_1_UIF_AXI_0_0
         .S_AXI_WSTRB(S_AXI_WSTRB),
         .S_AXI_WVALID(S_AXI_WVALID),
         .UIF_res(UIF_res),
-        .fifo_count(fifo_count),
         .m_axis_sr_tdata(m_axis_sr_tdata),
         .m_axis_sr_tready(m_axis_sr_tready),
         .m_axis_sr_tvalid(m_axis_sr_tvalid),
         .s_axis_st_tdata(s_axis_st_tdata),
         .s_axis_st_tready(s_axis_st_tready),
         .s_axis_st_tvalid(s_axis_st_tvalid),
+        .st_fifo_count(st_fifo_count),
         .sys_nReset(sys_nReset));
 endmodule
 
@@ -163,7 +163,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     S_AXI_ARVALID,
     S_AXI_WSTRB,
     s_axis_st_tdata,
-    fifo_count,
+    st_fifo_count,
     s_axis_st_tvalid,
     m_axis_sr_tready,
     S_AXI_BREADY,
@@ -189,7 +189,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
   input S_AXI_ARVALID;
   input [3:0]S_AXI_WSTRB;
   input [7:0]s_axis_st_tdata;
-  input [11:0]fifo_count;
+  input [11:0]st_fifo_count;
   input s_axis_st_tvalid;
   input m_axis_sr_tready;
   input S_AXI_BREADY;
@@ -226,7 +226,6 @@ module design_1_UIF_AXI_0_0_UIF_AXI
   wire axi_bvalid_i_1_n_0;
   wire axi_rvalid_i_1_n_0;
   wire axi_wready_i_1_n_0;
-  wire [11:0]fifo_count;
   wire [7:0]m_axis_sr_tdata;
   wire m_axis_sr_tready;
   wire m_axis_sr_tvalid;
@@ -285,6 +284,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
   wire sr_tvalid;
   wire sr_tvalid_i_1_n_0;
   wire sr_tvalid_reg_n_0;
+  wire [11:0]st_fifo_count;
   wire st_ready_reg_i_1_n_0;
   wire sys_nReset;
 
@@ -660,7 +660,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     .INIT(32'hA0A0CFC0)) 
     \reg_data_out_reg[0]_i_1 
        (.I0(s_axis_st_tdata[0]),
-        .I1(fifo_count[0]),
+        .I1(st_fifo_count[0]),
         .I2(axi_araddr[2]),
         .I3(sys_nReset),
         .I4(axi_araddr[3]),
@@ -680,7 +680,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     \reg_data_out_reg[10]_i_1 
        (.I0(slv_reg0[10]),
         .I1(axi_araddr[2]),
-        .I2(fifo_count[10]),
+        .I2(st_fifo_count[10]),
         .I3(axi_araddr[3]),
         .O(\reg_data_out_reg[10]_i_1_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
@@ -698,7 +698,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     \reg_data_out_reg[11]_i_1 
        (.I0(slv_reg0[11]),
         .I1(axi_araddr[2]),
-        .I2(fifo_count[11]),
+        .I2(st_fifo_count[11]),
         .I3(axi_araddr[3]),
         .O(\reg_data_out_reg[11]_i_1_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
@@ -851,7 +851,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     .INIT(32'hA0A0CFC0)) 
     \reg_data_out_reg[1]_i_1 
        (.I0(s_axis_st_tdata[1]),
-        .I1(fifo_count[1]),
+        .I1(st_fifo_count[1]),
         .I2(axi_araddr[2]),
         .I3(slv_reg0[1]),
         .I4(axi_araddr[3]),
@@ -1039,7 +1039,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     .INIT(32'hA0A0CFC0)) 
     \reg_data_out_reg[2]_i_1 
        (.I0(s_axis_st_tdata[2]),
-        .I1(fifo_count[2]),
+        .I1(st_fifo_count[2]),
         .I2(axi_araddr[2]),
         .I3(slv_reg0[2]),
         .I4(axi_araddr[3]),
@@ -1092,7 +1092,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     .INIT(32'hA0A0CFC0)) 
     \reg_data_out_reg[3]_i_1 
        (.I0(s_axis_st_tdata[3]),
-        .I1(fifo_count[3]),
+        .I1(st_fifo_count[3]),
         .I2(axi_araddr[2]),
         .I3(slv_reg0[3]),
         .I4(axi_araddr[3]),
@@ -1110,7 +1110,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     .INIT(32'hA0A0CFC0)) 
     \reg_data_out_reg[4]_i_1 
        (.I0(s_axis_st_tdata[4]),
-        .I1(fifo_count[4]),
+        .I1(st_fifo_count[4]),
         .I2(axi_araddr[2]),
         .I3(slv_reg0[4]),
         .I4(axi_araddr[3]),
@@ -1128,7 +1128,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     .INIT(32'hA0A0CFC0)) 
     \reg_data_out_reg[5]_i_1 
        (.I0(s_axis_st_tdata[5]),
-        .I1(fifo_count[5]),
+        .I1(st_fifo_count[5]),
         .I2(axi_araddr[2]),
         .I3(slv_reg0[5]),
         .I4(axi_araddr[3]),
@@ -1146,7 +1146,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     .INIT(32'hA0A0CFC0)) 
     \reg_data_out_reg[6]_i_1 
        (.I0(s_axis_st_tdata[6]),
-        .I1(fifo_count[6]),
+        .I1(st_fifo_count[6]),
         .I2(axi_araddr[2]),
         .I3(slv_reg0[6]),
         .I4(axi_araddr[3]),
@@ -1165,7 +1165,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     .INIT(32'hA0A0CFC0)) 
     \reg_data_out_reg[7]_i_1 
        (.I0(s_axis_st_tdata[7]),
-        .I1(fifo_count[7]),
+        .I1(st_fifo_count[7]),
         .I2(axi_araddr[2]),
         .I3(slv_reg0[7]),
         .I4(axi_araddr[3]),
@@ -1185,7 +1185,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     \reg_data_out_reg[8]_i_1 
        (.I0(slv_reg0[8]),
         .I1(axi_araddr[2]),
-        .I2(fifo_count[8]),
+        .I2(st_fifo_count[8]),
         .I3(axi_araddr[3]),
         .O(\reg_data_out_reg[8]_i_1_n_0 ));
   (* XILINX_LEGACY_PRIM = "LD" *) 
@@ -1203,7 +1203,7 @@ module design_1_UIF_AXI_0_0_UIF_AXI
     \reg_data_out_reg[9]_i_1 
        (.I0(slv_reg0[9]),
         .I1(axi_araddr[2]),
-        .I2(fifo_count[9]),
+        .I2(st_fifo_count[9]),
         .I3(axi_araddr[3]),
         .O(\reg_data_out_reg[9]_i_1_n_0 ));
   LUT6 #(

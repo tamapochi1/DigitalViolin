@@ -1,0 +1,8 @@
+Extracting support files...
+[ERROR] No toolchain set or toolchain not integrated.
+18:40:48 **** プロジェクト TouchAPI_20181021183333 に対する構成 DefaultBuild の 逐次ビルド ****
+make -j8 all 
+実行できません
+
+エラー: PATH でプログラム "make" が見つかりません
+PATH=[C:/Renesas/e2_studio/eclipse//features/com.renesas.jre.win32.win32.x86_1.8.0.65/jre/bin/client;C:/Renesas/e2_studio/eclipse//features/com.renesas.jre.win32.win32.x86_1.8.0.65/jre/bin;C:/Renesas/e2_studio/eclipse//features/com.renesas.jre.win32.win32.x86_1.8.0.65/jre/lib/i386;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\Program Files\dotnet\;C:\w32tex\bin;C:\Program Files (x86)\gs\gs9.20\bin;C:\Program Files (x86)\gs\gs9.20\lib;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Skype\Phone\;E:\MATLAB\R2017b\bin;C:\Program Files (x86)\Common Files\Propellerhead Software\ReWire\;C:\Program Files\Common Files\Propellerhead Software\ReWire\;F:\IntelFPGA\modelsim_ase\win32aloem;C:\Users\Reiji\AppData\Local\GitHubDesktop\bin;C:\Users\Reiji\Desktop;]

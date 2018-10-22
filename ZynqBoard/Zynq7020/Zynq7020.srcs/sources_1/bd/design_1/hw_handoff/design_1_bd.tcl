@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# UIF_AXI, UIF_SerialSlave, DAC_FIFO, DAC_IF, DSP_reset, audio_clk_gen, delay, mult_sum, phase_gen_256, DSP_reg_read
+# DAC_FIFO, DAC_IF, DSP_reset, audio_clk_gen, UIF_AXI, UIF_SerialSlave, delay, mult_sum, phase_gen_256, DSP_reg_read
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -560,6 +560,154 @@ proc create_hier_cell_Synthesizer { parentCell nameHier } {
   current_bd_instance $oldCurInst
 }
 
+# Hierarchical cell: UIF
+proc create_hier_cell_UIF { parentCell nameHier } {
+
+  variable script_folder
+
+  if { $parentCell eq "" || $nameHier eq "" } {
+     catch {common::send_msg_id "BD_TCL-102" "ERROR" "create_hier_cell_UIF() - Empty argument(s)!"}
+     return
+  }
+
+  # Get object for parentCell
+  set parentObj [get_bd_cells $parentCell]
+  if { $parentObj == "" } {
+     catch {common::send_msg_id "BD_TCL-100" "ERROR" "Unable to find parent cell <$parentCell>!"}
+     return
+  }
+
+  # Make sure parentObj is hier blk
+  set parentType [get_property TYPE $parentObj]
+  if { $parentType ne "hier" } {
+     catch {common::send_msg_id "BD_TCL-101" "ERROR" "Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."}
+     return
+  }
+
+  # Save current instance; Restore later
+  set oldCurInst [current_bd_instance .]
+
+  # Set parent object as current
+  current_bd_instance $parentObj
+
+  # Create cell and set as current instance
+  set hier_obj [create_bd_cell -type hier $nameHier]
+  current_bd_instance $hier_obj
+
+  # Create interface pins
+  create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S_AXI
+  create_bd_intf_pin -mode Master -vlnv tamapochi1:user:UIF_Slave_rtl:1.0 UIF_Slave_1
+
+  # Create pins
+  create_bd_pin -dir I -type rst S_AXI_ARESETN
+  create_bd_pin -dir O UIF_Res_1
+  create_bd_pin -dir I -type clk s_aclk
+
+  # Create instance: UIF_AXI_0, and set properties
+  set block_name UIF_AXI
+  set block_cell_name UIF_AXI_0
+  if { [catch {set UIF_AXI_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $UIF_AXI_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: UIF_SerialSlave_0, and set properties
+  set block_name UIF_SerialSlave
+  set block_cell_name UIF_SerialSlave_0
+  if { [catch {set UIF_SerialSlave_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $UIF_SerialSlave_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: fifo_generator_0, and set properties
+  set fifo_generator_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:fifo_generator:13.2 fifo_generator_0 ]
+  set_property -dict [ list \
+   CONFIG.Clock_Type_AXI {Common_Clock} \
+   CONFIG.Empty_Threshold_Assert_Value_axis {2046} \
+   CONFIG.Empty_Threshold_Assert_Value_rach {14} \
+   CONFIG.Empty_Threshold_Assert_Value_rdch {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wach {14} \
+   CONFIG.Empty_Threshold_Assert_Value_wdch {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wrch {14} \
+   CONFIG.Enable_Data_Counts_axis {true} \
+   CONFIG.Enable_Safety_Circuit {true} \
+   CONFIG.Enable_TLAST {false} \
+   CONFIG.FIFO_Implementation_axis {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_rach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_rdch {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_wach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_wdch {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_wrch {Common_Clock_Distributed_RAM} \
+   CONFIG.Full_Flags_Reset_Value {1} \
+   CONFIG.Full_Threshold_Assert_Value_axis {2047} \
+   CONFIG.Full_Threshold_Assert_Value_rach {15} \
+   CONFIG.Full_Threshold_Assert_Value_wach {15} \
+   CONFIG.Full_Threshold_Assert_Value_wrch {15} \
+   CONFIG.HAS_TKEEP {false} \
+   CONFIG.HAS_TSTRB {false} \
+   CONFIG.INTERFACE_TYPE {AXI_STREAM} \
+   CONFIG.Input_Depth_axis {2048} \
+   CONFIG.Reset_Type {Asynchronous_Reset} \
+   CONFIG.TUSER_WIDTH {0} \
+ ] $fifo_generator_0
+
+  # Create instance: fifo_generator_1, and set properties
+  set fifo_generator_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:fifo_generator:13.2 fifo_generator_1 ]
+  set_property -dict [ list \
+   CONFIG.Clock_Type_AXI {Common_Clock} \
+   CONFIG.Empty_Threshold_Assert_Value_axis {2046} \
+   CONFIG.Empty_Threshold_Assert_Value_rach {14} \
+   CONFIG.Empty_Threshold_Assert_Value_rdch {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wach {14} \
+   CONFIG.Empty_Threshold_Assert_Value_wdch {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wrch {14} \
+   CONFIG.Enable_Data_Counts_axis {true} \
+   CONFIG.Enable_Safety_Circuit {true} \
+   CONFIG.Enable_TLAST {false} \
+   CONFIG.FIFO_Implementation_axis {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_rach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_rdch {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_wach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_wdch {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_wrch {Common_Clock_Distributed_RAM} \
+   CONFIG.Full_Flags_Reset_Value {1} \
+   CONFIG.Full_Threshold_Assert_Value_axis {2047} \
+   CONFIG.Full_Threshold_Assert_Value_rach {15} \
+   CONFIG.Full_Threshold_Assert_Value_wach {15} \
+   CONFIG.Full_Threshold_Assert_Value_wrch {15} \
+   CONFIG.HAS_TKEEP {false} \
+   CONFIG.HAS_TSTRB {false} \
+   CONFIG.INTERFACE_TYPE {AXI_STREAM} \
+   CONFIG.Input_Depth_axis {2048} \
+   CONFIG.Reset_Type {Asynchronous_Reset} \
+   CONFIG.TUSER_WIDTH {0} \
+ ] $fifo_generator_1
+
+  # Create interface connections
+  connect_bd_intf_net -intf_net UIF_AXI_0_m_axis_sr [get_bd_intf_pins UIF_AXI_0/m_axis_sr] [get_bd_intf_pins fifo_generator_0/S_AXIS]
+  connect_bd_intf_net -intf_net UIF_SerialSlave_0_UIF_Slave [get_bd_intf_pins UIF_Slave_1] [get_bd_intf_pins UIF_SerialSlave_0/UIF_Slave]
+  connect_bd_intf_net -intf_net UIF_SerialSlave_0_m_axis_st [get_bd_intf_pins UIF_SerialSlave_0/m_axis_st] [get_bd_intf_pins fifo_generator_1/S_AXIS]
+  connect_bd_intf_net -intf_net fifo_generator_0_M_AXIS [get_bd_intf_pins UIF_SerialSlave_0/s_axis_sr] [get_bd_intf_pins fifo_generator_0/M_AXIS]
+  connect_bd_intf_net -intf_net fifo_generator_1_M_AXIS [get_bd_intf_pins UIF_AXI_0/s_axis_st] [get_bd_intf_pins fifo_generator_1/M_AXIS]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M03_AXI [get_bd_intf_pins S_AXI] [get_bd_intf_pins UIF_AXI_0/S_AXI]
+
+  # Create port connections
+  connect_bd_net -net UIF_AXI_0_UIF_res [get_bd_pins UIF_Res_1] [get_bd_pins UIF_AXI_0/UIF_res]
+  connect_bd_net -net UIF_AXI_0_sys_nReset [get_bd_pins UIF_AXI_0/sys_nReset] [get_bd_pins UIF_SerialSlave_0/nReset] [get_bd_pins fifo_generator_0/s_aresetn] [get_bd_pins fifo_generator_1/s_aresetn]
+  connect_bd_net -net fifo_generator_1_axis_data_count [get_bd_pins UIF_AXI_0/st_fifo_count] [get_bd_pins fifo_generator_1/axis_data_count]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins s_aclk] [get_bd_pins UIF_AXI_0/S_AXI_ACLK] [get_bd_pins UIF_SerialSlave_0/sysClk] [get_bd_pins fifo_generator_0/s_aclk] [get_bd_pins fifo_generator_1/s_aclk]
+  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins S_AXI_ARESETN] [get_bd_pins UIF_AXI_0/S_AXI_ARESETN]
+
+  # Restore current instance
+  current_bd_instance $oldCurInst
+}
+
 # Hierarchical cell: DSP
 proc create_hier_cell_DSP { parentCell nameHier } {
 
@@ -842,28 +990,9 @@ proc create_root_design { parentCell } {
   # Create instance: DSP
   create_hier_cell_DSP [current_bd_instance .] DSP
 
-  # Create instance: UIF_AXI_0, and set properties
-  set block_name UIF_AXI
-  set block_cell_name UIF_AXI_0
-  if { [catch {set UIF_AXI_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
-     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   } elseif { $UIF_AXI_0 eq "" } {
-     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   }
-  
-  # Create instance: UIF_SerialSlave_0, and set properties
-  set block_name UIF_SerialSlave
-  set block_cell_name UIF_SerialSlave_0
-  if { [catch {set UIF_SerialSlave_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
-     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   } elseif { $UIF_SerialSlave_0 eq "" } {
-     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   }
-  
+  # Create instance: UIF
+  create_hier_cell_UIF [current_bd_instance .] UIF
+
   # Create instance: clk_wiz_0, and set properties
   set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
   set_property -dict [ list \
@@ -895,70 +1024,6 @@ proc create_root_design { parentCell } {
    CONFIG.USE_RESET {true} \
    CONFIG.USE_SAFE_CLOCK_STARTUP {true} \
  ] $clk_wiz_0
-
-  # Create instance: fifo_generator_0, and set properties
-  set fifo_generator_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:fifo_generator:13.2 fifo_generator_0 ]
-  set_property -dict [ list \
-   CONFIG.Clock_Type_AXI {Common_Clock} \
-   CONFIG.Empty_Threshold_Assert_Value_axis {2046} \
-   CONFIG.Empty_Threshold_Assert_Value_rach {14} \
-   CONFIG.Empty_Threshold_Assert_Value_rdch {1022} \
-   CONFIG.Empty_Threshold_Assert_Value_wach {14} \
-   CONFIG.Empty_Threshold_Assert_Value_wdch {1022} \
-   CONFIG.Empty_Threshold_Assert_Value_wrch {14} \
-   CONFIG.Enable_Data_Counts_axis {true} \
-   CONFIG.Enable_Safety_Circuit {true} \
-   CONFIG.Enable_TLAST {false} \
-   CONFIG.FIFO_Implementation_axis {Common_Clock_Block_RAM} \
-   CONFIG.FIFO_Implementation_rach {Common_Clock_Distributed_RAM} \
-   CONFIG.FIFO_Implementation_rdch {Common_Clock_Block_RAM} \
-   CONFIG.FIFO_Implementation_wach {Common_Clock_Distributed_RAM} \
-   CONFIG.FIFO_Implementation_wdch {Common_Clock_Block_RAM} \
-   CONFIG.FIFO_Implementation_wrch {Common_Clock_Distributed_RAM} \
-   CONFIG.Full_Flags_Reset_Value {1} \
-   CONFIG.Full_Threshold_Assert_Value_axis {2047} \
-   CONFIG.Full_Threshold_Assert_Value_rach {15} \
-   CONFIG.Full_Threshold_Assert_Value_wach {15} \
-   CONFIG.Full_Threshold_Assert_Value_wrch {15} \
-   CONFIG.HAS_TKEEP {false} \
-   CONFIG.HAS_TSTRB {false} \
-   CONFIG.INTERFACE_TYPE {AXI_STREAM} \
-   CONFIG.Input_Depth_axis {2048} \
-   CONFIG.Reset_Type {Asynchronous_Reset} \
-   CONFIG.TUSER_WIDTH {0} \
- ] $fifo_generator_0
-
-  # Create instance: fifo_generator_1, and set properties
-  set fifo_generator_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:fifo_generator:13.2 fifo_generator_1 ]
-  set_property -dict [ list \
-   CONFIG.Clock_Type_AXI {Common_Clock} \
-   CONFIG.Empty_Threshold_Assert_Value_axis {2046} \
-   CONFIG.Empty_Threshold_Assert_Value_rach {14} \
-   CONFIG.Empty_Threshold_Assert_Value_rdch {1022} \
-   CONFIG.Empty_Threshold_Assert_Value_wach {14} \
-   CONFIG.Empty_Threshold_Assert_Value_wdch {1022} \
-   CONFIG.Empty_Threshold_Assert_Value_wrch {14} \
-   CONFIG.Enable_Data_Counts_axis {true} \
-   CONFIG.Enable_Safety_Circuit {true} \
-   CONFIG.Enable_TLAST {false} \
-   CONFIG.FIFO_Implementation_axis {Common_Clock_Block_RAM} \
-   CONFIG.FIFO_Implementation_rach {Common_Clock_Distributed_RAM} \
-   CONFIG.FIFO_Implementation_rdch {Common_Clock_Block_RAM} \
-   CONFIG.FIFO_Implementation_wach {Common_Clock_Distributed_RAM} \
-   CONFIG.FIFO_Implementation_wdch {Common_Clock_Block_RAM} \
-   CONFIG.FIFO_Implementation_wrch {Common_Clock_Distributed_RAM} \
-   CONFIG.Full_Flags_Reset_Value {1} \
-   CONFIG.Full_Threshold_Assert_Value_axis {2047} \
-   CONFIG.Full_Threshold_Assert_Value_rach {15} \
-   CONFIG.Full_Threshold_Assert_Value_wach {15} \
-   CONFIG.Full_Threshold_Assert_Value_wrch {15} \
-   CONFIG.HAS_TKEEP {false} \
-   CONFIG.HAS_TSTRB {false} \
-   CONFIG.INTERFACE_TYPE {AXI_STREAM} \
-   CONFIG.Input_Depth_axis {2048} \
-   CONFIG.Reset_Type {Asynchronous_Reset} \
-   CONFIG.TUSER_WIDTH {0} \
- ] $fifo_generator_1
 
   # Create instance: myip_0, and set properties
   set myip_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:myip:1.0 myip_0 ]
@@ -1359,21 +1424,14 @@ proc create_root_design { parentCell } {
 
   # Create interface connections
   connect_bd_intf_net -intf_net S00_AXI_0_1 [get_bd_intf_pins DSP/S00_AXI] [get_bd_intf_pins ps7_0_axi_periph/M01_AXI]
-  connect_bd_intf_net -intf_net UIF_AXI_0_m_axis_sr [get_bd_intf_pins UIF_AXI_0/m_axis_sr] [get_bd_intf_pins fifo_generator_0/S_AXIS]
-  connect_bd_intf_net -intf_net UIF_SerialSlave_0_UIF_Slave [get_bd_intf_ports UIF_Slave_1] [get_bd_intf_pins UIF_SerialSlave_0/UIF_Slave]
-  set_property -dict [ list \
-HDL_ATTRIBUTE.DEBUG {true} \
- ] [get_bd_intf_nets UIF_SerialSlave_0_UIF_Slave]
-  connect_bd_intf_net -intf_net UIF_SerialSlave_0_m_axis_st [get_bd_intf_pins UIF_SerialSlave_0/m_axis_st] [get_bd_intf_pins fifo_generator_1/S_AXIS]
-  connect_bd_intf_net -intf_net fifo_generator_0_M_AXIS [get_bd_intf_pins UIF_SerialSlave_0/s_axis_sr] [get_bd_intf_pins fifo_generator_0/M_AXIS]
-  connect_bd_intf_net -intf_net fifo_generator_1_M_AXIS [get_bd_intf_pins UIF_AXI_0/s_axis_st] [get_bd_intf_pins fifo_generator_1/M_AXIS]
+  connect_bd_intf_net -intf_net UIF_SerialSlave_0_UIF_Slave [get_bd_intf_ports UIF_Slave_1] [get_bd_intf_pins UIF/UIF_Slave_1]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
   connect_bd_intf_net -intf_net processing_system7_0_UART_1 [get_bd_intf_ports UART_1] [get_bd_intf_pins processing_system7_0/UART_1]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins myip_0/S00_AXI] [get_bd_intf_pins ps7_0_axi_periph/M00_AXI]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M02_AXI [get_bd_intf_pins DSP/S01_AXI] [get_bd_intf_pins ps7_0_axi_periph/M02_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M03_AXI [get_bd_intf_pins UIF_AXI_0/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M03_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M03_AXI [get_bd_intf_pins UIF/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M03_AXI]
 
   # Create port connections
   connect_bd_net -net DAC_IF_0_DAC_BCLK [get_bd_ports DAC_BICK_0] [get_bd_pins DAC_Interface/DAC_BICK_0]
@@ -1385,22 +1443,20 @@ HDL_ATTRIBUTE.DEBUG {true} \
   connect_bd_net -net DSP_outData2 [get_bd_pins DAC_Interface/Data1] [get_bd_pins DSP/outData1]
   connect_bd_net -net DSP_outDataValid [get_bd_pins DAC_Interface/nResetAudio256Clk] [get_bd_pins DSP/nResetAudio256Clk]
   connect_bd_net -net DSP_outDataValid1 [get_bd_pins DAC_Interface/DataValid] [get_bd_pins DSP/outDataValid]
-  connect_bd_net -net UIF_AXI_0_UIF_res [get_bd_ports UIF_Res_1] [get_bd_pins UIF_AXI_0/UIF_res]
-  connect_bd_net -net UIF_AXI_0_sys_nReset [get_bd_pins UIF_AXI_0/sys_nReset] [get_bd_pins UIF_SerialSlave_0/nReset] [get_bd_pins fifo_generator_0/s_aresetn] [get_bd_pins fifo_generator_1/s_aresetn]
+  connect_bd_net -net UIF_AXI_0_UIF_res [get_bd_ports UIF_Res_1] [get_bd_pins UIF/UIF_Res_1]
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins DAC_Interface/audio256Clk] [get_bd_pins DSP/audio256Clk] [get_bd_pins clk_wiz_0/clk_out1]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins DSP/nResetExt] [get_bd_pins clk_wiz_0/locked]
-  connect_bd_net -net fifo_generator_1_axis_data_count [get_bd_pins UIF_AXI_0/fifo_count] [get_bd_pins fifo_generator_1/axis_data_count]
   connect_bd_net -net myip_0_RGB_OUT [get_bd_ports RGB_OUT_0] [get_bd_pins myip_0/RGB_OUT]
   connect_bd_net -net myip_0_USB_nRESET [get_bd_ports USB_nRESET_0] [get_bd_pins myip_0/USB_nRESET]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins DAC_Interface/sysClk] [get_bd_pins DSP/s00_axi_aclk] [get_bd_pins DSP/s01_axi_aclk] [get_bd_pins DSP/sysClk] [get_bd_pins UIF_AXI_0/S_AXI_ACLK] [get_bd_pins UIF_SerialSlave_0/sysClk] [get_bd_pins fifo_generator_0/s_aclk] [get_bd_pins fifo_generator_1/s_aclk] [get_bd_pins myip_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins DAC_Interface/sysClk] [get_bd_pins DSP/s00_axi_aclk] [get_bd_pins DSP/s01_axi_aclk] [get_bd_pins DSP/sysClk] [get_bd_pins UIF/s_aclk] [get_bd_pins myip_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins processing_system7_0/FCLK_CLK1]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins clk_wiz_0/resetn] [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_50M/ext_reset_in]
   connect_bd_net -net rst_ps7_0_50M_interconnect_aresetn [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins rst_ps7_0_50M/interconnect_aresetn]
-  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins DSP/s00_axi_aresetn] [get_bd_pins DSP/s01_axi_aresetn] [get_bd_pins UIF_AXI_0/S_AXI_ARESETN] [get_bd_pins myip_0/s00_axi_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins DSP/s00_axi_aresetn] [get_bd_pins DSP/s01_axi_aresetn] [get_bd_pins UIF/S_AXI_ARESETN] [get_bd_pins myip_0/s00_axi_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
 
   # Create address segments
   create_bd_addr_seg -range 0x00010000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/DSP_register_0/S00_AXI/S00_AXI_reg] SEG_DSP_register_0_S00_AXI_reg
-  create_bd_addr_seg -range 0x00010000 -offset 0x43C20000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs UIF_AXI_0/S_AXI/reg0] SEG_UIF_AXI_0_reg0
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C20000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs UIF/UIF_AXI_0/S_AXI/reg0] SEG_UIF_AXI_0_reg0
   create_bd_addr_seg -range 0x00002000 -offset 0x40000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/Synthesizer/axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
   create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs myip_0/S00_AXI/S00_AXI_reg] SEG_myip_0_S00_AXI_reg
 

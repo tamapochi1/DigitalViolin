@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Oct 19 23:24:28 2018" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Oct 22 20:29:07 2018" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="design_1" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -27,9 +27,6 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
     <PORT DIR="O" NAME="UART_1_txd" SIGIS="undef"/>
     <PORT DIR="I" NAME="UART_1_rxd" SIGIS="undef"/>
-    <PORT DIR="I" NAME="UIF_Slave_1_s_sck" SIGIS="undef"/>
-    <PORT DIR="O" NAME="UIF_Slave_1_s_rxd" SIGIS="undef"/>
-    <PORT DIR="I" NAME="UIF_Slave_1_s_txd" SIGIS="undef"/>
     <PORT DIR="O" LEFT="2" NAME="RGB_OUT_0" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_RGB_OUT">
       <CONNECTIONS>
         <CONNECTION INSTANCE="myip_0" PORT="RGB_OUT"/>
@@ -60,11 +57,14 @@
         <CONNECTION INSTANCE="DAC_Interface_DAC_IF_0" PORT="DAC_LRCK"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="UIF_Res_1" SIGIS="undef" SIGNAME="UIF_AXI_0_UIF_res">
+    <PORT DIR="O" NAME="UIF_Res_1" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_UIF_res">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="UIF_AXI_0" PORT="UIF_res"/>
+        <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="UIF_res"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" NAME="UIF_Slave_1_s_sck" SIGIS="undef"/>
+    <PORT DIR="O" NAME="UIF_Slave_1_s_rxd" SIGIS="undef"/>
+    <PORT DIR="I" NAME="UIF_Slave_1_s_txd" SIGIS="undef"/>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
@@ -118,7 +118,7 @@
         <PORTMAP LOGICAL="RxD" PHYSICAL="UART_1_rxd"/>
       </PORTMAPS>
     </BUSINTERFACE>
-    <BUSINTERFACE BUSNAME="UIF_SerialSlave_0_UIF_Slave" NAME="UIF_Slave_1" TYPE="INITIATOR">
+    <BUSINTERFACE BUSNAME="UIF_UIF_SerialSlave_0_UIF_Slave" NAME="UIF_Slave_1" TYPE="INITIATOR">
       <PORTMAPS>
         <PORTMAP LOGICAL="S_SCK" PHYSICAL="UIF_Slave_1_s_sck"/>
         <PORTMAP LOGICAL="S_RXD" PHYSICAL="UIF_Slave_1_s_rxd"/>
@@ -2848,7 +2848,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE FULLNAME="/UIF_AXI_0" HWVERSION="1.0" INSTANCE="UIF_AXI_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="UIF_AXI" VLNV="xilinx.com:module_ref:UIF_AXI:1.0">
+    <MODULE FULLNAME="/UIF/UIF_AXI_0" HWVERSION="1.0" INSTANCE="UIF_UIF_AXI_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="UIF_AXI" VLNV="xilinx.com:module_ref:UIF_AXI:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI" NAME="reg0" RANGE="4096" USAGE="register"/>
@@ -2872,151 +2872,151 @@
             <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S_AXI_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_AWADDR">
+        <PORT DIR="I" LEFT="3" NAME="S_AXI_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S_AXI_AWPROT" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_AWPROT">
+        <PORT DIR="I" LEFT="2" NAME="S_AXI_AWPROT" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWPROT">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S_AXI_AWVALID" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_AWVALID">
+        <PORT DIR="I" NAME="S_AXI_AWVALID" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S_AXI_AWREADY" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_AWREADY">
+        <PORT DIR="O" NAME="S_AXI_AWREADY" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="S_AXI_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_WDATA">
+        <PORT DIR="I" LEFT="31" NAME="S_AXI_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WDATA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S_AXI_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_WSTRB">
+        <PORT DIR="I" LEFT="3" NAME="S_AXI_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WSTRB">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S_AXI_WVALID" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_WVALID">
+        <PORT DIR="I" NAME="S_AXI_WVALID" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S_AXI_WREADY" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_WREADY">
+        <PORT DIR="O" NAME="S_AXI_WREADY" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="S_AXI_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_BRESP">
+        <PORT DIR="O" LEFT="1" NAME="S_AXI_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BRESP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S_AXI_BVALID" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_BVALID">
+        <PORT DIR="O" NAME="S_AXI_BVALID" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S_AXI_BREADY" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_BREADY">
+        <PORT DIR="I" NAME="S_AXI_BREADY" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S_AXI_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_ARADDR">
+        <PORT DIR="I" LEFT="3" NAME="S_AXI_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S_AXI_ARPROT" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_ARPROT">
+        <PORT DIR="I" LEFT="2" NAME="S_AXI_ARPROT" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARPROT">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S_AXI_ARVALID" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_ARVALID">
+        <PORT DIR="I" NAME="S_AXI_ARVALID" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S_AXI_ARREADY" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_ARREADY">
+        <PORT DIR="O" NAME="S_AXI_ARREADY" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="S_AXI_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_RDATA">
+        <PORT DIR="O" LEFT="31" NAME="S_AXI_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RDATA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="S_AXI_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_RRESP">
+        <PORT DIR="O" LEFT="1" NAME="S_AXI_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RRESP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S_AXI_RVALID" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_RVALID">
+        <PORT DIR="O" NAME="S_AXI_RVALID" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S_AXI_RREADY" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_RREADY">
+        <PORT DIR="I" NAME="S_AXI_RREADY" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="m_axis_sr_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_m_axis_sr_tdata">
+        <PORT DIR="O" LEFT="7" NAME="m_axis_sr_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_m_axis_sr_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_axis_tdata"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_0" PORT="s_axis_tdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="m_axis_sr_tready" SIGIS="undef" SIGNAME="UIF_AXI_0_m_axis_sr_tready">
+        <PORT DIR="I" NAME="m_axis_sr_tready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_m_axis_sr_tready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_axis_tready"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_0" PORT="s_axis_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="m_axis_sr_tvalid" SIGIS="undef" SIGNAME="UIF_AXI_0_m_axis_sr_tvalid">
+        <PORT DIR="O" NAME="m_axis_sr_tvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_m_axis_sr_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_axis_tvalid"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_0" PORT="s_axis_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="s_axis_st_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_s_axis_st_tdata">
+        <PORT DIR="I" LEFT="7" NAME="s_axis_st_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_s_axis_st_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_1" PORT="m_axis_tdata"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_1" PORT="m_axis_tdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axis_st_tready" SIGIS="undef" SIGNAME="UIF_AXI_0_s_axis_st_tready">
+        <PORT DIR="O" NAME="s_axis_st_tready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_s_axis_st_tready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_1" PORT="m_axis_tready"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_1" PORT="m_axis_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axis_st_tvalid" SIGIS="undef" SIGNAME="UIF_AXI_0_s_axis_st_tvalid">
+        <PORT DIR="I" NAME="s_axis_st_tvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_s_axis_st_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_1" PORT="m_axis_tvalid"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_1" PORT="m_axis_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="11" NAME="fifo_count" RIGHT="0" SIGIS="undef" SIGNAME="fifo_generator_1_axis_data_count">
+        <PORT DIR="I" LEFT="11" NAME="st_fifo_count" RIGHT="0" SIGIS="undef" SIGNAME="UIF_fifo_generator_1_axis_data_count">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_1" PORT="axis_data_count"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_1" PORT="axis_data_count"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="sys_nReset" SIGIS="undef" SIGNAME="UIF_AXI_0_sys_nReset">
+        <PORT DIR="O" NAME="sys_nReset" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_sys_nReset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_aresetn"/>
-            <CONNECTION INSTANCE="fifo_generator_1" PORT="s_aresetn"/>
-            <CONNECTION INSTANCE="UIF_SerialSlave_0" PORT="nReset"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_0" PORT="s_aresetn"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_1" PORT="s_aresetn"/>
+            <CONNECTION INSTANCE="UIF_UIF_SerialSlave_0" PORT="nReset"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="UIF_res" SIGIS="undef" SIGNAME="UIF_AXI_0_UIF_res">
+        <PORT DIR="O" NAME="UIF_res" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_UIF_res">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="UIF_Res_1"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="UIF_AXI_0_m_axis_sr" NAME="m_axis_sr" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="UIF_UIF_AXI_0_m_axis_sr" NAME="m_axis_sr" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
@@ -3035,7 +3035,7 @@
             <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_sr_tready"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="fifo_generator_1_M_AXIS" NAME="s_axis_st" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="UIF_fifo_generator_1_M_AXIS" NAME="s_axis_st" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
@@ -3109,16 +3109,16 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/UIF_SerialSlave_0" HWVERSION="1.0" INSTANCE="UIF_SerialSlave_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="UIF_SerialSlave" VLNV="xilinx.com:module_ref:UIF_SerialSlave:1.0">
+    <MODULE FULLNAME="/UIF/UIF_SerialSlave_0" HWVERSION="1.0" INSTANCE="UIF_UIF_SerialSlave_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="UIF_SerialSlave" VLNV="xilinx.com:module_ref:UIF_SerialSlave:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="design_1_UIF_SerialSlave_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="UIF_AXI_0_sys_nReset">
+        <PORT DIR="I" NAME="nReset" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_sys_nReset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="sys_nReset"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="sys_nReset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="sysClk" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK0">
@@ -3129,46 +3129,46 @@
         <PORT DIR="I" NAME="UIF_Slave_S_SCK" SIGIS="undef"/>
         <PORT DIR="O" NAME="UIF_Slave_S_RXD" SIGIS="undef"/>
         <PORT DIR="I" NAME="UIF_Slave_S_TXD" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="7" NAME="m_axis_st_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_m_axis_st_tdata">
+        <PORT DIR="O" LEFT="7" NAME="m_axis_st_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_m_axis_st_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_1" PORT="s_axis_tdata"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_1" PORT="s_axis_tdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="m_axis_st_tready" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_m_axis_st_tready">
+        <PORT DIR="I" NAME="m_axis_st_tready" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_m_axis_st_tready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_1" PORT="s_axis_tready"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_1" PORT="s_axis_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="m_axis_st_tvalid" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_m_axis_st_tvalid">
+        <PORT DIR="O" NAME="m_axis_st_tvalid" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_m_axis_st_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_1" PORT="s_axis_tvalid"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_1" PORT="s_axis_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="s_axis_sr_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_s_axis_sr_tdata">
+        <PORT DIR="I" LEFT="7" NAME="s_axis_sr_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_s_axis_sr_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_0" PORT="m_axis_tdata"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_0" PORT="m_axis_tdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axis_sr_tready" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_s_axis_sr_tready">
+        <PORT DIR="O" NAME="s_axis_sr_tready" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_s_axis_sr_tready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_0" PORT="m_axis_tready"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_0" PORT="m_axis_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axis_sr_tvalid" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_s_axis_sr_tvalid">
+        <PORT DIR="I" NAME="s_axis_sr_tvalid" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_s_axis_sr_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fifo_generator_0" PORT="m_axis_tvalid"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_0" PORT="m_axis_tvalid"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="UIF_SerialSlave_0_UIF_Slave" NAME="UIF_Slave" TYPE="INITIATOR" VLNV="tamapochi1:user:UIF_Slave:1.0">
+        <BUSINTERFACE BUSNAME="UIF_UIF_SerialSlave_0_UIF_Slave" NAME="UIF_Slave" TYPE="INITIATOR" VLNV="tamapochi1:user:UIF_Slave:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="S_SCK" PHYSICAL="UIF_Slave_S_SCK"/>
             <PORTMAP LOGICAL="S_RXD" PHYSICAL="UIF_Slave_S_RXD"/>
             <PORTMAP LOGICAL="S_TXD" PHYSICAL="UIF_Slave_S_TXD"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="UIF_SerialSlave_0_m_axis_st" NAME="m_axis_st" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="UIF_UIF_SerialSlave_0_m_axis_st" NAME="m_axis_st" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
@@ -3187,7 +3187,7 @@
             <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_st_tready"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="fifo_generator_0_M_AXIS" NAME="s_axis_sr" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="UIF_fifo_generator_0_M_AXIS" NAME="s_axis_sr" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
@@ -3204,6 +3204,934 @@
             <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_sr_tdata"/>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_sr_tvalid"/>
             <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_sr_tready"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE FULLNAME="/UIF/fifo_generator_0" HWVERSION="13.2" INSTANCE="UIF_fifo_generator_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fifo_generator" VLNV="xilinx.com:ip:fifo_generator:13.2">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=fifo_generator;v=v13_2;d=pg057-fifo-generator.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_COMMON_CLOCK" VALUE="1"/>
+        <PARAMETER NAME="C_SELECT_XPM" VALUE="0"/>
+        <PARAMETER NAME="C_COUNT_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_DATA_COUNT_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_DEFAULT_VALUE" VALUE="BlankString"/>
+        <PARAMETER NAME="C_DIN_WIDTH" VALUE="18"/>
+        <PARAMETER NAME="C_DOUT_RST_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_DOUT_WIDTH" VALUE="18"/>
+        <PARAMETER NAME="C_ENABLE_RLOCS" VALUE="0"/>
+        <PARAMETER NAME="C_FAMILY" VALUE="zynq"/>
+        <PARAMETER NAME="C_FULL_FLAGS_RST_VAL" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_ALMOST_EMPTY" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_ALMOST_FULL" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_BACKUP" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_INT_CLK" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_MEMINIT_FILE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_OVERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_RD_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_RD_RST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_RST" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_SRST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_UNDERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_VALID" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_WR_ACK" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_WR_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_WR_RST" VALUE="0"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_INIT_WR_PNTR_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_MEMORY_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_MIF_FILE_NAME" VALUE="BlankString"/>
+        <PARAMETER NAME="C_OPTIMIZATION_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_OVERFLOW_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_PRELOAD_LATENCY" VALUE="1"/>
+        <PARAMETER NAME="C_PRELOAD_REGS" VALUE="0"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE" VALUE="4kx4"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL" VALUE="2"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_NEGATE_VAL" VALUE="3"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL" VALUE="1022"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_NEGATE_VAL" VALUE="1021"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_RD_DATA_COUNT_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_RD_DEPTH" VALUE="1024"/>
+        <PARAMETER NAME="C_RD_FREQ" VALUE="1"/>
+        <PARAMETER NAME="C_RD_PNTR_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_UNDERFLOW_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_USE_DOUT_RST" VALUE="1"/>
+        <PARAMETER NAME="C_USE_ECC" VALUE="0"/>
+        <PARAMETER NAME="C_USE_EMBEDDED_REG" VALUE="0"/>
+        <PARAMETER NAME="C_USE_PIPELINE_REG" VALUE="0"/>
+        <PARAMETER NAME="C_POWER_SAVING_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_USE_FIFO16_FLAGS" VALUE="0"/>
+        <PARAMETER NAME="C_USE_FWFT_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_VALID_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_WR_ACK_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_WR_DATA_COUNT_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_DEPTH" VALUE="1024"/>
+        <PARAMETER NAME="C_WR_FREQ" VALUE="1"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_RESPONSE_LATENCY" VALUE="1"/>
+        <PARAMETER NAME="C_MSGON_VAL" VALUE="1"/>
+        <PARAMETER NAME="C_ENABLE_RST_SYNC" VALUE="1"/>
+        <PARAMETER NAME="C_EN_SAFETY_CKT" VALUE="1"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_SYNCHRONIZER_STAGE" VALUE="2"/>
+        <PARAMETER NAME="C_INTERFACE_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXI_WR_CHANNEL" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXI_RD_CHANNEL" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_SLAVE_CE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_MASTER_CE" VALUE="0"/>
+        <PARAMETER NAME="C_ADD_NGC_CONSTRAINT" VALUE="0"/>
+        <PARAMETER NAME="C_USE_COMMON_OVERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_USE_COMMON_UNDERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_USE_DEFAULT_SETTINGS" VALUE="0"/>
+        <PARAMETER NAME="C_AXI_ID_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_ADDR_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_AXI_DATA_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="C_AXI_LEN_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C_AXI_LOCK_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_AWUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_WUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_BUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_ARUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_RUSER" VALUE="0"/>
+        <PARAMETER NAME="C_AXI_ARUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_AWUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_WUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_BUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_RUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXIS_TDATA" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXIS_TID" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TDEST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TREADY" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXIS_TLAST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TSTRB" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TKEEP" VALUE="0"/>
+        <PARAMETER NAME="C_AXIS_TDATA_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C_AXIS_TID_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXIS_TDEST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXIS_TUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXIS_TSTRB_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXIS_TKEEP_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_WACH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_WDCH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_WRCH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_RACH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_RDCH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_AXIS_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WACH" VALUE="2"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WDCH" VALUE="1"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WRCH" VALUE="2"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_RACH" VALUE="2"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_RDCH" VALUE="1"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_AXIS" VALUE="1"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WACH" VALUE="512x36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WDCH" VALUE="1kx36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WRCH" VALUE="512x36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_RACH" VALUE="512x36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_RDCH" VALUE="1kx36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_AXIS" VALUE="2kx9"/>
+        <PARAMETER NAME="C_USE_ECC_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_DIN_WIDTH_WACH" VALUE="32"/>
+        <PARAMETER NAME="C_DIN_WIDTH_WDCH" VALUE="64"/>
+        <PARAMETER NAME="C_DIN_WIDTH_WRCH" VALUE="2"/>
+        <PARAMETER NAME="C_DIN_WIDTH_RACH" VALUE="32"/>
+        <PARAMETER NAME="C_DIN_WIDTH_RDCH" VALUE="64"/>
+        <PARAMETER NAME="C_DIN_WIDTH_AXIS" VALUE="8"/>
+        <PARAMETER NAME="C_WR_DEPTH_WACH" VALUE="16"/>
+        <PARAMETER NAME="C_WR_DEPTH_WDCH" VALUE="1024"/>
+        <PARAMETER NAME="C_WR_DEPTH_WRCH" VALUE="16"/>
+        <PARAMETER NAME="C_WR_DEPTH_RACH" VALUE="16"/>
+        <PARAMETER NAME="C_WR_DEPTH_RDCH" VALUE="1024"/>
+        <PARAMETER NAME="C_WR_DEPTH_AXIS" VALUE="2048"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_WACH" VALUE="4"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_WDCH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_WRCH" VALUE="4"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_RACH" VALUE="4"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_RDCH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_AXIS" VALUE="11"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_AXIS" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WACH" VALUE="15"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WDCH" VALUE="1023"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WRCH" VALUE="15"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_RACH" VALUE="15"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_RDCH" VALUE="1023"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_AXIS" VALUE="2047"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WACH" VALUE="14"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WDCH" VALUE="1022"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WRCH" VALUE="14"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_RACH" VALUE="14"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_RDCH" VALUE="1022"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_AXIS" VALUE="2046"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_fifo_generator_0_1"/>
+        <PARAMETER NAME="Fifo_Implementation" VALUE="Common_Clock_Block_RAM"/>
+        <PARAMETER NAME="synchronization_stages" VALUE="2"/>
+        <PARAMETER NAME="synchronization_stages_axi" VALUE="2"/>
+        <PARAMETER NAME="INTERFACE_TYPE" VALUE="AXI_STREAM"/>
+        <PARAMETER NAME="Performance_Options" VALUE="Standard_FIFO"/>
+        <PARAMETER NAME="asymmetric_port_width" VALUE="false"/>
+        <PARAMETER NAME="Input_Data_Width" VALUE="18"/>
+        <PARAMETER NAME="Input_Depth" VALUE="1024"/>
+        <PARAMETER NAME="Output_Data_Width" VALUE="18"/>
+        <PARAMETER NAME="Output_Depth" VALUE="1024"/>
+        <PARAMETER NAME="Enable_ECC" VALUE="false"/>
+        <PARAMETER NAME="Use_Embedded_Registers" VALUE="false"/>
+        <PARAMETER NAME="Reset_Pin" VALUE="true"/>
+        <PARAMETER NAME="Enable_Reset_Synchronization" VALUE="true"/>
+        <PARAMETER NAME="Reset_Type" VALUE="Asynchronous_Reset"/>
+        <PARAMETER NAME="Full_Flags_Reset_Value" VALUE="1"/>
+        <PARAMETER NAME="Use_Dout_Reset" VALUE="true"/>
+        <PARAMETER NAME="Dout_Reset_Value" VALUE="0"/>
+        <PARAMETER NAME="dynamic_power_saving" VALUE="false"/>
+        <PARAMETER NAME="Almost_Full_Flag" VALUE="false"/>
+        <PARAMETER NAME="Almost_Empty_Flag" VALUE="false"/>
+        <PARAMETER NAME="Valid_Flag" VALUE="false"/>
+        <PARAMETER NAME="Valid_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Underflow_Flag" VALUE="false"/>
+        <PARAMETER NAME="Underflow_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Write_Acknowledge_Flag" VALUE="false"/>
+        <PARAMETER NAME="Write_Acknowledge_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Overflow_Flag" VALUE="false"/>
+        <PARAMETER NAME="Overflow_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Inject_Sbit_Error" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error" VALUE="false"/>
+        <PARAMETER NAME="ecc_pipeline_reg" VALUE="false"/>
+        <PARAMETER NAME="Use_Extra_Logic" VALUE="false"/>
+        <PARAMETER NAME="Data_Count" VALUE="false"/>
+        <PARAMETER NAME="Data_Count_Width" VALUE="10"/>
+        <PARAMETER NAME="Write_Data_Count" VALUE="false"/>
+        <PARAMETER NAME="Write_Data_Count_Width" VALUE="10"/>
+        <PARAMETER NAME="Read_Data_Count" VALUE="false"/>
+        <PARAMETER NAME="Read_Data_Count_Width" VALUE="10"/>
+        <PARAMETER NAME="Disable_Timing_Violations" VALUE="false"/>
+        <PARAMETER NAME="Read_Clock_Frequency" VALUE="1"/>
+        <PARAMETER NAME="Write_Clock_Frequency" VALUE="1"/>
+        <PARAMETER NAME="Programmable_Full_Type" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value" VALUE="1022"/>
+        <PARAMETER NAME="Full_Threshold_Negate_Value" VALUE="1021"/>
+        <PARAMETER NAME="Programmable_Empty_Type" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value" VALUE="2"/>
+        <PARAMETER NAME="Empty_Threshold_Negate_Value" VALUE="3"/>
+        <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
+        <PARAMETER NAME="Clock_Type_AXI" VALUE="Common_Clock"/>
+        <PARAMETER NAME="HAS_ACLKEN" VALUE="false"/>
+        <PARAMETER NAME="Clock_Enable_Type" VALUE="Slave_Interface_Clock_Enable"/>
+        <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
+        <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="ADDRESS_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="AWUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="WUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="BUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="ARUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="RUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
+        <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="Enable_TREADY" VALUE="true"/>
+        <PARAMETER NAME="Enable_TLAST" VALUE="false"/>
+        <PARAMETER NAME="HAS_TSTRB" VALUE="false"/>
+        <PARAMETER NAME="TSTRB_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="HAS_TKEEP" VALUE="false"/>
+        <PARAMETER NAME="TKEEP_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="wach_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_wach" VALUE="Common_Clock_Distributed_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_wach" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_wach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_wach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_wach" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_wach" VALUE="16"/>
+        <PARAMETER NAME="Enable_Data_Counts_wach" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_wach" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_wach" VALUE="15"/>
+        <PARAMETER NAME="Programmable_Empty_Type_wach" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_wach" VALUE="14"/>
+        <PARAMETER NAME="wdch_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_wdch" VALUE="Common_Clock_Block_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_wdch" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_wdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_wdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_wdch" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_wdch" VALUE="1024"/>
+        <PARAMETER NAME="Enable_Data_Counts_wdch" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_wdch" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_wdch" VALUE="1023"/>
+        <PARAMETER NAME="Programmable_Empty_Type_wdch" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_wdch" VALUE="1022"/>
+        <PARAMETER NAME="wrch_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_wrch" VALUE="Common_Clock_Distributed_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_wrch" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_wrch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_wrch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_wrch" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_wrch" VALUE="16"/>
+        <PARAMETER NAME="Enable_Data_Counts_wrch" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_wrch" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_wrch" VALUE="15"/>
+        <PARAMETER NAME="Programmable_Empty_Type_wrch" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_wrch" VALUE="14"/>
+        <PARAMETER NAME="rach_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_rach" VALUE="Common_Clock_Distributed_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_rach" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_rach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_rach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_rach" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_rach" VALUE="16"/>
+        <PARAMETER NAME="Enable_Data_Counts_rach" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_rach" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_rach" VALUE="15"/>
+        <PARAMETER NAME="Programmable_Empty_Type_rach" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_rach" VALUE="14"/>
+        <PARAMETER NAME="rdch_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_rdch" VALUE="Common_Clock_Block_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_rdch" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_rdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_rdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_rdch" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_rdch" VALUE="1024"/>
+        <PARAMETER NAME="Enable_Data_Counts_rdch" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_rdch" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_rdch" VALUE="1023"/>
+        <PARAMETER NAME="Programmable_Empty_Type_rdch" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_rdch" VALUE="1022"/>
+        <PARAMETER NAME="axis_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_axis" VALUE="Common_Clock_Block_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_axis" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_axis" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_axis" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_axis" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_axis" VALUE="2048"/>
+        <PARAMETER NAME="Enable_Data_Counts_axis" VALUE="true"/>
+        <PARAMETER NAME="Programmable_Full_Type_axis" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_axis" VALUE="2047"/>
+        <PARAMETER NAME="Programmable_Empty_Type_axis" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_axis" VALUE="2046"/>
+        <PARAMETER NAME="Register_Slice_Mode_wach" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_wdch" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_wrch" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_rach" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_rdch" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_axis" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Underflow_Flag_AXI" VALUE="false"/>
+        <PARAMETER NAME="Underflow_Sense_AXI" VALUE="Active_High"/>
+        <PARAMETER NAME="Overflow_Flag_AXI" VALUE="false"/>
+        <PARAMETER NAME="Overflow_Sense_AXI" VALUE="Active_High"/>
+        <PARAMETER NAME="Disable_Timing_Violations_AXI" VALUE="false"/>
+        <PARAMETER NAME="Add_NGC_Constraint_AXI" VALUE="false"/>
+        <PARAMETER NAME="Enable_Common_Underflow" VALUE="false"/>
+        <PARAMETER NAME="Enable_Common_Overflow" VALUE="false"/>
+        <PARAMETER NAME="enable_read_pointer_increment_by2" VALUE="false"/>
+        <PARAMETER NAME="Use_Embedded_Registers_axis" VALUE="false"/>
+        <PARAMETER NAME="enable_low_latency" VALUE="false"/>
+        <PARAMETER NAME="use_dout_register" VALUE="false"/>
+        <PARAMETER NAME="Master_interface_Clock_enable_memory_mapped" VALUE="false"/>
+        <PARAMETER NAME="Slave_interface_Clock_enable_memory_mapped" VALUE="false"/>
+        <PARAMETER NAME="Output_Register_Type" VALUE="Embedded_Reg"/>
+        <PARAMETER NAME="Enable_Safety_Circuit" VALUE="true"/>
+        <PARAMETER NAME="Enable_ECC_Type" VALUE="Hard_ECC"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="wr_rst_busy" SIGIS="undef"/>
+        <PORT DIR="O" NAME="rd_rst_busy" SIGIS="undef"/>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_aresetn" SIGIS="rst" SIGNAME="UIF_UIF_AXI_0_sys_nReset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="sys_nReset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_m_axis_sr_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="m_axis_sr_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_m_axis_sr_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="m_axis_sr_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_m_axis_sr_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="m_axis_sr_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_s_axis_sr_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_SerialSlave_0" PORT="s_axis_sr_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_s_axis_sr_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_SerialSlave_0" PORT="s_axis_sr_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_s_axis_sr_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_SerialSlave_0" PORT="s_axis_sr_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="axis_data_count" RIGHT="0" SIGIS="undef"/>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="UIF_fifo_generator_0_M_AXIS" NAME="M_AXIS" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="UIF_UIF_AXI_0_m_axis_sr" NAME="S_AXIS" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE FULLNAME="/UIF/fifo_generator_1" HWVERSION="13.2" INSTANCE="UIF_fifo_generator_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fifo_generator" VLNV="xilinx.com:ip:fifo_generator:13.2">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=fifo_generator;v=v13_2;d=pg057-fifo-generator.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_COMMON_CLOCK" VALUE="1"/>
+        <PARAMETER NAME="C_SELECT_XPM" VALUE="0"/>
+        <PARAMETER NAME="C_COUNT_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_DATA_COUNT_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_DEFAULT_VALUE" VALUE="BlankString"/>
+        <PARAMETER NAME="C_DIN_WIDTH" VALUE="18"/>
+        <PARAMETER NAME="C_DOUT_RST_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_DOUT_WIDTH" VALUE="18"/>
+        <PARAMETER NAME="C_ENABLE_RLOCS" VALUE="0"/>
+        <PARAMETER NAME="C_FAMILY" VALUE="zynq"/>
+        <PARAMETER NAME="C_FULL_FLAGS_RST_VAL" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_ALMOST_EMPTY" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_ALMOST_FULL" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_BACKUP" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_INT_CLK" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_MEMINIT_FILE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_OVERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_RD_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_RD_RST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_RST" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_SRST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_UNDERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_VALID" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_WR_ACK" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_WR_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_WR_RST" VALUE="0"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_INIT_WR_PNTR_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_MEMORY_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_MIF_FILE_NAME" VALUE="BlankString"/>
+        <PARAMETER NAME="C_OPTIMIZATION_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_OVERFLOW_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_PRELOAD_LATENCY" VALUE="1"/>
+        <PARAMETER NAME="C_PRELOAD_REGS" VALUE="0"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE" VALUE="4kx4"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL" VALUE="2"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_NEGATE_VAL" VALUE="3"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL" VALUE="1022"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_NEGATE_VAL" VALUE="1021"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_RD_DATA_COUNT_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_RD_DEPTH" VALUE="1024"/>
+        <PARAMETER NAME="C_RD_FREQ" VALUE="1"/>
+        <PARAMETER NAME="C_RD_PNTR_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_UNDERFLOW_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_USE_DOUT_RST" VALUE="1"/>
+        <PARAMETER NAME="C_USE_ECC" VALUE="0"/>
+        <PARAMETER NAME="C_USE_EMBEDDED_REG" VALUE="0"/>
+        <PARAMETER NAME="C_USE_PIPELINE_REG" VALUE="0"/>
+        <PARAMETER NAME="C_POWER_SAVING_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_USE_FIFO16_FLAGS" VALUE="0"/>
+        <PARAMETER NAME="C_USE_FWFT_DATA_COUNT" VALUE="0"/>
+        <PARAMETER NAME="C_VALID_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_WR_ACK_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_WR_DATA_COUNT_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_DEPTH" VALUE="1024"/>
+        <PARAMETER NAME="C_WR_FREQ" VALUE="1"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_RESPONSE_LATENCY" VALUE="1"/>
+        <PARAMETER NAME="C_MSGON_VAL" VALUE="1"/>
+        <PARAMETER NAME="C_ENABLE_RST_SYNC" VALUE="1"/>
+        <PARAMETER NAME="C_EN_SAFETY_CKT" VALUE="1"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_SYNCHRONIZER_STAGE" VALUE="2"/>
+        <PARAMETER NAME="C_INTERFACE_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXI_WR_CHANNEL" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXI_RD_CHANNEL" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_SLAVE_CE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_MASTER_CE" VALUE="0"/>
+        <PARAMETER NAME="C_ADD_NGC_CONSTRAINT" VALUE="0"/>
+        <PARAMETER NAME="C_USE_COMMON_OVERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_USE_COMMON_UNDERFLOW" VALUE="0"/>
+        <PARAMETER NAME="C_USE_DEFAULT_SETTINGS" VALUE="0"/>
+        <PARAMETER NAME="C_AXI_ID_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_ADDR_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_AXI_DATA_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="C_AXI_LEN_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C_AXI_LOCK_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_AWUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_WUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_BUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_ARUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXI_RUSER" VALUE="0"/>
+        <PARAMETER NAME="C_AXI_ARUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_AWUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_WUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_BUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXI_RUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXIS_TDATA" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXIS_TID" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TDEST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TREADY" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_AXIS_TLAST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TSTRB" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_AXIS_TKEEP" VALUE="0"/>
+        <PARAMETER NAME="C_AXIS_TDATA_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C_AXIS_TID_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXIS_TDEST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXIS_TUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXIS_TSTRB_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_AXIS_TKEEP_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_WACH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_WDCH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_WRCH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_RACH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_RDCH_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_AXIS_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WACH" VALUE="2"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WDCH" VALUE="1"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WRCH" VALUE="2"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_RACH" VALUE="2"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_RDCH" VALUE="1"/>
+        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_AXIS" VALUE="1"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_APPLICATION_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WACH" VALUE="512x36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WDCH" VALUE="1kx36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WRCH" VALUE="512x36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_RACH" VALUE="512x36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_RDCH" VALUE="1kx36"/>
+        <PARAMETER NAME="C_PRIM_FIFO_TYPE_AXIS" VALUE="2kx9"/>
+        <PARAMETER NAME="C_USE_ECC_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_USE_ECC_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_DIN_WIDTH_WACH" VALUE="32"/>
+        <PARAMETER NAME="C_DIN_WIDTH_WDCH" VALUE="64"/>
+        <PARAMETER NAME="C_DIN_WIDTH_WRCH" VALUE="2"/>
+        <PARAMETER NAME="C_DIN_WIDTH_RACH" VALUE="32"/>
+        <PARAMETER NAME="C_DIN_WIDTH_RDCH" VALUE="64"/>
+        <PARAMETER NAME="C_DIN_WIDTH_AXIS" VALUE="8"/>
+        <PARAMETER NAME="C_WR_DEPTH_WACH" VALUE="16"/>
+        <PARAMETER NAME="C_WR_DEPTH_WDCH" VALUE="1024"/>
+        <PARAMETER NAME="C_WR_DEPTH_WRCH" VALUE="16"/>
+        <PARAMETER NAME="C_WR_DEPTH_RACH" VALUE="16"/>
+        <PARAMETER NAME="C_WR_DEPTH_RDCH" VALUE="1024"/>
+        <PARAMETER NAME="C_WR_DEPTH_AXIS" VALUE="2048"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_WACH" VALUE="4"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_WDCH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_WRCH" VALUE="4"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_RACH" VALUE="4"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_RDCH" VALUE="10"/>
+        <PARAMETER NAME="C_WR_PNTR_WIDTH_AXIS" VALUE="11"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_DATA_COUNTS_AXIS" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_PROG_FLAGS_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WACH" VALUE="15"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WDCH" VALUE="1023"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WRCH" VALUE="15"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_RACH" VALUE="15"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_RDCH" VALUE="1023"/>
+        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_AXIS" VALUE="2047"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_TYPE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WACH" VALUE="14"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WDCH" VALUE="1022"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WRCH" VALUE="14"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_RACH" VALUE="14"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_RDCH" VALUE="1022"/>
+        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_AXIS" VALUE="2046"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_WACH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_WDCH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_WRCH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_RACH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_RDCH" VALUE="0"/>
+        <PARAMETER NAME="C_REG_SLICE_MODE_AXIS" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_fifo_generator_0_2"/>
+        <PARAMETER NAME="Fifo_Implementation" VALUE="Common_Clock_Block_RAM"/>
+        <PARAMETER NAME="synchronization_stages" VALUE="2"/>
+        <PARAMETER NAME="synchronization_stages_axi" VALUE="2"/>
+        <PARAMETER NAME="INTERFACE_TYPE" VALUE="AXI_STREAM"/>
+        <PARAMETER NAME="Performance_Options" VALUE="Standard_FIFO"/>
+        <PARAMETER NAME="asymmetric_port_width" VALUE="false"/>
+        <PARAMETER NAME="Input_Data_Width" VALUE="18"/>
+        <PARAMETER NAME="Input_Depth" VALUE="1024"/>
+        <PARAMETER NAME="Output_Data_Width" VALUE="18"/>
+        <PARAMETER NAME="Output_Depth" VALUE="1024"/>
+        <PARAMETER NAME="Enable_ECC" VALUE="false"/>
+        <PARAMETER NAME="Use_Embedded_Registers" VALUE="false"/>
+        <PARAMETER NAME="Reset_Pin" VALUE="true"/>
+        <PARAMETER NAME="Enable_Reset_Synchronization" VALUE="true"/>
+        <PARAMETER NAME="Reset_Type" VALUE="Asynchronous_Reset"/>
+        <PARAMETER NAME="Full_Flags_Reset_Value" VALUE="1"/>
+        <PARAMETER NAME="Use_Dout_Reset" VALUE="true"/>
+        <PARAMETER NAME="Dout_Reset_Value" VALUE="0"/>
+        <PARAMETER NAME="dynamic_power_saving" VALUE="false"/>
+        <PARAMETER NAME="Almost_Full_Flag" VALUE="false"/>
+        <PARAMETER NAME="Almost_Empty_Flag" VALUE="false"/>
+        <PARAMETER NAME="Valid_Flag" VALUE="false"/>
+        <PARAMETER NAME="Valid_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Underflow_Flag" VALUE="false"/>
+        <PARAMETER NAME="Underflow_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Write_Acknowledge_Flag" VALUE="false"/>
+        <PARAMETER NAME="Write_Acknowledge_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Overflow_Flag" VALUE="false"/>
+        <PARAMETER NAME="Overflow_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Inject_Sbit_Error" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error" VALUE="false"/>
+        <PARAMETER NAME="ecc_pipeline_reg" VALUE="false"/>
+        <PARAMETER NAME="Use_Extra_Logic" VALUE="false"/>
+        <PARAMETER NAME="Data_Count" VALUE="false"/>
+        <PARAMETER NAME="Data_Count_Width" VALUE="10"/>
+        <PARAMETER NAME="Write_Data_Count" VALUE="false"/>
+        <PARAMETER NAME="Write_Data_Count_Width" VALUE="10"/>
+        <PARAMETER NAME="Read_Data_Count" VALUE="false"/>
+        <PARAMETER NAME="Read_Data_Count_Width" VALUE="10"/>
+        <PARAMETER NAME="Disable_Timing_Violations" VALUE="false"/>
+        <PARAMETER NAME="Read_Clock_Frequency" VALUE="1"/>
+        <PARAMETER NAME="Write_Clock_Frequency" VALUE="1"/>
+        <PARAMETER NAME="Programmable_Full_Type" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value" VALUE="1022"/>
+        <PARAMETER NAME="Full_Threshold_Negate_Value" VALUE="1021"/>
+        <PARAMETER NAME="Programmable_Empty_Type" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value" VALUE="2"/>
+        <PARAMETER NAME="Empty_Threshold_Negate_Value" VALUE="3"/>
+        <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
+        <PARAMETER NAME="Clock_Type_AXI" VALUE="Common_Clock"/>
+        <PARAMETER NAME="HAS_ACLKEN" VALUE="false"/>
+        <PARAMETER NAME="Clock_Enable_Type" VALUE="Slave_Interface_Clock_Enable"/>
+        <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
+        <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="ADDRESS_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="AWUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="WUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="BUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="ARUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="RUSER_Width" VALUE="0"/>
+        <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
+        <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+        <PARAMETER NAME="Enable_TREADY" VALUE="true"/>
+        <PARAMETER NAME="Enable_TLAST" VALUE="false"/>
+        <PARAMETER NAME="HAS_TSTRB" VALUE="false"/>
+        <PARAMETER NAME="TSTRB_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="HAS_TKEEP" VALUE="false"/>
+        <PARAMETER NAME="TKEEP_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="wach_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_wach" VALUE="Common_Clock_Distributed_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_wach" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_wach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_wach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_wach" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_wach" VALUE="16"/>
+        <PARAMETER NAME="Enable_Data_Counts_wach" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_wach" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_wach" VALUE="15"/>
+        <PARAMETER NAME="Programmable_Empty_Type_wach" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_wach" VALUE="14"/>
+        <PARAMETER NAME="wdch_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_wdch" VALUE="Common_Clock_Block_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_wdch" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_wdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_wdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_wdch" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_wdch" VALUE="1024"/>
+        <PARAMETER NAME="Enable_Data_Counts_wdch" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_wdch" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_wdch" VALUE="1023"/>
+        <PARAMETER NAME="Programmable_Empty_Type_wdch" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_wdch" VALUE="1022"/>
+        <PARAMETER NAME="wrch_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_wrch" VALUE="Common_Clock_Distributed_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_wrch" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_wrch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_wrch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_wrch" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_wrch" VALUE="16"/>
+        <PARAMETER NAME="Enable_Data_Counts_wrch" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_wrch" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_wrch" VALUE="15"/>
+        <PARAMETER NAME="Programmable_Empty_Type_wrch" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_wrch" VALUE="14"/>
+        <PARAMETER NAME="rach_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_rach" VALUE="Common_Clock_Distributed_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_rach" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_rach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_rach" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_rach" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_rach" VALUE="16"/>
+        <PARAMETER NAME="Enable_Data_Counts_rach" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_rach" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_rach" VALUE="15"/>
+        <PARAMETER NAME="Programmable_Empty_Type_rach" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_rach" VALUE="14"/>
+        <PARAMETER NAME="rdch_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_rdch" VALUE="Common_Clock_Block_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_rdch" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_rdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_rdch" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_rdch" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_rdch" VALUE="1024"/>
+        <PARAMETER NAME="Enable_Data_Counts_rdch" VALUE="false"/>
+        <PARAMETER NAME="Programmable_Full_Type_rdch" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_rdch" VALUE="1023"/>
+        <PARAMETER NAME="Programmable_Empty_Type_rdch" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_rdch" VALUE="1022"/>
+        <PARAMETER NAME="axis_type" VALUE="FIFO"/>
+        <PARAMETER NAME="FIFO_Implementation_axis" VALUE="Common_Clock_Block_RAM"/>
+        <PARAMETER NAME="FIFO_Application_Type_axis" VALUE="Data_FIFO"/>
+        <PARAMETER NAME="Enable_ECC_axis" VALUE="false"/>
+        <PARAMETER NAME="Inject_Sbit_Error_axis" VALUE="false"/>
+        <PARAMETER NAME="Inject_Dbit_Error_axis" VALUE="false"/>
+        <PARAMETER NAME="Input_Depth_axis" VALUE="2048"/>
+        <PARAMETER NAME="Enable_Data_Counts_axis" VALUE="true"/>
+        <PARAMETER NAME="Programmable_Full_Type_axis" VALUE="No_Programmable_Full_Threshold"/>
+        <PARAMETER NAME="Full_Threshold_Assert_Value_axis" VALUE="2047"/>
+        <PARAMETER NAME="Programmable_Empty_Type_axis" VALUE="No_Programmable_Empty_Threshold"/>
+        <PARAMETER NAME="Empty_Threshold_Assert_Value_axis" VALUE="2046"/>
+        <PARAMETER NAME="Register_Slice_Mode_wach" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_wdch" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_wrch" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_rach" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_rdch" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Register_Slice_Mode_axis" VALUE="Fully_Registered"/>
+        <PARAMETER NAME="Underflow_Flag_AXI" VALUE="false"/>
+        <PARAMETER NAME="Underflow_Sense_AXI" VALUE="Active_High"/>
+        <PARAMETER NAME="Overflow_Flag_AXI" VALUE="false"/>
+        <PARAMETER NAME="Overflow_Sense_AXI" VALUE="Active_High"/>
+        <PARAMETER NAME="Disable_Timing_Violations_AXI" VALUE="false"/>
+        <PARAMETER NAME="Add_NGC_Constraint_AXI" VALUE="false"/>
+        <PARAMETER NAME="Enable_Common_Underflow" VALUE="false"/>
+        <PARAMETER NAME="Enable_Common_Overflow" VALUE="false"/>
+        <PARAMETER NAME="enable_read_pointer_increment_by2" VALUE="false"/>
+        <PARAMETER NAME="Use_Embedded_Registers_axis" VALUE="false"/>
+        <PARAMETER NAME="enable_low_latency" VALUE="false"/>
+        <PARAMETER NAME="use_dout_register" VALUE="false"/>
+        <PARAMETER NAME="Master_interface_Clock_enable_memory_mapped" VALUE="false"/>
+        <PARAMETER NAME="Slave_interface_Clock_enable_memory_mapped" VALUE="false"/>
+        <PARAMETER NAME="Output_Register_Type" VALUE="Embedded_Reg"/>
+        <PARAMETER NAME="Enable_Safety_Circuit" VALUE="true"/>
+        <PARAMETER NAME="Enable_ECC_Type" VALUE="Hard_ECC"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="wr_rst_busy" SIGIS="undef"/>
+        <PORT DIR="O" NAME="rd_rst_busy" SIGIS="undef"/>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_aresetn" SIGIS="rst" SIGNAME="UIF_UIF_AXI_0_sys_nReset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="sys_nReset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_m_axis_st_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_SerialSlave_0" PORT="m_axis_st_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_m_axis_st_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_SerialSlave_0" PORT="m_axis_st_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_m_axis_st_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_SerialSlave_0" PORT="m_axis_st_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_s_axis_st_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="s_axis_st_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_s_axis_st_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="s_axis_st_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_s_axis_st_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="s_axis_st_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="axis_data_count" RIGHT="0" SIGIS="undef" SIGNAME="UIF_fifo_generator_1_axis_data_count">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="st_fifo_count"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="UIF_fifo_generator_1_M_AXIS" NAME="M_AXIS" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="UIF_UIF_SerialSlave_0_m_axis_st" NAME="S_AXIS" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
@@ -3804,934 +4732,6 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES/>
-    </MODULE>
-    <MODULE FULLNAME="/fifo_generator_0" HWVERSION="13.2" INSTANCE="fifo_generator_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fifo_generator" VLNV="xilinx.com:ip:fifo_generator:13.2">
-      <DOCUMENTS>
-        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=fifo_generator;v=v13_2;d=pg057-fifo-generator.pdf"/>
-      </DOCUMENTS>
-      <PARAMETERS>
-        <PARAMETER NAME="C_COMMON_CLOCK" VALUE="1"/>
-        <PARAMETER NAME="C_SELECT_XPM" VALUE="0"/>
-        <PARAMETER NAME="C_COUNT_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_DATA_COUNT_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="C_DEFAULT_VALUE" VALUE="BlankString"/>
-        <PARAMETER NAME="C_DIN_WIDTH" VALUE="18"/>
-        <PARAMETER NAME="C_DOUT_RST_VAL" VALUE="0"/>
-        <PARAMETER NAME="C_DOUT_WIDTH" VALUE="18"/>
-        <PARAMETER NAME="C_ENABLE_RLOCS" VALUE="0"/>
-        <PARAMETER NAME="C_FAMILY" VALUE="zynq"/>
-        <PARAMETER NAME="C_FULL_FLAGS_RST_VAL" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_ALMOST_EMPTY" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_ALMOST_FULL" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_BACKUP" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNT" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_INT_CLK" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_MEMINIT_FILE" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_OVERFLOW" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_RD_DATA_COUNT" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_RD_RST" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_RST" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_SRST" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_UNDERFLOW" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_VALID" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_WR_ACK" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_WR_DATA_COUNT" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_WR_RST" VALUE="0"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_INIT_WR_PNTR_VAL" VALUE="0"/>
-        <PARAMETER NAME="C_MEMORY_TYPE" VALUE="1"/>
-        <PARAMETER NAME="C_MIF_FILE_NAME" VALUE="BlankString"/>
-        <PARAMETER NAME="C_OPTIMIZATION_MODE" VALUE="0"/>
-        <PARAMETER NAME="C_OVERFLOW_LOW" VALUE="0"/>
-        <PARAMETER NAME="C_PRELOAD_LATENCY" VALUE="1"/>
-        <PARAMETER NAME="C_PRELOAD_REGS" VALUE="0"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE" VALUE="4kx4"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL" VALUE="2"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_NEGATE_VAL" VALUE="3"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL" VALUE="1022"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_NEGATE_VAL" VALUE="1021"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_RD_DATA_COUNT_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="C_RD_DEPTH" VALUE="1024"/>
-        <PARAMETER NAME="C_RD_FREQ" VALUE="1"/>
-        <PARAMETER NAME="C_RD_PNTR_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="C_UNDERFLOW_LOW" VALUE="0"/>
-        <PARAMETER NAME="C_USE_DOUT_RST" VALUE="1"/>
-        <PARAMETER NAME="C_USE_ECC" VALUE="0"/>
-        <PARAMETER NAME="C_USE_EMBEDDED_REG" VALUE="0"/>
-        <PARAMETER NAME="C_USE_PIPELINE_REG" VALUE="0"/>
-        <PARAMETER NAME="C_POWER_SAVING_MODE" VALUE="0"/>
-        <PARAMETER NAME="C_USE_FIFO16_FLAGS" VALUE="0"/>
-        <PARAMETER NAME="C_USE_FWFT_DATA_COUNT" VALUE="0"/>
-        <PARAMETER NAME="C_VALID_LOW" VALUE="0"/>
-        <PARAMETER NAME="C_WR_ACK_LOW" VALUE="0"/>
-        <PARAMETER NAME="C_WR_DATA_COUNT_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="C_WR_DEPTH" VALUE="1024"/>
-        <PARAMETER NAME="C_WR_FREQ" VALUE="1"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="C_WR_RESPONSE_LATENCY" VALUE="1"/>
-        <PARAMETER NAME="C_MSGON_VAL" VALUE="1"/>
-        <PARAMETER NAME="C_ENABLE_RST_SYNC" VALUE="1"/>
-        <PARAMETER NAME="C_EN_SAFETY_CKT" VALUE="1"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_SYNCHRONIZER_STAGE" VALUE="2"/>
-        <PARAMETER NAME="C_INTERFACE_TYPE" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_TYPE" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXI_WR_CHANNEL" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXI_RD_CHANNEL" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_SLAVE_CE" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_MASTER_CE" VALUE="0"/>
-        <PARAMETER NAME="C_ADD_NGC_CONSTRAINT" VALUE="0"/>
-        <PARAMETER NAME="C_USE_COMMON_OVERFLOW" VALUE="0"/>
-        <PARAMETER NAME="C_USE_COMMON_UNDERFLOW" VALUE="0"/>
-        <PARAMETER NAME="C_USE_DEFAULT_SETTINGS" VALUE="0"/>
-        <PARAMETER NAME="C_AXI_ID_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_ADDR_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_AXI_DATA_WIDTH" VALUE="64"/>
-        <PARAMETER NAME="C_AXI_LEN_WIDTH" VALUE="8"/>
-        <PARAMETER NAME="C_AXI_LOCK_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXI_AWUSER" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXI_WUSER" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXI_BUSER" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXI_ARUSER" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXI_RUSER" VALUE="0"/>
-        <PARAMETER NAME="C_AXI_ARUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_AWUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_WUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_BUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_RUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXIS_TDATA" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXIS_TID" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXIS_TDEST" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXIS_TUSER" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXIS_TREADY" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXIS_TLAST" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXIS_TSTRB" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXIS_TKEEP" VALUE="0"/>
-        <PARAMETER NAME="C_AXIS_TDATA_WIDTH" VALUE="8"/>
-        <PARAMETER NAME="C_AXIS_TID_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXIS_TDEST_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXIS_TUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXIS_TSTRB_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXIS_TKEEP_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_WACH_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_WDCH_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_WRCH_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_RACH_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_RDCH_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_AXIS_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WACH" VALUE="2"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WDCH" VALUE="1"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WRCH" VALUE="2"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_RACH" VALUE="2"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_RDCH" VALUE="1"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_AXIS" VALUE="1"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WACH" VALUE="512x36"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WDCH" VALUE="1kx36"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WRCH" VALUE="512x36"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_RACH" VALUE="512x36"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_RDCH" VALUE="1kx36"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_AXIS" VALUE="2kx9"/>
-        <PARAMETER NAME="C_USE_ECC_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_USE_ECC_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_USE_ECC_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_USE_ECC_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_USE_ECC_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_USE_ECC_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_DIN_WIDTH_WACH" VALUE="32"/>
-        <PARAMETER NAME="C_DIN_WIDTH_WDCH" VALUE="64"/>
-        <PARAMETER NAME="C_DIN_WIDTH_WRCH" VALUE="2"/>
-        <PARAMETER NAME="C_DIN_WIDTH_RACH" VALUE="32"/>
-        <PARAMETER NAME="C_DIN_WIDTH_RDCH" VALUE="64"/>
-        <PARAMETER NAME="C_DIN_WIDTH_AXIS" VALUE="8"/>
-        <PARAMETER NAME="C_WR_DEPTH_WACH" VALUE="16"/>
-        <PARAMETER NAME="C_WR_DEPTH_WDCH" VALUE="1024"/>
-        <PARAMETER NAME="C_WR_DEPTH_WRCH" VALUE="16"/>
-        <PARAMETER NAME="C_WR_DEPTH_RACH" VALUE="16"/>
-        <PARAMETER NAME="C_WR_DEPTH_RDCH" VALUE="1024"/>
-        <PARAMETER NAME="C_WR_DEPTH_AXIS" VALUE="2048"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_WACH" VALUE="4"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_WDCH" VALUE="10"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_WRCH" VALUE="4"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_RACH" VALUE="4"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_RDCH" VALUE="10"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_AXIS" VALUE="11"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_AXIS" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WACH" VALUE="15"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WDCH" VALUE="1023"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WRCH" VALUE="15"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_RACH" VALUE="15"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_RDCH" VALUE="1023"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_AXIS" VALUE="2047"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WACH" VALUE="14"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WDCH" VALUE="1022"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WRCH" VALUE="14"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_RACH" VALUE="14"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_RDCH" VALUE="1022"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_AXIS" VALUE="2046"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_AXIS" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_fifo_generator_0_1"/>
-        <PARAMETER NAME="Fifo_Implementation" VALUE="Common_Clock_Block_RAM"/>
-        <PARAMETER NAME="synchronization_stages" VALUE="2"/>
-        <PARAMETER NAME="synchronization_stages_axi" VALUE="2"/>
-        <PARAMETER NAME="INTERFACE_TYPE" VALUE="AXI_STREAM"/>
-        <PARAMETER NAME="Performance_Options" VALUE="Standard_FIFO"/>
-        <PARAMETER NAME="asymmetric_port_width" VALUE="false"/>
-        <PARAMETER NAME="Input_Data_Width" VALUE="18"/>
-        <PARAMETER NAME="Input_Depth" VALUE="1024"/>
-        <PARAMETER NAME="Output_Data_Width" VALUE="18"/>
-        <PARAMETER NAME="Output_Depth" VALUE="1024"/>
-        <PARAMETER NAME="Enable_ECC" VALUE="false"/>
-        <PARAMETER NAME="Use_Embedded_Registers" VALUE="false"/>
-        <PARAMETER NAME="Reset_Pin" VALUE="true"/>
-        <PARAMETER NAME="Enable_Reset_Synchronization" VALUE="true"/>
-        <PARAMETER NAME="Reset_Type" VALUE="Asynchronous_Reset"/>
-        <PARAMETER NAME="Full_Flags_Reset_Value" VALUE="1"/>
-        <PARAMETER NAME="Use_Dout_Reset" VALUE="true"/>
-        <PARAMETER NAME="Dout_Reset_Value" VALUE="0"/>
-        <PARAMETER NAME="dynamic_power_saving" VALUE="false"/>
-        <PARAMETER NAME="Almost_Full_Flag" VALUE="false"/>
-        <PARAMETER NAME="Almost_Empty_Flag" VALUE="false"/>
-        <PARAMETER NAME="Valid_Flag" VALUE="false"/>
-        <PARAMETER NAME="Valid_Sense" VALUE="Active_High"/>
-        <PARAMETER NAME="Underflow_Flag" VALUE="false"/>
-        <PARAMETER NAME="Underflow_Sense" VALUE="Active_High"/>
-        <PARAMETER NAME="Write_Acknowledge_Flag" VALUE="false"/>
-        <PARAMETER NAME="Write_Acknowledge_Sense" VALUE="Active_High"/>
-        <PARAMETER NAME="Overflow_Flag" VALUE="false"/>
-        <PARAMETER NAME="Overflow_Sense" VALUE="Active_High"/>
-        <PARAMETER NAME="Inject_Sbit_Error" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error" VALUE="false"/>
-        <PARAMETER NAME="ecc_pipeline_reg" VALUE="false"/>
-        <PARAMETER NAME="Use_Extra_Logic" VALUE="false"/>
-        <PARAMETER NAME="Data_Count" VALUE="false"/>
-        <PARAMETER NAME="Data_Count_Width" VALUE="10"/>
-        <PARAMETER NAME="Write_Data_Count" VALUE="false"/>
-        <PARAMETER NAME="Write_Data_Count_Width" VALUE="10"/>
-        <PARAMETER NAME="Read_Data_Count" VALUE="false"/>
-        <PARAMETER NAME="Read_Data_Count_Width" VALUE="10"/>
-        <PARAMETER NAME="Disable_Timing_Violations" VALUE="false"/>
-        <PARAMETER NAME="Read_Clock_Frequency" VALUE="1"/>
-        <PARAMETER NAME="Write_Clock_Frequency" VALUE="1"/>
-        <PARAMETER NAME="Programmable_Full_Type" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value" VALUE="1022"/>
-        <PARAMETER NAME="Full_Threshold_Negate_Value" VALUE="1021"/>
-        <PARAMETER NAME="Programmable_Empty_Type" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value" VALUE="2"/>
-        <PARAMETER NAME="Empty_Threshold_Negate_Value" VALUE="3"/>
-        <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
-        <PARAMETER NAME="Clock_Type_AXI" VALUE="Common_Clock"/>
-        <PARAMETER NAME="HAS_ACLKEN" VALUE="false"/>
-        <PARAMETER NAME="Clock_Enable_Type" VALUE="Slave_Interface_Clock_Enable"/>
-        <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
-        <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="ADDRESS_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
-        <PARAMETER NAME="AWUSER_Width" VALUE="0"/>
-        <PARAMETER NAME="WUSER_Width" VALUE="0"/>
-        <PARAMETER NAME="BUSER_Width" VALUE="0"/>
-        <PARAMETER NAME="ARUSER_Width" VALUE="0"/>
-        <PARAMETER NAME="RUSER_Width" VALUE="0"/>
-        <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
-        <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="Enable_TREADY" VALUE="true"/>
-        <PARAMETER NAME="Enable_TLAST" VALUE="false"/>
-        <PARAMETER NAME="HAS_TSTRB" VALUE="false"/>
-        <PARAMETER NAME="TSTRB_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="HAS_TKEEP" VALUE="false"/>
-        <PARAMETER NAME="TKEEP_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="wach_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_wach" VALUE="Common_Clock_Distributed_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_wach" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_wach" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_wach" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_wach" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_wach" VALUE="16"/>
-        <PARAMETER NAME="Enable_Data_Counts_wach" VALUE="false"/>
-        <PARAMETER NAME="Programmable_Full_Type_wach" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_wach" VALUE="15"/>
-        <PARAMETER NAME="Programmable_Empty_Type_wach" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_wach" VALUE="14"/>
-        <PARAMETER NAME="wdch_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_wdch" VALUE="Common_Clock_Block_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_wdch" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_wdch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_wdch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_wdch" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_wdch" VALUE="1024"/>
-        <PARAMETER NAME="Enable_Data_Counts_wdch" VALUE="false"/>
-        <PARAMETER NAME="Programmable_Full_Type_wdch" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_wdch" VALUE="1023"/>
-        <PARAMETER NAME="Programmable_Empty_Type_wdch" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_wdch" VALUE="1022"/>
-        <PARAMETER NAME="wrch_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_wrch" VALUE="Common_Clock_Distributed_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_wrch" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_wrch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_wrch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_wrch" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_wrch" VALUE="16"/>
-        <PARAMETER NAME="Enable_Data_Counts_wrch" VALUE="false"/>
-        <PARAMETER NAME="Programmable_Full_Type_wrch" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_wrch" VALUE="15"/>
-        <PARAMETER NAME="Programmable_Empty_Type_wrch" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_wrch" VALUE="14"/>
-        <PARAMETER NAME="rach_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_rach" VALUE="Common_Clock_Distributed_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_rach" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_rach" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_rach" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_rach" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_rach" VALUE="16"/>
-        <PARAMETER NAME="Enable_Data_Counts_rach" VALUE="false"/>
-        <PARAMETER NAME="Programmable_Full_Type_rach" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_rach" VALUE="15"/>
-        <PARAMETER NAME="Programmable_Empty_Type_rach" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_rach" VALUE="14"/>
-        <PARAMETER NAME="rdch_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_rdch" VALUE="Common_Clock_Block_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_rdch" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_rdch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_rdch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_rdch" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_rdch" VALUE="1024"/>
-        <PARAMETER NAME="Enable_Data_Counts_rdch" VALUE="false"/>
-        <PARAMETER NAME="Programmable_Full_Type_rdch" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_rdch" VALUE="1023"/>
-        <PARAMETER NAME="Programmable_Empty_Type_rdch" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_rdch" VALUE="1022"/>
-        <PARAMETER NAME="axis_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_axis" VALUE="Common_Clock_Block_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_axis" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_axis" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_axis" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_axis" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_axis" VALUE="2048"/>
-        <PARAMETER NAME="Enable_Data_Counts_axis" VALUE="true"/>
-        <PARAMETER NAME="Programmable_Full_Type_axis" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_axis" VALUE="2047"/>
-        <PARAMETER NAME="Programmable_Empty_Type_axis" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_axis" VALUE="2046"/>
-        <PARAMETER NAME="Register_Slice_Mode_wach" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Register_Slice_Mode_wdch" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Register_Slice_Mode_wrch" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Register_Slice_Mode_rach" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Register_Slice_Mode_rdch" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Register_Slice_Mode_axis" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Underflow_Flag_AXI" VALUE="false"/>
-        <PARAMETER NAME="Underflow_Sense_AXI" VALUE="Active_High"/>
-        <PARAMETER NAME="Overflow_Flag_AXI" VALUE="false"/>
-        <PARAMETER NAME="Overflow_Sense_AXI" VALUE="Active_High"/>
-        <PARAMETER NAME="Disable_Timing_Violations_AXI" VALUE="false"/>
-        <PARAMETER NAME="Add_NGC_Constraint_AXI" VALUE="false"/>
-        <PARAMETER NAME="Enable_Common_Underflow" VALUE="false"/>
-        <PARAMETER NAME="Enable_Common_Overflow" VALUE="false"/>
-        <PARAMETER NAME="enable_read_pointer_increment_by2" VALUE="false"/>
-        <PARAMETER NAME="Use_Embedded_Registers_axis" VALUE="false"/>
-        <PARAMETER NAME="enable_low_latency" VALUE="false"/>
-        <PARAMETER NAME="use_dout_register" VALUE="false"/>
-        <PARAMETER NAME="Master_interface_Clock_enable_memory_mapped" VALUE="false"/>
-        <PARAMETER NAME="Slave_interface_Clock_enable_memory_mapped" VALUE="false"/>
-        <PARAMETER NAME="Output_Register_Type" VALUE="Embedded_Reg"/>
-        <PARAMETER NAME="Enable_Safety_Circuit" VALUE="true"/>
-        <PARAMETER NAME="Enable_ECC_Type" VALUE="Hard_ECC"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="O" NAME="wr_rst_busy" SIGIS="undef"/>
-        <PORT DIR="O" NAME="rd_rst_busy" SIGIS="undef"/>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_aresetn" SIGIS="rst" SIGNAME="UIF_AXI_0_sys_nReset">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="sys_nReset"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="UIF_AXI_0_m_axis_sr_tvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="m_axis_sr_tvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="UIF_AXI_0_m_axis_sr_tready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="m_axis_sr_tready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="7" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_m_axis_sr_tdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="m_axis_sr_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_s_axis_sr_tvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_SerialSlave_0" PORT="s_axis_sr_tvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_s_axis_sr_tready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_SerialSlave_0" PORT="s_axis_sr_tready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_s_axis_sr_tdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_SerialSlave_0" PORT="s_axis_sr_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="11" NAME="axis_data_count" RIGHT="0" SIGIS="undef"/>
-      </PORTS>
-      <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="fifo_generator_0_M_AXIS" NAME="M_AXIS" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
-          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
-          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
-          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
-          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
-            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
-            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="UIF_AXI_0_m_axis_sr" NAME="S_AXIS" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
-          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
-          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
-          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
-          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
-            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
-            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-      </BUSINTERFACES>
-    </MODULE>
-    <MODULE FULLNAME="/fifo_generator_1" HWVERSION="13.2" INSTANCE="fifo_generator_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fifo_generator" VLNV="xilinx.com:ip:fifo_generator:13.2">
-      <DOCUMENTS>
-        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=fifo_generator;v=v13_2;d=pg057-fifo-generator.pdf"/>
-      </DOCUMENTS>
-      <PARAMETERS>
-        <PARAMETER NAME="C_COMMON_CLOCK" VALUE="1"/>
-        <PARAMETER NAME="C_SELECT_XPM" VALUE="0"/>
-        <PARAMETER NAME="C_COUNT_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_DATA_COUNT_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="C_DEFAULT_VALUE" VALUE="BlankString"/>
-        <PARAMETER NAME="C_DIN_WIDTH" VALUE="18"/>
-        <PARAMETER NAME="C_DOUT_RST_VAL" VALUE="0"/>
-        <PARAMETER NAME="C_DOUT_WIDTH" VALUE="18"/>
-        <PARAMETER NAME="C_ENABLE_RLOCS" VALUE="0"/>
-        <PARAMETER NAME="C_FAMILY" VALUE="zynq"/>
-        <PARAMETER NAME="C_FULL_FLAGS_RST_VAL" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_ALMOST_EMPTY" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_ALMOST_FULL" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_BACKUP" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNT" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_INT_CLK" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_MEMINIT_FILE" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_OVERFLOW" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_RD_DATA_COUNT" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_RD_RST" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_RST" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_SRST" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_UNDERFLOW" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_VALID" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_WR_ACK" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_WR_DATA_COUNT" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_WR_RST" VALUE="0"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_INIT_WR_PNTR_VAL" VALUE="0"/>
-        <PARAMETER NAME="C_MEMORY_TYPE" VALUE="1"/>
-        <PARAMETER NAME="C_MIF_FILE_NAME" VALUE="BlankString"/>
-        <PARAMETER NAME="C_OPTIMIZATION_MODE" VALUE="0"/>
-        <PARAMETER NAME="C_OVERFLOW_LOW" VALUE="0"/>
-        <PARAMETER NAME="C_PRELOAD_LATENCY" VALUE="1"/>
-        <PARAMETER NAME="C_PRELOAD_REGS" VALUE="0"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE" VALUE="4kx4"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL" VALUE="2"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_NEGATE_VAL" VALUE="3"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL" VALUE="1022"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_NEGATE_VAL" VALUE="1021"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_RD_DATA_COUNT_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="C_RD_DEPTH" VALUE="1024"/>
-        <PARAMETER NAME="C_RD_FREQ" VALUE="1"/>
-        <PARAMETER NAME="C_RD_PNTR_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="C_UNDERFLOW_LOW" VALUE="0"/>
-        <PARAMETER NAME="C_USE_DOUT_RST" VALUE="1"/>
-        <PARAMETER NAME="C_USE_ECC" VALUE="0"/>
-        <PARAMETER NAME="C_USE_EMBEDDED_REG" VALUE="0"/>
-        <PARAMETER NAME="C_USE_PIPELINE_REG" VALUE="0"/>
-        <PARAMETER NAME="C_POWER_SAVING_MODE" VALUE="0"/>
-        <PARAMETER NAME="C_USE_FIFO16_FLAGS" VALUE="0"/>
-        <PARAMETER NAME="C_USE_FWFT_DATA_COUNT" VALUE="0"/>
-        <PARAMETER NAME="C_VALID_LOW" VALUE="0"/>
-        <PARAMETER NAME="C_WR_ACK_LOW" VALUE="0"/>
-        <PARAMETER NAME="C_WR_DATA_COUNT_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="C_WR_DEPTH" VALUE="1024"/>
-        <PARAMETER NAME="C_WR_FREQ" VALUE="1"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="C_WR_RESPONSE_LATENCY" VALUE="1"/>
-        <PARAMETER NAME="C_MSGON_VAL" VALUE="1"/>
-        <PARAMETER NAME="C_ENABLE_RST_SYNC" VALUE="1"/>
-        <PARAMETER NAME="C_EN_SAFETY_CKT" VALUE="1"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_SYNCHRONIZER_STAGE" VALUE="2"/>
-        <PARAMETER NAME="C_INTERFACE_TYPE" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_TYPE" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXI_WR_CHANNEL" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXI_RD_CHANNEL" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_SLAVE_CE" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_MASTER_CE" VALUE="0"/>
-        <PARAMETER NAME="C_ADD_NGC_CONSTRAINT" VALUE="0"/>
-        <PARAMETER NAME="C_USE_COMMON_OVERFLOW" VALUE="0"/>
-        <PARAMETER NAME="C_USE_COMMON_UNDERFLOW" VALUE="0"/>
-        <PARAMETER NAME="C_USE_DEFAULT_SETTINGS" VALUE="0"/>
-        <PARAMETER NAME="C_AXI_ID_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_ADDR_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_AXI_DATA_WIDTH" VALUE="64"/>
-        <PARAMETER NAME="C_AXI_LEN_WIDTH" VALUE="8"/>
-        <PARAMETER NAME="C_AXI_LOCK_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXI_AWUSER" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXI_WUSER" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXI_BUSER" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXI_ARUSER" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXI_RUSER" VALUE="0"/>
-        <PARAMETER NAME="C_AXI_ARUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_AWUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_WUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_BUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXI_RUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXIS_TDATA" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXIS_TID" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXIS_TDEST" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXIS_TUSER" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXIS_TREADY" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_AXIS_TLAST" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXIS_TSTRB" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_AXIS_TKEEP" VALUE="0"/>
-        <PARAMETER NAME="C_AXIS_TDATA_WIDTH" VALUE="8"/>
-        <PARAMETER NAME="C_AXIS_TID_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXIS_TDEST_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXIS_TUSER_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXIS_TSTRB_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_AXIS_TKEEP_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_WACH_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_WDCH_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_WRCH_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_RACH_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_RDCH_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_AXIS_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WACH" VALUE="2"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WDCH" VALUE="1"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_WRCH" VALUE="2"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_RACH" VALUE="2"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_RDCH" VALUE="1"/>
-        <PARAMETER NAME="C_IMPLEMENTATION_TYPE_AXIS" VALUE="1"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_APPLICATION_TYPE_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WACH" VALUE="512x36"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WDCH" VALUE="1kx36"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_WRCH" VALUE="512x36"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_RACH" VALUE="512x36"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_RDCH" VALUE="1kx36"/>
-        <PARAMETER NAME="C_PRIM_FIFO_TYPE_AXIS" VALUE="2kx9"/>
-        <PARAMETER NAME="C_USE_ECC_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_USE_ECC_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_USE_ECC_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_USE_ECC_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_USE_ECC_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_USE_ECC_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_ERROR_INJECTION_TYPE_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_DIN_WIDTH_WACH" VALUE="32"/>
-        <PARAMETER NAME="C_DIN_WIDTH_WDCH" VALUE="64"/>
-        <PARAMETER NAME="C_DIN_WIDTH_WRCH" VALUE="2"/>
-        <PARAMETER NAME="C_DIN_WIDTH_RACH" VALUE="32"/>
-        <PARAMETER NAME="C_DIN_WIDTH_RDCH" VALUE="64"/>
-        <PARAMETER NAME="C_DIN_WIDTH_AXIS" VALUE="8"/>
-        <PARAMETER NAME="C_WR_DEPTH_WACH" VALUE="16"/>
-        <PARAMETER NAME="C_WR_DEPTH_WDCH" VALUE="1024"/>
-        <PARAMETER NAME="C_WR_DEPTH_WRCH" VALUE="16"/>
-        <PARAMETER NAME="C_WR_DEPTH_RACH" VALUE="16"/>
-        <PARAMETER NAME="C_WR_DEPTH_RDCH" VALUE="1024"/>
-        <PARAMETER NAME="C_WR_DEPTH_AXIS" VALUE="2048"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_WACH" VALUE="4"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_WDCH" VALUE="10"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_WRCH" VALUE="4"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_RACH" VALUE="4"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_RDCH" VALUE="10"/>
-        <PARAMETER NAME="C_WR_PNTR_WIDTH_AXIS" VALUE="11"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_DATA_COUNTS_AXIS" VALUE="1"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_PROG_FLAGS_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_TYPE_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WACH" VALUE="15"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WDCH" VALUE="1023"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_WRCH" VALUE="15"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_RACH" VALUE="15"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_RDCH" VALUE="1023"/>
-        <PARAMETER NAME="C_PROG_FULL_THRESH_ASSERT_VAL_AXIS" VALUE="2047"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_TYPE_AXIS" VALUE="0"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WACH" VALUE="14"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WDCH" VALUE="1022"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_WRCH" VALUE="14"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_RACH" VALUE="14"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_RDCH" VALUE="1022"/>
-        <PARAMETER NAME="C_PROG_EMPTY_THRESH_ASSERT_VAL_AXIS" VALUE="2046"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_WACH" VALUE="0"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_WDCH" VALUE="0"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_WRCH" VALUE="0"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_RACH" VALUE="0"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_RDCH" VALUE="0"/>
-        <PARAMETER NAME="C_REG_SLICE_MODE_AXIS" VALUE="0"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_fifo_generator_0_2"/>
-        <PARAMETER NAME="Fifo_Implementation" VALUE="Common_Clock_Block_RAM"/>
-        <PARAMETER NAME="synchronization_stages" VALUE="2"/>
-        <PARAMETER NAME="synchronization_stages_axi" VALUE="2"/>
-        <PARAMETER NAME="INTERFACE_TYPE" VALUE="AXI_STREAM"/>
-        <PARAMETER NAME="Performance_Options" VALUE="Standard_FIFO"/>
-        <PARAMETER NAME="asymmetric_port_width" VALUE="false"/>
-        <PARAMETER NAME="Input_Data_Width" VALUE="18"/>
-        <PARAMETER NAME="Input_Depth" VALUE="1024"/>
-        <PARAMETER NAME="Output_Data_Width" VALUE="18"/>
-        <PARAMETER NAME="Output_Depth" VALUE="1024"/>
-        <PARAMETER NAME="Enable_ECC" VALUE="false"/>
-        <PARAMETER NAME="Use_Embedded_Registers" VALUE="false"/>
-        <PARAMETER NAME="Reset_Pin" VALUE="true"/>
-        <PARAMETER NAME="Enable_Reset_Synchronization" VALUE="true"/>
-        <PARAMETER NAME="Reset_Type" VALUE="Asynchronous_Reset"/>
-        <PARAMETER NAME="Full_Flags_Reset_Value" VALUE="1"/>
-        <PARAMETER NAME="Use_Dout_Reset" VALUE="true"/>
-        <PARAMETER NAME="Dout_Reset_Value" VALUE="0"/>
-        <PARAMETER NAME="dynamic_power_saving" VALUE="false"/>
-        <PARAMETER NAME="Almost_Full_Flag" VALUE="false"/>
-        <PARAMETER NAME="Almost_Empty_Flag" VALUE="false"/>
-        <PARAMETER NAME="Valid_Flag" VALUE="false"/>
-        <PARAMETER NAME="Valid_Sense" VALUE="Active_High"/>
-        <PARAMETER NAME="Underflow_Flag" VALUE="false"/>
-        <PARAMETER NAME="Underflow_Sense" VALUE="Active_High"/>
-        <PARAMETER NAME="Write_Acknowledge_Flag" VALUE="false"/>
-        <PARAMETER NAME="Write_Acknowledge_Sense" VALUE="Active_High"/>
-        <PARAMETER NAME="Overflow_Flag" VALUE="false"/>
-        <PARAMETER NAME="Overflow_Sense" VALUE="Active_High"/>
-        <PARAMETER NAME="Inject_Sbit_Error" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error" VALUE="false"/>
-        <PARAMETER NAME="ecc_pipeline_reg" VALUE="false"/>
-        <PARAMETER NAME="Use_Extra_Logic" VALUE="false"/>
-        <PARAMETER NAME="Data_Count" VALUE="false"/>
-        <PARAMETER NAME="Data_Count_Width" VALUE="10"/>
-        <PARAMETER NAME="Write_Data_Count" VALUE="false"/>
-        <PARAMETER NAME="Write_Data_Count_Width" VALUE="10"/>
-        <PARAMETER NAME="Read_Data_Count" VALUE="false"/>
-        <PARAMETER NAME="Read_Data_Count_Width" VALUE="10"/>
-        <PARAMETER NAME="Disable_Timing_Violations" VALUE="false"/>
-        <PARAMETER NAME="Read_Clock_Frequency" VALUE="1"/>
-        <PARAMETER NAME="Write_Clock_Frequency" VALUE="1"/>
-        <PARAMETER NAME="Programmable_Full_Type" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value" VALUE="1022"/>
-        <PARAMETER NAME="Full_Threshold_Negate_Value" VALUE="1021"/>
-        <PARAMETER NAME="Programmable_Empty_Type" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value" VALUE="2"/>
-        <PARAMETER NAME="Empty_Threshold_Negate_Value" VALUE="3"/>
-        <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
-        <PARAMETER NAME="Clock_Type_AXI" VALUE="Common_Clock"/>
-        <PARAMETER NAME="HAS_ACLKEN" VALUE="false"/>
-        <PARAMETER NAME="Clock_Enable_Type" VALUE="Slave_Interface_Clock_Enable"/>
-        <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
-        <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="ADDRESS_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="DATA_WIDTH" VALUE="64"/>
-        <PARAMETER NAME="AWUSER_Width" VALUE="0"/>
-        <PARAMETER NAME="WUSER_Width" VALUE="0"/>
-        <PARAMETER NAME="BUSER_Width" VALUE="0"/>
-        <PARAMETER NAME="ARUSER_Width" VALUE="0"/>
-        <PARAMETER NAME="RUSER_Width" VALUE="0"/>
-        <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
-        <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
-        <PARAMETER NAME="Enable_TREADY" VALUE="true"/>
-        <PARAMETER NAME="Enable_TLAST" VALUE="false"/>
-        <PARAMETER NAME="HAS_TSTRB" VALUE="false"/>
-        <PARAMETER NAME="TSTRB_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="HAS_TKEEP" VALUE="false"/>
-        <PARAMETER NAME="TKEEP_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="wach_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_wach" VALUE="Common_Clock_Distributed_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_wach" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_wach" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_wach" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_wach" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_wach" VALUE="16"/>
-        <PARAMETER NAME="Enable_Data_Counts_wach" VALUE="false"/>
-        <PARAMETER NAME="Programmable_Full_Type_wach" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_wach" VALUE="15"/>
-        <PARAMETER NAME="Programmable_Empty_Type_wach" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_wach" VALUE="14"/>
-        <PARAMETER NAME="wdch_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_wdch" VALUE="Common_Clock_Block_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_wdch" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_wdch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_wdch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_wdch" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_wdch" VALUE="1024"/>
-        <PARAMETER NAME="Enable_Data_Counts_wdch" VALUE="false"/>
-        <PARAMETER NAME="Programmable_Full_Type_wdch" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_wdch" VALUE="1023"/>
-        <PARAMETER NAME="Programmable_Empty_Type_wdch" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_wdch" VALUE="1022"/>
-        <PARAMETER NAME="wrch_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_wrch" VALUE="Common_Clock_Distributed_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_wrch" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_wrch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_wrch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_wrch" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_wrch" VALUE="16"/>
-        <PARAMETER NAME="Enable_Data_Counts_wrch" VALUE="false"/>
-        <PARAMETER NAME="Programmable_Full_Type_wrch" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_wrch" VALUE="15"/>
-        <PARAMETER NAME="Programmable_Empty_Type_wrch" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_wrch" VALUE="14"/>
-        <PARAMETER NAME="rach_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_rach" VALUE="Common_Clock_Distributed_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_rach" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_rach" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_rach" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_rach" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_rach" VALUE="16"/>
-        <PARAMETER NAME="Enable_Data_Counts_rach" VALUE="false"/>
-        <PARAMETER NAME="Programmable_Full_Type_rach" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_rach" VALUE="15"/>
-        <PARAMETER NAME="Programmable_Empty_Type_rach" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_rach" VALUE="14"/>
-        <PARAMETER NAME="rdch_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_rdch" VALUE="Common_Clock_Block_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_rdch" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_rdch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_rdch" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_rdch" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_rdch" VALUE="1024"/>
-        <PARAMETER NAME="Enable_Data_Counts_rdch" VALUE="false"/>
-        <PARAMETER NAME="Programmable_Full_Type_rdch" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_rdch" VALUE="1023"/>
-        <PARAMETER NAME="Programmable_Empty_Type_rdch" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_rdch" VALUE="1022"/>
-        <PARAMETER NAME="axis_type" VALUE="FIFO"/>
-        <PARAMETER NAME="FIFO_Implementation_axis" VALUE="Common_Clock_Block_RAM"/>
-        <PARAMETER NAME="FIFO_Application_Type_axis" VALUE="Data_FIFO"/>
-        <PARAMETER NAME="Enable_ECC_axis" VALUE="false"/>
-        <PARAMETER NAME="Inject_Sbit_Error_axis" VALUE="false"/>
-        <PARAMETER NAME="Inject_Dbit_Error_axis" VALUE="false"/>
-        <PARAMETER NAME="Input_Depth_axis" VALUE="2048"/>
-        <PARAMETER NAME="Enable_Data_Counts_axis" VALUE="true"/>
-        <PARAMETER NAME="Programmable_Full_Type_axis" VALUE="No_Programmable_Full_Threshold"/>
-        <PARAMETER NAME="Full_Threshold_Assert_Value_axis" VALUE="2047"/>
-        <PARAMETER NAME="Programmable_Empty_Type_axis" VALUE="No_Programmable_Empty_Threshold"/>
-        <PARAMETER NAME="Empty_Threshold_Assert_Value_axis" VALUE="2046"/>
-        <PARAMETER NAME="Register_Slice_Mode_wach" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Register_Slice_Mode_wdch" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Register_Slice_Mode_wrch" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Register_Slice_Mode_rach" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Register_Slice_Mode_rdch" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Register_Slice_Mode_axis" VALUE="Fully_Registered"/>
-        <PARAMETER NAME="Underflow_Flag_AXI" VALUE="false"/>
-        <PARAMETER NAME="Underflow_Sense_AXI" VALUE="Active_High"/>
-        <PARAMETER NAME="Overflow_Flag_AXI" VALUE="false"/>
-        <PARAMETER NAME="Overflow_Sense_AXI" VALUE="Active_High"/>
-        <PARAMETER NAME="Disable_Timing_Violations_AXI" VALUE="false"/>
-        <PARAMETER NAME="Add_NGC_Constraint_AXI" VALUE="false"/>
-        <PARAMETER NAME="Enable_Common_Underflow" VALUE="false"/>
-        <PARAMETER NAME="Enable_Common_Overflow" VALUE="false"/>
-        <PARAMETER NAME="enable_read_pointer_increment_by2" VALUE="false"/>
-        <PARAMETER NAME="Use_Embedded_Registers_axis" VALUE="false"/>
-        <PARAMETER NAME="enable_low_latency" VALUE="false"/>
-        <PARAMETER NAME="use_dout_register" VALUE="false"/>
-        <PARAMETER NAME="Master_interface_Clock_enable_memory_mapped" VALUE="false"/>
-        <PARAMETER NAME="Slave_interface_Clock_enable_memory_mapped" VALUE="false"/>
-        <PARAMETER NAME="Output_Register_Type" VALUE="Embedded_Reg"/>
-        <PARAMETER NAME="Enable_Safety_Circuit" VALUE="true"/>
-        <PARAMETER NAME="Enable_ECC_Type" VALUE="Hard_ECC"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="O" NAME="wr_rst_busy" SIGIS="undef"/>
-        <PORT DIR="O" NAME="rd_rst_busy" SIGIS="undef"/>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_aresetn" SIGIS="rst" SIGNAME="UIF_AXI_0_sys_nReset">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="sys_nReset"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axis_tvalid" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_m_axis_st_tvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_SerialSlave_0" PORT="m_axis_st_tvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axis_tready" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_m_axis_st_tready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_SerialSlave_0" PORT="m_axis_st_tready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="7" NAME="s_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_SerialSlave_0_m_axis_st_tdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_SerialSlave_0" PORT="m_axis_st_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="m_axis_tvalid" SIGIS="undef" SIGNAME="UIF_AXI_0_s_axis_st_tvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="s_axis_st_tvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="m_axis_tready" SIGIS="undef" SIGNAME="UIF_AXI_0_s_axis_st_tready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="s_axis_st_tready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="m_axis_tdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_s_axis_st_tdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="s_axis_st_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="11" NAME="axis_data_count" RIGHT="0" SIGIS="undef" SIGNAME="fifo_generator_1_axis_data_count">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="fifo_count"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="fifo_generator_1_M_AXIS" NAME="M_AXIS" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
-          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
-          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
-          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
-          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_tdata"/>
-            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_tready"/>
-            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_tvalid"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="UIF_SerialSlave_0_m_axis_st" NAME="S_AXIS" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
-          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="1"/>
-          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
-          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
-          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_tdata"/>
-            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_tready"/>
-            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_tvalid"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-      </BUSINTERFACES>
     </MODULE>
     <MODULE FULLNAME="/myip_0" HWVERSION="1.0" INSTANCE="myip_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="myip" VLNV="xilinx.com:user:myip:1.0">
       <DOCUMENTS/>
@@ -6065,8 +6065,6 @@
             <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="myip_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="fifo_generator_0" PORT="s_aclk"/>
-            <CONNECTION INSTANCE="fifo_generator_1" PORT="s_aclk"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ACLK"/>
@@ -6085,8 +6083,10 @@
             <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="DAC_Interface_fifo_generator_0" PORT="s_aclk"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_ACLK"/>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_ACLK"/>
-            <CONNECTION INSTANCE="UIF_SerialSlave_0" PORT="sysClk"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_0" PORT="s_aclk"/>
+            <CONNECTION INSTANCE="UIF_fifo_generator_1" PORT="s_aclk"/>
+            <CONNECTION INSTANCE="UIF_UIF_SerialSlave_0" PORT="sysClk"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ACLK"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK1">
@@ -6250,13 +6250,13 @@
         <MEMRANGE ADDRESSBLOCK="Mem0" BASENAME="C_S_AXI_BASEADDR" BASEVALUE="0x40000000" HIGHNAME="C_S_AXI_HIGHADDR" HIGHVALUE="0x40001FFF" INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="MEMORY" SLAVEBUSINTERFACE="S_AXI"/>
         <MEMRANGE ADDRESSBLOCK="S00_AXI_reg" BASENAME="C_S00_AXI_BASEADDR" BASEVALUE="0x43C00000" HIGHNAME="C_S00_AXI_HIGHADDR" HIGHVALUE="0x43C0FFFF" INSTANCE="myip_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S00_AXI"/>
         <MEMRANGE ADDRESSBLOCK="S00_AXI_reg" BASENAME="C_S00_AXI_BASEADDR" BASEVALUE="0x43C10000" HIGHNAME="C_S00_AXI_HIGHADDR" HIGHVALUE="0x43C1FFFF" INSTANCE="DSP_DSP_register_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S00_AXI"/>
-        <MEMRANGE ADDRESSBLOCK="reg0" BASENAME="C_BASEADDR" BASEVALUE="0x43C20000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x43C2FFFF" INSTANCE="UIF_AXI_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
+        <MEMRANGE ADDRESSBLOCK="reg0" BASENAME="C_BASEADDR" BASEVALUE="0x43C20000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x43C2FFFF" INSTANCE="UIF_UIF_AXI_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
       </MEMORYMAP>
       <PERIPHERALS>
         <PERIPHERAL INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0"/>
         <PERIPHERAL INSTANCE="myip_0"/>
         <PERIPHERAL INSTANCE="DSP_DSP_register_0"/>
-        <PERIPHERAL INSTANCE="UIF_AXI_0"/>
+        <PERIPHERAL INSTANCE="UIF_UIF_AXI_0"/>
       </PERIPHERALS>
     </MODULE>
     <MODULE FULLNAME="/ps7_0_axi_periph" HWVERSION="2.1" INSTANCE="ps7_0_axi_periph" IPTYPE="BUS" IS_ENABLE="1" MODCLASS="BUS" MODTYPE="axi_interconnect" VLNV="xilinx.com:ip:axi_interconnect:2.1">
@@ -6927,99 +6927,99 @@
             <CONNECTION INSTANCE="myip_0" PORT="s00_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M03_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_AWADDR">
+        <PORT DIR="O" LEFT="31" NAME="M03_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_AWADDR"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M03_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_AWPROT">
+        <PORT DIR="O" LEFT="2" NAME="M03_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWPROT">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_AWPROT"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWPROT"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M03_AXI_awvalid" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_AWVALID">
+        <PORT DIR="O" NAME="M03_AXI_awvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_AWVALID"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M03_AXI_awready" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_AWREADY">
+        <PORT DIR="I" NAME="M03_AXI_awready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_AWREADY"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M03_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_WDATA">
+        <PORT DIR="O" LEFT="31" NAME="M03_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_WDATA"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M03_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_WSTRB">
+        <PORT DIR="O" LEFT="3" NAME="M03_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WSTRB">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_WSTRB"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WSTRB"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M03_AXI_wvalid" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_WVALID">
+        <PORT DIR="O" NAME="M03_AXI_wvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_WVALID"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M03_AXI_wready" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_WREADY">
+        <PORT DIR="I" NAME="M03_AXI_wready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_WREADY"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M03_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_BRESP">
+        <PORT DIR="I" LEFT="1" NAME="M03_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BRESP">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_BRESP"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_BRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M03_AXI_bvalid" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_BVALID">
+        <PORT DIR="I" NAME="M03_AXI_bvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_BVALID"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_BVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M03_AXI_bready" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_BREADY">
+        <PORT DIR="O" NAME="M03_AXI_bready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_BREADY"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_BREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M03_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_ARADDR">
+        <PORT DIR="O" LEFT="31" NAME="M03_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_ARADDR"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M03_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_ARPROT">
+        <PORT DIR="O" LEFT="2" NAME="M03_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARPROT">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_ARPROT"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARPROT"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M03_AXI_arvalid" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_ARVALID">
+        <PORT DIR="O" NAME="M03_AXI_arvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_ARVALID"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M03_AXI_arready" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_ARREADY">
+        <PORT DIR="I" NAME="M03_AXI_arready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_ARREADY"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M03_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_RDATA">
+        <PORT DIR="I" LEFT="31" NAME="M03_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_RDATA"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M03_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_RRESP">
+        <PORT DIR="I" LEFT="1" NAME="M03_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RRESP">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_RRESP"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M03_AXI_rvalid" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_RVALID">
+        <PORT DIR="I" NAME="M03_AXI_rvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_RVALID"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M03_AXI_rready" SIGIS="undef" SIGNAME="UIF_AXI_0_S_AXI_RREADY">
+        <PORT DIR="O" NAME="M03_AXI_rready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_RREADY"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RREADY"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M01_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_register_0_s00_axi_awaddr">
@@ -7473,7 +7473,7 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M02_ARESETN"/>
             <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M03_ARESETN"/>
-            <CONNECTION INSTANCE="UIF_AXI_0" PORT="S_AXI_ARESETN"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARESETN"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

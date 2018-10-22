@@ -22,7 +22,7 @@
 * Version      : 1.0.0
 * Device(s)    : R5F51303AxFN
 * Description  : This file implements device driver for Config_SCI6.
-* Creation Date: 2018-10-17
+* Creation Date: 2018-10-21
 ***********************************************************************************************************************/
 
 #ifndef Config_SCI6_H

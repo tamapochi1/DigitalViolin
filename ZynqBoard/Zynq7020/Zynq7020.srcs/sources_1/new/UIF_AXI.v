@@ -97,7 +97,16 @@ module UIF_AXI
     output s_axis_st_tready,
     input s_axis_st_tvalid,
     
-    input [11:0] fifo_count,
+//    output [7:0] m_axis_ht_tdata,
+//    input m_axis_ht_tready,
+//    output m_axis_ht_tvalid,
+    
+//    input [7:0] s_axis_hr_tdata,
+//    output s_axis_hr_tready,
+//    input s_axis_hr_tvalid,
+    
+    input [11:0] st_fifo_count,
+//    input [11:0] hr_fifo_count,
     output sys_nReset,
     output UIF_res
 );
@@ -399,7 +408,7 @@ begin
       // Address decoding for reading registers
       case ( axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
         2'h0   : reg_data_out <= slv_reg0;
-        2'h1   : reg_data_out <= {20'd0, fifo_count};
+        2'h1   : reg_data_out <= {20'd0, st_fifo_count};
         2'h2   : reg_data_out <= 32'd0;
         
         2'h3   :

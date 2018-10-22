@@ -22,7 +22,7 @@
 * Version      : 1.1.0
 * Device(s)    : R5F51303AxFN
 * Description  : This file implements cgc setting.
-* Creation Date: 2018-10-17
+* Creation Date: 2018-10-21
 ***********************************************************************************************************************/
 
 #ifndef SMC_CGC_H

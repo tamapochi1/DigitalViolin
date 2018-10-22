@@ -1,0 +1,5 @@
+20:37:50 INFO  : Registering command handlers for SDK TCF services
+20:37:51 INFO  : Launching XSCT server: xsct.bat -interactive F:\Git\DigitalViolin\ZynqBoard\temp_xsdb_launch_script.tcl
+20:37:53 INFO  : XSCT server has started successfully.
+20:37:53 INFO  : Successfully done setting XSCT server connection channel  
+20:37:53 INFO  : Successfully done setting SDK workspace  

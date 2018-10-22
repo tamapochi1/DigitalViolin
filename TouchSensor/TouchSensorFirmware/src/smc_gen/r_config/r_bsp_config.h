@@ -70,7 +70,7 @@ Configuration Options
    FL           = 0x3             = LFQFP/48/0.50
    NE           = 0x4             = HWQFN/48/0.50
 */
-#define BSP_CFG_MCU_PART_PACKAGE        (0xB)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_MCU_PART_PACKAGE        (0xB)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* ROM, RAM, and Data Flash Capacity. 
    Character(s) = Value for macro = ROM Size/Ram Size/Data Flash Size
@@ -80,25 +80,25 @@ Configuration Options
    5            = 0x5             = 128KB/16KB/8KB
    3            = 0x3             = 64KB/10KB/8KB
 */
-#define BSP_CFG_MCU_PART_MEMORY_SIZE    (0x3)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_MCU_PART_MEMORY_SIZE    (0x3)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* Group name. 
    Character(s) = Value for macro = Description
    30           = 0x0             = RX130 Group
 */
-#define BSP_CFG_MCU_PART_GROUP          (0x0)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_MCU_PART_GROUP          (0x0)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* Series name. 
    Character(s) = Value for macro = Description
    51           = 0x0             = RX100 Series
 */  
-#define BSP_CFG_MCU_PART_SERIES         (0x0)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_MCU_PART_SERIES         (0x0)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* Memory type. 
    Character(s) = Value for macro = Description
    F            = 0x0             = Flash memory version
 */
-#define BSP_CFG_MCU_PART_MEMORY_TYPE    (0x0)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_MCU_PART_MEMORY_TYPE    (0x0)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* Whether to use 1 stack or 2. RX MCUs have the ability to use 2 stacks: an interrupt stack and a user stack.
  * When using 2 stacks the user stack will be used during normal user code. When an interrupt occurs the CPU
@@ -182,19 +182,19 @@ Configuration Options
    3 = Sub-Clock Oscillator
    4 = PLL Circuit
 */ 
-#define BSP_CFG_CLOCK_SOURCE            (4)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_CLOCK_SOURCE            (4)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* Main clock Oscillator Switching (MOSEL).
    0 = Resonator
    1 = External clock input
 */ 
-#define BSP_CFG_MAIN_CLOCK_SOURCE       (1)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_MAIN_CLOCK_SOURCE       (1)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* LPT (Low Power Timer) Clock source select (LPTCR1.LPCNTCKSEL)
    0 = Sub-clock
    1 = IWDT
 */
-#define BSP_CFG_LPT_CLOCK_SOURCE        (0)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_LPT_CLOCK_SOURCE        (0)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* Clock configuration options.
    The input clock frequency is specified and then the system clocks are set by specifying the multipliers used. The
@@ -218,37 +218,37 @@ Configuration Options
 
 */
 /* XTAL - Input clock frequency in Hz */
-#define BSP_CFG_XTAL_HZ                 (8000000)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_XTAL_HZ                 (8000000)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* PLL Input Frequency Divider Select (PLIDIV). 
    Available divisors = /1 (no division), /2, /4
 */
-#define BSP_CFG_PLL_DIV                 (2)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_PLL_DIV                 (2)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* PLL Frequency Multiplication Factor Select (STC). 
    Available multipliers = x4, x4.5, x5, x5.5, x6, x6.5, x7, x7.5, x8
 */
-#define BSP_CFG_PLL_MUL                 (8)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_PLL_MUL                 (8)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* System Clock Divider (ICK).
    Available divisors = /1 (no division), /2, /4, /8, /16, /32, /64
 */
-#define BSP_CFG_ICK_DIV                 (1)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_ICK_DIV                 (1)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* Peripheral Module Clock B Divider (PCKB). 
    Available divisors = /1 (no division), /2, /4, /8, /16, /32, /64
 */
-#define BSP_CFG_PCKB_DIV                (1)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_PCKB_DIV                (1)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* Peripheral Module Clock D Divider (PCKD). 
    Available divisors = /1 (no division), /2, /4, /8, /16, /32, /64
 */
-#define BSP_CFG_PCKD_DIV                (1)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_PCKD_DIV                (1)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* Flash IF Clock Divider (FCK). 
    Available divisors = /1 (no division), /2, /4, /8, /16, /32, /64
 */
-#define BSP_CFG_FCK_DIV                 (1)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_FCK_DIV                 (1)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* Main Clock Oscillator Wait Time (MOSCWTCR).
    0x00 = Wait time = 2 cycles (0.5 us)
@@ -264,7 +264,7 @@ Configuration Options
    NOTE: When the main clock is externally input, set these bits to 00000b because the oscillation
          stabilization time is not required. 
 */
-#define BSP_CFG_MOSC_WAIT_TIME          (0x00)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_MOSC_WAIT_TIME          (0x00)                       // <-- Updated by GUI. Do not edit this value manually
 
 /* Configure IWDT settings. 
    OFS0 - Option Function Select Register 0 
@@ -282,7 +282,7 @@ Configuration Options
        NOTE: When the IWDT-dedicated on-chip oscillator is used as the clock source for the low-power timer, set the OFS0.IWDTSLCSTP
              bit to 0 (counting stop is disabled) in IWDT auto-start mode operation.
 */
-#define BSP_CFG_OFS0_REG_VALUE  (0xFFFFFFFF)           // <-- Updated by GUI. Do not edit this value manually //Disable by default
+#define BSP_CFG_OFS0_REG_VALUE  (0xFFFFFFFF)                       // <-- Updated by GUI. Do not edit this value manually //Disable by default
 
 /* Configure whether voltage detection 1 circuit and HOCO are enabled after reset.
        OFS1 - Option Function Select Register 1
@@ -297,7 +297,7 @@ Configuration Options
              1 0: 2.51 V
              1 1: 1.90 V
 */
-#define BSP_CFG_OFS1_REG_VALUE  (0xFFFFFFFF)           // <-- Updated by GUI. Do not edit this value manually //Disable by default
+#define BSP_CFG_OFS1_REG_VALUE  (0xFFFFFFFF)                       // <-- Updated by GUI. Do not edit this value manually //Disable by default
 
 /* This macro lets other modules no if a RTOS is being used.
    0 = RTOS is not used. 
@@ -370,7 +370,7 @@ Configuration Options
 
 /* This macro is used to define the voltage that is supplied to the MCU (Vcc). This macro is defined in millivolts. This
    macro does not actually change anything on the MCU. Some FIT modules need this information so it is defined here. */
-#define BSP_CFG_MCU_VCC_MV                          (3300)           // <-- Updated by GUI. Do not edit this value manually
+#define BSP_CFG_MCU_VCC_MV                          (3300)                       // <-- Updated by GUI. Do not edit this value manually
 
 #endif /* R_BSP_CONFIG_REF_HEADER_FILE */
 

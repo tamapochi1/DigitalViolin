@@ -1,0 +1,140 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+-include makefile.init
+
+RM := rm -rf *.sni *.dbg *.lst *.lis *.lpp *.map *.x *.lbp *.bls *.libelf *.rel *.lbk *.abs  *.obj *.p *.pp *.d *.asm 1st/*.obj 1st/*.d 1st/*.asm 1st/*.abs
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include Source/SCI/subdir.mk
+-include Source/HwResource/subdir.mk
+-include Source/subdir.mk
+-include Source/UsbBase/subdir.mk
+-include Source/Workbench/subdir.mk
+-include Source/CTSU/subdir.mk
+-include Source/Touch/subdir.mk
+-include Source/DTC/subdir.mk
+-include Source/UsbApp/subdir.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif 
+ifneq ($(strip $(C_UPPER_DEPS)),)
+-include $(C_UPPER_DEPS)
+endif 
+ifneq ($(strip $(CPP_DEPS)),)
+-include $(CPP_DEPS)
+endif 
+ifneq ($(strip $(CXX_DEPS)),)
+-include $(CXX_DEPS)
+endif 
+ifneq ($(strip $(CC_DEPS)),)
+-include $(CC_DEPS)
+endif 
+ifneq ($(strip $(C++_DEPS)),)
+-include $(C++_DEPS)
+endif 
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
+endif 
+ifneq ($(strip $(ASM_DEPS)),)
+-include $(ASM_DEPS)
+endif 
+ifneq ($(strip $(JMP_DEPS)),)
+-include $(JMP_DEPS)
+endif 
+ifneq ($(strip $(SRC_DEPS)),)
+-include $(SRC_DEPS)
+endif 
+ifneq ($(strip $(PP_DEPS)),)
+-include $(PP_DEPS)
+endif 
+ifneq ($(strip $(P_DEPS)),)
+-include $(P_DEPS)
+endif 
+ifneq ($(strip $(FSY_DEPS)),)
+-include $(FSY_DEPS)
+endif 
+endif
+
+ifneq ($(strip $(SRC_UPPER_SRCS)),)
+ALL_ASMS += $(SRC_UPPER_SRCS) 
+endif
+ifneq ($(strip $(SRC_SRCS)),)
+ALL_ASMS += $(SRC_SRCS) 
+endif
+ifneq ($(strip $(S_UPPER_SRCS)),)
+ALL_ASMS += $(S_UPPER_SRCS) 
+endif
+ifneq ($(strip $(S_SRCS)),)
+ALL_ASMS += $(S_SRCS) 
+endif
+
+
+-include ../makefile.defs
+
+# Add inputs and outputs from these tool invocations to the build variables
+LINKER_OUTPUT_OUTPUTS += \
+TouchApiBase.abs
+
+LIBRARY_GENERATOR_OUTPUTTYPE_OUTPUTS += \
+TouchApiBase.lib
+
+CONVERTOR_OUTPUT_OUTPUTS += \
+TouchApiBase.mot \
+TouchApiBase.x
+
+OBJS := \
+$(COMPILER_OBJS) \
+$(INDIVIDUAL_COMPILER_OBJS) \
+$(ASSEMBLER_OBJS) \
+$(CUSTOM_OBJS)
+
+# All Target
+all: $(CONVERTOR_OUTPUT_OUTPUTS) 
+	@echo 'Build complete.'
+
+TouchApiBase.mot: $(LINKER_OUTPUT_OUTPUTS) 
+	@echo 'Invoking: Converter'
+	@echo 'Building target:'
+	rlink "TouchApiBase.abs" -form=stype -output="TouchApiBase.mot" -nologo -nomessage -nomessage
+	@echo 'Finished building target:'
+	@echo.
+
+
+TouchApiBase.abs: $(OBJS)  $(ALL_ASMS) $(LIBRARY_GENERATOR_OUTPUTTYPE_OUTPUTS) 
+	@echo 'Invoking: Linker'
+	rlink -noprelink -subcommand="LinkerSubCommand.tmp"  -output="TouchApiBase.abs" -form=absolute -nomessage -list=TouchApiBase.map -show=symbol,total_size -nooptimize -rom=D=R,D_1=R_1,D_2=R_2 -nologo -total_size -nologo -nomessage
+	@echo 'Finished building:'
+	@echo.
+
+
+TouchApiBase.lib: 
+	@echo 'Invoking: Library Generator'
+	lbgrx -cpu=rx600 -nofpu -lang=c99 -head=runtime,stdio,stdlib,string,new -output="TouchApiBase.lib" -nologo -nologo
+	@echo 'Finished building:'
+	@echo.
+
+TouchApiBase.x: TouchApiBase.abs
+		-C:\Renesas\e2_studio\eclipse\/../\Utilities\\ccrx\renesas_cc_converter.exe TouchApiBase.abs TouchApiBase.x
+
+# Other Targets
+clean:
+	-$(RM) $(LINKER_OUTPUT_OUTPUTS) $(LIBRARY_GENERATOR_OUTPUTTYPE_OUTPUTS) $(CONVERTOR_OUTPUT_OUTPUTS)
+	-rm -rf Source/SCI/*.obj Source/SCI/*.d Source/SCI/*.asm Source/SCI/*.p Source/SCI/*.src Source/SCI/*.jmp Source/SCI/*.lst Source/SCI/*.prn 
+	-rm -rf Source/HwResource/*.obj Source/HwResource/*.d Source/HwResource/*.asm Source/HwResource/*.p Source/HwResource/*.src Source/HwResource/*.jmp Source/HwResource/*.lst Source/HwResource/*.prn 
+	-rm -rf Source/*.obj Source/*.d Source/*.asm Source/*.p Source/*.src Source/*.jmp Source/*.lst Source/*.prn 
+	-rm -rf Source/UsbBase/*.obj Source/UsbBase/*.d Source/UsbBase/*.asm Source/UsbBase/*.p Source/UsbBase/*.src Source/UsbBase/*.jmp Source/UsbBase/*.lst Source/UsbBase/*.prn 
+	-rm -rf Source/Workbench/*.obj Source/Workbench/*.d Source/Workbench/*.asm Source/Workbench/*.p Source/Workbench/*.src Source/Workbench/*.jmp Source/Workbench/*.lst Source/Workbench/*.prn 
+	-rm -rf Source/CTSU/*.obj Source/CTSU/*.d Source/CTSU/*.asm Source/CTSU/*.p Source/CTSU/*.src Source/CTSU/*.jmp Source/CTSU/*.lst Source/CTSU/*.prn 
+	-rm -rf Source/Touch/*.obj Source/Touch/*.d Source/Touch/*.asm Source/Touch/*.p Source/Touch/*.src Source/Touch/*.jmp Source/Touch/*.lst Source/Touch/*.prn 
+	-rm -rf Source/DTC/*.obj Source/DTC/*.d Source/DTC/*.asm Source/DTC/*.p Source/DTC/*.src Source/DTC/*.jmp Source/DTC/*.lst Source/DTC/*.prn 
+	-rm -rf Source/UsbApp/*.obj Source/UsbApp/*.d Source/UsbApp/*.asm Source/UsbApp/*.p Source/UsbApp/*.src Source/UsbApp/*.jmp Source/UsbApp/*.lst Source/UsbApp/*.prn 
+	@echo
+	@echo 'Clean complete.'
+
+.PHONY: all clean 
+-include ../makefile.targets

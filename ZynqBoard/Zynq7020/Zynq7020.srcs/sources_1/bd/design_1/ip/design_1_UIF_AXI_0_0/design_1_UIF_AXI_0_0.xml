@@ -821,7 +821,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:1738aa30</spirit:value>
+            <spirit:value>8:d8235337</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -837,11 +837,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Oct 19 12:55:56 UTC 2018</spirit:value>
+            <spirit:value>Mon Oct 22 11:29:08 UTC 2018</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:1738aa30</spirit:value>
+            <spirit:value>8:d8235337</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -853,7 +853,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:341365dc</spirit:value>
+            <spirit:value>8:98054811</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -869,11 +869,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Oct 19 12:55:56 UTC 2018</spirit:value>
+            <spirit:value>Mon Oct 22 11:29:08 UTC 2018</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:341365dc</spirit:value>
+            <spirit:value>8:98054811</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -887,11 +887,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Oct 19 12:56:52 UTC 2018</spirit:value>
+            <spirit:value>Mon Oct 22 11:30:04 UTC 2018</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:1738aa30</spirit:value>
+            <spirit:value>8:d8235337</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1332,7 +1332,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>fifo_count</spirit:name>
+        <spirit:name>st_fifo_count</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>

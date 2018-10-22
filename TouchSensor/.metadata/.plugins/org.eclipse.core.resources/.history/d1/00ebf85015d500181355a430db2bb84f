@@ -1,0 +1,8 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+PATH := $(PATH)
+export INC_RX=C:\Users\Reiji\Desktop\include
+export RXC_LIB=C:\Users\Reiji\Desktop\bin
+export BIN_RX=C:\Users\Reiji\Desktop\bin

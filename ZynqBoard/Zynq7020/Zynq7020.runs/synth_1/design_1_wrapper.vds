@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Fri Oct 19 23:27:02 2018
-# Process ID: 5480
+# Start of session at: Mon Oct 22 20:30:03 2018
+# Process ID: 7612
 # Current directory: F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1
 # Command line: vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file: F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/design_1_wrapper.vds
@@ -17,111 +17,112 @@ INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/Git/DigitalViolin/ZynqBoar
 WARNING: [IP_Flow 19-3685] Ignored loading user repository 'f:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/myip_1.0'. The path is contained within another repository.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Reiji/AppData/Roaming/Xilinx/ip_repo'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/Xilinx/Vivado/2018.2/data/ip'.
-add_files: Time (s): cpu = 00:00:04 ; elapsed = 00:00:26 . Memory (MB): peak = 285.426 ; gain = 54.262
+add_files: Time (s): cpu = 00:00:05 ; elapsed = 00:00:26 . Memory (MB): peak = 285.578 ; gain = 53.777
 Command: synth_design -top design_1_wrapper -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10348 
+INFO: Helper process launched with PID 13424 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 402.137 ; gain = 104.828
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 402.680 ; gain = 105.070
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
-INFO: [Synth 8-6157] synthesizing module 'design_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:961]
+INFO: [Synth 8-6157] synthesizing module 'design_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1142]
 INFO: [Synth 8-6157] synthesizing module 'DAC_Interface_imp_1OX2TDS' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:12]
-INFO: [Synth 8-6157] synthesizing module 'design_1_DAC_FIFO_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_DAC_FIFO_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_DAC_FIFO_0_0' (1#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_DAC_FIFO_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_DAC_IF_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_DAC_IF_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_DAC_IF_0_0' (2#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_DAC_IF_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_fifo_generator_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_fifo_generator_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_fifo_generator_0_0' (3#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_fifo_generator_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_DAC_FIFO_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_DAC_FIFO_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_DAC_FIFO_0_0' (1#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_DAC_FIFO_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_DAC_IF_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_DAC_IF_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_DAC_IF_0_0' (2#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_DAC_IF_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_fifo_generator_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_fifo_generator_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_fifo_generator_0_0' (3#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_fifo_generator_0_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'fifo_generator_0' of module 'design_1_fifo_generator_0_0' requires 11 connections, but only 9 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:83]
 INFO: [Synth 8-6155] done synthesizing module 'DAC_Interface_imp_1OX2TDS' (4#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:12]
 INFO: [Synth 8-6157] synthesizing module 'DSP_imp_KXGKBB' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:95]
-INFO: [Synth 8-6157] synthesizing module 'design_1_DSP_register_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_DSP_register_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_DSP_register_0_0' (5#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_DSP_register_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_DSP_register_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_DSP_register_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_DSP_register_0_0' (5#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_DSP_register_0_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'DSP_register_0' of module 'design_1_DSP_register_0_0' requires 25 connections, but only 23 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:348]
-INFO: [Synth 8-6157] synthesizing module 'design_1_DSP_reset_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_DSP_reset_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_DSP_reset_0_0' (6#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_DSP_reset_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_DSP_reset_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_DSP_reset_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_DSP_reset_0_0' (6#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_DSP_reset_0_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'Synthesizer_imp_5BWTWR' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:685]
 INFO: [Synth 8-6157] synthesizing module 'GainAndSum_imp_1USF4QI' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:427]
-INFO: [Synth 8-6157] synthesizing module 'design_1_mult_gen_0_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_mult_gen_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_mult_gen_0_1' (7#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_mult_gen_0_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_mult_sum_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_mult_sum_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_mult_sum_0_0' (8#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_mult_sum_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_mult_gen_0_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_mult_gen_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_mult_gen_0_1' (7#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_mult_gen_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_mult_sum_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_mult_sum_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_mult_sum_0_0' (8#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_mult_sum_0_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'GainAndSum_imp_1USF4QI' (9#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:427]
 INFO: [Synth 8-6157] synthesizing module 'Oscillator_imp_AA12YF' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:494]
-INFO: [Synth 8-6157] synthesizing module 'design_1_blk_mem_gen_1_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_blk_mem_gen_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_blk_mem_gen_1_0' (10#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_blk_mem_gen_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_blk_mem_gen_1_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_blk_mem_gen_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_blk_mem_gen_1_0' (10#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_blk_mem_gen_1_0_stub.v:6]
 WARNING: [Synth 8-350] instance 'blk_mem_gen_1' of module 'design_1_blk_mem_gen_1_0' requires 10 connections, but only 8 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:544]
-INFO: [Synth 8-6157] synthesizing module 'design_1_phase_gen_256_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_phase_gen_256_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_phase_gen_256_0_0' (11#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_phase_gen_256_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_phase_gen_256_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_phase_gen_256_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_phase_gen_256_0_0' (11#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_phase_gen_256_0_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'Oscillator_imp_AA12YF' (12#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:494]
 INFO: [Synth 8-6157] synthesizing module 'SynthesizerReg_imp_LUF7W8' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:573]
-INFO: [Synth 8-6157] synthesizing module 'design_1_DSP_reg_read_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_DSP_reg_read_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_DSP_reg_read_0_0' (13#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_DSP_reg_read_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_blk_mem_gen_0_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_blk_mem_gen_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_blk_mem_gen_0_1' (14#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_blk_mem_gen_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_DSP_reg_read_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_DSP_reg_read_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_DSP_reg_read_0_0' (13#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_DSP_reg_read_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_blk_mem_gen_0_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_blk_mem_gen_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_blk_mem_gen_0_1' (14#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_blk_mem_gen_0_1_stub.v:6]
 WARNING: [Synth 8-350] instance 'blk_mem_gen_0' of module 'design_1_blk_mem_gen_0_1' requires 16 connections, but only 14 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:663]
-INFO: [Synth 8-6157] synthesizing module 'design_1_mult_gen_1_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_mult_gen_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_mult_gen_1_0' (15#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_mult_gen_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_mult_gen_1_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_mult_gen_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_mult_gen_1_0' (15#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_mult_gen_1_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'SynthesizerReg_imp_LUF7W8' (16#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:573]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_bram_ctrl_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_axi_bram_ctrl_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_bram_ctrl_0_0' (17#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_axi_bram_ctrl_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_cordic_0_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_cordic_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_cordic_0_1' (18#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_cordic_0_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_delay_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_delay_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_delay_0_0' (19#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_delay_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_bram_ctrl_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_axi_bram_ctrl_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_bram_ctrl_0_0' (17#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_axi_bram_ctrl_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_cordic_0_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_cordic_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_cordic_0_1' (18#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_cordic_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_delay_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_delay_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_delay_0_0' (19#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_delay_0_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'Synthesizer_imp_5BWTWR' (20#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:685]
-INFO: [Synth 8-6157] synthesizing module 'design_1_audio_clk_gen_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_audio_clk_gen_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_audio_clk_gen_0_0' (21#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_audio_clk_gen_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_audio_clk_gen_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_audio_clk_gen_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_audio_clk_gen_0_0' (21#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_audio_clk_gen_0_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'DSP_imp_KXGKBB' (22#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:95]
-INFO: [Synth 8-6157] synthesizing module 'design_1_UIF_AXI_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_UIF_AXI_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_UIF_AXI_0_0' (23#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_UIF_AXI_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_UIF_SerialSlave_0_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_UIF_SerialSlave_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_UIF_SerialSlave_0_1' (24#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_UIF_SerialSlave_0_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_clk_wiz_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_0_0' (25#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_clk_wiz_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_fifo_generator_0_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_fifo_generator_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_fifo_generator_0_1' (26#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_fifo_generator_0_1_stub.v:6]
-WARNING: [Synth 8-350] instance 'fifo_generator_0' of module 'design_1_fifo_generator_0_1' requires 11 connections, but only 8 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1350]
-INFO: [Synth 8-6157] synthesizing module 'design_1_fifo_generator_0_2' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_fifo_generator_0_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_fifo_generator_0_2' (27#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_fifo_generator_0_2_stub.v:6]
-WARNING: [Synth 8-350] instance 'fifo_generator_1' of module 'design_1_fifo_generator_0_2' requires 11 connections, but only 9 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1359]
-INFO: [Synth 8-6157] synthesizing module 'design_1_myip_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_myip_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_myip_0_0' (28#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_myip_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (29#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ps7_0_axi_periph_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1610]
-INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_15SPJYW' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:2743]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (30#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_15SPJYW' (31#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:2743]
-INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_XU9C55' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3033]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_auto_pc_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (32#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_auto_pc_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_XU9C55' (33#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3033]
-INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_14WQB4R' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3323]
-INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_14WQB4R' (34#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3323]
-INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_YFYJ3U' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3553]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_2' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_auto_pc_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_2' (35#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_auto_pc_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_YFYJ3U' (36#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3553]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_UYSKKA' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3843]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_3' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_auto_pc_3_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_3' (37#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_auto_pc_3_stub.v:6]
-WARNING: [Synth 8-350] instance 'auto_pc' of module 'design_1_auto_pc_3' requires 79 connections, but only 77 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:4158]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_UYSKKA' (38#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3843]
-INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_xbar_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_0' (39#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_xbar_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ps7_0_axi_periph_0' (40#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1610]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_50M_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_50M_0' (41#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-5480-Reiji-PC/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
-WARNING: [Synth 8-350] instance 'rst_ps7_0_50M' of module 'design_1_rst_ps7_0_50M_0' requires 10 connections, but only 7 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1600]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'UIF_SerialSlave_0'. This will prevent further optimization [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1333]
-INFO: [Synth 8-6155] done synthesizing module 'design_1' (42#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:961]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (43#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
+INFO: [Synth 8-6157] synthesizing module 'UIF_imp_1KE81ZA' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:960]
+INFO: [Synth 8-6157] synthesizing module 'design_1_UIF_AXI_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_UIF_AXI_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_UIF_AXI_0_0' (23#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_UIF_AXI_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_UIF_SerialSlave_0_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_UIF_SerialSlave_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_UIF_SerialSlave_0_1' (24#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_UIF_SerialSlave_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_fifo_generator_0_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_fifo_generator_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_fifo_generator_0_1' (25#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_fifo_generator_0_1_stub.v:6]
+WARNING: [Synth 8-350] instance 'fifo_generator_0' of module 'design_1_fifo_generator_0_1' requires 11 connections, but only 8 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1120]
+INFO: [Synth 8-6157] synthesizing module 'design_1_fifo_generator_0_2' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_fifo_generator_0_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_fifo_generator_0_2' (26#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_fifo_generator_0_2_stub.v:6]
+WARNING: [Synth 8-350] instance 'fifo_generator_1' of module 'design_1_fifo_generator_0_2' requires 11 connections, but only 9 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1129]
+INFO: [Synth 8-6155] done synthesizing module 'UIF_imp_1KE81ZA' (27#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:960]
+INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_0_0' (28#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_myip_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_myip_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_myip_0_0' (29#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_myip_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (30#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ps7_0_axi_periph_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1741]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_15SPJYW' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:2874]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (31#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_15SPJYW' (32#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:2874]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_XU9C55' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3164]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_1' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_auto_pc_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (33#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_auto_pc_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_XU9C55' (34#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3164]
+INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_14WQB4R' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3454]
+INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_14WQB4R' (35#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3454]
+INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_YFYJ3U' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3684]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_2' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_auto_pc_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_2' (36#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_auto_pc_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_YFYJ3U' (37#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3684]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_UYSKKA' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3974]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_3' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_auto_pc_3_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_3' (38#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_auto_pc_3_stub.v:6]
+WARNING: [Synth 8-350] instance 'auto_pc' of module 'design_1_auto_pc_3' requires 79 connections, but only 77 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:4289]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_UYSKKA' (39#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:3974]
+INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_xbar_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_0' (40#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_xbar_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ps7_0_axi_periph_0' (41#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1741]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_50M_0' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_50M_0' (42#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/.Xil/Vivado-7612-Reiji-PC/realtime/design_1_rst_ps7_0_50M_0_stub.v:6]
+WARNING: [Synth 8-350] instance 'rst_ps7_0_50M' of module 'design_1_rst_ps7_0_50M_0' requires 10 connections, but only 7 given [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1731]
+INFO: [Synth 8-6155] done synthesizing module 'design_1' (43#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/synth/design_1.v:1142]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (44#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 WARNING: [Synth 8-3331] design s00_couplers_imp_UYSKKA has unconnected port M_ACLK
 WARNING: [Synth 8-3331] design s00_couplers_imp_UYSKKA has unconnected port M_ARESETN
 WARNING: [Synth 8-3331] design m03_couplers_imp_YFYJ3U has unconnected port M_ACLK
@@ -134,6 +135,62 @@ WARNING: [Synth 8-3331] design m01_couplers_imp_XU9C55 has unconnected port M_AC
 WARNING: [Synth 8-3331] design m01_couplers_imp_XU9C55 has unconnected port M_ARESETN
 WARNING: [Synth 8-3331] design m00_couplers_imp_15SPJYW has unconnected port M_ACLK
 WARNING: [Synth 8-3331] design m00_couplers_imp_15SPJYW has unconnected port M_ARESETN
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[31]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[30]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[29]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[28]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[27]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[26]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[25]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[24]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[23]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[22]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[21]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[20]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[19]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[18]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[17]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[16]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[15]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[14]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[13]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[12]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[11]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[10]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[9]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[8]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[7]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[6]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[5]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_araddr[4]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[31]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[30]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[29]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[28]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[27]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[26]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[25]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[24]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[23]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[22]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[21]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[20]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[19]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[18]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[17]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[16]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[15]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[14]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[13]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[12]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[11]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[10]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[9]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[8]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[7]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[6]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[5]
+WARNING: [Synth 8-3331] design UIF_imp_1KE81ZA has unconnected port S_AXI_awaddr[4]
 WARNING: [Synth 8-3331] design GainAndSum_imp_1USF4QI has unconnected port outGain[7]
 WARNING: [Synth 8-3331] design GainAndSum_imp_1USF4QI has unconnected port outGain[6]
 WARNING: [Synth 8-3331] design GainAndSum_imp_1USF4QI has unconnected port outGain[5]
@@ -166,65 +223,9 @@ WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI
 WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[24]
 WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[23]
 WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[22]
-WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[21]
-WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[20]
-WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[19]
-WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[18]
-WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[17]
-WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[16]
-WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[15]
-WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[14]
-WARNING: [Synth 8-3331] design Synthesizer_imp_5BWTWR has unconnected port S_AXI_awaddr[13]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[31]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[30]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[29]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[28]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[27]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[26]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[25]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[24]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[23]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[22]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[21]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[20]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[19]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[18]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[17]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[16]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[15]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[14]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[13]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[12]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[11]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[10]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[9]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[8]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[7]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[6]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[5]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_araddr[4]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[31]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[30]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[29]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[28]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[27]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[26]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[25]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[24]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[23]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[22]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[21]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[20]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[19]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[18]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[17]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[16]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[15]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[14]
-WARNING: [Synth 8-3331] design DSP_imp_KXGKBB has unconnected port S00_AXI_awaddr[13]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 455.012 ; gain = 157.703
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 455.395 ; gain = 157.785
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -237,10 +238,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 455.012 ; gain = 157.703
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 455.395 ; gain = 157.785
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 455.012 ; gain = 157.703
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 455.395 ; gain = 157.785
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -289,14 +290,14 @@ Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_
 Finished Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_DAC_FIFO_0_0/design_1_DAC_FIFO_0_0/design_1_DAC_FIFO_0_0_in_context.xdc] for cell 'design_1_i/DAC_Interface/DAC_FIFO_0'
 Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_0/design_1_fifo_generator_0_0/design_1_fifo_generator_0_0_in_context.xdc] for cell 'design_1_i/DAC_Interface/fifo_generator_0'
 Finished Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_0/design_1_fifo_generator_0_0/design_1_fifo_generator_0_0_in_context.xdc] for cell 'design_1_i/DAC_Interface/fifo_generator_0'
-Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_AXI_0_0/design_1_UIF_AXI_0_0/design_1_UIF_AXI_0_0_in_context.xdc] for cell 'design_1_i/UIF_AXI_0'
-Finished Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_AXI_0_0/design_1_UIF_AXI_0_0/design_1_UIF_AXI_0_0_in_context.xdc] for cell 'design_1_i/UIF_AXI_0'
-Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_SerialSlave_0_1/design_1_UIF_SerialSlave_0_1/design_1_UIF_SerialSlave_0_1_in_context.xdc] for cell 'design_1_i/UIF_SerialSlave_0'
-Finished Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_SerialSlave_0_1/design_1_UIF_SerialSlave_0_1/design_1_UIF_SerialSlave_0_1_in_context.xdc] for cell 'design_1_i/UIF_SerialSlave_0'
-Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_1/design_1_fifo_generator_0_1/design_1_fifo_generator_0_1_in_context.xdc] for cell 'design_1_i/fifo_generator_0'
-Finished Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_1/design_1_fifo_generator_0_1/design_1_fifo_generator_0_1_in_context.xdc] for cell 'design_1_i/fifo_generator_0'
-Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_2/design_1_fifo_generator_0_2/design_1_fifo_generator_0_1_in_context.xdc] for cell 'design_1_i/fifo_generator_1'
-Finished Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_2/design_1_fifo_generator_0_2/design_1_fifo_generator_0_1_in_context.xdc] for cell 'design_1_i/fifo_generator_1'
+Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_AXI_0_0/design_1_UIF_AXI_0_0/design_1_UIF_AXI_0_0_in_context.xdc] for cell 'design_1_i/UIF/UIF_AXI_0'
+Finished Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_AXI_0_0/design_1_UIF_AXI_0_0/design_1_UIF_AXI_0_0_in_context.xdc] for cell 'design_1_i/UIF/UIF_AXI_0'
+Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_SerialSlave_0_1/design_1_UIF_SerialSlave_0_1/design_1_UIF_SerialSlave_0_1_in_context.xdc] for cell 'design_1_i/UIF/UIF_SerialSlave_0'
+Finished Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_SerialSlave_0_1/design_1_UIF_SerialSlave_0_1/design_1_UIF_SerialSlave_0_1_in_context.xdc] for cell 'design_1_i/UIF/UIF_SerialSlave_0'
+Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_1/design_1_fifo_generator_0_1/design_1_fifo_generator_0_1_in_context.xdc] for cell 'design_1_i/UIF/fifo_generator_0'
+Finished Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_1/design_1_fifo_generator_0_1/design_1_fifo_generator_0_1_in_context.xdc] for cell 'design_1_i/UIF/fifo_generator_0'
+Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_2/design_1_fifo_generator_0_2/design_1_fifo_generator_0_1_in_context.xdc] for cell 'design_1_i/UIF/fifo_generator_1'
+Finished Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_2/design_1_fifo_generator_0_2/design_1_fifo_generator_0_1_in_context.xdc] for cell 'design_1_i/UIF/fifo_generator_1'
 Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/m03_couplers/auto_pc'
 Finished Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/m03_couplers/auto_pc'
 Parsing XDC File [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/m01_couplers/auto_pc'
@@ -314,7 +315,10 @@ WARNING: [Vivado 12-584] No ports matched 'DAC_BCLK_0'. [F:/Git/DigitalViolin/Zy
 WARNING: [Vivado 12-584] No ports matched 'DAC_BCLK_0'. [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/constrs_1/new/constrs_1.xdc:30]
 WARNING: [Vivado 12-584] No ports matched 'DAC_BCLK_0'. [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/constrs_1/new/constrs_1.xdc:34]
 WARNING: [Vivado 12-180] No cells matched 'design_1_i/DSP/DSP_reset_0/inst/nResetAudio256ClkBuf_reg[1]'. [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/constrs_1/new/constrs_1.xdc:47]
-WARNING: [Vivado 12-180] No cells matched 'design_1_i/DSP/audio_clk_gen_0/inst/audioClkSyncBuf_reg[0]'. [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/constrs_1/new/constrs_1.xdc:49]
+WARNING: [Vivado 12-180] No cells matched 'design_1_i/DSP/audio_clk_gen_0/inst/audioClkSyncBuf_reg[0]'. [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/constrs_1/new/constrs_1.xdc:48]
+WARNING: [Vivado 12-584] No ports matched 'UIF_Master_1_h_rxd'. [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/constrs_1/new/constrs_1.xdc:63]
+WARNING: [Vivado 12-584] No ports matched 'UIF_Master_1_h_sck'. [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/constrs_1/new/constrs_1.xdc:64]
+WARNING: [Vivado 12-584] No ports matched 'UIF_Master_1_h_txd'. [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/constrs_1/new/constrs_1.xdc:65]
 Finished Parsing XDC File [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/constrs_1/new/constrs_1.xdc]
 WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/constrs_1/new/constrs_1.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/design_1_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/constrs_1/new/constrs_1.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
@@ -326,18 +330,18 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 795.676 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 796.059 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'design_1_i/DSP/Synthesizer/Oscillator/blk_mem_gen_1' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'design_1_i/DSP/Synthesizer/SynthesizerReg/blk_mem_gen_0' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -625,19 +629,19 @@ Applied set_property DONT_TOUCH = true for design_1_i/DSP/Synthesizer/Synthesize
 Applied set_property DONT_TOUCH = true for design_1_i/DSP/Synthesizer/SynthesizerReg/mult_gen_1. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/DAC_Interface/DAC_FIFO_0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/DAC_Interface/fifo_generator_0. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for design_1_i/UIF_AXI_0. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for design_1_i/UIF_SerialSlave_0. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for design_1_i/fifo_generator_0. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for design_1_i/fifo_generator_1. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/UIF/UIF_AXI_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/UIF/UIF_SerialSlave_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/UIF/fifo_generator_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/UIF/fifo_generator_1. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/m03_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/m01_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/m00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -673,7 +677,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -691,13 +695,13 @@ INFO: [Synth 8-5783] Moving clock source from hierarchical pin 'design_1_i/clk_w
 INFO: [Synth 8-5578] Moved timing constraint from pin 'design_1_i/DSP/Synthesizer/axi_bram_ctrl_0/bram_clk_a' to pin 'design_1_i/DSP/Synthesizer/axi_bram_ctrl_0/bbstub_bram_clk_a/O'
 INFO: [Synth 8-5819] Moved 5 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -709,7 +713,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -733,7 +737,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -746,7 +750,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -758,25 +762,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -791,30 +795,30 @@ Report BlackBoxes:
 |3     |design_1_auto_pc_1              |         1|
 |4     |design_1_auto_pc_2              |         1|
 |5     |design_1_auto_pc_3              |         1|
-|6     |design_1_UIF_AXI_0_0            |         1|
-|7     |design_1_UIF_SerialSlave_0_1    |         1|
-|8     |design_1_clk_wiz_0_0            |         1|
-|9     |design_1_fifo_generator_0_1     |         1|
-|10    |design_1_fifo_generator_0_2     |         1|
-|11    |design_1_myip_0_0               |         1|
-|12    |design_1_processing_system7_0_0 |         1|
-|13    |design_1_rst_ps7_0_50M_0        |         1|
-|14    |design_1_DAC_FIFO_0_0           |         1|
-|15    |design_1_DAC_IF_0_0             |         1|
-|16    |design_1_fifo_generator_0_0     |         1|
-|17    |design_1_DSP_register_0_0       |         1|
-|18    |design_1_DSP_reset_0_0          |         1|
-|19    |design_1_audio_clk_gen_0_0      |         1|
-|20    |design_1_axi_bram_ctrl_0_0      |         1|
-|21    |design_1_cordic_0_1             |         1|
-|22    |design_1_delay_0_0              |         1|
-|23    |design_1_mult_gen_0_1           |         1|
-|24    |design_1_mult_sum_0_0           |         1|
-|25    |design_1_blk_mem_gen_1_0        |         1|
-|26    |design_1_phase_gen_256_0_0      |         1|
-|27    |design_1_DSP_reg_read_0_0       |         1|
-|28    |design_1_blk_mem_gen_0_1        |         1|
-|29    |design_1_mult_gen_1_0           |         1|
+|6     |design_1_clk_wiz_0_0            |         1|
+|7     |design_1_myip_0_0               |         1|
+|8     |design_1_processing_system7_0_0 |         1|
+|9     |design_1_rst_ps7_0_50M_0        |         1|
+|10    |design_1_DAC_FIFO_0_0           |         1|
+|11    |design_1_DAC_IF_0_0             |         1|
+|12    |design_1_fifo_generator_0_0     |         1|
+|13    |design_1_DSP_register_0_0       |         1|
+|14    |design_1_DSP_reset_0_0          |         1|
+|15    |design_1_audio_clk_gen_0_0      |         1|
+|16    |design_1_axi_bram_ctrl_0_0      |         1|
+|17    |design_1_cordic_0_1             |         1|
+|18    |design_1_delay_0_0              |         1|
+|19    |design_1_mult_gen_0_1           |         1|
+|20    |design_1_mult_sum_0_0           |         1|
+|21    |design_1_blk_mem_gen_1_0        |         1|
+|22    |design_1_phase_gen_256_0_0      |         1|
+|23    |design_1_DSP_reg_read_0_0       |         1|
+|24    |design_1_blk_mem_gen_0_1        |         1|
+|25    |design_1_mult_gen_1_0           |         1|
+|26    |design_1_UIF_AXI_0_0            |         1|
+|27    |design_1_UIF_SerialSlave_0_1    |         1|
+|28    |design_1_fifo_generator_0_1     |         1|
+|29    |design_1_fifo_generator_0_2     |         1|
 +------+--------------------------------+----------+
 
 Report Cell Usage: 
@@ -871,13 +875,14 @@ Report Instance Areas:
 |11    |        GainAndSum     |GainAndSum_imp_1USF4QI      |    77|
 |12    |        Oscillator     |Oscillator_imp_AA12YF       |   105|
 |13    |        SynthesizerReg |SynthesizerReg_imp_LUF7W8   |   214|
+|14    |    UIF                |UIF_imp_1KE81ZA             |   112|
 +------+-----------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 795.676 ; gain = 498.367
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 796.059 ; gain = 498.449
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 8 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 795.676 ; gain = 157.703
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 795.676 ; gain = 498.367
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 796.059 ; gain = 157.785
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 796.059 ; gain = 498.449
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -887,11 +892,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-111 Infos, 122 Warnings, 0 Critical Warnings and 0 Errors encountered.
+112 Infos, 125 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 805.242 ; gain = 519.816
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 806.008 ; gain = 520.430
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 805.477 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Fri Oct 19 23:28:01 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 806.246 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 22 20:31:03 2018...

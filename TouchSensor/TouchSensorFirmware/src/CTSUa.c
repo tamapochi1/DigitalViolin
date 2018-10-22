@@ -10,6 +10,7 @@
 #include "r_cg_macrodriver.h"
 
 uint16_t sensorDataBuffer[448];
+uint8_t overrun;
 uint32_t sensorDataBuffer_index = 0U;
 void(*end)(void);
 
@@ -60,6 +61,8 @@ void CTSUa_Init(void(*callback_end)(void))
 	CTSU.CTSUSDPRS.BIT.CTSUPRMODE = 0x02U;	// CTSU基本周期、基本パルス数 : 62パルス
 	CTSU.CTSUSDPRS.BIT.CTSUSOFF = 0U;		// 高域ノイズ低減機能ON
 
+	CTSU.CTSUDCLKC.BIT.CTSUSSCNT = 0x3;	// 高域ノイズ低減機能ONの場合は0b11に設定
+
 	// センサ安定待ち時間設定
 	CTSU.CTSUSST.BYTE = 0x10U;			// 固定値“00010000b”
 
@@ -87,8 +90,16 @@ void CTSUa_Init(void(*callback_end)(void))
 
 void CTSUa_Measure(void)
 {
-	// 計測動作開始
-	CTSU.CTSUCR0.BIT.CTSUSTRT = 1U;
+	if(!CTSU.CTSUCR0.BIT.CTSUSTRT)
+	{
+		// 計測動作開始
+		CTSU.CTSUCR0.BIT.CTSUSTRT = 1U;
+		overrun = 0;
+	}
+	else
+	{
+		overrun = 1;
+	}
 }
 
 // チャネル毎の設定レジスタ書き込み要求割り込み

@@ -22,7 +22,7 @@
 * Version      : 1.0.0
 * Device(s)    : R5F51303AxFN
 * Description  : General header file for S12AD peripheral.
-* Creation Date: 2018-10-17
+* Creation Date: 2018-10-21
 ***********************************************************************************************************************/
 
 #ifndef S12AD_H

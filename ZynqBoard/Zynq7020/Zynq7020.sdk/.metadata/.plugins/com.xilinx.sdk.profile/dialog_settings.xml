@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="" key="dummy__graph_selection_pref"/>
+	<item value="" key="dummy__graph_selection_pref_available_items"/>
+	<item value="" key="dummy__series_selection_pref"/>
+	<item value="" key="dummy__series_selection_pref_available_items"/>
 </section>

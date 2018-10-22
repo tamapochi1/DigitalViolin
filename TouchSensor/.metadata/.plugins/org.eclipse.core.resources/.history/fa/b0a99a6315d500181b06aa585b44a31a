@@ -1,0 +1,32 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables
+C_SRCS += \
+../Source/UsbApp/r_usb_pcdc_api.c \
+../Source/UsbApp/r_usb_pcdc_apl.c \
+../Source/UsbApp/r_usb_pcdc_apl_descriptor.c \
+../Source/UsbApp/r_usb_pcdc_driver.c 
+
+COMPILER_OBJS += \
+Source/UsbApp/r_usb_pcdc_api.obj \
+Source/UsbApp/r_usb_pcdc_apl.obj \
+Source/UsbApp/r_usb_pcdc_apl_descriptor.obj \
+Source/UsbApp/r_usb_pcdc_driver.obj 
+
+C_DEPS += \
+Source/UsbApp/r_usb_pcdc_api.d \
+Source/UsbApp/r_usb_pcdc_apl.d \
+Source/UsbApp/r_usb_pcdc_apl_descriptor.d \
+Source/UsbApp/r_usb_pcdc_driver.d 
+
+# Each subdirectory must supply rules for building sources it contributes
+Source/UsbApp/%.obj: ../Source/UsbApp/%.c 
+	@echo 'Scanning and building file: $<'
+	@echo 'Invoking: Scanner and Compiler'
+	scandep1 -MM -MP -MF"$(@:%.obj=%.d)" -MT"$(@:%.d=%.obj)" -MT"$(@:%.obj=%.d)" -I"\include" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\Workbench" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\UsbBase" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\UsbApp" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\Touch" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\SCI" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\HwResource" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\DTC" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\CTSU" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include" -D__RX -DMAX_TS=36 -DMCU_SERIES_T=R5F5130 -DMCU_MODEL=MCU_MODEL_R5F51303AxFN -D__STDC_VERSION__=199901L -D__STDC_HOSTED__=1 -D__LIT=1 -D__DBL8=1 -D__UCHAR=1 -D__UBIT=1 -D__RON=1 -D__DOFF=1 -D__BITRIGHT=1 -D__INTRINSIC_LIB=1 -D__RX600=1 -D__RENESAS__=1 -D__RENESAS_VERSION__=0x02020000 -E -quiet -I. -C  "$<"
+	ccrx -cpu=rx600 -nofpu -include="\include","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\Workbench","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\UsbBase","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\UsbApp","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\Touch","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\SCI","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\HwResource","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\DTC","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\CTSU","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include" -define=__RX,MAX_TS=36,MCU_SERIES_T=R5F5130,MCU_MODEL=MCU_MODEL_R5F51303AxFN -lang=c99 -nomessage -output=obj -obj_path="Source/UsbApp" -debug -nologo -nologo -nomessage "$<"
+	@echo 'Finished Scanning and building: $<'
+	@echo.
+

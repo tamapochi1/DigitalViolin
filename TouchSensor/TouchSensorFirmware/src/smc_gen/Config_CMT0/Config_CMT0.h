@@ -22,7 +22,7 @@
 * Version      : 1.2.0
 * Device(s)    : R5F51303AxFN
 * Description  : This file implements device driver for Config_CMT0.
-* Creation Date: 2018-10-17
+* Creation Date: 2018-10-21
 ***********************************************************************************************************************/
 
 #ifndef Config_CMT0_H
@@ -41,7 +41,7 @@ Macro definitions (Register bit)
 Macro definitions
 ***********************************************************************************************************************/
 /* Compare Match Constant Register (CMCOR) */
-#define _04E1_CMT0_CMCOR_VALUE              (0x04E1U)
+#define _03A9_CMT0_CMCOR_VALUE              (0x03A9U)
 
 /***********************************************************************************************************************
 Typedef definitions

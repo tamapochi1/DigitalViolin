@@ -51,6 +51,7 @@
 #include "xil_io.h"
 #include "xil_printf.h"
 #include "xparameters.h"
+#include "xuartps_hw.h"
 #include "sleep.h"
 #include "platform.h"
 #include "xparameters.h"
@@ -83,7 +84,8 @@ int i2c_write(XIicPs *Iic, u8 addr, u8 command, u16 i2c_adder)
 
 int main()
 {
-	u32 i, freq, upDown, addr, rddata[672], temp[10], sum, sumcount = 0;
+	u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+	char8 rddata[10][672], currentRow = 0;
 	int note;
 	float gain;
 	int status;
@@ -168,10 +170,12 @@ int main()
     gain = 2.0;
     upDown = 1;
 
+
+
     Xil_Out32(0x43C20000, (u32)0);
-    usleep(100000);
-//    Xil_Out32(0x43C20000, (u32)2);
-//    usleep(100000);
+
+    while(!XUartPs_IsReceiveData(STDIN_BASEADDRESS));
+
     Xil_Out32(0x43C20000, (u32)3);
 
 //	Xil_Out32(0x43C20000 + 8, (u32)0x81);
@@ -216,30 +220,64 @@ int main()
 //			Xil_Out32(0x40000000 + i * 4, 0x0A000000 + (u32)((float)0x400000/((float)48000/((float)freq * (i * 0.005 + (float)rand()/RAND_MAX)))));
 //		}
 
+		while(XUartPs_IsReceiveData(STDIN_BASEADDRESS))
+		{
+			Xil_Out32(0x43C20000 + 8, XUartPs_ReadReg(STDIN_BASEADDRESS, XUARTPS_FIFO_OFFSET));
+		}
+
 		while(Xil_In32(0x43C20000 + 4) < 672);
 
 		for(i=0; i < 672; i++)
 		{
-			rddata[i] = Xil_In32(0x43C2000C);
+			rddata[currentRow][i] = Xil_In8(0x43C2000C);
 		}
 
-		for(i=0; i < 9; i++)
+		currentRow++;
+
+		if(currentRow >= 3)
 		{
-			temp[i] = temp[i+1];
+			for(i=0; i < 672; i+=6)
+			{
+				sum1 = 0;
+				for(j=0; j < 3; j++)
+				{
+					sum1 += ((u16)rddata[j][i+2] << 8) + rddata[j][i+1];
+				}
+				sum1 /= 3;
+
+				sum2 = 0;
+				for(j=0; j < 3; j++)
+				{
+					sum2 += ((u16)rddata[j][i+5] << 8) + rddata[j][i+4];
+				}
+				sum2 /= 3;
+
+				if(sum2 > sum1)
+				{
+					outbyte((char8)(sum2 - sum1));
+					outbyte((char8)((sum2 - sum1) >> 8));
+				}
+				else
+				{
+					outbyte((char8)(0));
+					outbyte((char8)(0));
+				}
+			}
+
+			currentRow = 0;
 		}
-		temp[9] = (((u16)rddata[2]) << 8) + (u16)rddata[1];
-		sumcount++;
+
 
 //		if(sumcount >= 10)
-		{
-			sumcount = 0;
-			sum = 0;
-			for(i=0; i < 10; i++)
-			{
-				sum += temp[i];
-			}
-			printf("%d\n", sum / 10);
-		}
+//		{
+//			sumcount = 0;
+//			sum = 0;
+//			for(i=0; i < 10; i++)
+//			{
+//				sum += temp[i];
+//			}
+//			printf("%d\n", sum / 10);
+//		}
 
 		freq = 442 * powf(2.0f, (float)(scale[note]) / 12);
 

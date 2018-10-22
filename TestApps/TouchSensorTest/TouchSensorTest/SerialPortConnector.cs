@@ -95,8 +95,8 @@ namespace TouchSensorTest
 
             do
             {
-                try
-                {
+                //try
+                //{
                     int rbyte = myPort.BytesToRead;
                     byte[] buffer = new byte[rbyte];
                     int read = 0;
@@ -109,16 +109,16 @@ namespace TouchSensorTest
 
                     if (rbyte > 0)
                     {
-                        DataReceived(buffer);
+                        DataReceived?.Invoke(buffer);
                     }
-                }
-                catch (Exception ex)
-                {
+                //}
+                //catch (Exception ex)
+                //{
                     //this.Dispatcher.BeginInvoke((Action)(() =>
                     //{
                     //    MatApp.ApplicationLog.LogException("シリアルポート" + PortName + " でのデータ受信に失敗しました", ex, this);
                     //}));
-                }
+                //}
             } while (myPort.IsOpen);
         }
 

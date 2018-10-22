@@ -11,6 +11,7 @@
 #define CTSUA_H_
 
 extern uint16_t sensorDataBuffer[448];
+extern uint8_t overrun;
 
 void CTSUa_Init(void(*callback_end)(void));
 void CTSUa_Measure(void);

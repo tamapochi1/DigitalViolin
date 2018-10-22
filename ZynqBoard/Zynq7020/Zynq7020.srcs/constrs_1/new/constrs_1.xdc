@@ -45,7 +45,6 @@ set_property PULLDOWN true [get_ports DAC_BICK_0]
 
 
 set_false_path -to [get_cells {design_1_i/DSP/DSP_reset_0/inst/nResetAudio256ClkBuf_reg[1]}]
-
 set_false_path -to [get_cells {design_1_i/DSP/audio_clk_gen_0/inst/audioClkSyncBuf_reg[0]}]
 
 set_property IOSTANDARD LVCMOS33 [get_ports UIF_Slave_1_s_rxd]
@@ -60,34 +59,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports UIF_Res_1]
 set_property PACKAGE_PIN W21 [get_ports UIF_Res_1]
 set_property DRIVE 12 [get_ports UIF_Res_1]
 
-connect_debug_port u_ila_0/probe6 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_RXD]]
-connect_debug_port u_ila_0/probe7 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_SCK]]
-connect_debug_port u_ila_0/probe8 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_TXD]]
 
-
-create_debug_core u_ila_0 ila
-set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
-set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
-set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
-set_property C_DATA_DEPTH 8192 [get_debug_cores u_ila_0]
-set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
-set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
-set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
-set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
-set_property port_width 1 [get_debug_ports u_ila_0/clk]
-connect_debug_port u_ila_0/clk [get_nets [list design_1_i/processing_system7_0/inst/FCLK_CLK0]]
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
-set_property port_width 1 [get_debug_ports u_ila_0/probe0]
-connect_debug_port u_ila_0/probe0 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_RXD]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
-set_property port_width 1 [get_debug_ports u_ila_0/probe1]
-connect_debug_port u_ila_0/probe1 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_SCK]]
-create_debug_port u_ila_0 probe
-set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
-set_property port_width 1 [get_debug_ports u_ila_0/probe2]
-connect_debug_port u_ila_0/probe2 [get_nets [list design_1_i/UIF_SerialSlave_0_UIF_Slave_S_TXD]]
-set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
-set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
-set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
-connect_debug_port dbg_hub/clk [get_nets u_ila_0_FCLK_CLK0]
+set_property IOSTANDARD LVCMOS33 [get_ports UIF_Master_1_h_rxd]
+set_property IOSTANDARD LVCMOS33 [get_ports UIF_Master_1_h_sck]
+set_property IOSTANDARD LVCMOS33 [get_ports UIF_Master_1_h_txd]

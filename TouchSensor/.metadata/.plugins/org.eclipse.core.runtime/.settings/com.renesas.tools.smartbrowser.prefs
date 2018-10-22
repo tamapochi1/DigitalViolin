@@ -1,0 +1,8 @@
+RssRegisteredSite.Count=2
+RssRegisteredSite.IsOpenedTopSite=true
+RssRegisteredSite.LastChecking=1540114776297
+RssRegisteredSite.Site000.CategoryID=com.renesas.cg.category.toolnews
+RssRegisteredSite.Site000.RssSite=http\://tool-support.renesas.com/autoupdate/support/smartbrowser/ja-jp/ToolNews/sc-e2s/common/rss.xml
+RssRegisteredSite.Site001.CategoryID=com.renesas.cg.category.toolnews
+RssRegisteredSite.Site001.RssSite=http\://tool-support.renesas.com/autoupdate/support/smartbrowser/ja-jp/ToolNews/sc-e2s/RX/rss.xml
+eclipse.preferences.version=1

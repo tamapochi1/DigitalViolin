@@ -1,7 +1,28 @@
-00:31:02 **** Clean-only build of configuration Debug for project Test ****
-make clean 
-rm -rf  ./src/platform.o ./src/test.o  ./src/platform.d ./src/test.d  Test.elf.size  Test.elf
+10:31:58 **** Build of configuration Debug for project Test ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/test.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../Test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test.d" -MT"src/test.o" -o "src/test.o" "../src/test.c"
+'Finished building: ../src/test.c'
+' '
+'Building target: Test.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../Test_bsp/ps7_cortexa9_0/lib -o "Test.elf"  ./src/platform.o ./src/test.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Test.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size Test.elf  |tee "Test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19524	   1144	  22568	  43236	   a8e4	Test.elf
+'Finished building: Test.elf.size'
 ' '
 
-00:31:03 Build Finished (took 306ms)
+10:32:01 Build Finished (took 2s.365ms)
 

@@ -82,7 +82,7 @@ module design_1_UIF_AXI_0_0 (
   s_axis_st_tdata,
   s_axis_st_tready,
   s_axis_st_tvalid,
-  fifo_count,
+  st_fifo_count,
   sys_nReset,
   UIF_res
 );
@@ -147,7 +147,7 @@ output wire s_axis_st_tready;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_st, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_st TVALID" *)
 input wire s_axis_st_tvalid;
-input wire [11 : 0] fifo_count;
+input wire [11 : 0] st_fifo_count;
 output wire sys_nReset;
 output wire UIF_res;
 
@@ -182,7 +182,7 @@ output wire UIF_res;
     .s_axis_st_tdata(s_axis_st_tdata),
     .s_axis_st_tready(s_axis_st_tready),
     .s_axis_st_tvalid(s_axis_st_tvalid),
-    .fifo_count(fifo_count),
+    .st_fifo_count(st_fifo_count),
     .sys_nReset(sys_nReset),
     .UIF_res(UIF_res)
   );

@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Fri Oct 19 21:56:50 2018
+// Date        : Sun Oct 21 11:34:51 2018
 // Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim
 //               F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_SerialSlave_0_1/design_1_UIF_SerialSlave_0_1_sim_netlist.v
@@ -71,9 +71,9 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
     m_axis_st_tdata,
     m_axis_st_tvalid,
     s_axis_sr_tready,
-    nReset,
-    sysClk,
     UIF_Slave_S_SCK,
+    sysClk,
+    nReset,
     s_axis_sr_tdata,
     UIF_Slave_S_TXD,
     s_axis_sr_tvalid,
@@ -82,9 +82,9 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
   output [7:0]m_axis_st_tdata;
   output m_axis_st_tvalid;
   output s_axis_sr_tready;
-  input nReset;
-  input sysClk;
   input UIF_Slave_S_SCK;
+  input sysClk;
+  input nReset;
   input [7:0]s_axis_sr_tdata;
   input UIF_Slave_S_TXD;
   input s_axis_sr_tvalid;
@@ -97,11 +97,11 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
   wire \RXDBufferCount[2]_i_2_n_0 ;
   wire RXDBufferValid_i_1_n_0;
   wire RXDBufferValid_reg_n_0;
-  wire [1:0]RXDSync;
+  (* async_reg = "true" *) wire [1:0]RXDSync;
   wire [1:0]SCKEdgeBuffer;
   wire SCKFallEdge;
   wire SCKRiseEdge;
-  wire [1:0]SCKSync;
+  (* async_reg = "true" *) wire [1:0]SCKSync;
   wire [7:1]TXDBuffer;
   wire \TXDBufferCount[0]_i_1_n_0 ;
   wire \TXDBufferCount[1]_i_1_n_0 ;
@@ -278,7 +278,11 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .D(RXDSync[0]),
         .Q(m_axis_st_tdata[7]),
         .R(\TXDBuffer[0]_i_1_n_0 ));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  (* XILINX_LEGACY_PRIM = "FD_1" *) 
   FDRE #(
+    .INIT(1'b0),
     .IS_C_INVERTED(1'b1)) 
     \RXDSync_reg[0] 
        (.C(sysClk),
@@ -286,7 +290,11 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .D(RXDSync[1]),
         .Q(RXDSync[0]),
         .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  (* XILINX_LEGACY_PRIM = "FD_1" *) 
   FDRE #(
+    .INIT(1'b0),
     .IS_C_INVERTED(1'b1)) 
     \RXDSync_reg[1] 
        (.C(sysClk),
@@ -310,7 +318,11 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .D(SCKSync[0]),
         .Q(SCKEdgeBuffer[1]),
         .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  (* XILINX_LEGACY_PRIM = "FD_1" *) 
   FDRE #(
+    .INIT(1'b0),
     .IS_C_INVERTED(1'b1)) 
     \SCKSync_reg[0] 
        (.C(sysClk),
@@ -318,7 +330,11 @@ module design_1_UIF_SerialSlave_0_1_UIF_SerialSlave
         .D(SCKSync[1]),
         .Q(SCKSync[0]),
         .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  (* XILINX_LEGACY_PRIM = "FD_1" *) 
   FDRE #(
+    .INIT(1'b0),
     .IS_C_INVERTED(1'b1)) 
     \SCKSync_reg[1] 
        (.C(sysClk),

@@ -37,8 +37,8 @@ module UIF_SerialSlave(
     );
     
     
-reg [1:0] SCKSync;
-reg [1:0] RXDSync;
+(* ASYNC_REG = "TRUE" *) reg [1:0] SCKSync;
+(* ASYNC_REG = "TRUE" *) reg [1:0] RXDSync;
 wire SCKInt;
 wire RXDInt;
 assign SCKInt = SCKSync[0];

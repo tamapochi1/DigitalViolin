@@ -1,0 +1,7 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:TouchAPI_20181021183333 DefaultBuild-E1,org.eclipse.launchbar.core.descriptorType.default\:TouchAPI_20181021183333 DefaultBuild-E2Lite,org.eclipse.launchbar.core.descriptorType.default\:TouchAPI_20181021183333 DefaultBuild,org.eclipse.launchbar.core.descriptorType.default\:TouchApiBase DefaultBuild-E1,org.eclipse.launchbar.core.descriptorType.default\:TouchApiBase DefaultBuild-E2Lite
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:TouchAPI_20181021183333\ DefaultBuild-E1/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:TouchAPI_20181021183333\ DefaultBuild-E1/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

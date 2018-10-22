@@ -1,0 +1,56 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables
+C_SRCS += \
+../Source/HwResource/r_cg_cgc_user.c \
+../Source/HwResource/r_cg_cmt.c \
+../Source/HwResource/r_cg_cmt_user.c \
+../Source/HwResource/r_cg_dbsct.c \
+../Source/HwResource/r_cg_hardware_setup.c \
+../Source/HwResource/r_cg_intprg.c \
+../Source/HwResource/r_cg_resetprg.c \
+../Source/HwResource/r_cg_sbrk.c \
+../Source/HwResource/r_cg_vecttbl.c \
+../Source/HwResource/r_cgc.c \
+../Source/HwResource/r_mpc.c \
+../Source/HwResource/rx_mcu.c 
+
+COMPILER_OBJS += \
+Source/HwResource/r_cg_cgc_user.obj \
+Source/HwResource/r_cg_cmt.obj \
+Source/HwResource/r_cg_cmt_user.obj \
+Source/HwResource/r_cg_dbsct.obj \
+Source/HwResource/r_cg_hardware_setup.obj \
+Source/HwResource/r_cg_intprg.obj \
+Source/HwResource/r_cg_resetprg.obj \
+Source/HwResource/r_cg_sbrk.obj \
+Source/HwResource/r_cg_vecttbl.obj \
+Source/HwResource/r_cgc.obj \
+Source/HwResource/r_mpc.obj \
+Source/HwResource/rx_mcu.obj 
+
+C_DEPS += \
+Source/HwResource/r_cg_cgc_user.d \
+Source/HwResource/r_cg_cmt.d \
+Source/HwResource/r_cg_cmt_user.d \
+Source/HwResource/r_cg_dbsct.d \
+Source/HwResource/r_cg_hardware_setup.d \
+Source/HwResource/r_cg_intprg.d \
+Source/HwResource/r_cg_resetprg.d \
+Source/HwResource/r_cg_sbrk.d \
+Source/HwResource/r_cg_vecttbl.d \
+Source/HwResource/r_cgc.d \
+Source/HwResource/r_mpc.d \
+Source/HwResource/rx_mcu.d 
+
+# Each subdirectory must supply rules for building sources it contributes
+Source/HwResource/%.obj: ../Source/HwResource/%.c 
+	@echo 'Scanning and building file: $<'
+	@echo 'Invoking: Scanner and Compiler'
+	scandep1 -MM -MP -MF"$(@:%.obj=%.d)" -MT"$(@:%.d=%.obj)" -MT"$(@:%.obj=%.d)" -I"\include" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\Workbench" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\UsbBase" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\UsbApp" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\Touch" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\SCI" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\HwResource" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\DTC" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\CTSU" -I"F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include" -D__RX -DMAX_TS=36 -DMCU_SERIES_T=R5F5130 -DMCU_MODEL=MCU_MODEL_R5F51303AxFN -D__STDC_VERSION__=199901L -D__STDC_HOSTED__=1 -D__LIT=1 -D__DBL8=1 -D__UCHAR=1 -D__UBIT=1 -D__RON=1 -D__DOFF=1 -D__BITRIGHT=1 -D__INTRINSIC_LIB=1 -D__RX600=1 -D__RENESAS__=1 -D__RENESAS_VERSION__=0x02020000 -E -quiet -I. -C  "$<"
+	ccrx -cpu=rx600 -nofpu -include="\include","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\Workbench","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\UsbBase","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\UsbApp","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\Touch","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\SCI","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\HwResource","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\DTC","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include\CTSU","F:\Git\DigitalViolin\TouchSensor\TouchAPI_20181021183333\Include" -define=__RX,MAX_TS=36,MCU_SERIES_T=R5F5130,MCU_MODEL=MCU_MODEL_R5F51303AxFN -lang=c99 -nomessage -output=obj -obj_path="Source/HwResource" -debug -nologo -nologo -nomessage "$<"
+	@echo 'Finished Scanning and building: $<'
+	@echo.
+

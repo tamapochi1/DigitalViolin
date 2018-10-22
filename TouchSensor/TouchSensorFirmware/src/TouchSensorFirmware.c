@@ -21,15 +21,15 @@ void main(void)
 
 	while(1)
 	{
-		if(CTSUa_dataValid)
+		if(CTSUa_dataValid && !overrun)
 		{
 			for(index = 0; index < 224; index++)
 			{
+				while(SCI6_Busy());
+
 				txData[0] = index;
 				txData[1] = (uint8_t)(sensorDataBuffer[index * 2]);
 				txData[2] = (uint8_t)(sensorDataBuffer[index * 2] >> 8);
-
-				while(SCI6_Busy());
 
 				R_Config_SCI6_Serial_Send_Receive(txData, 3, reg_ReceivedData, 3);
 			}

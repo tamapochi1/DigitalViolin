@@ -44,7 +44,7 @@ namespace TouchSensorTest
 
             Closing += MainWindow_Closing;
 
-            sp = new SerialPortConnector("COM10", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
+            sp = new SerialPortConnector("COM3", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
             sp.DataReceived += Sp_DataReceived;
             sp.Start();
 
@@ -191,25 +191,43 @@ namespace TouchSensorTest
 
             for(int indexString = 0; indexString < 4; indexString++)
             {
-                for(int indexPos = 10; indexPos > 0; indexPos--)
+                for(int indexPos = 9; indexPos > 0; indexPos--)
                 {
-                    if(ves[indexString + indexPos * 4].ColorValue < -100)
+                    if(ves[indexString + indexPos * 4].ColorValue < -30)
                     {
-                        double x1 = (indexPos + 1) * 50 + 25;
-                        double x2 = (indexPos) * 50 + 25;
-                        double x3 = (indexPos - 1) * 50 + 25;
-                        double m1 = -ves[indexString + (indexPos + 1) * 4].ColorValue;
-                        double m2 = -ves[indexString + (indexPos) * 4].ColorValue;
-                        double m3 = -ves[indexString + (indexPos - 1) * 4].ColorValue;
-                        if (m1 + m2 + m3 != 0.0)
+                        bool actualyPressed = true;
+                        for(int otherString = 0; otherString < 4; otherString++)
                         {
-                            pos[indexString] = (m1 * x1 + m2 * x2 + m3 * x3) / (m1 + m2 + m3);
+                            if(otherString != indexString &&
+                                -ves[otherString + indexPos*4].ColorValue - (-ves[indexString + indexPos * 4].ColorValue) > 10)
+                            {
+                                actualyPressed = false;
+                            }
+                        }
+
+                        if(!actualyPressed)
+                        {
+                            //pos[indexString] = 0.0;
+                            //break;
                         }
                         else
                         {
-                            pos[indexString] = 0.0;
+                            double x1 = (indexPos + 1) * 50 + 25;
+                            double x2 = (indexPos) * 50 + 25;
+                            double x3 = (indexPos - 1) * 50 + 25;
+                            double m1 = -ves[indexString + (indexPos + 1) * 4].ColorValue;
+                            double m2 = -ves[indexString + (indexPos) * 4].ColorValue;
+                            double m3 = -ves[indexString + (indexPos - 1) * 4].ColorValue;
+                            if (m1 + m2 + m3 != 0.0)
+                            {
+                                pos[indexString] = (m1 * x1 + m2 * x2 + m3 * x3) / (m1 + m2 + m3);
+                            }
+                            else
+                            {
+                                pos[indexString] = 0.0;
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
             }

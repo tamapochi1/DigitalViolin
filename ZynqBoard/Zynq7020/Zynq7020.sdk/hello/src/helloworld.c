@@ -59,6 +59,7 @@
 #include "xgpiops.h"
 #include "myip.h"
 #include "DSP_register.h"
+#include "fingering.h"
 
 u32 test[130000000];
 int scale[] = {0, 2, 4, 5, 7, 9, 11, 12};
@@ -85,9 +86,9 @@ int i2c_write(XIicPs *Iic, u8 addr, u8 command, u16 i2c_adder)
 int main()
 {
 	u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
-	char8 rddata[10][672], currentRow = 0;
+	u8 rddata[10][672], currentRow = 0;
 	int note;
-	float gain;
+	float gain, fingerPos[4];
 	int status;
 	XIicPs_Config *Config;
 	XGpioPs instXGpioPs;
@@ -129,24 +130,12 @@ int main()
     i2c_write(&Iic, 0x01, 0x30, 0x12);	// ヘッドホンアンプオン
     i2c_write(&Iic, 0x01, 0x70, 0x12);	// ヘッドホンアンプのミュート解除
 
-
-//    MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG1_OFFSET, 0x4000/(48000/442));
-
     MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG0_OFFSET, 0x3);
 
 	for(i=0; i < 2048; i++)
 	{
 		Xil_Out32(0x40000000 + i * 4, 0x00000000);
 	}
-
-//	for(i=0; i < 1; i++)
-//	{
-//	    MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG0_OFFSET, 0x3);
-//		Xil_Out32(0x40000000 + i * 4, 0xFFC00000 + 4420);
-//	}
-//	Xil_Out32(0x40000000 + 2047 * 4, 0xFF000000 + 8840);
-//	Xil_Out32(0x40000000, 0xFFC00000 + 4420);
-//	Xil_Out32(0x40000004, 4420);
 
 
     test[0] = Xil_In32(0x40000010);
@@ -174,14 +163,14 @@ int main()
 
     Xil_Out32(0x43C20000, (u32)0);
 
-    while(!XUartPs_IsReceiveData(STDIN_BASEADDRESS));
+//    while(!XUartPs_IsReceiveData(STDIN_BASEADDRESS));
+    usleep(100000);
 
     Xil_Out32(0x43C20000, (u32)3);
 
-//	Xil_Out32(0x43C20000 + 8, (u32)0x81);
-//	Xil_Out32(0x43C20000 + 8, (u32)0x8F);
-//	Xil_Out32(0x43C20000 + 8, (u32)0x21);
-//	Xil_Out32(0x43C20000 + 8, (u32)0x23);
+
+
+
 
 	while(1)
 	{
@@ -222,8 +211,18 @@ int main()
 
 		while(XUartPs_IsReceiveData(STDIN_BASEADDRESS))
 		{
-			Xil_Out32(0x43C20000 + 8, XUartPs_ReadReg(STDIN_BASEADDRESS, XUARTPS_FIFO_OFFSET));
+			i = XUartPs_ReadReg(STDIN_BASEADDRESS, XUARTPS_FIFO_OFFSET);
+//			Xil_Out32(0x43C20000 + 8, i);
+
+			ResetAverage();
 		}
+
+//	    Xil_Out32(0x43C20000 + 8, (u32)0x02);
+//		Xil_Out32(0x43C20000 + 8, (u32)(700 & 0xFF));
+//		Xil_Out32(0x43C20000 + 8, (u32)(700 >> 8));
+//		Xil_Out32(0x43C20000 + 8, (u32)0x03);
+//		Xil_Out32(0x43C20000 + 8, (u32)2);
+//		Xil_Out32(0x43C20000 + 8, (u32)0);
 
 		while(Xil_In32(0x43C20000 + 4) < 672);
 
@@ -232,51 +231,66 @@ int main()
 			rddata[currentRow][i] = Xil_In8(0x43C2000C);
 		}
 
-		currentRow++;
+		i = SetSensorData(rddata[currentRow]);
+		GetFingerPosition(fingerPos);
 
-		if(currentRow >= 3)
+		while(XUartPs_IsReceiveData(STDIN_BASEADDRESS))
 		{
-			for(i=0; i < 672; i+=6)
-			{
-				sum1 = 0;
-				for(j=0; j < 3; j++)
-				{
-					sum1 += ((u16)rddata[j][i+2] << 8) + rddata[j][i+1];
-				}
-				sum1 /= 3;
+			i = XUartPs_ReadReg(STDIN_BASEADDRESS, XUARTPS_FIFO_OFFSET);
+//			Xil_Out32(0x43C20000 + 8, i);
 
-				sum2 = 0;
-				for(j=0; j < 3; j++)
-				{
-					sum2 += ((u16)rddata[j][i+5] << 8) + rddata[j][i+4];
-				}
-				sum2 /= 3;
-
-				if(sum2 > sum1)
-				{
-					outbyte((char8)(sum2 - sum1));
-					outbyte((char8)((sum2 - sum1) >> 8));
-				}
-				else
-				{
-					outbyte((char8)(0));
-					outbyte((char8)(0));
-				}
-			}
-
-			currentRow = 0;
+			ResetAverage();
 		}
 
-
-//		if(sumcount >= 10)
+//		currentRow++;
+//
+//		if(currentRow >= 2)
 //		{
-//			sumcount = 0;
-//			sum = 0;
-//			for(i=0; i < 10; i++)
+//			for(i=0; i < 112; i++)
 //			{
-//				sum += temp[i];
+//					outbyte((char8)(filterSensorData[i] & 0x00FF));
+//					outbyte((char8)((filterSensorData[i] & 0xFF00) >> 8));
 //			}
-//			printf("%d\n", sum / 10);
+//			currentRow = 0;
+//		}
+
+
+		if(i==0)printf("%.1f\n", fingerPos[0]);
+		else printf("failed\n");
+
+//		currentRow++;
+//
+//		if(currentRow >= 3)
+//		{
+//			for(i=0; i < 672; i+=6)
+//			{
+//				sum1 = 0;
+//				for(j=0; j < 3; j++)
+//				{
+//					sum1 += ((u16)rddata[j][i+2] << 8) + rddata[j][i+1];
+//				}
+//				sum1 /= 3;
+//
+//				sum2 = 0;
+//				for(j=0; j < 3; j++)
+//				{
+//					sum2 += ((u16)rddata[j][i+5] << 8) + rddata[j][i+4];
+//				}
+//				sum2 /= 3;
+//
+//				if(sum2 > sum1)
+//				{
+//					outbyte((char8)(sum2 - sum1));
+//					outbyte((char8)((sum2 - sum1) >> 8));
+//				}
+//				else
+//				{
+//					outbyte((char8)(0));
+//					outbyte((char8)(0));
+//				}
+//			}
+//
+//			currentRow = 0;
 //		}
 
 		freq = 442 * powf(2.0f, (float)(scale[note]) / 12);

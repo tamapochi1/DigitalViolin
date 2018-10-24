@@ -44,11 +44,11 @@ namespace TouchSensorTest
 
             Closing += MainWindow_Closing;
 
-            sp = new SerialPortConnector("COM3", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
+            sp = new SerialPortConnector("COM10", 115200, System.IO.Ports.Parity.None, 8, System.IO.Ports.StopBits.One);
             sp.DataReceived += Sp_DataReceived;
             sp.Start();
 
-            sp.WriteData("a");
+            //sp.WriteData("a");
         }
 
         ValueElement[] ves;
@@ -76,12 +76,13 @@ namespace TouchSensorTest
             {
                 for (int i = 0; i < 112; i++)
                 {
-                    byte byte1 = dataQueue.Dequeue();
-                    byte byte2 = dataQueue.Dequeue();
+                    byte[] bytes = new byte[2];
+                    bytes[0] = dataQueue.Dequeue();
+                    bytes[1] = dataQueue.Dequeue();
 
-                    ves[i].Value = (byte2 << 8) + byte1;
+                    ves[i].ColorValue = BitConverter.ToInt16(bytes, 0) / 7;
                     //ves[i].ColorValue = averages[i] > 0.0 ? (int)((ves[i].Value - averages[i]) * 1000.0 / averages[i]) : 0;
-                    ves[i].ColorValue = (int)((ves[i].Value - averages[i]) / 5.0);
+                    //ves[i].ColorValue = (int)((ves[i].Value - averages[i]) / 5.0);
 
                     if (averageCount < 10)
                     {

@@ -22,7 +22,7 @@
 * Version      : 1.0.0
 * Device(s)    : R5F51303AxFN
 * Description  : This file implements device driver for Config_SCI6.
-* Creation Date: 2018-10-21
+* Creation Date: 2018-10-24
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -204,11 +204,11 @@ static void r_Config_SCI6_callback_receiveend(void)
     /* Start user code for r_Config_SCI6_callback_receiveend. Do not edit comment generated here */
 	uint8_t reg_address;
 
-	if(reg_ReceivedData[0] < NUM_REGS)
+	if(reg_ReceivedData[0] != 0 && reg_ReceivedData[0] < NUM_REGS)
 	{
 		reg_address = reg_ReceivedData[0];
 
-		regs[reg_address] = (((uint16_t)reg_ReceivedData[2]) << 8) + (uint16_t)reg_ReceivedData[1];
+		regs[reg_address] = (reg_ReceivedData[2] << 8) + reg_ReceivedData[1];
 	}
 
     /* End user code. Do not edit comment generated here */

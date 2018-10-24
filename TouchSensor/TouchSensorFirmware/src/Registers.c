@@ -11,6 +11,6 @@ uint16_t regs[] =
 			{
 				0x0000U,
 				0x0000U,
-				0x03FFU,
-				0x0003U
+				0x02BCU,
+				0x0002U
 			};

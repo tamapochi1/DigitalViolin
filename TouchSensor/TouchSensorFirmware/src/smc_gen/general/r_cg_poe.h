@@ -22,7 +22,7 @@
 * Version      : 1.0.0
 * Device(s)    : R5F51303AxFN
 * Description  : General header file for POE peripheral.
-* Creation Date: 2018-10-21
+* Creation Date: 2018-10-24
 ***********************************************************************************************************************/
 
 #ifndef POE_H

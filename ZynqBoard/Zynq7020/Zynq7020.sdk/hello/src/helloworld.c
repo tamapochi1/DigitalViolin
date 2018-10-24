@@ -293,7 +293,9 @@ int main()
 //			currentRow = 0;
 //		}
 
-		freq = 442 * powf(2.0f, (float)(scale[note]) / 12);
+//		freq = 442 * powf(2.0f, (float)(scale[note]) / 12);
+		freq = 442.0f / ((30.0f - fingerPos[1]) / 30.0f);
+		gain = fingerPos[1] != 0.0 ? 2.0 : 0;
 
 		Xil_Out32(0x40000000 + 0, ((u32)(5000.0 * gain) << 18) + freq * 10);
 		Xil_Out32(0x40000000 + 4, ((u32)(475.0 * gain) << 18) + freq * 20);
@@ -307,6 +309,22 @@ int main()
 		Xil_Out32(0x40000000 + 36, ((u32)(3.0 * gain) << 18) + freq * 100);
 
 		Xil_Out32(0x40000000 + 44, ((u32)(3.0 * gain) << 18) + freq * 120);
+
+		freq = 660.0f / ((30.0f - fingerPos[3]) / 30.0f);
+		gain = fingerPos[3] != 0.0 ? 2.0 : 0;
+
+		Xil_Out32(0x40000000 + 48, ((u32)(5000.0 * gain) << 18) + freq * 10);
+		Xil_Out32(0x40000000 + 52, ((u32)(475.0 * gain) << 18) + freq * 20);
+		Xil_Out32(0x40000000 + 56, ((u32)(598.0 * gain) << 18) + freq * 30);
+		Xil_Out32(0x40000000 + 60, ((u32)(475.0 * gain) << 18) + freq * 40);
+		Xil_Out32(0x40000000 + 64, ((u32)(1194.0 * gain) << 18) + freq * 50);
+		Xil_Out32(0x40000000 + 68, ((u32)(4.0 * gain) << 18) + freq * 60);
+		Xil_Out32(0x40000000 + 72, ((u32)(377.0 * gain) << 18) + freq * 70);
+		Xil_Out32(0x40000000 + 76, ((u32)(300.0 * gain) << 18) + freq * 80);
+		Xil_Out32(0x40000000 + 80, ((u32)(18.0 * gain) << 18) + freq * 90);
+		Xil_Out32(0x40000000 + 84, ((u32)(3.0 * gain) << 18) + freq * 100);
+
+		Xil_Out32(0x40000000 + 88, ((u32)(3.0 * gain) << 18) + freq * 120);
 	}
 
     cleanup_platform();

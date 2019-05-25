@@ -12,10 +12,6 @@
 * The above copyright notice and this permission notice shall be included in
 * all copies or substantial portions of the Software.
 *
-* Use of the Software is limited solely to applications:
-* (a) running on a Xilinx device, or
-* (b) that interact with a Xilinx device through a bus or interconnect.
-*
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
@@ -52,6 +48,7 @@
 * 2.1   hk   04/29/14 Use Input data register DATA_RO for read. CR# 771667.
 * 3.00  kvn  02/13/15 Modified code for MISRA-C:2012 compliance.
 * 3.1	kvn  04/13/15 Add support for Zynq Ultrascale+ MP. CR# 856980.
+* 3.1   aru  07/13/18 Resolved doxygen reported warnings. CR# 1006331.
 *
 * </pre>
 *
@@ -375,8 +372,8 @@ void XGpioPs_SetDirectionPin(XGpioPs *InstancePtr, u32 Pin, u32 Direction)
 * @param	Bank is the bank number of the GPIO to operate on.
 *		Valid values are 0-3 in Zynq and 0-5 in Zynq Ultrascale+ MP.
 *
-* return	Returns a 32 bit mask of the Direction register. Bits with 0 are
-*		in Input mode, bits with 1 are in Output Mode.
+* @return	Returns a 32 bit mask of the Direction register. Bits with 0 are
+* 		in Input mode, bits with 1 are in Output Mode.
 *
 * @note		None.
 *
@@ -511,7 +508,7 @@ void XGpioPs_SetOutputEnablePin(XGpioPs *InstancePtr, u32 Pin, u32 OpEnable)
 * @param	Bank is the bank number of the GPIO to operate on.
 *		Valid values are 0-3 in Zynq and 0-5 in Zynq Ultrascale+ MP.
 *
-* return	Returns a a 32 bit mask of the Output Enable register.
+* @return	Returns a a 32 bit mask of the Output Enable register.
 *		Bits with 0 are in Disabled state, bits with 1 are in
 *		Enabled State.
 *

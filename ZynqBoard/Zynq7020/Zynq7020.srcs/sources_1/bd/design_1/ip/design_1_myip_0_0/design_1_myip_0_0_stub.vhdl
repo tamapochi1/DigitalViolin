@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Thu Oct  4 17:40:26 2018
--- Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
--- Command     : write_vhdl -force -mode synth_stub -rename_top design_1_myip_0_0 -prefix
---               design_1_myip_0_0_ design_1_myip_0_0_stub.vhdl
+-- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+-- Date        : Thu May 23 15:22:10 2019
+-- Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode synth_stub
+--               C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_myip_0_0/design_1_myip_0_0_stub.vhdl
 -- Design      : design_1_myip_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1
@@ -47,6 +47,6 @@ attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "RGB_OUT[2:0],USB_nRESET,s00_axi_awaddr[3:0],s00_axi_awprot[2:0],s00_axi_awvalid,s00_axi_awready,s00_axi_wdata[31:0],s00_axi_wstrb[3:0],s00_axi_wvalid,s00_axi_wready,s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_araddr[3:0],s00_axi_arprot[2:0],s00_axi_arvalid,s00_axi_arready,s00_axi_rdata[31:0],s00_axi_rresp[1:0],s00_axi_rvalid,s00_axi_rready,s00_axi_aclk,s00_axi_aresetn";
 attribute X_CORE_INFO : string;
-attribute X_CORE_INFO of stub : architecture is "myip_v1_0,Vivado 2018.2";
+attribute X_CORE_INFO of stub : architecture is "myip_v1_0,Vivado 2018.3";
 begin
 end;

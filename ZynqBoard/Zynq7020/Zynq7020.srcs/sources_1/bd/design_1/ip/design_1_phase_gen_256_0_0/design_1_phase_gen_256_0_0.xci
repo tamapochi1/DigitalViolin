@@ -15,6 +15,7 @@
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS_PHASE.HAS_TLAST">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS_PHASE.HAS_TREADY">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS_PHASE.HAS_TSTRB">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS_PHASE.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS_PHASE.LAYERED_METADATA">undef</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS_PHASE.PHASE">0.000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS_PHASE.TDATA_NUM_BYTES">2</spirit:configurableElementValue>
@@ -24,7 +25,9 @@
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_BRAM_INT_CLK.ASSOCIATED_BUSIF"/>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_BRAM_INT_CLK.CLK_DOMAIN">design_1_phase_gen_256_0_0_m_bram_int_clk</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_BRAM_INT_CLK.FREQ_HZ">100000000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_BRAM_INT_CLK.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_BRAM_INT_CLK.PHASE">0.000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_BRAM_INT_RST.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_BRAM_INT_RST.POLARITY">ACTIVE_LOW</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_DELTA.CLK_DOMAIN"/>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_DELTA.FREQ_HZ">100000000</spirit:configurableElementValue>
@@ -32,6 +35,7 @@
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_DELTA.HAS_TLAST">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_DELTA.HAS_TREADY">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_DELTA.HAS_TSTRB">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_DELTA.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_DELTA.LAYERED_METADATA">undef</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_DELTA.PHASE">0.000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_DELTA.TDATA_NUM_BYTES">3</spirit:configurableElementValue>
@@ -46,7 +50,8 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.M_TWO">0xC00000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.ONE">0x200000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.ARCHITECTURE">zynq</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BOARD"/>
+        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BASE_BOARD_PART"/>
+        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BOARD_CONNECTIONS"/>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.DEVICE">xc7z020</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.PACKAGE">clg484</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.PREFHDL">VERILOG</spirit:configurableElementValue>
@@ -62,7 +67,7 @@
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.OUTPUTDIR">.</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SELECTEDSIMMODEL"/>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SHAREDDIR">../../ipshared</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SWVERSION">2018.2</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SWVERSION">2018.3</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SYNTHESISFLOW">OOC_HIERARCHICAL</spirit:configurableElementValue>
       </spirit:configurableElementValues>
       <spirit:vendorExtensions>

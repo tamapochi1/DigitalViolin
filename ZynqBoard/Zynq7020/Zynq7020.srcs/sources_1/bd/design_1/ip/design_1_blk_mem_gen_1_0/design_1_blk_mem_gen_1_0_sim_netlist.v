@@ -1,8 +1,8 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sat Oct  6 15:48:15 2018
-// Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
+// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+// Date        : Thu May 23 20:03:34 2019
+// Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top design_1_blk_mem_gen_1_0 -prefix
 //               design_1_blk_mem_gen_1_0_ design_1_blk_mem_gen_1_0_sim_netlist.v
 // Design      : design_1_blk_mem_gen_1_0
@@ -12,7 +12,7 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "design_1_blk_mem_gen_1_0,blk_mem_gen_v8_4_1,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "blk_mem_gen_v8_4_1,Vivado 2018.2" *) 
+(* CHECK_LICENSE_TYPE = "design_1_blk_mem_gen_1_0,blk_mem_gen_v8_4_2,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "blk_mem_gen_v8_4_2,Vivado 2018.3" *) 
 (* NotValidForBitStream *)
 module design_1_blk_mem_gen_1_0
    (clka,
@@ -25,11 +25,11 @@ module design_1_blk_mem_gen_1_0
     doutb,
     rsta_busy,
     rstb_busy);
-  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_WRITE_MODE WRITE_ONLY" *) input clka;
+  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_WRITE_MODE WRITE_ONLY, READ_LATENCY 1" *) input clka;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA WE" *) input [0:0]wea;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR" *) input [10:0]addra;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA DIN" *) input [23:0]dina;
-  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTB, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_WRITE_MODE READ_ONLY" *) input clkb;
+  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTB, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_WRITE_MODE READ_ONLY, READ_LATENCY 1" *) input clkb;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB RST" *) input rstb;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB ADDR" *) input [10:0]addrb;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB DOUT" *) output [23:0]doutb;
@@ -115,6 +115,8 @@ module design_1_blk_mem_gen_1_0
   (* C_PRIM_TYPE = "1" *) 
   (* C_READ_DEPTH_A = "2048" *) 
   (* C_READ_DEPTH_B = "2048" *) 
+  (* C_READ_LATENCY_A = "1" *) 
+  (* C_READ_LATENCY_B = "1" *) 
   (* C_READ_WIDTH_A = "24" *) 
   (* C_READ_WIDTH_B = "24" *) 
   (* C_RSTRAM_A = "0" *) 
@@ -139,7 +141,7 @@ module design_1_blk_mem_gen_1_0
   (* C_WRITE_WIDTH_B = "24" *) 
   (* C_XDEVICEFAMILY = "zynq" *) 
   (* downgradeipidentifiedwarnings = "yes" *) 
-  design_1_blk_mem_gen_1_0_blk_mem_gen_v8_4_1 U0
+  design_1_blk_mem_gen_1_0_blk_mem_gen_v8_4_2 U0
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -469,9 +471,9 @@ module design_1_blk_mem_gen_1_0_blk_mem_gen_prim_width__parameterized0
         .Q(rstb_busy),
         .R(1'b0));
   design_1_blk_mem_gen_1_0_blk_mem_gen_prim_wrapper__parameterized0 \prim_noinit.ram 
-       (.ENA_I(ENA_I),
+       (.\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 (POR_A),
+        .ENA_I(ENA_I),
         .ENA_dly_D(ENA_dly_D),
-        .\SAFETY_CKT_GEN.POR_A_reg (POR_A),
         .addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -645,7 +647,7 @@ module design_1_blk_mem_gen_1_0_blk_mem_gen_prim_wrapper__parameterized0
     ENA_I,
     ram_rstram_b,
     clka,
-    \SAFETY_CKT_GEN.POR_A_reg ,
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ,
     addra,
     addrb,
     dina,
@@ -656,7 +658,7 @@ module design_1_blk_mem_gen_1_0_blk_mem_gen_prim_wrapper__parameterized0
   output ENA_I;
   output ram_rstram_b;
   input clka;
-  input \SAFETY_CKT_GEN.POR_A_reg ;
+  input \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ;
   input [10:0]addra;
   input [10:0]addrb;
   input [14:0]dina;
@@ -664,12 +666,12 @@ module design_1_blk_mem_gen_1_0_blk_mem_gen_prim_wrapper__parameterized0
   input [0:0]wea;
   input rstb;
 
+  wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_n_52 ;
   wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_n_74 ;
   wire \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_n_75 ;
   wire ENA_I;
   wire ENA_dly_D;
-  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [10:0]addra;
   wire [10:0]addrb;
   wire clka;
@@ -892,7 +894,7 @@ module design_1_blk_mem_gen_1_0_blk_mem_gen_prim_wrapper__parameterized0
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTRAMARSTRAM(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ),
         .RSTRAMB(ram_rstram_b),
         .RSTREGARSTREG(1'b0),
         .RSTREGB(1'b0),
@@ -909,7 +911,7 @@ module design_1_blk_mem_gen_1_0_blk_mem_gen_prim_wrapper__parameterized0
     .INIT(4'hE)) 
     \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_i_2 
        (.I0(rstb),
-        .I1(\SAFETY_CKT_GEN.POR_A_reg ),
+        .I1(\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0 ),
         .O(ram_rstram_b));
 endmodule
 
@@ -971,16 +973,17 @@ endmodule
 (* C_INITA_VAL = "0" *) (* C_INITB_VAL = "0" *) (* C_INIT_FILE = "NONE" *) 
 (* C_INIT_FILE_NAME = "no_coe_file_loaded" *) (* C_INTERFACE_TYPE = "0" *) (* C_LOAD_INIT_FILE = "0" *) 
 (* C_MEM_TYPE = "1" *) (* C_MUX_PIPELINE_STAGES = "0" *) (* C_PRIM_TYPE = "1" *) 
-(* C_READ_DEPTH_A = "2048" *) (* C_READ_DEPTH_B = "2048" *) (* C_READ_WIDTH_A = "24" *) 
-(* C_READ_WIDTH_B = "24" *) (* C_RSTRAM_A = "0" *) (* C_RSTRAM_B = "0" *) 
-(* C_RST_PRIORITY_A = "CE" *) (* C_RST_PRIORITY_B = "SR" *) (* C_SIM_COLLISION_CHECK = "ALL" *) 
-(* C_USE_BRAM_BLOCK = "0" *) (* C_USE_BYTE_WEA = "0" *) (* C_USE_BYTE_WEB = "0" *) 
-(* C_USE_DEFAULT_DATA = "0" *) (* C_USE_ECC = "0" *) (* C_USE_SOFTECC = "0" *) 
-(* C_USE_URAM = "0" *) (* C_WEA_WIDTH = "1" *) (* C_WEB_WIDTH = "1" *) 
-(* C_WRITE_DEPTH_A = "2048" *) (* C_WRITE_DEPTH_B = "2048" *) (* C_WRITE_MODE_A = "NO_CHANGE" *) 
-(* C_WRITE_MODE_B = "READ_FIRST" *) (* C_WRITE_WIDTH_A = "24" *) (* C_WRITE_WIDTH_B = "24" *) 
-(* C_XDEVICEFAMILY = "zynq" *) (* downgradeipidentifiedwarnings = "yes" *) 
-module design_1_blk_mem_gen_1_0_blk_mem_gen_v8_4_1
+(* C_READ_DEPTH_A = "2048" *) (* C_READ_DEPTH_B = "2048" *) (* C_READ_LATENCY_A = "1" *) 
+(* C_READ_LATENCY_B = "1" *) (* C_READ_WIDTH_A = "24" *) (* C_READ_WIDTH_B = "24" *) 
+(* C_RSTRAM_A = "0" *) (* C_RSTRAM_B = "0" *) (* C_RST_PRIORITY_A = "CE" *) 
+(* C_RST_PRIORITY_B = "SR" *) (* C_SIM_COLLISION_CHECK = "ALL" *) (* C_USE_BRAM_BLOCK = "0" *) 
+(* C_USE_BYTE_WEA = "0" *) (* C_USE_BYTE_WEB = "0" *) (* C_USE_DEFAULT_DATA = "0" *) 
+(* C_USE_ECC = "0" *) (* C_USE_SOFTECC = "0" *) (* C_USE_URAM = "0" *) 
+(* C_WEA_WIDTH = "1" *) (* C_WEB_WIDTH = "1" *) (* C_WRITE_DEPTH_A = "2048" *) 
+(* C_WRITE_DEPTH_B = "2048" *) (* C_WRITE_MODE_A = "NO_CHANGE" *) (* C_WRITE_MODE_B = "READ_FIRST" *) 
+(* C_WRITE_WIDTH_A = "24" *) (* C_WRITE_WIDTH_B = "24" *) (* C_XDEVICEFAMILY = "zynq" *) 
+(* downgradeipidentifiedwarnings = "yes" *) 
+module design_1_blk_mem_gen_1_0_blk_mem_gen_v8_4_2
    (clka,
     rsta,
     ena,
@@ -1213,7 +1216,7 @@ module design_1_blk_mem_gen_1_0_blk_mem_gen_v8_4_1
   assign sbiterr = \<const0> ;
   GND GND
        (.G(\<const0> ));
-  design_1_blk_mem_gen_1_0_blk_mem_gen_v8_4_1_synth inst_blk_mem_gen
+  design_1_blk_mem_gen_1_0_blk_mem_gen_v8_4_2_synth inst_blk_mem_gen
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -1225,7 +1228,7 @@ module design_1_blk_mem_gen_1_0_blk_mem_gen_v8_4_1
         .wea(wea));
 endmodule
 
-module design_1_blk_mem_gen_1_0_blk_mem_gen_v8_4_1_synth
+module design_1_blk_mem_gen_1_0_blk_mem_gen_v8_4_2_synth
    (doutb,
     rsta_busy,
     rstb_busy,

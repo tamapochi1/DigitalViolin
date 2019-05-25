@@ -15,6 +15,7 @@
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS.HAS_TLAST">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS.HAS_TREADY">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS.HAS_TSTRB">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS.LAYERED_METADATA">undef</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS.PHASE">0.000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS.TDATA_NUM_BYTES">4</spirit:configurableElementValue>
@@ -23,7 +24,8 @@
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.M_AXIS.TUSER_WIDTH">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">design_1_DAC_FIFO_0_0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.ARCHITECTURE">zynq</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BOARD"/>
+        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BASE_BOARD_PART"/>
+        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BOARD_CONNECTIONS"/>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.DEVICE">xc7z020</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.PACKAGE">clg484</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.PREFHDL">VERILOG</spirit:configurableElementValue>
@@ -39,7 +41,7 @@
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.OUTPUTDIR">.</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SELECTEDSIMMODEL"/>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SHAREDDIR">../../ipshared</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SWVERSION">2018.2</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SWVERSION">2018.3</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SYNTHESISFLOW">OOC_HIERARCHICAL</spirit:configurableElementValue>
       </spirit:configurableElementValues>
       <spirit:vendorExtensions>

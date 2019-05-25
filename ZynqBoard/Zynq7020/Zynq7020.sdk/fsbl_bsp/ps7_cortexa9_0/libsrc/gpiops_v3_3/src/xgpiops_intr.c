@@ -12,10 +12,6 @@
 * The above copyright notice and this permission notice shall be included in
 * all copies or substantial portions of the Software.
 *
-* Use of the Software is limited solely to applications:
-* (a) running on a Xilinx device, or
-* (b) that interact with a Xilinx device through a bus or interconnect.
-*
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
@@ -48,6 +44,7 @@
 * 					  passed to API's. CR# 822636
 * 3.00  kvn  02/13/15 Modified code for MISRA-C:2012 compliance.
 * 3.1	kvn  04/13/15 Add support for Zynq Ultrascale+ MP. CR# 856980.
+* 3.1   aru  07/13/18 Ressolved doxygen reported warnings. CR# 1006331.
 * </pre>
 *
 ******************************************************************************/
@@ -644,7 +641,7 @@ u8 XGpioPs_GetIntrTypePin(XGpioPs *InstancePtr, u32 Pin)
 * @param	InstancePtr is a pointer to the XGpioPs instance.
 * @param	CallBackRef is the upper layer callback reference passed back
 *		when the callback function is invoked.
-* @param	FuncPtr is the pointer to the callback function.
+* @param	FuncPointer is the pointer to the callback function.
 *
 *
 * @return	None.

@@ -1,8 +1,8 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sat Oct 13 15:27:54 2018
-// Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
+// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+// Date        : Thu May 23 15:24:13 2019
+// Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_DAC_IF_0_0_sim_netlist.v
 // Design      : design_1_DAC_IF_0_0
@@ -15,7 +15,7 @@
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
    (DAC_SDT,
     DAC_LRCK,
-    DAC_BICK,
+    \prescalerBICK_reg[2]_0 ,
     audio256Clk,
     nReset,
     s_axis_tvalid,
@@ -23,14 +23,13 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
     s_axis_aclk);
   output DAC_SDT;
   output DAC_LRCK;
-  output DAC_BICK;
+  output \prescalerBICK_reg[2]_0 ;
   input audio256Clk;
   input nReset;
   input s_axis_tvalid;
   input [31:0]s_axis_tdata;
   input s_axis_aclk;
 
-  wire DAC_BICK;
   wire DAC_LRCK;
   wire DAC_SDT;
   wire SDT_i_10_n_0;
@@ -66,6 +65,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   wire \prescalerBICK[0]_i_1_n_0 ;
   wire \prescalerBICK[1]_i_1_n_0 ;
   wire \prescalerBICK[2]_i_1_n_0 ;
+  wire \prescalerBICK_reg[2]_0 ;
   wire [31:0]readDataBuf;
   wire s_axis_aclk;
   wire [31:0]s_axis_tdata;
@@ -238,17 +238,17 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
     .INIT(32'h4000FFFF)) 
     \bitCounter[4]_i_1 
        (.I0(\bitCounter[4]_i_4_n_0 ),
-        .I1(prescalerBICK[1]),
-        .I2(prescalerBICK[0]),
-        .I3(DAC_BICK),
+        .I1(\prescalerBICK_reg[2]_0 ),
+        .I2(prescalerBICK[1]),
+        .I3(prescalerBICK[0]),
         .I4(nReset),
         .O(\bitCounter[4]_i_1_n_0 ));
   LUT3 #(
     .INIT(8'h80)) 
     \bitCounter[4]_i_2 
-       (.I0(prescalerBICK[1]),
-        .I1(prescalerBICK[0]),
-        .I2(DAC_BICK),
+       (.I0(\prescalerBICK_reg[2]_0 ),
+        .I1(prescalerBICK[1]),
+        .I2(prescalerBICK[0]),
         .O(\bitCounter[4]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
@@ -264,11 +264,11 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     \bitCounter[4]_i_4 
-       (.I0(bitCounter_reg__0[3]),
-        .I1(bitCounter_reg__0[1]),
+       (.I0(bitCounter_reg__0[1]),
+        .I1(bitCounter_reg__0[4]),
         .I2(bitCounter_reg__0[0]),
-        .I3(bitCounter_reg__0[4]),
-        .I4(bitCounter_reg__0[2]),
+        .I3(bitCounter_reg__0[2]),
+        .I4(bitCounter_reg__0[3]),
         .O(\bitCounter[4]_i_4_n_0 ));
   FDSE #(
     .IS_C_INVERTED(1'b1)) 
@@ -314,11 +314,11 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
     .INIT(64'h0000000000000002)) 
     \dataBuf[31]_i_1 
        (.I0(\bitCounter[4]_i_2_n_0 ),
-        .I1(bitCounter_reg__0[2]),
-        .I2(bitCounter_reg__0[4]),
+        .I1(bitCounter_reg__0[3]),
+        .I2(bitCounter_reg__0[2]),
         .I3(bitCounter_reg__0[0]),
-        .I4(bitCounter_reg__0[1]),
-        .I5(bitCounter_reg__0[3]),
+        .I4(bitCounter_reg__0[4]),
+        .I5(bitCounter_reg__0[1]),
         .O(bitCounter));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
@@ -592,12 +592,12 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
         .O(\prescalerBICK[1]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
-    .INIT(16'h2A80)) 
+    .INIT(16'h2888)) 
     \prescalerBICK[2]_i_1 
        (.I0(nReset),
-        .I1(prescalerBICK[1]),
-        .I2(prescalerBICK[0]),
-        .I3(DAC_BICK),
+        .I1(\prescalerBICK_reg[2]_0 ),
+        .I2(prescalerBICK[1]),
+        .I3(prescalerBICK[0]),
         .O(\prescalerBICK[2]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
@@ -621,7 +621,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
        (.C(audio256Clk),
         .CE(1'b1),
         .D(\prescalerBICK[2]_i_1_n_0 ),
-        .Q(DAC_BICK),
+        .Q(\prescalerBICK_reg[2]_0 ),
         .R(1'b0));
   LUT1 #(
     .INIT(2'h1)) 
@@ -887,7 +887,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF
 endmodule
 
 (* CHECK_LICENSE_TYPE = "design_1_DAC_IF_0_0,DAC_IF,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "DAC_IF,Vivado 2018.2" *) 
+(* X_CORE_INFO = "DAC_IF,Vivado 2018.3" *) 
 (* NotValidForBitStream *)
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (nReset,
@@ -903,8 +903,8 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   input nReset;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TDATA" *) input [31:0]s_axis_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TVALID" *) input s_axis_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 12288000, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK1, LAYERED_METADATA undef" *) output s_axis_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s_axis_aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_aclk, ASSOCIATED_BUSIF s_axis, FREQ_HZ 12288000, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK1" *) input s_axis_aclk;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 12288000, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK1, LAYERED_METADATA undef, INSERT_VIP 0" *) output s_axis_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s_axis_aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_aclk, ASSOCIATED_BUSIF s_axis, FREQ_HZ 12288000, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK1, INSERT_VIP 0" *) input s_axis_aclk;
   input audio256Clk;
   output DAC_MCLK;
   output DAC_BICK;
@@ -929,11 +929,11 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
         .I1(nReset),
         .O(DAC_MCLK));
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DAC_IF inst
-       (.DAC_BICK(DAC_BICK),
-        .DAC_LRCK(DAC_LRCK),
+       (.DAC_LRCK(DAC_LRCK),
         .DAC_SDT(DAC_SDT),
         .audio256Clk(audio256Clk),
         .nReset(nReset),
+        .\prescalerBICK_reg[2]_0 (DAC_BICK),
         .s_axis_aclk(s_axis_aclk),
         .s_axis_tdata(s_axis_tdata),
         .s_axis_tvalid(s_axis_tvalid));

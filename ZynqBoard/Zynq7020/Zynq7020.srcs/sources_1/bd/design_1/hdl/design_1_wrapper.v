@@ -1,8 +1,8 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Mon Oct 22 20:29:05 2018
-//Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
+//Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+//Date        : Sat May 25 16:50:20 2019
+//Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
 //Purpose     : IP block netlist
@@ -36,8 +36,10 @@ module design_1_wrapper
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
     RGB_OUT_0,
+    SPI_Master_CSn_1,
     UART_1_rxd,
     UART_1_txd,
+    UIF_Master_1_h_sck,
     UIF_Res_1,
     UIF_Slave_1_s_rxd,
     UIF_Slave_1_s_sck,
@@ -69,8 +71,10 @@ module design_1_wrapper
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
   output [2:0]RGB_OUT_0;
+  output SPI_Master_CSn_1;
   input UART_1_rxd;
   output UART_1_txd;
+  output UIF_Master_1_h_sck;
   output UIF_Res_1;
   output UIF_Slave_1_s_rxd;
   input UIF_Slave_1_s_sck;
@@ -103,8 +107,10 @@ module design_1_wrapper
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
   wire [2:0]RGB_OUT_0;
+  wire SPI_Master_CSn_1;
   wire UART_1_rxd;
   wire UART_1_txd;
+  wire UIF_Master_1_h_sck;
   wire UIF_Res_1;
   wire UIF_Slave_1_s_rxd;
   wire UIF_Slave_1_s_sck;
@@ -138,8 +144,10 @@ module design_1_wrapper
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
         .RGB_OUT_0(RGB_OUT_0),
+        .SPI_Master_CSn_1(SPI_Master_CSn_1),
         .UART_1_rxd(UART_1_rxd),
         .UART_1_txd(UART_1_txd),
+        .UIF_Master_1_h_sck(UIF_Master_1_h_sck),
         .UIF_Res_1(UIF_Res_1),
         .UIF_Slave_1_s_rxd(UIF_Slave_1_s_rxd),
         .UIF_Slave_1_s_sck(UIF_Slave_1_s_sck),

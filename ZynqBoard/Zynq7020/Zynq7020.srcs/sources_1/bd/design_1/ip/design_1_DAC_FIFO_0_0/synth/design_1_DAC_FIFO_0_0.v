@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:DAC_FIFO:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "DAC_FIFO,Vivado 2018.2" *)
+(* X_CORE_INFO = "DAC_FIFO,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "design_1_DAC_FIFO_0_0,DAC_FIFO,{}" *)
-(* CORE_GENERATION_INFO = "design_1_DAC_FIFO_0_0,DAC_FIFO,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=DAC_FIFO,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "design_1_DAC_FIFO_0_0,DAC_FIFO,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=DAC_FIFO,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_DAC_FIFO_0_0 (
@@ -71,7 +71,7 @@ input wire DataValid;
 output wire [31 : 0] m_axis_tdata;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TREADY" *)
 input wire m_axis_tready;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TVALID" *)
 output wire m_axis_tvalid;
 

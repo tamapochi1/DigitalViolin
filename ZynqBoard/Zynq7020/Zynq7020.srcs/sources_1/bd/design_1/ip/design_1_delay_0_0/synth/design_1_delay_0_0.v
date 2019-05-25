@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:delay:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "delay,Vivado 2018.2" *)
+(* X_CORE_INFO = "delay,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "design_1_delay_0_0,delay,{}" *)
-(* CORE_GENERATION_INFO = "design_1_delay_0_0,delay,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=delay,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,WIDTH=14,DELAY=25}" *)
+(* CORE_GENERATION_INFO = "design_1_delay_0_0,delay,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=delay,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,WIDTH=14,DELAY=25}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_delay_0_0 (
@@ -65,17 +65,17 @@ module design_1_delay_0_0 (
 );
 
 input wire nReset;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis_out:s_axis_in, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis_out:s_axis_in, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_in TDATA" *)
 input wire [13 : 0] s_axis_in_tdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_in, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_in, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_in TVALID" *)
 input wire s_axis_in_tvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_out TDATA" *)
 output wire [13 : 0] m_axis_out_tdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_out, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_out, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_out TVALID" *)
 output wire m_axis_out_tvalid;
 

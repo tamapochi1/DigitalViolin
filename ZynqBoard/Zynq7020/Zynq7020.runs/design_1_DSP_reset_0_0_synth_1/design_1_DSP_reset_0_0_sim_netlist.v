@@ -1,8 +1,8 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sat Oct 13 15:27:54 2018
-// Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
+// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+// Date        : Fri May 24 02:18:03 2019
+// Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_DSP_reset_0_0_sim_netlist.v
 // Design      : design_1_DSP_reset_0_0
@@ -98,7 +98,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reset
 endmodule
 
 (* CHECK_LICENSE_TYPE = "design_1_DSP_reset_0_0,DSP_reset,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "DSP_reset,Vivado 2018.2" *) 
+(* X_CORE_INFO = "DSP_reset,Vivado 2018.3" *) 
 (* NotValidForBitStream *)
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (nResetExt,

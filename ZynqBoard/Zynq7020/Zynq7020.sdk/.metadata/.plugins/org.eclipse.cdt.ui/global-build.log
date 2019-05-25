@@ -5839,3 +5839,1163 @@ arm-none-eabi-size hello.elf  |tee "hello.elf.size"
   88124	   2636	520024976	520115736	1f005618	hello.elf
 'Finished building: hello.elf.size'
 ' '
+15:51:32 **** Build of project hello_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/myip_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/myip_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_7/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling coresightps_dcc"
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/myip_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/myip_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling myip..."
+myip_selftest.c: In function 'MYIP_Reg_SelfTest':
+myip_selftest.c:52:53: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( MYIP_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                     ^~
+myip_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_7/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling standalone"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+15:52:13 **** Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/fingering.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/fingering.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/fingering.d" -MT"src/fingering.o" -o "src/fingering.o" "../src/fingering.c"
+'Finished building: ../src/fingering.c'
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  88124	   2636	520024976	520115736	1f005618	hello.elf
+'Finished building: hello.elf.size'
+' '
+15:53:08 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+15:57:50 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+16:01:24 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35240	   1200	520024216	520060656	1eff7ef0	hello.elf
+'Finished building: hello.elf.size'
+' '
+19:32:03 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35240	   1200	520024216	520060656	1eff7ef0	hello.elf
+'Finished building: hello.elf.size'
+' '
+19:33:10 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35240	   1200	520024216	520060656	1eff7ef0	hello.elf
+'Finished building: hello.elf.size'
+' '
+20:50:25 **** Clean-only build of project Test_bsp ****
+make -k clean 
+make -C ps7_cortexa9_0/libsrc/bram_v4_2/src -s clean 
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s clean 
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s clean 
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s clean 
+make -C ps7_cortexa9_0/libsrc/DSP_register_v1_0/src -s clean 
+rm: cannot lstat `*.o': Invalid argument
+make[1]: *** [Makefile:26: clean] Error 1
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s clean 
+make: *** [Makefile:33: ps7_cortexa9_0/libsrc/DSP_register_v1_0/src/make.clean] Error 2
+make -C ps7_cortexa9_0/libsrc/iicps_v3_7/src -s clean 
+make -C ps7_cortexa9_0/libsrc/myip_v1_0/src -s clean 
+rm: cannot lstat `*.o': Invalid argument
+make[1]: *** [Makefile:26: clean] Error 1
+make: *** [Makefile:33: ps7_cortexa9_0/libsrc/myip_v1_0/src/make.clean] Error 2
+make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s clean 
+make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s clean 
+make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s clean 
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s clean 
+make: Target 'clean' not remade because of errors.
+20:50:28 **** Clean-only build of project hello_bsp ****
+20:50:28 **** Clean-only build of project fsbl_bsp ****
+make -k clean 
+make -k clean 
+make -C ps7_cortexa9_0/libsrc/bram_v4_2/src -s clean 
+make -C ps7_cortexa9_0/libsrc/bram_v4_2/src -s clean 
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s clean 
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s clean 
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s clean 
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s clean 
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s clean 
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s clean 
+make -C ps7_cortexa9_0/libsrc/DSP_register_v1_0/src -s clean 
+make -C ps7_cortexa9_0/libsrc/DSP_register_v1_0/src -s clean 
+rm: cannot lstat `*.o': Invalid argument
+make[1]: *** [Makefile:26: clean] Error 1
+make: *** [Makefile:33: ps7_cortexa9_0/libsrc/DSP_register_v1_0/src/make.clean] Error 2
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s clean 
+rm: cannot lstat `*.o': Invalid argument
+make[1]: *** [Makefile:26: clean] Error 1
+make: *** [Makefile:33: ps7_cortexa9_0/libsrc/DSP_register_v1_0/src/make.clean] Error 2
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s clean 
+make -C ps7_cortexa9_0/libsrc/iicps_v3_7/src -s clean 
+make -C ps7_cortexa9_0/libsrc/iicps_v3_7/src -s clean 
+make -C ps7_cortexa9_0/libsrc/myip_v1_0/src -s clean 
+make -C ps7_cortexa9_0/libsrc/myip_v1_0/src -s clean 
+rm: cannot lstat `*.o': Invalid argument
+make[1]: *** [Makefile:26: clean] Error 1
+make: *** [Makefile:33: ps7_cortexa9_0/libsrc/myip_v1_0/src/make.clean] Error 2
+make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s clean 
+rm: cannot lstat `*.o': Invalid argument
+make[1]: *** [Makefile:26: clean] Error 1
+make: *** [Makefile:33: ps7_cortexa9_0/libsrc/myip_v1_0/src/make.clean] Error 2
+make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s clean 
+make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s clean 
+make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s clean 
+make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s clean 
+make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s clean 
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s clean 
+make -C ps7_cortexa9_0/libsrc/xilffs_v3_9/src -s clean 
+make: Target 'clean' not remade because of errors.
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s clean 
+20:50:32 **** Clean-only build of configuration Debug for project hello ****
+make clean 
+rm -rf  ./src/fingering.o ./src/helloworld.o ./src/platform.o  ./src/fingering.d ./src/helloworld.d ./src/platform.d  hello.elf.size  hello.elf
+' '
+20:51:13 **** Build of project hello_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/bram_v4_2/src"
+make -C ps7_cortexa9_0/libsrc/bram_v4_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/DSP_register_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/DSP_register_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/iicps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/iicps_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/myip_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/myip_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_7/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/bram_v4_2/src"
+make -C ps7_cortexa9_0/libsrc/bram_v4_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling bram"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling coresightps_dcc"
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/DSP_register_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/DSP_register_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling DSP_register..."
+DSP_register_selftest.c: In function 'DSP_REGISTER_Reg_SelfTest':
+DSP_register_selftest.c:52:61: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( DSP_REGISTER_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                             ^~
+DSP_register_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/iicps_v3_7/src"
+make -C ps7_cortexa9_0/libsrc/iicps_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling iicps"
+"Running Make libs in ps7_cortexa9_0/libsrc/myip_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/myip_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling myip..."
+myip_selftest.c: In function 'MYIP_Reg_SelfTest':
+myip_selftest.c:52:53: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( MYIP_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                     ^~
+myip_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_7/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling standalone"
+xil_mmu.c: In function 'Xil_MemMap':
+xil_mmu.c:213:15: warning: function returns address of local variable [-Wreturn-local-addr]
+        return (void*)&PhysAddr;
+               ^~~~~~~~~~~~~~~~
+xil_mmu.c:228:11: warning: function returns address of local variable [-Wreturn-local-addr]
+    return (void*)&PhysAddr;
+           ^~~~~~~~~~~~~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling xadcps"
+'Finished building libraries'
+20:51:39 **** Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/fingering.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/fingering.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/fingering.d" -MT"src/fingering.o" -o "src/fingering.o" "../src/fingering.c"
+'Finished building: ../src/fingering.c'
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35240	   1200	520024216	520060656	1eff7ef0	hello.elf
+'Finished building: hello.elf.size'
+' '
+20:59:44 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35272	   1200	520024216	520060688	1eff7f10	hello.elf
+'Finished building: hello.elf.size'
+' '
+21:01:56 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:03:21 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:06:03 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35272	   1200	520024216	520060688	1eff7f10	hello.elf
+'Finished building: hello.elf.size'
+' '
+21:07:26 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:13:26 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:14:32 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:15:14 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:15:50 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:24:51 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:30:03 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35272	   1200	520024216	520060688	1eff7f10	hello.elf
+'Finished building: hello.elf.size'
+' '
+21:50:33 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:52:24 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35288	   1200	520024216	520060704	1eff7f20	hello.elf
+'Finished building: hello.elf.size'
+' '
+22:04:58 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35320	   1200	520024216	520060736	1eff7f40	hello.elf
+'Finished building: hello.elf.size'
+' '
+22:05:43 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35336	   1200	520024216	520060752	1eff7f50	hello.elf
+'Finished building: hello.elf.size'
+' '
+22:15:14 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:42:56 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:58:12 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:58:59 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35336	   1200	520024216	520060752	1eff7f50	hello.elf
+'Finished building: hello.elf.size'
+' '
+23:14:32 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:26:00 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:26:46 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+16:06:00 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+16:09:19 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+16:35:04 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+16:40:50 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35336	   1200	520024216	520060752	1eff7f50	hello.elf
+'Finished building: hello.elf.size'
+' '
+16:43:22 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35336	   1200	520024216	520060752	1eff7f50	hello.elf
+'Finished building: hello.elf.size'
+' '
+16:46:08 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35352	   1200	520024216	520060768	1eff7f60	hello.elf
+'Finished building: hello.elf.size'
+' '
+17:32:02 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+17:33:23 **** Incremental Build of configuration Debug for project hello ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                      ^~~~~~~~
+../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                                ^~~~
+../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                          ^~~~
+../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                                ^~~~
+../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                          ^~~~
+../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+                  ^~~~~~
+../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+         ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35368	   1200	520024216	520060784	1eff7f70	hello.elf
+'Finished building: hello.elf.size'
+' '

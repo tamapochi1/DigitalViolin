@@ -137,6 +137,15 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_AXIS_PHASE.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -271,6 +280,15 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.S_AXIS_DELTA.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -295,6 +313,15 @@
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_BRAM_INT_RST.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
@@ -356,6 +383,15 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_BRAM_INT_CLK.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
   </spirit:busInterfaces>
@@ -369,7 +405,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:1c084560</spirit:value>
+            <spirit:value>9:e1c519d2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -385,11 +421,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Oct 13 06:26:54 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:19:02 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:1c084560</spirit:value>
+            <spirit:value>9:e1c519d2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -401,7 +437,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:170c2a59</spirit:value>
+            <spirit:value>9:d93456e1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -417,11 +453,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Oct 13 06:26:54 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:19:02 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:170c2a59</spirit:value>
+            <spirit:value>9:d93456e1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -435,11 +471,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Oct 13 06:27:58 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:22:10 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:1c084560</spirit:value>
+            <spirit:value>9:e1c519d2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>

@@ -2,6 +2,13 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="xilinx.gnu.armv7.exe.debug.1425970430;xilinx.gnu.armv7.exe.debug.1425970430.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="#undef __ARM_FEATURE_CMSE" removed="true"/>
+<includePath path="c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/7.3.1/include"/>
+<includePath path="c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/7.3.1/include-fixed"/>
+<includePath path="c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/include"/>
+<includePath path="#undef __ARM_FEATURE_CRC32" removed="true"/>
+<includePath path="c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>
+<includePath path="#undef __ARM_FEATURE_DOTPROD" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_LDREX" removed="true"/>
 <includePath path="#undef __ARM_NEON__" removed="true"/>
 <includePath path="#undef __ARM_NEON" removed="true"/>
@@ -39,9 +46,12 @@
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=7"/>
 <definedSymbol symbol="__GNUC_MINOR__=2"/>
+<definedSymbol symbol="__GNUC_MINOR__=3"/>
 <definedSymbol symbol="__GNUC_PATCHLEVEL__=1"/>
 <definedSymbol symbol="__VERSION__=&quot;7.2.1 20171011&quot;"/>
+<definedSymbol symbol="__VERSION__=&quot;7.3.1 20180314&quot;"/>
 <definedSymbol symbol="__LINARO_RELEASE__=201711"/>
+<definedSymbol symbol="__LINARO_RELEASE__=201804"/>
 <definedSymbol symbol="__LINARO_SPIN__=0"/>
 <definedSymbol symbol="__ATOMIC_RELAXED=0"/>
 <definedSymbol symbol="__ATOMIC_SEQ_CST=5"/>
@@ -865,6 +875,13 @@
 </instance>
 <instance id="xilinx.gnu.armv7.exe.debug.1425970430;xilinx.gnu.armv7.exe.debug.1425970430.;xilinx.gnu.armv7.c.toolchain.compiler.debug.194979747;xilinx.gnu.armv7.c.compiler.input.493657410">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="#undef __ARM_FEATURE_DOTPROD" removed="true"/>
+<includePath path="#undef __ARM_FEATURE_CMSE" removed="true"/>
+<includePath path="c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/7.3.1/include"/>
+<includePath path="c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/7.3.1/include-fixed"/>
+<includePath path="c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/include"/>
+<includePath path="c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>
+<includePath path="#undef __ARM_FEATURE_CRC32" removed="true"/>
 <includePath path="#undef __thumb__" removed="true"/>
 <includePath path="#undef __thumb2__" removed="true"/>
 <includePath path="#undef __THUMBEL__" removed="true"/>
@@ -902,9 +919,12 @@
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=7"/>
 <definedSymbol symbol="__GNUC_MINOR__=2"/>
+<definedSymbol symbol="__GNUC_MINOR__=3"/>
 <definedSymbol symbol="__GNUC_PATCHLEVEL__=1"/>
 <definedSymbol symbol="__VERSION__=&quot;7.2.1 20171011&quot;"/>
+<definedSymbol symbol="__VERSION__=&quot;7.3.1 20180314&quot;"/>
 <definedSymbol symbol="__LINARO_RELEASE__=201711"/>
+<definedSymbol symbol="__LINARO_RELEASE__=201804"/>
 <definedSymbol symbol="__LINARO_SPIN__=0"/>
 <definedSymbol symbol="__ATOMIC_RELAXED=0"/>
 <definedSymbol symbol="__ATOMIC_SEQ_CST=5"/>

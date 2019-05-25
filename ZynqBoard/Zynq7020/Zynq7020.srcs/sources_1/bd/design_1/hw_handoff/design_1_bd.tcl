@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2018.2
+set scripts_vivado_version 2018.3
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# DAC_FIFO, DAC_IF, DSP_reset, audio_clk_gen, UIF_AXI, UIF_SerialSlave, delay, mult_sum, phase_gen_256, DSP_reg_read
+# DAC_FIFO, DAC_IF, DSP_reset, audio_clk_gen, UIF_AXI, UIF_SerialMasterController, UIF_SerialSlave, UIF_SerialSlave, delay, mult_sum, phase_gen_256, DSP_reg_read
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -500,7 +500,7 @@ proc create_hier_cell_Synthesizer { parentCell nameHier } {
   create_hier_cell_SynthesizerReg $hier_obj SynthesizerReg
 
   # Create instance: axi_bram_ctrl_0, and set properties
-  set axi_bram_ctrl_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.0 axi_bram_ctrl_0 ]
+  set axi_bram_ctrl_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.1 axi_bram_ctrl_0 ]
   set_property -dict [ list \
    CONFIG.DATA_WIDTH {32} \
    CONFIG.ECC_TYPE {Hamming} \
@@ -596,9 +596,11 @@ proc create_hier_cell_UIF { parentCell nameHier } {
 
   # Create interface pins
   create_bd_intf_pin -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S_AXI
+  create_bd_intf_pin -mode Master -vlnv tamapochi1:user:UIF_Master_rtl:1.0 UIF_Master_1
   create_bd_intf_pin -mode Master -vlnv tamapochi1:user:UIF_Slave_rtl:1.0 UIF_Slave_1
 
   # Create pins
+  create_bd_pin -dir O SPI_Master_CSn_1
   create_bd_pin -dir I -type rst S_AXI_ARESETN
   create_bd_pin -dir O UIF_Res_1
   create_bd_pin -dir I -type clk s_aclk
@@ -614,6 +616,17 @@ proc create_hier_cell_UIF { parentCell nameHier } {
      return 1
    }
   
+  # Create instance: UIF_SerialMasterCont_0, and set properties
+  set block_name UIF_SerialMasterController
+  set block_cell_name UIF_SerialMasterCont_0
+  if { [catch {set UIF_SerialMasterCont_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $UIF_SerialMasterCont_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: UIF_SerialSlave_0, and set properties
   set block_name UIF_SerialSlave
   set block_cell_name UIF_SerialSlave_0
@@ -621,6 +634,17 @@ proc create_hier_cell_UIF { parentCell nameHier } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    } elseif { $UIF_SerialSlave_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: UIF_SerialSlave_1, and set properties
+  set block_name UIF_SerialSlave
+  set block_cell_name UIF_SerialSlave_1
+  if { [catch {set UIF_SerialSlave_1 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $UIF_SerialSlave_1 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -689,19 +713,97 @@ proc create_hier_cell_UIF { parentCell nameHier } {
    CONFIG.TUSER_WIDTH {0} \
  ] $fifo_generator_1
 
+  # Create instance: fifo_generator_2, and set properties
+  set fifo_generator_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:fifo_generator:13.2 fifo_generator_2 ]
+  set_property -dict [ list \
+   CONFIG.Clock_Type_AXI {Common_Clock} \
+   CONFIG.Empty_Threshold_Assert_Value_axis {2046} \
+   CONFIG.Empty_Threshold_Assert_Value_rach {14} \
+   CONFIG.Empty_Threshold_Assert_Value_rdch {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wach {14} \
+   CONFIG.Empty_Threshold_Assert_Value_wdch {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wrch {14} \
+   CONFIG.Enable_Data_Counts_axis {true} \
+   CONFIG.Enable_Safety_Circuit {true} \
+   CONFIG.Enable_TLAST {false} \
+   CONFIG.FIFO_Implementation_axis {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_rach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_rdch {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_wach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_wdch {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_wrch {Common_Clock_Distributed_RAM} \
+   CONFIG.Full_Flags_Reset_Value {1} \
+   CONFIG.Full_Threshold_Assert_Value_axis {2047} \
+   CONFIG.Full_Threshold_Assert_Value_rach {15} \
+   CONFIG.Full_Threshold_Assert_Value_wach {15} \
+   CONFIG.Full_Threshold_Assert_Value_wrch {15} \
+   CONFIG.HAS_TKEEP {false} \
+   CONFIG.HAS_TSTRB {false} \
+   CONFIG.INTERFACE_TYPE {AXI_STREAM} \
+   CONFIG.Input_Depth_axis {2048} \
+   CONFIG.Reset_Type {Asynchronous_Reset} \
+   CONFIG.TUSER_WIDTH {0} \
+ ] $fifo_generator_2
+
+  # Create instance: fifo_generator_3, and set properties
+  set fifo_generator_3 [ create_bd_cell -type ip -vlnv xilinx.com:ip:fifo_generator:13.2 fifo_generator_3 ]
+  set_property -dict [ list \
+   CONFIG.Clock_Type_AXI {Common_Clock} \
+   CONFIG.Empty_Threshold_Assert_Value_axis {2046} \
+   CONFIG.Empty_Threshold_Assert_Value_rach {14} \
+   CONFIG.Empty_Threshold_Assert_Value_rdch {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wach {14} \
+   CONFIG.Empty_Threshold_Assert_Value_wdch {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wrch {14} \
+   CONFIG.Enable_Data_Counts_axis {true} \
+   CONFIG.Enable_Safety_Circuit {true} \
+   CONFIG.Enable_TLAST {false} \
+   CONFIG.FIFO_Implementation_axis {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_rach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_rdch {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_wach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_wdch {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_wrch {Common_Clock_Distributed_RAM} \
+   CONFIG.Full_Flags_Reset_Value {1} \
+   CONFIG.Full_Threshold_Assert_Value_axis {2047} \
+   CONFIG.Full_Threshold_Assert_Value_rach {15} \
+   CONFIG.Full_Threshold_Assert_Value_wach {15} \
+   CONFIG.Full_Threshold_Assert_Value_wrch {15} \
+   CONFIG.HAS_TKEEP {false} \
+   CONFIG.HAS_TSTRB {false} \
+   CONFIG.INTERFACE_TYPE {AXI_STREAM} \
+   CONFIG.Input_Depth_axis {2048} \
+   CONFIG.Reset_Type {Asynchronous_Reset} \
+   CONFIG.TUSER_WIDTH {0} \
+ ] $fifo_generator_3
+
   # Create interface connections
+  connect_bd_intf_net -intf_net Conn1 [get_bd_intf_pins UIF_Master_1] [get_bd_intf_pins UIF_SerialMasterCont_0/UIF_Master]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_intf_nets Conn1]
+  connect_bd_intf_net -intf_net UIF_AXI_0_m_axis_ht [get_bd_intf_pins UIF_AXI_0/m_axis_ht] [get_bd_intf_pins fifo_generator_2/S_AXIS]
   connect_bd_intf_net -intf_net UIF_AXI_0_m_axis_sr [get_bd_intf_pins UIF_AXI_0/m_axis_sr] [get_bd_intf_pins fifo_generator_0/S_AXIS]
   connect_bd_intf_net -intf_net UIF_SerialSlave_0_UIF_Slave [get_bd_intf_pins UIF_Slave_1] [get_bd_intf_pins UIF_SerialSlave_0/UIF_Slave]
   connect_bd_intf_net -intf_net UIF_SerialSlave_0_m_axis_st [get_bd_intf_pins UIF_SerialSlave_0/m_axis_st] [get_bd_intf_pins fifo_generator_1/S_AXIS]
+  connect_bd_intf_net -intf_net UIF_SerialSlave_1_UIF_Slave [get_bd_intf_pins UIF_SerialMasterCont_0/internal] [get_bd_intf_pins UIF_SerialSlave_1/UIF_Slave]
+  connect_bd_intf_net -intf_net UIF_SerialSlave_1_m_axis_st [get_bd_intf_pins UIF_SerialSlave_1/m_axis_st] [get_bd_intf_pins fifo_generator_3/S_AXIS]
   connect_bd_intf_net -intf_net fifo_generator_0_M_AXIS [get_bd_intf_pins UIF_SerialSlave_0/s_axis_sr] [get_bd_intf_pins fifo_generator_0/M_AXIS]
   connect_bd_intf_net -intf_net fifo_generator_1_M_AXIS [get_bd_intf_pins UIF_AXI_0/s_axis_st] [get_bd_intf_pins fifo_generator_1/M_AXIS]
+  connect_bd_intf_net -intf_net fifo_generator_2_M_AXIS [get_bd_intf_pins UIF_SerialSlave_1/s_axis_sr] [get_bd_intf_pins fifo_generator_2/M_AXIS]
+  connect_bd_intf_net -intf_net fifo_generator_3_M_AXIS [get_bd_intf_pins UIF_AXI_0/s_axis_hr] [get_bd_intf_pins fifo_generator_3/M_AXIS]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M03_AXI [get_bd_intf_pins S_AXI] [get_bd_intf_pins UIF_AXI_0/S_AXI]
 
   # Create port connections
   connect_bd_net -net UIF_AXI_0_UIF_res [get_bd_pins UIF_Res_1] [get_bd_pins UIF_AXI_0/UIF_res]
-  connect_bd_net -net UIF_AXI_0_sys_nReset [get_bd_pins UIF_AXI_0/sys_nReset] [get_bd_pins UIF_SerialSlave_0/nReset] [get_bd_pins fifo_generator_0/s_aresetn] [get_bd_pins fifo_generator_1/s_aresetn]
+  connect_bd_net -net UIF_AXI_0_hostStart [get_bd_pins UIF_AXI_0/hostStart] [get_bd_pins UIF_SerialMasterCont_0/start]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets UIF_AXI_0_hostStart]
+  connect_bd_net -net UIF_AXI_0_sys_nReset [get_bd_pins UIF_AXI_0/sys_nReset] [get_bd_pins UIF_SerialMasterCont_0/nReset] [get_bd_pins UIF_SerialSlave_0/nReset] [get_bd_pins UIF_SerialSlave_1/nReset] [get_bd_pins fifo_generator_0/s_aresetn] [get_bd_pins fifo_generator_1/s_aresetn] [get_bd_pins fifo_generator_2/s_aresetn] [get_bd_pins fifo_generator_3/s_aresetn]
+  connect_bd_net -net UIF_SerialMasterCont_0_SPI_Master_CSn [get_bd_pins SPI_Master_CSn_1] [get_bd_pins UIF_SerialMasterCont_0/SPI_Master_CSn]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets UIF_SerialMasterCont_0_SPI_Master_CSn]
+  connect_bd_net -net UIF_SerialMasterCont_0_busy [get_bd_pins UIF_AXI_0/hostIsBusy] [get_bd_pins UIF_SerialMasterCont_0/busy]
   connect_bd_net -net fifo_generator_1_axis_data_count [get_bd_pins UIF_AXI_0/st_fifo_count] [get_bd_pins fifo_generator_1/axis_data_count]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins s_aclk] [get_bd_pins UIF_AXI_0/S_AXI_ACLK] [get_bd_pins UIF_SerialSlave_0/sysClk] [get_bd_pins fifo_generator_0/s_aclk] [get_bd_pins fifo_generator_1/s_aclk]
+  connect_bd_net -net fifo_generator_2_axis_data_count [get_bd_pins UIF_SerialMasterCont_0/txFifoCount] [get_bd_pins fifo_generator_2/axis_data_count]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets fifo_generator_2_axis_data_count]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins s_aclk] [get_bd_pins UIF_AXI_0/S_AXI_ACLK] [get_bd_pins UIF_SerialMasterCont_0/sysClk] [get_bd_pins UIF_SerialSlave_0/sysClk] [get_bd_pins UIF_SerialSlave_1/sysClk] [get_bd_pins fifo_generator_0/s_aclk] [get_bd_pins fifo_generator_1/s_aclk] [get_bd_pins fifo_generator_2/s_aclk] [get_bd_pins fifo_generator_3/s_aclk]
   connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins S_AXI_ARESETN] [get_bd_pins UIF_AXI_0/S_AXI_ARESETN]
 
   # Restore current instance
@@ -973,6 +1075,7 @@ proc create_root_design { parentCell } {
   set DDR [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:ddrx_rtl:1.0 DDR ]
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
   set UART_1 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:uart_rtl:1.0 UART_1 ]
+  set UIF_Master_1 [ create_bd_intf_port -mode Master -vlnv tamapochi1:user:UIF_Master_rtl:1.0 UIF_Master_1 ]
   set UIF_Slave_1 [ create_bd_intf_port -mode Master -vlnv tamapochi1:user:UIF_Slave_rtl:1.0 UIF_Slave_1 ]
 
   # Create ports
@@ -981,6 +1084,7 @@ proc create_root_design { parentCell } {
   set DAC_MCLK_0 [ create_bd_port -dir O DAC_MCLK_0 ]
   set DAC_SDT_0 [ create_bd_port -dir O DAC_SDT_0 ]
   set RGB_OUT_0 [ create_bd_port -dir O -from 2 -to 0 RGB_OUT_0 ]
+  set SPI_Master_CSn_1 [ create_bd_port -dir O SPI_Master_CSn_1 ]
   set UIF_Res_1 [ create_bd_port -dir O UIF_Res_1 ]
   set USB_nRESET_0 [ create_bd_port -dir O USB_nRESET_0 ]
 
@@ -1425,6 +1529,7 @@ proc create_root_design { parentCell } {
   # Create interface connections
   connect_bd_intf_net -intf_net S00_AXI_0_1 [get_bd_intf_pins DSP/S00_AXI] [get_bd_intf_pins ps7_0_axi_periph/M01_AXI]
   connect_bd_intf_net -intf_net UIF_SerialSlave_0_UIF_Slave [get_bd_intf_ports UIF_Slave_1] [get_bd_intf_pins UIF/UIF_Slave_1]
+  connect_bd_intf_net -intf_net UIF_UIF_Master_0 [get_bd_intf_ports UIF_Master_1] [get_bd_intf_pins UIF/UIF_Master_1]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
@@ -1444,6 +1549,9 @@ proc create_root_design { parentCell } {
   connect_bd_net -net DSP_outDataValid [get_bd_pins DAC_Interface/nResetAudio256Clk] [get_bd_pins DSP/nResetAudio256Clk]
   connect_bd_net -net DSP_outDataValid1 [get_bd_pins DAC_Interface/DataValid] [get_bd_pins DSP/outDataValid]
   connect_bd_net -net UIF_AXI_0_UIF_res [get_bd_ports UIF_Res_1] [get_bd_pins UIF/UIF_Res_1]
+  create_bd_net UIF_Master_1_h_rxd_1
+  connect_bd_net -net [get_bd_nets UIF_Master_1_h_rxd_1] [get_bd_pins UIF/UIF_Master_1_h_rxd] [get_bd_pins UIF/UIF_Master_1_h_txd]
+  connect_bd_net -net UIF_SPI_Master_CSn_0 [get_bd_ports SPI_Master_CSn_1] [get_bd_pins UIF/SPI_Master_CSn_1]
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins DAC_Interface/audio256Clk] [get_bd_pins DSP/audio256Clk] [get_bd_pins clk_wiz_0/clk_out1]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins DSP/nResetExt] [get_bd_pins clk_wiz_0/locked]
   connect_bd_net -net myip_0_RGB_OUT [get_bd_ports RGB_OUT_0] [get_bd_pins myip_0/RGB_OUT]
@@ -1464,6 +1572,7 @@ proc create_root_design { parentCell } {
   # Restore current instance
   current_bd_instance $oldCurInst
 
+  validate_bd_design
   save_bd_design
 }
 # End of create_root_design()

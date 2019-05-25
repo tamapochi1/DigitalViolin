@@ -100,7 +100,7 @@ begin
     begin
         if(SCKRiseEdge)
         begin
-            RXDBuffer <= {RXDInt, RXDBuffer[7:1]};
+            RXDBuffer <= {RXDBuffer[6:0], RXDInt};
             
             if(RXDBufferCount < 3'h7)
             begin
@@ -151,7 +151,7 @@ begin
             begin
                 TXDBufferCount <= TXDBufferCount + 3'h1;
                 TXDBufferReady <= 1'b0;
-                TXDBuffer <= {TXDBuffer[7], TXDBuffer[7:1]};
+                TXDBuffer <= {TXDBuffer[6:0], TXDBuffer[0]};
             end
             else
             begin
@@ -178,6 +178,6 @@ begin
 end
 
 assign s_axis_sr_tready = TXDBufferReady;
-assign UIF_Slave_S_RXD = TXDBuffer[0];
+assign UIF_Slave_S_RXD = TXDBuffer[7];
 
 endmodule

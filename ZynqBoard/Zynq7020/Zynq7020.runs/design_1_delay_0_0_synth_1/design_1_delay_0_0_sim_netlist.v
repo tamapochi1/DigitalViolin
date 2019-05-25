@@ -1,8 +1,8 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Tue Oct  9 21:51:27 2018
-// Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
+// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+// Date        : Thu May 23 15:28:33 2019
+// Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_delay_0_0_sim_netlist.v
 // Design      : design_1_delay_0_0
@@ -17,23 +17,23 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     m_axis_out_tvalid,
     aclk,
     s_axis_in_tdata,
-    aclk_0,
+    \dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ,
     s_axis_in_tvalid,
     nReset);
   output [13:0]m_axis_out_tdata;
   output m_axis_out_tvalid;
   input aclk;
   input [13:0]s_axis_in_tdata;
-  input aclk_0;
+  input \dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ;
   input s_axis_in_tvalid;
   input nReset;
 
   wire aclk;
-  wire aclk_0;
   wire \dataBuffer_reg[1][0]_inst_dataBuffer_reg_r_22_n_0 ;
   wire \dataBuffer_reg[1][10]_inst_dataBuffer_reg_r_22_n_0 ;
   wire \dataBuffer_reg[1][11]_inst_dataBuffer_reg_r_22_n_0 ;
   wire \dataBuffer_reg[1][12]_inst_dataBuffer_reg_r_22_n_0 ;
+  wire \dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ;
   wire \dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_n_0 ;
   wire \dataBuffer_reg[1][1]_inst_dataBuffer_reg_r_22_n_0 ;
   wire \dataBuffer_reg[1][2]_inst_dataBuffer_reg_r_22_n_0 ;
@@ -357,7 +357,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][0]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[0]),
         .Q(\dataBuffer_reg[2][0]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][0]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -368,7 +368,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][10]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[10]),
         .Q(\dataBuffer_reg[2][10]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][10]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -379,7 +379,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][11]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[11]),
         .Q(\dataBuffer_reg[2][11]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][11]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -390,7 +390,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][12]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[12]),
         .Q(\dataBuffer_reg[2][12]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][12]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -401,7 +401,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][13]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[13]),
         .Q(\dataBuffer_reg[2][13]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][13]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -412,7 +412,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][1]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[1]),
         .Q(\dataBuffer_reg[2][1]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][1]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -423,7 +423,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][2]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[2]),
         .Q(\dataBuffer_reg[2][2]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][2]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -434,7 +434,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][3]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[3]),
         .Q(\dataBuffer_reg[2][3]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][3]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -445,7 +445,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][4]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[4]),
         .Q(\dataBuffer_reg[2][4]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][4]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -456,7 +456,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][5]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[5]),
         .Q(\dataBuffer_reg[2][5]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][5]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -467,7 +467,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][6]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[6]),
         .Q(\dataBuffer_reg[2][6]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][6]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -478,7 +478,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][7]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[7]),
         .Q(\dataBuffer_reg[2][7]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][7]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -489,7 +489,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][8]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[8]),
         .Q(\dataBuffer_reg[2][8]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][8]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -500,7 +500,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \dataBuffer_reg[2][9]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tdata[9]),
         .Q(\dataBuffer_reg[2][9]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_dataBuffer_reg[2][9]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -817,7 +817,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
     \validBuffer_reg[2]_srl23___inst_dataBuffer_reg_r_21 
        (.A({1'b1,1'b0,1'b1,1'b1,1'b0}),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .CLK(\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 ),
         .D(s_axis_in_tvalid),
         .Q(\validBuffer_reg[2]_srl23___inst_dataBuffer_reg_r_21_n_0 ),
         .Q31(\NLW_validBuffer_reg[2]_srl23___inst_dataBuffer_reg_r_21_Q31_UNCONNECTED ));
@@ -830,7 +830,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay
 endmodule
 
 (* CHECK_LICENSE_TYPE = "design_1_delay_0_0,delay,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "delay,Vivado 2018.2" *) 
+(* X_CORE_INFO = "delay,Vivado 2018.3" *) 
 (* NotValidForBitStream *)
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (nReset,
@@ -840,11 +840,11 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
     m_axis_out_tdata,
     m_axis_out_tvalid);
   input nReset;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis_out:s_axis_in, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *) input aclk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis_out:s_axis_in, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input aclk;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_in TDATA" *) input [13:0]s_axis_in_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_in TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_in, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) input s_axis_in_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_in TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_in, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *) input s_axis_in_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_out TDATA" *) output [13:0]m_axis_out_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_out TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_out, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) output m_axis_out_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_out TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_out, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *) output m_axis_out_tvalid;
 
   wire aclk;
   wire [13:0]m_axis_out_tdata;
@@ -855,7 +855,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
 
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_delay inst
        (.aclk(aclk),
-        .aclk_0(aclk),
+        .\dataBuffer_reg[1][13]_inst_dataBuffer_reg_r_22_0 (aclk),
         .m_axis_out_tdata(m_axis_out_tdata),
         .m_axis_out_tvalid(m_axis_out_tvalid),
         .nReset(nReset),

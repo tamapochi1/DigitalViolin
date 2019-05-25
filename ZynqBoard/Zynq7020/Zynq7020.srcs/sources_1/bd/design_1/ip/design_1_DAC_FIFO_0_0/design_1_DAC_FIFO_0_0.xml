@@ -145,6 +145,15 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_AXIS.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
   </spirit:busInterfaces>
@@ -158,7 +167,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5cb887cb</spirit:value>
+            <spirit:value>9:fe4b4ac9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -174,11 +183,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Oct 13 06:26:54 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:19:05 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5cb887cb</spirit:value>
+            <spirit:value>9:fe4b4ac9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -190,7 +199,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:56d43c6b</spirit:value>
+            <spirit:value>9:f73ab26d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -206,11 +215,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Oct 13 06:26:54 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:19:05 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:56d43c6b</spirit:value>
+            <spirit:value>9:f73ab26d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -224,11 +233,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Oct 13 06:27:58 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 17:20:05 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5cb887cb</spirit:value>
+            <spirit:value>9:fe4b4ac9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -407,7 +416,7 @@
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

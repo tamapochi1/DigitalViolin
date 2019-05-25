@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -57,16 +57,25 @@
 module design_1_DSP_reset_0_0 (
   nResetExt,
   nResetInt,
-  nReset
+  sysClk,
+  audio256Clk,
+  nResetSysClk,
+  nResetAudio256Clk
 );
 
 input wire nResetExt;
 input wire nResetInt;
-output wire nReset;
+input wire sysClk;
+input wire audio256Clk;
+output wire nResetSysClk;
+output wire nResetAudio256Clk;
 
   DSP_reset inst (
     .nResetExt(nResetExt),
     .nResetInt(nResetInt),
-    .nReset(nReset)
+    .sysClk(sysClk),
+    .audio256Clk(audio256Clk),
+    .nResetSysClk(nResetSysClk),
+    .nResetAudio256Clk(nResetAudio256Clk)
   );
 endmodule

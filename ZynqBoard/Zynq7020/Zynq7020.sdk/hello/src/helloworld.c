@@ -169,7 +169,24 @@ int main()
     Xil_Out32(0x43C20000, (u32)3);
 
 
+    while(1)
+    {
+        Xil_Out32(0x43C20000 + 16, 0x7F);
+        Xil_Out32(0x43C20000 + 16, 0xFE);
+        Xil_Out32(0x43C20000 + 16, 0x55);
+        Xil_Out32(0x43C20000 + 24, 0xFF);
 
+    	usleep(500000);
+
+    	i = Xil_In32(0x43C20000 + 20);
+    	i = Xil_In32(0x43C20000 + 20);
+    	i = Xil_In32(0x43C20000 + 20);
+    	i = Xil_In32(0x43C20000 + 20);
+
+    	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x1);
+    	usleep(500000);
+    	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x5);
+    }
 
 
 	while(1)

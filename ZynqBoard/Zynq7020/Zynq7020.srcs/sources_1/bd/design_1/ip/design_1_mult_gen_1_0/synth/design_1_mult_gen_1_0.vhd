@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -101,11 +101,11 @@ ARCHITECTURE design_1_mult_gen_1_0_arch OF design_1_mult_gen_1_0 IS
     );
   END COMPONENT mult_gen_v12_0_14;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF design_1_mult_gen_1_0_arch: ARCHITECTURE IS "mult_gen_v12_0_14,Vivado 2018.2";
+  ATTRIBUTE X_CORE_INFO OF design_1_mult_gen_1_0_arch: ARCHITECTURE IS "mult_gen_v12_0_14,Vivado 2018.3";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF design_1_mult_gen_1_0_arch : ARCHITECTURE IS "design_1_mult_gen_1_0,mult_gen_v12_0_14,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF design_1_mult_gen_1_0_arch: ARCHITECTURE IS "design_1_mult_gen_1_0,mult_gen_v12_0_14,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=mult_gen,x_ipVersion=12.0,x_ipCoreRevision=14,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_VERBOSITY=0,C_MODEL_TYPE=0,C_OPTIMIZE_GOAL=1,C_XDEVICEFAMILY=zynq,C_HAS_CE=0,C_HAS_SCLR=0,C_LATENCY=4,C_A_WIDTH=18,C_A_TYPE=1,C_B_WIDTH=18,C_B_TYPE=1,C_OUT_HIGH=35,C_OUT_LOW=0,C_MULT_TYPE=1,C_CE_OVERRIDES_SCLR=0,C_CCM_IMP=0,C_B_VALUE=10000001,C_HAS_ZERO_DETECT=0,C_ROUND_OUTPUT=0,C_ROUND_PT=0}";
+  ATTRIBUTE CORE_GENERATION_INFO OF design_1_mult_gen_1_0_arch: ARCHITECTURE IS "design_1_mult_gen_1_0,mult_gen_v12_0_14,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=mult_gen,x_ipVersion=12.0,x_ipCoreRevision=14,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_VERBOSITY=0,C_MODEL_TYPE=0,C_OPTIMIZE_GOAL=1,C_XDEVICEFAMILY=zynq,C_HAS_CE=0,C_HAS_SCLR=0,C_LATENCY=4,C_A_WIDTH=18,C_A_TYPE=1,C_B_WIDTH=18,C_B_TYPE=1,C_OUT_HIGH=35,C_OUT_LOW=0,C_MULT_TYPE=1,C_CE_OVERRIDES_SCLR=0,C_CCM_IMP=0,C_B_VALUE=10000001,C_HAS_ZERO_DETECT=0,C_ROUND_OUTPUT=0,C_ROUND_PT=0}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF P: SIGNAL IS "XIL_INTERFACENAME p_intf, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum {} maximum {}} value 36} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format bool minimum {} maximu" & 

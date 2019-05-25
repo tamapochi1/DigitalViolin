@@ -6,6 +6,38 @@
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
+      <spirit:name>m_axis_ht</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m_axis_ht_tdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m_axis_ht_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>m_axis_ht_tready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
       <spirit:name>m_axis_sr</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
@@ -33,6 +65,38 @@
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>m_axis_sr_tready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>s_axis_hr</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axis_hr_tdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axis_hr_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>s_axis_hr_tready</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -303,7 +367,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1750022b</spirit:value>
+            <spirit:value>2ccc17d0</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -316,7 +380,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1750022b</spirit:value>
+            <spirit:value>2ccc17d0</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -361,7 +425,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ADDR_WIDTH&apos;)) - 1)">3</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ADDR_WIDTH&apos;)) - 1)">4</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -545,7 +609,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ADDR_WIDTH&apos;)) - 1)">3</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ADDR_WIDTH&apos;)) - 1)">4</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -765,6 +829,98 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>m_axis_ht_tdata</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">7</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m_axis_ht_tready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>m_axis_ht_tvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axis_hr_tdata</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">7</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axis_hr_tready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>s_axis_hr_tvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>st_fifo_count</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -775,6 +931,32 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hostStart</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hostIsBusy</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -817,7 +999,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_S_AXI_ADDR_WIDTH</spirit:name>
         <spirit:displayName>C S Axi Addr Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_ADDR_WIDTH">4</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_ADDR_WIDTH">5</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -849,7 +1031,7 @@
     <spirit:parameter>
       <spirit:name>C_S_AXI_ADDR_WIDTH</spirit:name>
       <spirit:displayName>C S Axi Addr Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S_AXI_ADDR_WIDTH">4</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S_AXI_ADDR_WIDTH">5</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -871,10 +1053,10 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-10-22T11:28:28Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2019-05-24T10:56:09Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

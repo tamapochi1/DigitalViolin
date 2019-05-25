@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Mon Oct 22 20:30:02 2018
-| Host         : Reiji-PC running 64-bit Service Pack 1  (build 7601)
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Fri May 24 19:57:36 2019
+| Host         : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_UIF_AXI_0_0_utilization_synth.rpt -pb design_1_UIF_AXI_0_0_utilization_synth.pb
 | Design       : design_1_UIF_AXI_0_0
 | Device       : 7z020clg484-1
@@ -30,12 +30,12 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   42 |     0 |     53200 |  0.08 |
-|   LUT as Logic          |   42 |     0 |     53200 |  0.08 |
+| Slice LUTs*             |   60 |     0 |     53200 |  0.11 |
+|   LUT as Logic          |   60 |     0 |     53200 |  0.11 |
 |   LUT as Memory         |    0 |     0 |     17400 |  0.00 |
-| Slice Registers         |  116 |     0 |    106400 |  0.11 |
-|   Register as Flip Flop |   83 |     0 |    106400 |  0.08 |
-|   Register as Latch     |   33 |     0 |    106400 |  0.03 |
+| Slice Registers         |  129 |     0 |    106400 |  0.12 |
+|   Register as Flip Flop |   95 |     0 |    106400 |  0.09 |
+|   Register as Latch     |   34 |     0 |    106400 |  0.03 |
 | F7 Muxes                |    0 |     0 |     26600 |  0.00 |
 | F8 Muxes                |    0 |     0 |     13300 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
@@ -55,9 +55,9 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 33    |          Yes |           - |        Reset |
+| 34    |          Yes |           - |        Reset |
 | 1     |          Yes |         Set |            - |
-| 82    |          Yes |       Reset |            - |
+| 94    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -146,13 +146,13 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   82 |        Flop & Latch |
-| LDCE     |   33 |        Flop & Latch |
-| LUT3     |   20 |                 LUT |
-| LUT2     |   12 |                 LUT |
-| LUT4     |   10 |                 LUT |
-| LUT5     |    9 |                 LUT |
+| FDRE     |   94 |        Flop & Latch |
+| LDCE     |   34 |        Flop & Latch |
+| LUT4     |   28 |                 LUT |
+| LUT5     |   24 |                 LUT |
+| LUT2     |   11 |                 LUT |
 | LUT6     |    8 |                 LUT |
+| LUT3     |    5 |                 LUT |
 | LUT1     |    3 |                 LUT |
 | FDSE     |    1 |        Flop & Latch |
 +----------+------+---------------------+

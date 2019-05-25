@@ -412,6 +412,15 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.S_AXI_CTRL.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -741,7 +750,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>ID_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.ID_WIDTH">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.ID_WIDTH">12</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -903,7 +912,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.NUM_READ_OUTSTANDING">1</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.NUM_READ_OUTSTANDING">8</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -912,7 +921,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.NUM_WRITE_OUTSTANDING">1</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.NUM_WRITE_OUTSTANDING">8</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -979,6 +988,15 @@
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.S_AXI.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
@@ -1083,6 +1101,15 @@
         <spirit:parameter>
           <spirit:name>READ_WRITE_MODE</spirit:name>
           <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.BRAM_PORTA.READ_WRITE_MODE">READ_WRITE</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>READ_LATENCY</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.BRAM_PORTA.READ_LATENCY">1</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1203,6 +1230,15 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>READ_LATENCY</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.BRAM_PORTB.READ_LATENCY">1</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -1232,6 +1268,15 @@
         <spirit:parameter>
           <spirit:name>POLARITY</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.RSTIF.POLARITY">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.RSTIF.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -1281,6 +1326,15 @@
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLKIF.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
@@ -1354,7 +1408,7 @@
           <spirit:field>
             <spirit:name>UE_STATUS</spirit:name>
             <spirit:displayName>Uncorrectable Error Status</spirit:displayName>
-            <spirit:description>If 1 an uncorrectable error has occurred. Cleared when 1 is written to this bit position
+            <spirit:description>If ‘1’ an uncorrectable error has occurred. Cleared when ‘1’ is written to this bit position
 </spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
             <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
@@ -1370,7 +1424,7 @@
           <spirit:field>
             <spirit:name>CE_STATUS</spirit:name>
             <spirit:displayName>Correctable Error Status</spirit:displayName>
-            <spirit:description>If 1 a correctable error has occurred. Cleared when 1 is written to this bit position
+            <spirit:description>If ‘1’ a correctable error has occurred. Cleared when ‘1’ is written to this bit position
 </spirit:description>
             <spirit:bitOffset>1</spirit:bitOffset>
             <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
@@ -1695,7 +1749,7 @@
           <spirit:field>
             <spirit:name>FI_D0</spirit:name>
             <spirit:displayName>Fault Inject Data0</spirit:displayName>
-            <spirit:description>Bit positions set to 1 toggle the corresponding bits [31:0] of the next data word written to the block RAM.
+            <spirit:description>Bit positions set to ‘1’ toggle the corresponding bits [31:0] of the next data word written to the block RAM.
 The register is automatically cleared after the fault has been injected.
 </spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
@@ -1730,7 +1784,7 @@ The register is automatically cleared after the fault has been injected.
           <spirit:field>
             <spirit:name>FI_D1</spirit:name>
             <spirit:displayName>Fault Inject Data1</spirit:displayName>
-            <spirit:description>Bit positions set to 1 toggle the corresponding bits [63:32] of the next data word written to the block RAM.
+            <spirit:description>Bit positions set to ‘1’ toggle the corresponding bits [63:32] of the next data word written to the block RAM.
 The register is automatically cleared after the fault has been injected.
 </spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
@@ -1765,7 +1819,7 @@ The register is automatically cleared after the fault has been injected.
           <spirit:field>
             <spirit:name>FI_D2</spirit:name>
             <spirit:displayName>Fault Inject Data2</spirit:displayName>
-            <spirit:description>Bit positions set to 1 toggle the corresponding bits [95:64] of the next data word written to the block RAM.
+            <spirit:description>Bit positions set to ‘1’ toggle the corresponding bits [95:64] of the next data word written to the block RAM.
 The register is automatically cleared after the fault has been injected.
 </spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
@@ -1800,7 +1854,7 @@ The register is automatically cleared after the fault has been injected.
           <spirit:field>
             <spirit:name>FI_D3</spirit:name>
             <spirit:displayName>Fault Inject Data3</spirit:displayName>
-            <spirit:description>Bit positions set to 1 toggle the corresponding bits [127:96] of the next data word written to the block RAM.
+            <spirit:description>Bit positions set to ‘1’ toggle the corresponding bits [127:96] of the next data word written to the block RAM.
 The register is automatically cleared after the fault has been injected.
 </spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
@@ -1835,7 +1889,7 @@ The register is automatically cleared after the fault has been injected.
           <spirit:field>
             <spirit:name>FI_ECC</spirit:name>
             <spirit:displayName>Fault Inject ECC</spirit:displayName>
-            <spirit:description>Bit positions set to 1 toggle the corresponding bit of the next ECC written to the block RAM.
+            <spirit:description>Bit positions set to ‘1’ toggle the corresponding bit of the next ECC written to the block RAM.
 The register is automatically cleared after the fault has been injected.
 </spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
@@ -1862,24 +1916,6 @@ The register is automatically cleared after the fault has been injected.
   <spirit:model>
     <spirit:views>
       <spirit:view>
-        <spirit:name>xilinx_externalfiles</spirit:name>
-        <spirit:displayName>External Files</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:external.files</spirit:envIdentifier>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_externalfiles_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Oct 09 10:23:10 UTC 2018</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:8dc717db</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
         <spirit:name>xilinx_vhdlsynthesis</spirit:name>
         <spirit:displayName>VHDL Synthesis</spirit:displayName>
         <spirit:envIdentifier>vhdlSource:vivado.xilinx.com:synthesis</spirit:envIdentifier>
@@ -1894,11 +1930,11 @@ The register is automatically cleared after the fault has been injected.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Oct 02 15:01:30 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:19:02 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:8dc717db</spirit:value>
+            <spirit:value>9:d8df9a19</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1912,11 +1948,11 @@ The register is automatically cleared after the fault has been injected.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Oct 09 10:22:56 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:19:02 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:8dc717db</spirit:value>
+            <spirit:value>9:d8df9a19</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1932,11 +1968,11 @@ The register is automatically cleared after the fault has been injected.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Oct 09 10:22:56 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:19:02 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:8dc717db</spirit:value>
+            <spirit:value>9:d8df9a19</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1954,11 +1990,11 @@ The register is automatically cleared after the fault has been injected.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Oct 02 15:01:30 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:19:02 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:df0c4e4c</spirit:value>
+            <spirit:value>9:ffb88b41</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1974,11 +2010,29 @@ The register is automatically cleared after the fault has been injected.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Oct 09 10:22:56 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:19:02 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:df0c4e4c</spirit:value>
+            <spirit:value>9:ffb88b41</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_externalfiles</spirit:name>
+        <spirit:displayName>External Files</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:external.files</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_externalfiles_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Thu May 23 06:26:43 UTC 2019</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:d8df9a19</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2061,7 +2115,7 @@ The register is automatically cleared after the fault has been injected.
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) - 1)">11</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -2078,7 +2132,7 @@ The register is automatically cleared after the fault has been injected.
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.s_axi_awid" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_PROTOCOL&apos;)) = &quot;AXI4&quot; and spirit:decode(id(&apos;PARAM_VALUE.ID_WIDTH&apos;)) > 0 )">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.s_axi_awid" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_PROTOCOL&apos;)) = &quot;AXI4&quot; and spirit:decode(id(&apos;PARAM_VALUE.ID_WIDTH&apos;)) > 0 )">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -2380,7 +2434,7 @@ The register is automatically cleared after the fault has been injected.
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) - 1)">11</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -2394,7 +2448,7 @@ The register is automatically cleared after the fault has been injected.
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.s_axi_bid" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_PROTOCOL&apos;)) = &quot;AXI4&quot; and spirit:decode(id(&apos;PARAM_VALUE.ID_WIDTH&apos;)) > 0)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.s_axi_bid" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_PROTOCOL&apos;)) = &quot;AXI4&quot; and spirit:decode(id(&apos;PARAM_VALUE.ID_WIDTH&apos;)) > 0)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -2450,7 +2504,7 @@ The register is automatically cleared after the fault has been injected.
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) - 1)">11</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -2467,7 +2521,7 @@ The register is automatically cleared after the fault has been injected.
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.s_axi_arid" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_PROTOCOL&apos;)) = &quot;AXI4&quot; and spirit:decode(id(&apos;PARAM_VALUE.ID_WIDTH&apos;)) > 0 )">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.s_axi_arid" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_PROTOCOL&apos;)) = &quot;AXI4&quot; and spirit:decode(id(&apos;PARAM_VALUE.ID_WIDTH&apos;)) > 0 )">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -2677,7 +2731,7 @@ The register is automatically cleared after the fault has been injected.
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) - 1)">0</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) - 1)">11</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -2691,7 +2745,7 @@ The register is automatically cleared after the fault has been injected.
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.s_axi_rid" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_PROTOCOL&apos;)) = &quot;AXI4&quot; and spirit:decode(id(&apos;PARAM_VALUE.ID_WIDTH&apos;)) > 0)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.s_axi_rid" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_PROTOCOL&apos;)) = &quot;AXI4&quot; and spirit:decode(id(&apos;PARAM_VALUE.ID_WIDTH&apos;)) > 0)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -3498,7 +3552,7 @@ The register is automatically cleared after the fault has been injected.
       <spirit:modelParameter spirit:dataType="INTEGER">
         <spirit:name>C_S_AXI_ID_WIDTH</spirit:name>
         <spirit:displayName>C S Axi Id Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_ID_WIDTH">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_ID_WIDTH">12</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>C_S_AXI_PROTOCOL</spirit:name>
@@ -3522,6 +3576,14 @@ The register is automatically cleared after the fault has been injected.
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_SELECT_XPM</spirit:name>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SELECT_XPM">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>C_READ_LATENCY</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_READ_LATENCY">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>C_RD_CMD_OPTIMIZATION</spirit:name>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_RD_CMD_OPTIMIZATION">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_S_AXI_CTRL_ADDR_WIDTH</spirit:name>
@@ -3622,42 +3684,6 @@ The register is automatically cleared after the fault has been injected.
   </spirit:choices>
   <spirit:fileSets>
     <spirit:fileSet>
-      <spirit:name>xilinx_externalfiles_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>design_1_axi_bram_ctrl_0_0.dcp</spirit:name>
-        <spirit:userFileType>dcp</spirit:userFileType>
-        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>design_1_axi_bram_ctrl_0_0_stub.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>design_1_axi_bram_ctrl_0_0_stub.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>design_1_axi_bram_ctrl_0_0_sim_netlist.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>design_1_axi_bram_ctrl_0_0_sim_netlist.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
       <spirit:name>xilinx_vhdlsynthesis_xilinx_com_ip_blk_mem_gen_8_3__ref_view_fileset</spirit:name>
       <spirit:file>
         <spirit:name>../../ipshared/2751/hdl/blk_mem_gen_v8_3_vhsyn_rfs.vhd</spirit:name>
@@ -3675,9 +3701,9 @@ The register is automatically cleared after the fault has been injected.
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlsynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/6db1/hdl/axi_bram_ctrl_v4_0_rfs.vhd</spirit:name>
+        <spirit:name>../../ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>axi_bram_ctrl_v4_0_14</spirit:logicalName>
+        <spirit:logicalName>axi_bram_ctrl_v4_1_0</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -3718,10 +3744,10 @@ The register is automatically cleared after the fault has been injected.
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/6db1/hdl/axi_bram_ctrl_v4_0_rfs.vhd</spirit:name>
+        <spirit:name>../../ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-        <spirit:logicalName>axi_bram_ctrl_v4_0_14</spirit:logicalName>
+        <spirit:logicalName>axi_bram_ctrl_v4_1_0</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -3729,6 +3755,42 @@ The register is automatically cleared after the fault has been injected.
       <spirit:file>
         <spirit:name>sim/design_1_axi_bram_ctrl_0_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_externalfiles_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>design_1_axi_bram_ctrl_0_0.dcp</spirit:name>
+        <spirit:userFileType>dcp</spirit:userFileType>
+        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>design_1_axi_bram_ctrl_0_0_stub.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>design_1_axi_bram_ctrl_0_0_stub.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>design_1_axi_bram_ctrl_0_0_sim_netlist.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>design_1_axi_bram_ctrl_0_0_sim_netlist.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
@@ -3750,7 +3812,7 @@ The register is automatically cleared after the fault has been injected.
     <spirit:parameter>
       <spirit:name>ID_WIDTH</spirit:name>
       <spirit:displayName>ID Width</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.ID_WIDTH" spirit:order="5" spirit:minimum="0" spirit:maximum="32" spirit:rangeType="long">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.ID_WIDTH" spirit:order="5" spirit:minimum="0" spirit:maximum="32" spirit:rangeType="long">12</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -3882,6 +3944,14 @@ The register is automatically cleared after the fault has been injected.
       <spirit:name>C_SELECT_XPM</spirit:name>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_SELECT_XPM" spirit:choiceRef="choice_list_6727dfa6" spirit:order="30">1</spirit:value>
     </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>READ_LATENCY</spirit:name>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.READ_LATENCY" spirit:order="30" spirit:minimum="1" spirit:maximum="128" spirit:rangeType="long">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>RD_CMD_OPTIMIZATION</spirit:name>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RD_CMD_OPTIMIZATION" spirit:choiceRef="choice_pairs_37189c7b" spirit:order="30">0</spirit:value>
+    </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
@@ -3890,27 +3960,22 @@ The register is automatically cleared after the fault has been injected.
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>14</xilinx:coreRevision>
+      <xilinx:coreRevision>0</xilinx:coreRevision>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM_PORTA.MASTER_TYPE" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM_PORTA.MEM_ECC" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM_PORTA.MEM_SIZE" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM_PORTA.MEM_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM_PORTA.READ_LATENCY" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM_PORTA.READ_WRITE_MODE" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM_PORTB.MASTER_TYPE" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM_PORTB.MEM_ECC" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM_PORTB.MEM_SIZE" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM_PORTB.MEM_WIDTH" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM_PORTB.READ_WRITE_MODE" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLKIF.CLK_DOMAIN" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLKIF.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLKIF.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLKIF.PHASE" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.ADDR_WIDTH" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.ADDR_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.ARUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.AWUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.BUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.CLK_DOMAIN" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.DATA_WIDTH" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.DATA_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.HAS_BRESP" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.HAS_BURST" xilinx:valueSource="constant_prop" xilinx:valuePermission="bd"/>
@@ -3921,12 +3986,11 @@ The register is automatically cleared after the fault has been injected.
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.HAS_REGION" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.HAS_RRESP" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.HAS_WSTRB" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.ID_WIDTH" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.ID_WIDTH" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.MAX_BURST_LENGTH" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.NUM_READ_OUTSTANDING" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.NUM_WRITE_OUTSTANDING" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.PHASE" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.PROTOCOL" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.NUM_READ_OUTSTANDING" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.NUM_WRITE_OUTSTANDING" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.PROTOCOL" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.READ_WRITE_MODE" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.RUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI.SUPPORTS_NARROW_BURST" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
@@ -3934,20 +3998,20 @@ The register is automatically cleared after the fault has been injected.
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.DATA_WIDTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.ECC_TYPE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.ID_WIDTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.MEM_DEPTH" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.MEM_DEPTH" xilinx:valueSource="propagated"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.PROTOCOL" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SINGLE_PORT_BRAM" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SUPPORTS_NARROW_BURST" xilinx:valueSource="propagated" xilinx:valuePermission="bd_and_user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="c525142a"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="00000000"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="40ce0815"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a69a0ad6"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="4d630b92"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="21a2a8aa"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="9aba98fc"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="bfec4444"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="07226464"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

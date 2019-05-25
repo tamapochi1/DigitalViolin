@@ -1,33 +1,42 @@
 #-----------------------------------------------------------
-# Vivado v2018.2 (64-bit)
-# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
-# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sat Oct 13 15:27:12 2018
-# Process ID: 10428
-# Current directory: F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_phase_gen_256_0_0_synth_1
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu May 23 15:20:11 2019
+# Process ID: 15244
+# Current directory: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_phase_gen_256_0_0_synth_1
 # Command line: vivado.exe -log design_1_phase_gen_256_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_phase_gen_256_0_0.tcl
-# Log file: F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_phase_gen_256_0_0_synth_1/design_1_phase_gen_256_0_0.vds
-# Journal file: F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_phase_gen_256_0_0_synth_1\vivado.jou
+# Log file: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_phase_gen_256_0_0_synth_1/design_1_phase_gen_256_0_0.vds
+# Journal file: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_phase_gen_256_0_0_synth_1\vivado.jou
 #-----------------------------------------------------------
 source design_1_phase_gen_256_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'c:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/DSP_register_1.0'. The path is contained within another repository.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Git/DigitalViolin/ZynqBoard/ip_repo/myDSP_1.0'.
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'c:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/myip_1.0'. The path is contained within another repository.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/Reiji/AppData/Roaming/Xilinx/ip_repo'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+update_ip_catalog: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 268.965 ; gain = 0.000
 Command: synth_design -top design_1_phase_gen_256_0_0 -part xc7z020clg484-1 -mode out_of_context
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 13328 
+INFO: Helper process launched with PID 12916 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 381.961 ; gain = 100.094
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 370.840 ; gain = 101.875
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'design_1_phase_gen_256_0_0' [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_phase_gen_256_0_0/synth/design_1_phase_gen_256_0_0.v:58]
-INFO: [Synth 8-6157] synthesizing module 'phase_gen_256' [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/phase_gen_256.v:22]
+INFO: [Synth 8-6157] synthesizing module 'design_1_phase_gen_256_0_0' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_phase_gen_256_0_0/synth/design_1_phase_gen_256_0_0.v:58]
+INFO: [Synth 8-6157] synthesizing module 'phase_gen_256' [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/phase_gen_256.v:22]
 	Parameter M_TWO bound to: 24'sb110000000000000000000000 
 	Parameter M_ONE bound to: 24'sb111000000000000000000000 
 	Parameter ONE bound to: 24'sb001000000000000000000000 
-INFO: [Synth 8-6155] done synthesizing module 'phase_gen_256' (1#1) [F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/phase_gen_256.v:22]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_phase_gen_256_0_0' (2#1) [f:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_phase_gen_256_0_0/synth/design_1_phase_gen_256_0_0.v:58]
+INFO: [Synth 8-6155] done synthesizing module 'phase_gen_256' (1#1) [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/phase_gen_256.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_phase_gen_256_0_0' (2#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_phase_gen_256_0_0/synth/design_1_phase_gen_256_0_0.v:58]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 434.805 ; gain = 152.938
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 426.809 ; gain = 157.844
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -40,10 +49,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 434.805 ; gain = 152.938
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 426.809 ; gain = 157.844
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 434.805 ; gain = 152.938
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 426.809 ; gain = 157.844
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -52,29 +61,32 @@ Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 756.488 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-WARNING: [Constraints 18-5210] No constraint will be written out.
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.064 . Memory (MB): peak = 765.164 ; gain = 1.102
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 756.488 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.331 . Memory (MB): peak = 758.527 ; gain = 2.039
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 765.164 ; gain = 483.297
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:47 . Memory (MB): peak = 758.527 ; gain = 489.563
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 765.164 ; gain = 483.297
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:47 . Memory (MB): peak = 758.527 ; gain = 489.563
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 765.164 ; gain = 483.297
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:47 . Memory (MB): peak = 758.527 ; gain = 489.563
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 765.164 ; gain = 483.297
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:48 . Memory (MB): peak = 758.527 ; gain = 489.563
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -132,7 +144,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 765.164 ; gain = 483.297
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:51 . Memory (MB): peak = 758.527 ; gain = 489.563
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -144,13 +156,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 789.527 ; gain = 507.660
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:51 ; elapsed = 00:01:29 . Memory (MB): peak = 771.289 ; gain = 502.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 789.621 ; gain = 507.754
+Finished Timing Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:01:29 . Memory (MB): peak = 771.363 ; gain = 502.398
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -162,7 +174,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 808.980 ; gain = 527.113
+Finished Technology Mapping : Time (s): cpu = 00:00:51 ; elapsed = 00:01:30 . Memory (MB): peak = 791.125 ; gain = 522.160
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -186,7 +198,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.980 ; gain = 527.113
+Finished IO Insertion : Time (s): cpu = 00:00:54 ; elapsed = 00:01:34 . Memory (MB): peak = 791.125 ; gain = 522.160
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -199,7 +211,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.980 ; gain = 527.113
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:54 ; elapsed = 00:01:34 . Memory (MB): peak = 791.125 ; gain = 522.160
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -211,25 +223,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.980 ; gain = 527.113
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:54 ; elapsed = 00:01:34 . Memory (MB): peak = 791.125 ; gain = 522.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.980 ; gain = 527.113
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:54 ; elapsed = 00:01:34 . Memory (MB): peak = 791.125 ; gain = 522.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.980 ; gain = 527.113
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:54 ; elapsed = 00:01:34 . Memory (MB): peak = 791.125 ; gain = 522.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.980 ; gain = 527.113
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:54 ; elapsed = 00:01:34 . Memory (MB): peak = 791.125 ; gain = 522.160
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -264,27 +276,31 @@ Report Instance Areas:
 |2     |  inst   |phase_gen_256 |   168|
 +------+---------+--------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.980 ; gain = 527.113
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:54 ; elapsed = 00:01:34 . Memory (MB): peak = 791.125 ; gain = 522.160
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 808.980 ; gain = 196.754
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 808.980 ; gain = 527.113
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:01:10 . Memory (MB): peak = 791.125 ; gain = 190.441
+Synthesis Optimization Complete : Time (s): cpu = 00:00:54 ; elapsed = 00:01:34 . Memory (MB): peak = 791.125 ; gain = 522.160
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 794.047 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-15 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+19 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 811.957 ; gain = 542.621
-WARNING: [Constraints 18-5210] No constraint will be written out.
-INFO: [Common 17-1381] The checkpoint 'F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_phase_gen_256_0_0_synth_1/design_1_phase_gen_256_0_0.dcp' has been generated.
-WARNING: [Constraints 18-5210] No constraint will be written out.
-INFO: [Common 17-1381] The checkpoint 'F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_phase_gen_256_0_0_synth_1/design_1_phase_gen_256_0_0.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:58 ; elapsed = 00:01:41 . Memory (MB): peak = 794.047 ; gain = 525.082
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 794.047 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_phase_gen_256_0_0_synth_1/design_1_phase_gen_256_0_0.dcp' has been generated.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 794.047 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_phase_gen_256_0_0_synth_1/design_1_phase_gen_256_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_phase_gen_256_0_0_utilization_synth.rpt -pb design_1_phase_gen_256_0_0_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 811.957 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat Oct 13 15:27:57 2018...
+INFO: [Common 17-206] Exiting Vivado at Thu May 23 15:22:10 2019...

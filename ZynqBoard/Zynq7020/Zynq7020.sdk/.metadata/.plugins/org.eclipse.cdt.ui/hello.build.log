@@ -1,4 +1,4 @@
-21:53:21 **** Incremental Build of configuration Debug for project hello ****
+17:33:23 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -43,9 +43,9 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  88124	   2636	520024976	520115736	1f005618	hello.elf
+  35368	   1200	520024216	520060784	1eff7f70	hello.elf
 'Finished building: hello.elf.size'
 ' '
 
-21:53:23 Build Finished (took 1s.686ms)
+17:33:26 Build Finished (took 3s.770ms)
 

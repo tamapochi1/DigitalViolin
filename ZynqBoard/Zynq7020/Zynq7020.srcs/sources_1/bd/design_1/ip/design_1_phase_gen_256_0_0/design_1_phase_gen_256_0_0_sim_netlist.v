@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sat Oct 13 15:27:57 2018
-// Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
+// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+// Date        : Thu May 23 15:22:10 2019
+// Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_phase_gen_256_0_0/design_1_phase_gen_256_0_0_sim_netlist.v
+//               C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_phase_gen_256_0_0/design_1_phase_gen_256_0_0_sim_netlist.v
 // Design      : design_1_phase_gen_256_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -13,7 +13,7 @@
 `timescale 1 ps / 1 ps
 
 (* CHECK_LICENSE_TYPE = "design_1_phase_gen_256_0_0,phase_gen_256,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "phase_gen_256,Vivado 2018.2" *) 
+(* X_CORE_INFO = "phase_gen_256,Vivado 2018.3" *) 
 (* NotValidForBitStream *)
 module design_1_phase_gen_256_0_0
    (nReset,
@@ -39,16 +39,16 @@ module design_1_phase_gen_256_0_0
   output [10:0]reg_index;
   output reg_index_valid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_delta TDATA" *) input [23:0]s_axis_delta_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_delta TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_delta, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *) input s_axis_delta_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_delta TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_delta, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0" *) input s_axis_delta_tvalid;
   output [10:0]m_bram_int_rdaddr;
   output [10:0]m_bram_int_wraddr;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_bram_int_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_int_clk, ASSOCIATED_RESET m_bram_int_rst, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_phase_gen_256_0_0_m_bram_int_clk" *) output m_bram_int_clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_bram_int_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_int_clk, ASSOCIATED_RESET m_bram_int_rst, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_phase_gen_256_0_0_m_bram_int_clk, INSERT_VIP 0" *) output m_bram_int_clk;
   input [23:0]m_bram_int_rddata;
   output [23:0]m_bram_int_wrdata;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 m_bram_int_rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_int_rst, POLARITY ACTIVE_LOW" *) output m_bram_int_rst;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 m_bram_int_rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_int_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output m_bram_int_rst;
   output m_bram_int_we;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_phase TDATA" *) output [15:0]m_axis_phase_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_phase TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_phase, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *) output m_axis_phase_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_phase TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_phase, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0" *) output m_axis_phase_tvalid;
   output sync;
 
   wire audioClkSync;

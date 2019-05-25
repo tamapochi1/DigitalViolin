@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Thu Oct  4 17:43:56 2018
--- Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
--- Command     : write_vhdl -force -mode synth_stub -rename_top design_1_rst_ps7_0_50M_0 -prefix
---               design_1_rst_ps7_0_50M_0_ design_1_rst_ps7_0_50M_0_stub.vhdl
+-- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+-- Date        : Thu May 23 15:24:14 2019
+-- Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode synth_stub
+--               C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_0/design_1_rst_ps7_0_50M_0_stub.vhdl
 -- Design      : design_1_rst_ps7_0_50M_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1
@@ -34,6 +34,6 @@ attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "slowest_sync_clk,ext_reset_in,aux_reset_in,mb_debug_sys_rst,dcm_locked,mb_reset,bus_struct_reset[0:0],peripheral_reset[0:0],interconnect_aresetn[0:0],peripheral_aresetn[0:0]";
 attribute x_core_info : string;
-attribute x_core_info of stub : architecture is "proc_sys_reset,Vivado 2018.2";
+attribute x_core_info of stub : architecture is "proc_sys_reset,Vivado 2018.3";
 begin
 end;

@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Wed Oct  3 00:03:20 2018
-// Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode funcsim -rename_top design_1_blk_mem_gen_0_1 -prefix
-//               design_1_blk_mem_gen_0_1_ design_1_blk_mem_gen_0_1_sim_netlist.v
+// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+// Date        : Thu May 23 15:28:30 2019
+// Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim
+//               C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_1/design_1_blk_mem_gen_0_1_sim_netlist.v
 // Design      : design_1_blk_mem_gen_0_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,7 +12,7 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "design_1_blk_mem_gen_0_1,blk_mem_gen_v8_4_1,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "blk_mem_gen_v8_4_1,Vivado 2018.2" *) 
+(* CHECK_LICENSE_TYPE = "design_1_blk_mem_gen_0_1,blk_mem_gen_v8_4_2,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "blk_mem_gen_v8_4_2,Vivado 2018.3" *) 
 (* NotValidForBitStream *)
 module design_1_blk_mem_gen_0_1
    (clka,
@@ -31,14 +31,14 @@ module design_1_blk_mem_gen_0_1
     doutb,
     rsta_busy,
     rstb_busy);
-  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 4096, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE BRAM_CTRL, READ_WRITE_MODE READ_WRITE" *) input clka;
+  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE BRAM_CTRL, READ_WRITE_MODE READ_WRITE, READ_LATENCY 1" *) input clka;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA RST" *) input rsta;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA EN" *) input ena;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA WE" *) input [3:0]wea;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR" *) input [31:0]addra;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA DIN" *) input [31:0]dina;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT" *) output [31:0]douta;
-  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTB, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE BRAM_CTRL, READ_WRITE_MODE READ_WRITE" *) input clkb;
+  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTB, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE BRAM_CTRL, READ_WRITE_MODE READ_WRITE, READ_LATENCY 1" *) input clkb;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB RST" *) input rstb;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB EN" *) input enb;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTB WE" *) input [3:0]web;
@@ -132,6 +132,8 @@ module design_1_blk_mem_gen_0_1
   (* C_PRIM_TYPE = "1" *) 
   (* C_READ_DEPTH_A = "2048" *) 
   (* C_READ_DEPTH_B = "2048" *) 
+  (* C_READ_LATENCY_A = "1" *) 
+  (* C_READ_LATENCY_B = "1" *) 
   (* C_READ_WIDTH_A = "32" *) 
   (* C_READ_WIDTH_B = "32" *) 
   (* C_RSTRAM_A = "0" *) 
@@ -156,7 +158,7 @@ module design_1_blk_mem_gen_0_1
   (* C_WRITE_WIDTH_B = "32" *) 
   (* C_XDEVICEFAMILY = "zynq" *) 
   (* downgradeipidentifiedwarnings = "yes" *) 
-  design_1_blk_mem_gen_0_1_blk_mem_gen_v8_4_1 U0
+  design_1_blk_mem_gen_0_1_blk_mem_gen_v8_4_2 U0
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -222,6 +224,7 @@ module design_1_blk_mem_gen_0_1
         .web(web));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module design_1_blk_mem_gen_0_1_blk_mem_gen_generic_cstr
    (douta,
     doutb,
@@ -315,6 +318,7 @@ module design_1_blk_mem_gen_0_1_blk_mem_gen_generic_cstr
         .web(web[3:2]));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module design_1_blk_mem_gen_0_1_blk_mem_gen_prim_width
    (douta,
     doutb,
@@ -628,6 +632,7 @@ module design_1_blk_mem_gen_0_1_blk_mem_gen_prim_width__parameterized0
         .web(web));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
 module design_1_blk_mem_gen_0_1_blk_mem_gen_prim_wrapper
    (douta,
     doutb,
@@ -1221,6 +1226,7 @@ module design_1_blk_mem_gen_0_1_blk_mem_gen_prim_wrapper__parameterized0
         .O(ram_rstram_b));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module design_1_blk_mem_gen_0_1_blk_mem_gen_top
    (douta,
     doutb,
@@ -1307,16 +1313,17 @@ endmodule
 (* C_INITA_VAL = "0" *) (* C_INITB_VAL = "0" *) (* C_INIT_FILE = "NONE" *) 
 (* C_INIT_FILE_NAME = "no_coe_file_loaded" *) (* C_INTERFACE_TYPE = "0" *) (* C_LOAD_INIT_FILE = "0" *) 
 (* C_MEM_TYPE = "2" *) (* C_MUX_PIPELINE_STAGES = "0" *) (* C_PRIM_TYPE = "1" *) 
-(* C_READ_DEPTH_A = "2048" *) (* C_READ_DEPTH_B = "2048" *) (* C_READ_WIDTH_A = "32" *) 
-(* C_READ_WIDTH_B = "32" *) (* C_RSTRAM_A = "0" *) (* C_RSTRAM_B = "0" *) 
-(* C_RST_PRIORITY_A = "CE" *) (* C_RST_PRIORITY_B = "CE" *) (* C_SIM_COLLISION_CHECK = "ALL" *) 
-(* C_USE_BRAM_BLOCK = "1" *) (* C_USE_BYTE_WEA = "1" *) (* C_USE_BYTE_WEB = "1" *) 
-(* C_USE_DEFAULT_DATA = "0" *) (* C_USE_ECC = "0" *) (* C_USE_SOFTECC = "0" *) 
-(* C_USE_URAM = "0" *) (* C_WEA_WIDTH = "4" *) (* C_WEB_WIDTH = "4" *) 
-(* C_WRITE_DEPTH_A = "2048" *) (* C_WRITE_DEPTH_B = "2048" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
-(* C_WRITE_MODE_B = "WRITE_FIRST" *) (* C_WRITE_WIDTH_A = "32" *) (* C_WRITE_WIDTH_B = "32" *) 
-(* C_XDEVICEFAMILY = "zynq" *) (* downgradeipidentifiedwarnings = "yes" *) 
-module design_1_blk_mem_gen_0_1_blk_mem_gen_v8_4_1
+(* C_READ_DEPTH_A = "2048" *) (* C_READ_DEPTH_B = "2048" *) (* C_READ_LATENCY_A = "1" *) 
+(* C_READ_LATENCY_B = "1" *) (* C_READ_WIDTH_A = "32" *) (* C_READ_WIDTH_B = "32" *) 
+(* C_RSTRAM_A = "0" *) (* C_RSTRAM_B = "0" *) (* C_RST_PRIORITY_A = "CE" *) 
+(* C_RST_PRIORITY_B = "CE" *) (* C_SIM_COLLISION_CHECK = "ALL" *) (* C_USE_BRAM_BLOCK = "1" *) 
+(* C_USE_BYTE_WEA = "1" *) (* C_USE_BYTE_WEB = "1" *) (* C_USE_DEFAULT_DATA = "0" *) 
+(* C_USE_ECC = "0" *) (* C_USE_SOFTECC = "0" *) (* C_USE_URAM = "0" *) 
+(* C_WEA_WIDTH = "4" *) (* C_WEB_WIDTH = "4" *) (* C_WRITE_DEPTH_A = "2048" *) 
+(* C_WRITE_DEPTH_B = "2048" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) (* C_WRITE_MODE_B = "WRITE_FIRST" *) 
+(* C_WRITE_WIDTH_A = "32" *) (* C_WRITE_WIDTH_B = "32" *) (* C_XDEVICEFAMILY = "zynq" *) 
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_2" *) (* downgradeipidentifiedwarnings = "yes" *) 
+module design_1_blk_mem_gen_0_1_blk_mem_gen_v8_4_2
    (clka,
     rsta,
     ena,
@@ -1582,7 +1589,7 @@ module design_1_blk_mem_gen_0_1_blk_mem_gen_v8_4_1
   assign sbiterr = \<const0> ;
   GND GND
        (.G(\<const0> ));
-  design_1_blk_mem_gen_0_1_blk_mem_gen_v8_4_1_synth inst_blk_mem_gen
+  design_1_blk_mem_gen_0_1_blk_mem_gen_v8_4_2_synth inst_blk_mem_gen
        (.addra(addra[12:2]),
         .addrb(addrb[12:2]),
         .clka(clka),
@@ -1601,7 +1608,8 @@ module design_1_blk_mem_gen_0_1_blk_mem_gen_v8_4_1
         .web(web));
 endmodule
 
-module design_1_blk_mem_gen_0_1_blk_mem_gen_v8_4_1_synth
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_2_synth" *) 
+module design_1_blk_mem_gen_0_1_blk_mem_gen_v8_4_2_synth
    (douta,
     doutb,
     rsta_busy,

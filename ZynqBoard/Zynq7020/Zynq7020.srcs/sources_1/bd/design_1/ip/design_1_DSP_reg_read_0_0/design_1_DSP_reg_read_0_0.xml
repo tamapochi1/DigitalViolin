@@ -137,6 +137,15 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_AXIS_DELTA.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -271,6 +280,15 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_AXIS_GAIN.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -295,6 +313,15 @@
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_BRAM_RST.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
@@ -356,6 +383,15 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.ACLK.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -414,6 +450,15 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.M_BRAM_CLK.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
   </spirit:busInterfaces>
@@ -427,7 +472,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:1c8e6bca</spirit:value>
+            <spirit:value>9:7978883c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -443,11 +488,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Oct 09 10:22:56 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:19:04 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:1c8e6bca</spirit:value>
+            <spirit:value>9:7978883c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -459,7 +504,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:81a2b54e</spirit:value>
+            <spirit:value>9:a896ae7b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -475,11 +520,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Oct 09 10:22:56 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 06:19:04 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:81a2b54e</spirit:value>
+            <spirit:value>9:a896ae7b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -493,11 +538,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Oct 09 10:24:24 UTC 2018</spirit:value>
+            <spirit:value>Thu May 23 17:18:41 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:1c8e6bca</spirit:value>
+            <spirit:value>9:7978883c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -837,7 +882,7 @@
       <xilinx:definitionSource>module_ref</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
       <xilinx:configElementInfos>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.ACLK.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.ACLK.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.ACLK.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DELTA.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DELTA.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd_and_user"/>
@@ -863,7 +908,7 @@
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

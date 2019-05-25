@@ -110,7 +110,8 @@ imum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {}
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.phase_has_tuser">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.phase_tuser_width">1</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.ARCHITECTURE">zynq</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BOARD"/>
+        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BASE_BOARD_PART"/>
+        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BOARD_CONNECTIONS"/>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.DEVICE">xc7z020</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.PACKAGE">clg484</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.PREFHDL">VERILOG</spirit:configurableElementValue>
@@ -126,7 +127,7 @@ imum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {}
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.OUTPUTDIR">.</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SELECTEDSIMMODEL"/>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SHAREDDIR">../../ipshared</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SWVERSION">2018.2</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SWVERSION">2018.3</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SYNTHESISFLOW">OUT_OF_CONTEXT</spirit:configurableElementValue>
       </spirit:configurableElementValues>
       <spirit:vendorExtensions>
@@ -138,15 +139,15 @@ imum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {}
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.CLK_DOMAIN" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.FREQ_HZ" xilinx:valueSource="user_prop" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.HAS_TKEEP" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.HAS_TLAST" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.HAS_TREADY" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.HAS_TLAST" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.HAS_TREADY" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.HAS_TSTRB" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.LAYERED_METADATA" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.PHASE" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.TDATA_NUM_BYTES" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.TDATA_NUM_BYTES" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.TDEST_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.TID_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
-            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.TUSER_WIDTH" xilinx:valueSource="user" xilinx:valuePermission="bd"/>
+            <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.M_AXIS_DOUT.TUSER_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXIS_CARTESIAN.HAS_TKEEP" xilinx:valueSource="constant"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXIS_CARTESIAN.HAS_TSTRB" xilinx:valueSource="constant"/>
             <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXIS_CARTESIAN.TDEST_WIDTH" xilinx:valueSource="constant"/>

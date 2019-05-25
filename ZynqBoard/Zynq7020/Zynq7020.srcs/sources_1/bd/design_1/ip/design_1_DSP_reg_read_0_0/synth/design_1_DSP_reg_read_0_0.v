@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:DSP_reg_read:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "DSP_reg_read,Vivado 2018.2" *)
+(* X_CORE_INFO = "DSP_reg_read,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "design_1_DSP_reg_read_0_0,DSP_reg_read,{}" *)
-(* CORE_GENERATION_INFO = "design_1_DSP_reg_read_0_0,DSP_reg_read,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=DSP_reg_read,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,EXT_MULT_DELAY=4}" *)
+(* CORE_GENERATION_INFO = "design_1_DSP_reg_read_0_0,DSP_reg_read,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=DSP_reg_read,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,EXT_MULT_DELAY=4}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_DSP_reg_read_0_0 (
@@ -76,16 +76,16 @@ module design_1_DSP_reg_read_0_0 (
 );
 
 input wire nReset;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis_delta:m_axis_gain, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis_delta:m_axis_gain, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
 output wire [31 : 0] m_bram_addr;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_clk, ASSOCIATED_RESET m_bram_rst, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_DSP_reg_read_0_0_m_bram_clk" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_clk, ASSOCIATED_RESET m_bram_rst, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_DSP_reg_read_0_0_m_bram_clk, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_bram_clk CLK" *)
 output wire m_bram_clk;
 input wire [31 : 0] m_bram_rddata;
 output wire m_bram_en;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_rst, POLARITY ACTIVE_LOW" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 m_bram_rst RST" *)
 output wire m_bram_rst;
 output wire m_bram_we;
@@ -96,12 +96,12 @@ output wire [17 : 0] const;
 input wire [35 : 0] freqXconst;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_delta TDATA" *)
 output wire [23 : 0] m_axis_delta_tdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_delta, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_delta, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_delta TVALID" *)
 output wire m_axis_delta_tvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_gain TDATA" *)
 output wire [13 : 0] m_axis_gain_tdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_gain, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_gain, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_gain TVALID" *)
 output wire m_axis_gain_tvalid;
 

@@ -1,13 +1,13 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Sat Jan 19 23:38:20 2019
-| Host         : Reiji-PC running 64-bit Service Pack 1  (build 7601)
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Sat May 25 17:02:28 2019
+| Host         : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 | Command      : report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
 | Design       : design_1_wrapper
 | Device       : xc7z020clg484-1
 | Speed File   : -1
-| Design State : Routed
+| Design State : Fully Routed
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 Report DRC
@@ -24,11 +24,11 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 2
+             Violations found: 3
 +-----------+----------+-------------------+------------+
 | Rule      | Severity | Description       | Violations |
 +-----------+----------+-------------------+------------+
-| PDRC-153  | Warning  | Gated clock check | 1          |
+| PDRC-153  | Warning  | Gated clock check | 2          |
 | RTSTAT-10 | Warning  | No routable loads | 1          |
 +-----------+----------+-------------------+------------+
 
@@ -36,12 +36,17 @@ Table of Contents
 -----------------
 PDRC-153#1 Warning
 Gated clock check  
-Net design_1_i/UIF/UIF_AXI_0/inst/st_ready_reg_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/UIF/UIF_AXI_0/inst/st_ready_reg_i_1/O, cell design_1_i/UIF/UIF_AXI_0/inst/st_ready_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/UIF/UIF_AXI_0/inst/hr_ready_reg_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/UIF/UIF_AXI_0/inst/hr_ready_reg_i_2/O, cell design_1_i/UIF/UIF_AXI_0/inst/hr_ready_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net design_1_i/UIF/UIF_AXI_0/inst/st_ready_reg_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/UIF/UIF_AXI_0/inst/st_ready_reg_i_2/O, cell design_1_i/UIF/UIF_AXI_0/inst/st_ready_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 RTSTAT-10#1 Warning
 No routable loads  
-11 net(s) have no routable loads. The problem bus(es) and/or net(s) are design_1_i/DAC_Interface/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_i, design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_i, design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i, design_1_i/DAC_Interface/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i, design_1_i/DAC_Interface/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/user_valid.
+44 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_2/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_3/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/DAC_Interface/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb (the first 15 of 42 listed).
 Related violations: <none>
 
 

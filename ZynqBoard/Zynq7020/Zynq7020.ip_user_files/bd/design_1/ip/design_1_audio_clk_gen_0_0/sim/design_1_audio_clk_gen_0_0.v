@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -55,18 +55,24 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_audio_clk_gen_0_0 (
-  nReset,
-  audioClk256,
-  audioClk
+  nResetSysClk,
+  nResetAudio256Clk,
+  audio256Clk,
+  sysClk,
+  audioClkSync
 );
 
-input wire nReset;
-input wire audioClk256;
-output wire audioClk;
+input wire nResetSysClk;
+input wire nResetAudio256Clk;
+input wire audio256Clk;
+input wire sysClk;
+output wire audioClkSync;
 
   audio_clk_gen inst (
-    .nReset(nReset),
-    .audioClk256(audioClk256),
-    .audioClk(audioClk)
+    .nResetSysClk(nResetSysClk),
+    .nResetAudio256Clk(nResetAudio256Clk),
+    .audio256Clk(audio256Clk),
+    .sysClk(sysClk),
+    .audioClkSync(audioClkSync)
   );
 endmodule

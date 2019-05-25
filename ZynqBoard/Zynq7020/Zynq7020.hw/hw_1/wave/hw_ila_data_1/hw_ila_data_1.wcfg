@@ -3,41 +3,63 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+      <db_ref path="C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
          <top_modules>
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="8192001fs"></ZoomEndTime>
-      <Cursor1Time time="4908000fs"></Cursor1Time>
+      <ZoomStartTime time="147947fs"></ZoomStartTime>
+      <ZoomEndTime time="2405948fs"></ZoomEndTime>
+      <Cursor1Time time="3071000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="353"></NameColumnWidth>
-      <ValueColumnWidth column_width="82"></ValueColumnWidth>
+      <NameColumnWidth column_width="303"></NameColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="3" />
+   <WVObjectSize size="6" />
    <wave_markers>
    </wave_markers>
-   <wvobject fp_name="design_1_i/UIF_SerialSlave_0_UIF_Slave_S_SCK" type="logic">
+   <wvobject fp_name="design_1_i/UIF/UIF_SerialMasterCont_0_SPI_Master_CSn" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/UIF_SerialSlave_0_UIF_Slave_S_SCK</obj_property>
-      <obj_property name="ObjectShortName">UIF_SerialSlave_0_UIF_Slave_S_SCK</obj_property>
+      <obj_property name="ElementShortName">design_1_i/UIF/UIF_SerialMasterCont_0_SPI_Master_CSn</obj_property>
+      <obj_property name="ObjectShortName">UIF_SerialMasterCont_0_SPI_Master_CSn</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="design_1_i/UIF_SerialSlave_0_UIF_Slave_S_RXD" type="logic">
+   <wvobject fp_name="design_1_i/UIF/Conn1_H_SCK" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/UIF_SerialSlave_0_UIF_Slave_S_RXD</obj_property>
-      <obj_property name="ObjectShortName">UIF_SerialSlave_0_UIF_Slave_S_RXD</obj_property>
+      <obj_property name="ElementShortName">design_1_i/UIF/Conn1_H_SCK</obj_property>
+      <obj_property name="ObjectShortName">Conn1_H_SCK</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="design_1_i/UIF_SerialSlave_0_UIF_Slave_S_TXD" type="logic">
+   <wvobject fp_name="design_1_i/UIF/Conn1_H_TXD" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/UIF_SerialSlave_0_UIF_Slave_S_TXD</obj_property>
-      <obj_property name="ObjectShortName">UIF_SerialSlave_0_UIF_Slave_S_TXD</obj_property>
+      <obj_property name="ElementShortName">design_1_i/UIF/Conn1_H_TXD</obj_property>
+      <obj_property name="ObjectShortName">Conn1_H_TXD</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/UIF/Conn1_H_RXD" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/UIF/Conn1_H_RXD</obj_property>
+      <obj_property name="ObjectShortName">Conn1_H_RXD</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/UIF/fifo_generator_2_axis_data_count" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/UIF/fifo_generator_2_axis_data_count[11:0]</obj_property>
+      <obj_property name="ObjectShortName">fifo_generator_2_axis_data_count[11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="design_1_i/UIF/UIF_AXI_0_hostStart" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/UIF/UIF_AXI_0_hostStart</obj_property>
+      <obj_property name="ObjectShortName">UIF_AXI_0_hostStart</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>

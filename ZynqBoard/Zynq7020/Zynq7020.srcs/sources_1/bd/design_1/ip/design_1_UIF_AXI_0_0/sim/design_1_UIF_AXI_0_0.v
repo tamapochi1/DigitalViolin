@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -82,19 +82,27 @@ module design_1_UIF_AXI_0_0 (
   s_axis_st_tdata,
   s_axis_st_tready,
   s_axis_st_tvalid,
+  m_axis_ht_tdata,
+  m_axis_ht_tready,
+  m_axis_ht_tvalid,
+  s_axis_hr_tdata,
+  s_axis_hr_tready,
+  s_axis_hr_tvalid,
   st_fifo_count,
+  hostStart,
+  hostIsBusy,
   sys_nReset,
   UIF_res
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET S_AXI_ARESETN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET S_AXI_ARESETN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK" *)
 input wire S_AXI_ACLK;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI_ARESETN, POLARITY ACTIVE_LOW" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI_ARESETN, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S_AXI_ARESETN RST" *)
 input wire S_AXI_ARESETN;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *)
-input wire [3 : 0] S_AXI_AWADDR;
+input wire [4 : 0] S_AXI_AWADDR;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI AWPROT" *)
 input wire [2 : 0] S_AXI_AWPROT;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *)
@@ -116,7 +124,7 @@ output wire S_AXI_BVALID;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *)
 input wire S_AXI_BREADY;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *)
-input wire [3 : 0] S_AXI_ARADDR;
+input wire [4 : 0] S_AXI_ARADDR;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI ARPROT" *)
 input wire [2 : 0] S_AXI_ARPROT;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *)
@@ -129,31 +137,47 @@ output wire [31 : 0] S_AXI_RDATA;
 output wire [1 : 0] S_AXI_RRESP;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *)
 output wire S_AXI_RVALID;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS\
- 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS\
+ 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *)
 input wire S_AXI_RREADY;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_sr TDATA" *)
 output wire [7 : 0] m_axis_sr_tdata;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_sr TREADY" *)
 input wire m_axis_sr_tready;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_sr, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_sr, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_sr TVALID" *)
 output wire m_axis_sr_tvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_st TDATA" *)
 input wire [7 : 0] s_axis_st_tdata;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_st TREADY" *)
 output wire s_axis_st_tready;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_st, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_st, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_st TVALID" *)
 input wire s_axis_st_tvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_ht TDATA" *)
+output wire [7 : 0] m_axis_ht_tdata;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_ht TREADY" *)
+input wire m_axis_ht_tready;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_ht, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_ht TVALID" *)
+output wire m_axis_ht_tvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_hr TDATA" *)
+input wire [7 : 0] s_axis_hr_tdata;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_hr TREADY" *)
+output wire s_axis_hr_tready;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_hr, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_hr TVALID" *)
+input wire s_axis_hr_tvalid;
 input wire [11 : 0] st_fifo_count;
+output wire hostStart;
+input wire hostIsBusy;
 output wire sys_nReset;
 output wire UIF_res;
 
   UIF_AXI #(
     .C_S_AXI_DATA_WIDTH(32),
-    .C_S_AXI_ADDR_WIDTH(4)
+    .C_S_AXI_ADDR_WIDTH(5)
   ) inst (
     .S_AXI_ACLK(S_AXI_ACLK),
     .S_AXI_ARESETN(S_AXI_ARESETN),
@@ -182,7 +206,15 @@ output wire UIF_res;
     .s_axis_st_tdata(s_axis_st_tdata),
     .s_axis_st_tready(s_axis_st_tready),
     .s_axis_st_tvalid(s_axis_st_tvalid),
+    .m_axis_ht_tdata(m_axis_ht_tdata),
+    .m_axis_ht_tready(m_axis_ht_tready),
+    .m_axis_ht_tvalid(m_axis_ht_tvalid),
+    .s_axis_hr_tdata(s_axis_hr_tdata),
+    .s_axis_hr_tready(s_axis_hr_tready),
+    .s_axis_hr_tvalid(s_axis_hr_tvalid),
     .st_fifo_count(st_fifo_count),
+    .hostStart(hostStart),
+    .hostIsBusy(hostIsBusy),
     .sys_nReset(sys_nReset),
     .UIF_res(UIF_res)
   );

@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -60,8 +60,8 @@ ENTITY design_1_mult_gen_0_1 IS
   PORT (
     CLK : IN STD_LOGIC;
     A : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    B : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-    P : OUT STD_LOGIC_VECTOR(25 DOWNTO 0)
+    B : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
+    P : OUT STD_LOGIC_VECTOR(29 DOWNTO 0)
   );
 END design_1_mult_gen_0_1;
 
@@ -94,16 +94,16 @@ ARCHITECTURE design_1_mult_gen_0_1_arch OF design_1_mult_gen_0_1 IS
     PORT (
       CLK : IN STD_LOGIC;
       A : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      B : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+      B : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
       CE : IN STD_LOGIC;
       SCLR : IN STD_LOGIC;
-      P : OUT STD_LOGIC_VECTOR(25 DOWNTO 0)
+      P : OUT STD_LOGIC_VECTOR(29 DOWNTO 0)
     );
   END COMPONENT mult_gen_v12_0_14;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF P: SIGNAL IS "XIL_INTERFACENAME p_intf, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum {} maximum {}} value 26} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format bool minimum {} maximu" & 
-"m {}} value TRUE}}}} DATA_WIDTH 26}";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF P: SIGNAL IS "XIL_INTERFACENAME p_intf, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum {} maximum {}} value 30} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format bool minimum {} maximu" & 
+"m {}} value TRUE}}}} DATA_WIDTH 30}";
   ATTRIBUTE X_INTERFACE_INFO OF P: SIGNAL IS "xilinx.com:signal:data:1.0 p_intf DATA";
   ATTRIBUTE X_INTERFACE_PARAMETER OF B: SIGNAL IS "XIL_INTERFACENAME b_intf, LAYERED_METADATA undef";
   ATTRIBUTE X_INTERFACE_INFO OF B: SIGNAL IS "xilinx.com:signal:data:1.0 b_intf DATA";
@@ -123,9 +123,9 @@ BEGIN
       C_LATENCY => 3,
       C_A_WIDTH => 16,
       C_A_TYPE => 0,
-      C_B_WIDTH => 10,
+      C_B_WIDTH => 14,
       C_B_TYPE => 1,
-      C_OUT_HIGH => 25,
+      C_OUT_HIGH => 29,
       C_OUT_LOW => 0,
       C_MULT_TYPE => 1,
       C_CE_OVERRIDES_SCLR => 0,

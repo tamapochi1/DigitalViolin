@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -58,7 +58,7 @@ module design_1_mult_sum_0_0 (
   nReset,
   sysClk,
   clear,
-  clear_delayd,
+  sync,
   s_axis_sin_tdata,
   s_axis_sin_tvalid,
   s_axis_gain_tdata,
@@ -73,7 +73,7 @@ module design_1_mult_sum_0_0 (
 input wire nReset;
 input wire sysClk;
 input wire clear;
-output wire clear_delayd;
+output wire sync;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_sin TDATA" *)
 input wire [31 : 0] s_axis_sin_tdata;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_sin, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency\
@@ -81,27 +81,27 @@ input wire [31 : 0] s_axis_sin_tdata;
 m {}} value 14} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}} TDATA_WIDTH 32 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cartesian_tuser {name {attribs {\
 resolve_type immediate dependency {} format string minimum {} maximum {}} value cartesian_tuser} enabled {attribs {resolve_type generated dependency cart_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency cart_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long mini\
 mum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_phase_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value phase_tuser} enabled {attribs {resolve_type generated dependency phase_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth\
- {attribs {resolve_type generated dependency phase_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency phase_offset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}} TUSER_WIDTH 0}" *)
+ {attribs {resolve_type generated dependency phase_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency phase_offset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}} TUSER_WIDTH 0}, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_sin TVALID" *)
 input wire s_axis_sin_tvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_gain TDATA" *)
-input wire [9 : 0] s_axis_gain_tdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_gain, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef" *)
+input wire [13 : 0] s_axis_gain_tdata;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_gain, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_gain TVALID" *)
 input wire s_axis_gain_tvalid;
 output wire [15 : 0] mult_A;
-output wire [9 : 0] mult_B;
-input wire [25 : 0] mult_P;
+output wire [13 : 0] mult_B;
+input wire [29 : 0] mult_P;
 output wire [15 : 0] outData;
-input wire [7 : 0] outGain;
+input wire [4 : 0] outGain;
 
   mult_sum #(
-    .CLEAR_DELAY(22)
+    .CLEAR_DELAY(29)
   ) inst (
     .nReset(nReset),
     .sysClk(sysClk),
     .clear(clear),
-    .clear_delayd(clear_delayd),
+    .sync(sync),
     .s_axis_sin_tdata(s_axis_sin_tdata),
     .s_axis_sin_tvalid(s_axis_sin_tvalid),
     .s_axis_gain_tdata(s_axis_gain_tdata),

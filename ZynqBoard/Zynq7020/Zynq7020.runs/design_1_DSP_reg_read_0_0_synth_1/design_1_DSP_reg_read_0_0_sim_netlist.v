@@ -1,8 +1,8 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Tue Oct  9 19:24:21 2018
-// Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
+// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+// Date        : Fri May 24 02:18:41 2019
+// Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_DSP_reg_read_0_0_sim_netlist.v
 // Design      : design_1_DSP_reg_read_0_0
@@ -13,46 +13,38 @@
 `timescale 1 ps / 1 ps
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
-   (m_bram_rst,
+   (m_axis_delta_tdata,
+    SR,
     m_axis_gain_tvalid,
     m_axis_delta_tvalid,
-    m_axis_delta_tdata,
     m_axis_gain_tdata,
-    aclk,
-    aclk_0,
     freqXconst,
+    aclk,
     index_valid,
     m_bram_rddata,
     nReset);
-  output m_bram_rst;
+  output [21:0]m_axis_delta_tdata;
+  output [0:0]SR;
   output m_axis_gain_tvalid;
   output m_axis_delta_tvalid;
-  output [21:0]m_axis_delta_tdata;
   output [13:0]m_axis_gain_tdata;
-  input aclk;
-  input aclk_0;
   input [21:0]freqXconst;
+  input aclk;
   input index_valid;
   input [13:0]m_bram_rddata;
   input nReset;
 
+  wire [0:0]SR;
   wire aclk;
-  wire aclk_0;
   wire [21:0]freqXconst;
-  wire \freqXconstValid_reg[1]_inst_freqXconstValid_reg_r_1_n_0 ;
-  wire \freqXconstValid_reg[2]_srl2___inst_freqXconstValid_reg_r_0_n_0 ;
-  wire freqXconstValid_reg_gate_n_0;
-  wire freqXconstValid_reg_r_0_n_0;
-  wire freqXconstValid_reg_r_1_n_0;
-  wire freqXconstValid_reg_r_n_0;
   wire index_valid;
   wire [21:0]m_axis_delta_tdata;
   wire m_axis_delta_tvalid;
   wire [13:0]m_axis_gain_tdata;
   wire m_axis_gain_tvalid;
   wire [13:0]m_bram_rddata;
-  wire m_bram_rst;
   wire nReset;
+  wire [2:0]p_0_in;
 
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
@@ -61,7 +53,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(index_valid),
         .Q(m_axis_gain_tvalid),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[0] 
@@ -69,7 +61,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[0]),
         .Q(m_axis_delta_tdata[0]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[10] 
@@ -77,7 +69,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[10]),
         .Q(m_axis_delta_tdata[10]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[11] 
@@ -85,7 +77,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[11]),
         .Q(m_axis_delta_tdata[11]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[12] 
@@ -93,7 +85,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[12]),
         .Q(m_axis_delta_tdata[12]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[13] 
@@ -101,7 +93,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[13]),
         .Q(m_axis_delta_tdata[13]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[14] 
@@ -109,7 +101,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[14]),
         .Q(m_axis_delta_tdata[14]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[15] 
@@ -117,7 +109,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[15]),
         .Q(m_axis_delta_tdata[15]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[16] 
@@ -125,7 +117,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[16]),
         .Q(m_axis_delta_tdata[16]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[17] 
@@ -133,7 +125,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[17]),
         .Q(m_axis_delta_tdata[17]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[18] 
@@ -141,7 +133,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[18]),
         .Q(m_axis_delta_tdata[18]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[19] 
@@ -149,7 +141,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[19]),
         .Q(m_axis_delta_tdata[19]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[1] 
@@ -157,7 +149,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[1]),
         .Q(m_axis_delta_tdata[1]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[20] 
@@ -165,7 +157,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[20]),
         .Q(m_axis_delta_tdata[20]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[21] 
@@ -173,7 +165,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[21]),
         .Q(m_axis_delta_tdata[21]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[2] 
@@ -181,7 +173,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[2]),
         .Q(m_axis_delta_tdata[2]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[3] 
@@ -189,7 +181,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[3]),
         .Q(m_axis_delta_tdata[3]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[4] 
@@ -197,7 +189,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[4]),
         .Q(m_axis_delta_tdata[4]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[5] 
@@ -205,7 +197,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[5]),
         .Q(m_axis_delta_tdata[5]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[6] 
@@ -213,7 +205,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[6]),
         .Q(m_axis_delta_tdata[6]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[7] 
@@ -221,7 +213,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[7]),
         .Q(m_axis_delta_tdata[7]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[8] 
@@ -229,7 +221,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[8]),
         .Q(m_axis_delta_tdata[8]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \deltaBuffer_reg[9] 
@@ -237,66 +229,39 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(freqXconst[9]),
         .Q(m_axis_delta_tdata[9]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \freqXconstValid_reg[0] 
        (.C(aclk),
         .CE(1'b1),
-        .D(freqXconstValid_reg_gate_n_0),
+        .D(p_0_in[0]),
         .Q(m_axis_delta_tvalid),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
-    \freqXconstValid_reg[1]_inst_freqXconstValid_reg_r_1 
+    \freqXconstValid_reg[1] 
        (.C(aclk),
         .CE(1'b1),
-        .D(\freqXconstValid_reg[2]_srl2___inst_freqXconstValid_reg_r_0_n_0 ),
-        .Q(\freqXconstValid_reg[1]_inst_freqXconstValid_reg_r_1_n_0 ),
-        .R(1'b0));
-  (* srl_bus_name = "\inst/freqXconstValid_reg " *) 
-  (* srl_name = "\inst/freqXconstValid_reg[2]_srl2___inst_freqXconstValid_reg_r_0 " *) 
-  SRL16E #(
-    .IS_CLK_INVERTED(1'b1)) 
-    \freqXconstValid_reg[2]_srl2___inst_freqXconstValid_reg_r_0 
-       (.A0(1'b1),
-        .A1(1'b0),
-        .A2(1'b0),
-        .A3(1'b0),
+        .D(p_0_in[1]),
+        .Q(p_0_in[0]),
+        .R(SR));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \freqXconstValid_reg[2] 
+       (.C(aclk),
         .CE(1'b1),
-        .CLK(aclk_0),
+        .D(p_0_in[2]),
+        .Q(p_0_in[1]),
+        .R(SR));
+  FDRE #(
+    .IS_C_INVERTED(1'b1)) 
+    \freqXconstValid_reg[3] 
+       (.C(aclk),
+        .CE(1'b1),
         .D(m_axis_gain_tvalid),
-        .Q(\freqXconstValid_reg[2]_srl2___inst_freqXconstValid_reg_r_0_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
-    freqXconstValid_reg_gate
-       (.I0(\freqXconstValid_reg[1]_inst_freqXconstValid_reg_r_1_n_0 ),
-        .I1(freqXconstValid_reg_r_1_n_0),
-        .O(freqXconstValid_reg_gate_n_0));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    freqXconstValid_reg_r
-       (.C(aclk),
-        .CE(1'b1),
-        .D(1'b1),
-        .Q(freqXconstValid_reg_r_n_0),
-        .R(m_bram_rst));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    freqXconstValid_reg_r_0
-       (.C(aclk),
-        .CE(1'b1),
-        .D(freqXconstValid_reg_r_n_0),
-        .Q(freqXconstValid_reg_r_0_n_0),
-        .R(m_bram_rst));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    freqXconstValid_reg_r_1
-       (.C(aclk),
-        .CE(1'b1),
-        .D(freqXconstValid_reg_r_0_n_0),
-        .Q(freqXconstValid_reg_r_1_n_0),
-        .R(m_bram_rst));
+        .Q(p_0_in[2]),
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[0] 
@@ -304,7 +269,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[0]),
         .Q(m_axis_gain_tdata[0]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[10] 
@@ -312,7 +277,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[10]),
         .Q(m_axis_gain_tdata[10]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[11] 
@@ -320,7 +285,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[11]),
         .Q(m_axis_gain_tdata[11]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[12] 
@@ -328,7 +293,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[12]),
         .Q(m_axis_gain_tdata[12]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[13] 
@@ -336,7 +301,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[13]),
         .Q(m_axis_gain_tdata[13]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[1] 
@@ -344,7 +309,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[1]),
         .Q(m_axis_gain_tdata[1]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[2] 
@@ -352,7 +317,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[2]),
         .Q(m_axis_gain_tdata[2]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[3] 
@@ -360,7 +325,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[3]),
         .Q(m_axis_gain_tdata[3]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[4] 
@@ -368,7 +333,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[4]),
         .Q(m_axis_gain_tdata[4]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[5] 
@@ -376,7 +341,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[5]),
         .Q(m_axis_gain_tdata[5]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[6] 
@@ -384,7 +349,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[6]),
         .Q(m_axis_gain_tdata[6]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[7] 
@@ -392,7 +357,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[7]),
         .Q(m_axis_gain_tdata[7]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[8] 
@@ -400,7 +365,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[8]),
         .Q(m_axis_gain_tdata[8]),
-        .R(m_bram_rst));
+        .R(SR));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \gainBuffer_reg[9] 
@@ -408,16 +373,16 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read
         .CE(1'b1),
         .D(m_bram_rddata[9]),
         .Q(m_axis_gain_tdata[9]),
-        .R(m_bram_rst));
+        .R(SR));
   LUT1 #(
     .INIT(2'h1)) 
     m_bram_rst_INST_0
        (.I0(nReset),
-        .O(m_bram_rst));
+        .O(SR));
 endmodule
 
 (* CHECK_LICENSE_TYPE = "design_1_DSP_reg_read_0_0,DSP_reg_read,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "DSP_reg_read,Vivado 2018.2" *) 
+(* X_CORE_INFO = "DSP_reg_read,Vivado 2018.3" *) 
 (* NotValidForBitStream *)
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (nReset,
@@ -438,12 +403,12 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
     m_axis_gain_tdata,
     m_axis_gain_tvalid);
   input nReset;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis_delta:m_axis_gain, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0" *) input aclk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis_delta:m_axis_gain, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input aclk;
   output [31:0]m_bram_addr;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_bram_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_clk, ASSOCIATED_RESET m_bram_rst, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_DSP_reg_read_0_0_m_bram_clk" *) output m_bram_clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_bram_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_clk, ASSOCIATED_RESET m_bram_rst, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_DSP_reg_read_0_0_m_bram_clk, INSERT_VIP 0" *) output m_bram_clk;
   input [31:0]m_bram_rddata;
   output m_bram_en;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 m_bram_rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_rst, POLARITY ACTIVE_LOW" *) output m_bram_rst;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 m_bram_rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_bram_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output m_bram_rst;
   output m_bram_we;
   input [10:0]index;
   input index_valid;
@@ -451,9 +416,9 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   output [17:0]const;
   input [35:0]freqXconst;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_delta TDATA" *) output [23:0]m_axis_delta_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_delta TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_delta, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) output m_axis_delta_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_delta TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_delta, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *) output m_axis_delta_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_gain TDATA" *) output [13:0]m_axis_gain_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_gain TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_gain, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) output m_axis_gain_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_gain TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_gain, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *) output m_axis_gain_tvalid;
 
   wire \<const0> ;
   wire \<const1> ;
@@ -521,8 +486,8 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   VCC VCC
        (.P(\<const1> ));
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_DSP_reg_read inst
-       (.aclk(aclk),
-        .aclk_0(aclk),
+       (.SR(m_bram_rst),
+        .aclk(aclk),
         .freqXconst(freqXconst[35:14]),
         .index_valid(index_valid),
         .m_axis_delta_tdata(\^m_axis_delta_tdata ),
@@ -530,7 +495,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
         .m_axis_gain_tdata(m_axis_gain_tdata),
         .m_axis_gain_tvalid(m_axis_gain_tvalid),
         .m_bram_rddata(m_bram_rddata[31:18]),
-        .m_bram_rst(m_bram_rst),
         .nReset(nReset));
 endmodule
 `ifndef GLBL

@@ -1,6 +1,6 @@
 {
-   ExpandedHierarchyInLayout: "",
-   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS-threadsafe
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS-threadsafe
 #  -string -flagsOSRD
 preplace port nResetAudio256Clk -pg 1 -y 20 -defaultsOSRD
 preplace port sysClk -pg 1 -y 220 -defaultsOSRD
@@ -30,6 +30,6 @@ preplace netloc processing_system7_0_FCLK_CLK0 1 0 2 NJ 220 260
 preplace netloc DSP_outDataValid1 1 0 1 NJ
 preplace netloc DAC_FIFO_0_m_axis 1 1 1 N
 levelinfo -pg 1 -10 140 450 740 890 -top 0 -bot 240
-",
+"
 }
 0

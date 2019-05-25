@@ -15,6 +15,7 @@
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_GAIN.HAS_TLAST">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_GAIN.HAS_TREADY">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_GAIN.HAS_TSTRB">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_GAIN.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_GAIN.LAYERED_METADATA">undef</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_GAIN.PHASE">0.000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_GAIN.TDATA_NUM_BYTES">1</spirit:configurableElementValue>
@@ -27,6 +28,7 @@
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_SIN.HAS_TLAST">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_SIN.HAS_TREADY">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_SIN.HAS_TSTRB">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_SIN.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.S_AXIS_SIN.LAYERED_METADATA">xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} complex {bitwidth {attribs {resolve_type generated dependency complex_width format long minimum {} maximum {}} value 16} stride {attribs {resolve_
 type generated dependency complex_stride format long minimum {} maximum {}} value 16} realfirst {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} real {fixed {fractwidth {attribs {resolve_type generated dependency complex_fractwidth format long minimum {} maximum {}} value 14} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}} TDATA_WIDTH 32 TUSER {datatype {name {attribs {resolve_type immediate de
 pendency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cartesian_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value cartesian_tuser} enabled {attribs {resolve_type generated dependency cart_enabled format bool minimum {} maximum {
@@ -42,7 +44,8 @@ imum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {}
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.CLEAR_DELAY">29</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">design_1_mult_sum_0_0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.ARCHITECTURE">zynq</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BOARD"/>
+        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BASE_BOARD_PART"/>
+        <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.BOARD_CONNECTIONS"/>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.DEVICE">xc7z020</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.PACKAGE">clg484</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PROJECT_PARAM.PREFHDL">VERILOG</spirit:configurableElementValue>
@@ -58,7 +61,7 @@ imum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {}
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.OUTPUTDIR">.</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SELECTEDSIMMODEL"/>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SHAREDDIR">../../ipshared</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SWVERSION">2018.2</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SWVERSION">2018.3</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="RUNTIME_PARAM.SYNTHESISFLOW">OOC_HIERARCHICAL</spirit:configurableElementValue>
       </spirit:configurableElementValues>
       <spirit:vendorExtensions>

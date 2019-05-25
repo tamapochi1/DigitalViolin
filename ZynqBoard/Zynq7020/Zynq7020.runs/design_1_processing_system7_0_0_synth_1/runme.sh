@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=F:/Xilinx/SDK/2018.2/bin;F:/Xilinx/Vivado/2018.2/ids_lite/ISE/bin/nt64;F:/Xilinx/Vivado/2018.2/ids_lite/ISE/lib/nt64:F:/Xilinx/Vivado/2018.2/bin
+  PATH=C:/Xilinx/SDK/2018.3/bin;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2018.3/bin
 else
-  PATH=F:/Xilinx/SDK/2018.2/bin;F:/Xilinx/Vivado/2018.2/ids_lite/ISE/bin/nt64;F:/Xilinx/Vivado/2018.2/ids_lite/ISE/lib/nt64:F:/Xilinx/Vivado/2018.2/bin:$PATH
+  PATH=C:/Xilinx/SDK/2018.3/bin;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2018.3/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='F:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_processing_system7_0_0_synth_1'
+HD_PWD='C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_processing_system7_0_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

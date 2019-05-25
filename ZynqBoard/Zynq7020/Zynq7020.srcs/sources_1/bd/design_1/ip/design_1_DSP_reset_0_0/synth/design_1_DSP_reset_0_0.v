@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:DSP_reset:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "DSP_reset,Vivado 2018.2" *)
+(* X_CORE_INFO = "DSP_reset,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "design_1_DSP_reset_0_0,DSP_reset,{}" *)
-(* CORE_GENERATION_INFO = "design_1_DSP_reset_0_0,DSP_reset,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=DSP_reset,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "design_1_DSP_reset_0_0,DSP_reset,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=DSP_reset,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_DSP_reset_0_0 (

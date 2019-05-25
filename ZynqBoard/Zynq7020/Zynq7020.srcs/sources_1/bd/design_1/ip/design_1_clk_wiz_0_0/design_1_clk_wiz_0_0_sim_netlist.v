@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Fri Oct  5 23:34:12 2018
-// Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode funcsim -rename_top design_1_clk_wiz_0_0 -prefix
-//               design_1_clk_wiz_0_0_ design_1_clk_wiz_0_0_sim_netlist.v
+// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+// Date        : Thu May 23 15:24:14 2019
+// Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim
+//               C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_sim_netlist.v
 // Design      : design_1_clk_wiz_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -35,6 +35,7 @@ module design_1_clk_wiz_0_0
         .resetn(resetn));
 endmodule
 
+(* ORIG_REF_NAME = "design_1_clk_wiz_0_0_clk_wiz" *) 
 module design_1_clk_wiz_0_0_design_1_clk_wiz_0_0_clk_wiz
    (clk_out1,
     resetn,

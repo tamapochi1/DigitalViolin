@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -56,9 +56,11 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_DAC_IF_0_0 (
   nReset,
-  dataL,
-  dataR,
-  clk_256fs,
+  s_axis_tdata,
+  s_axis_tvalid,
+  s_axis_tready,
+  s_axis_aclk,
+  audio256Clk,
   DAC_MCLK,
   DAC_BICK,
   DAC_LRCK,
@@ -66,9 +68,17 @@ module design_1_DAC_IF_0_0 (
 );
 
 input wire nReset;
-input wire [15 : 0] dataL;
-input wire [15 : 0] dataR;
-input wire clk_256fs;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TDATA" *)
+input wire [31 : 0] s_axis_tdata;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TVALID" *)
+input wire s_axis_tvalid;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 12288000, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK1, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis TREADY" *)
+output wire s_axis_tready;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_aclk, ASSOCIATED_BUSIF s_axis, FREQ_HZ 12288000, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK1, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s_axis_aclk CLK" *)
+input wire s_axis_aclk;
+input wire audio256Clk;
 output wire DAC_MCLK;
 output wire DAC_BICK;
 output wire DAC_LRCK;
@@ -76,9 +86,11 @@ output wire DAC_SDT;
 
   DAC_IF inst (
     .nReset(nReset),
-    .dataL(dataL),
-    .dataR(dataR),
-    .clk_256fs(clk_256fs),
+    .s_axis_tdata(s_axis_tdata),
+    .s_axis_tvalid(s_axis_tvalid),
+    .s_axis_tready(s_axis_tready),
+    .s_axis_aclk(s_axis_aclk),
+    .audio256Clk(audio256Clk),
     .DAC_MCLK(DAC_MCLK),
     .DAC_BICK(DAC_BICK),
     .DAC_LRCK(DAC_LRCK),

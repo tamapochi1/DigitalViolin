@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name fpgaboard-cache)(type Legacy)(uri C:/Users/Reiji/Desktop/fpgaboard/fpgaboard-cache.lib)(options "")(descr ""))
+  (lib (name ZynqBoard-rescue)(type Legacy)(uri ${KIPRJMOD}/ZynqBoard-rescue.lib)(options "")(descr ""))
 )

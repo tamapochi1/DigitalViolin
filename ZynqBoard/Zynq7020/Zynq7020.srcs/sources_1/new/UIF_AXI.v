@@ -25,7 +25,7 @@ module UIF_AXI
     // Width of S_AXI data bus
     parameter integer C_S_AXI_DATA_WIDTH    = 32,
     // Width of S_AXI address bus
-    parameter integer C_S_AXI_ADDR_WIDTH    = 4
+    parameter integer C_S_AXI_ADDR_WIDTH    = 5
 )
 (
     // Global Clock Signal
@@ -97,16 +97,18 @@ module UIF_AXI
     output s_axis_st_tready,
     input s_axis_st_tvalid,
     
-//    output [7:0] m_axis_ht_tdata,
-//    input m_axis_ht_tready,
-//    output m_axis_ht_tvalid,
+    output [7:0] m_axis_ht_tdata,
+    input m_axis_ht_tready,
+    output m_axis_ht_tvalid,
     
-//    input [7:0] s_axis_hr_tdata,
-//    output s_axis_hr_tready,
-//    input s_axis_hr_tvalid,
+    input [7:0] s_axis_hr_tdata,
+    output s_axis_hr_tready,
+    input s_axis_hr_tvalid,
     
     input [11:0] st_fifo_count,
 //    input [11:0] hr_fifo_count,
+    output hostStart,
+    input hostIsBusy,
     output sys_nReset,
     output UIF_res
 );
@@ -114,6 +116,12 @@ module UIF_AXI
 reg [7:0] sr_tdata;
 reg sr_tvalid;
 reg st_ready;
+
+reg [7:0] ht_tdata;
+reg ht_tvalid;
+reg hr_ready;
+
+reg host_start;
 
 
 // AXI4LITE signals
@@ -134,7 +142,7 @@ reg      axi_rvalid;
 // ADDR_LSB = 2 for 32 bits (n downto 2)
 // ADDR_LSB = 3 for 64 bits (n downto 3)
 localparam integer ADDR_LSB = (C_S_AXI_DATA_WIDTH/32) + 1;
-localparam integer OPT_MEM_ADDR_BITS = 1;
+localparam integer OPT_MEM_ADDR_BITS = 2;
 //----------------------------------------------
 //-- Signals for user logic register space example
 //------------------------------------------------
@@ -152,9 +160,14 @@ assign m_axis_sr_tdata = sr_tdata;
 assign m_axis_sr_tvalid = m_axis_sr_tready & sr_tvalid;
 assign s_axis_st_tready = st_ready;
 
+assign m_axis_ht_tdata = ht_tdata;
+assign m_axis_ht_tvalid = m_axis_ht_tready & ht_tvalid;
+assign s_axis_hr_tready = hr_ready;
+
 assign sys_nReset = slv_reg0[0];
 assign UIF_res = ~slv_reg0[1];
 
+assign hostStart = host_start;
 
 
 // I/O Connections assignments
@@ -267,27 +280,42 @@ begin
       slv_reg0 <= 0;
       sr_tdata <= 8'h00;
       sr_tvalid <= 1'b0;
+      ht_tdata <= 8'h00;
+      ht_tvalid <= 1'b0;
+      host_start <= 1'b0;
     end 
   else begin
     if (slv_reg_wren)
       begin
         case ( axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
-          2'h0:
+          3'h0:
             for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
               if ( S_AXI_WSTRB[byte_index] == 1 ) begin
                 // Respective byte enables are asserted as per write strobes 
                 // Slave register 0
                 slv_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
               end
-          2'h2:
+          3'h2:
           begin
             sr_tdata <= S_AXI_WDATA[7:0];
             sr_tvalid <= 1'b1; 
+          end
+          3'h4:
+          begin
+            ht_tdata <= S_AXI_WDATA[7:0];
+            ht_tvalid <= 1'b1; 
+          end
+          3'h6:
+          begin
+            host_start <= S_AXI_WDATA[0];
           end
           default : begin
                       slv_reg0 <= slv_reg0;
                       sr_tdata <= 8'h00;
                       sr_tvalid <= 1'b0;
+                      ht_tdata <= 8'h00;
+                      ht_tvalid <= 1'b0;
+                      host_start <= 1'b0;
                     end
         endcase
       end
@@ -295,6 +323,9 @@ begin
       begin
         sr_tdata <= 8'h00;
         sr_tvalid <= 1'b0;
+        ht_tdata <= 8'h00;
+        ht_tvalid <= 1'b0;
+        host_start <= 1'b0;
       end
   end
 end    
@@ -402,24 +433,32 @@ begin
   if ( S_AXI_ARESETN == 1'b0 )
     begin
       st_ready <= 1'b0;
+      hr_ready <= 1'b0;
     end 
   else
     begin
       // Address decoding for reading registers
       case ( axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
-        2'h0   : reg_data_out <= slv_reg0;
-        2'h1   : reg_data_out <= {20'd0, st_fifo_count};
-        2'h2   : reg_data_out <= 32'd0;
-        
-        2'h3   :
+        3'h0   : reg_data_out <= slv_reg0;
+        3'h1   : reg_data_out <= {20'd0, st_fifo_count};
+        3'h2   : reg_data_out <= 32'd0;
+        3'h3   :
         begin
             st_ready <= slv_reg_rden ? 1'b1 : 1'b0;
             reg_data_out <= {s_axis_st_tvalid, 23'd0, s_axis_st_tdata};
         end
-        
+        3'h4   : reg_data_out <= 32'd0;
+        3'h5   :
+        begin
+            hr_ready <= slv_reg_rden ? 1'b1 : 1'b0;
+            reg_data_out <= {s_axis_hr_tvalid, 23'd0, s_axis_hr_tdata};
+        end
+        3'h7   : reg_data_out <= {31'd0, hostIsBusy};
+
         default :
         begin
             st_ready <= 1'b0;
+            hr_ready <= 1'b0;
             reg_data_out <= 0;
         end
       endcase

@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Thu Oct  4 17:43:56 2018
--- Host        : Reiji-PC running 64-bit Service Pack 1  (build 7601)
--- Command     : write_vhdl -force -mode funcsim -rename_top design_1_rst_ps7_0_50M_0 -prefix
---               design_1_rst_ps7_0_50M_0_ design_1_rst_ps7_0_50M_0_sim_netlist.vhdl
+-- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+-- Date        : Thu May 23 15:24:14 2019
+-- Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim
+--               C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_0/design_1_rst_ps7_0_50M_0_sim_netlist.vhdl
 -- Design      : design_1_rst_ps7_0_50M_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -25,6 +25,8 @@ entity design_1_rst_ps7_0_50M_0_cdc_sync is
     aux_reset_in : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_rst_ps7_0_50M_0_cdc_sync : entity is "cdc_sync";
 end design_1_rst_ps7_0_50M_0_cdc_sync;
 
 architecture STRUCTURE of design_1_rst_ps7_0_50M_0_cdc_sync is
@@ -233,6 +235,8 @@ entity design_1_rst_ps7_0_50M_0_upcnt_n is
     seq_cnt_en : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_rst_ps7_0_50M_0_upcnt_n : entity is "upcnt_n";
 end design_1_rst_ps7_0_50M_0_upcnt_n;
 
 architecture STRUCTURE of design_1_rst_ps7_0_50M_0_upcnt_n is
@@ -397,6 +401,8 @@ entity design_1_rst_ps7_0_50M_0_lpf is
     ext_reset_in : in STD_LOGIC;
     aux_reset_in : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_rst_ps7_0_50M_0_lpf : entity is "lpf";
 end design_1_rst_ps7_0_50M_0_lpf;
 
 architecture STRUCTURE of design_1_rst_ps7_0_50M_0_lpf is
@@ -573,11 +579,13 @@ entity design_1_rst_ps7_0_50M_0_sequence_psr is
     MB_out : out STD_LOGIC;
     Bsr_out : out STD_LOGIC;
     Pr_out : out STD_LOGIC;
-    \ACTIVE_LOW_BSR_OUT_DFF[0].FDRE_BSR_N\ : out STD_LOGIC;
-    \ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N\ : out STD_LOGIC;
+    bsr_reg_0 : out STD_LOGIC;
+    pr_reg_0 : out STD_LOGIC;
     lpf_int : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_rst_ps7_0_50M_0_sequence_psr : entity is "sequence_psr";
 end design_1_rst_ps7_0_50M_0_sequence_psr;
 
 architecture STRUCTURE of design_1_rst_ps7_0_50M_0_sequence_psr is
@@ -624,7 +632,7 @@ begin
     )
         port map (
       I0 => \^bsr_out\,
-      O => \ACTIVE_LOW_BSR_OUT_DFF[0].FDRE_BSR_N\
+      O => bsr_reg_0
     );
 \ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N_i_1\: unisim.vcomponents.LUT1
     generic map(
@@ -632,7 +640,7 @@ begin
     )
         port map (
       I0 => \^pr_out\,
-      O => \ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N\
+      O => pr_reg_0
     );
 Core_i_1: unisim.vcomponents.LUT2
     generic map(
@@ -916,6 +924,8 @@ entity design_1_rst_ps7_0_50M_0_proc_sys_reset is
   attribute C_NUM_PERP_ARESETN of design_1_rst_ps7_0_50M_0_proc_sys_reset : entity is 1;
   attribute C_NUM_PERP_RST : integer;
   attribute C_NUM_PERP_RST of design_1_rst_ps7_0_50M_0_proc_sys_reset : entity is 1;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_rst_ps7_0_50M_0_proc_sys_reset : entity is "proc_sys_reset";
 end design_1_rst_ps7_0_50M_0_proc_sys_reset;
 
 architecture STRUCTURE of design_1_rst_ps7_0_50M_0_proc_sys_reset is
@@ -931,11 +941,6 @@ architecture STRUCTURE of design_1_rst_ps7_0_50M_0_proc_sys_reset is
   attribute box_type of \BSR_OUT_DFF[0].FDRE_BSR\ : label is "PRIMITIVE";
   attribute box_type of FDRE_inst : label is "PRIMITIVE";
   attribute box_type of \PR_OUT_DFF[0].FDRE_PER\ : label is "PRIMITIVE";
-  attribute equivalent_register_removal : string;
-  attribute equivalent_register_removal of bus_struct_reset : signal is "no";
-  attribute equivalent_register_removal of interconnect_aresetn : signal is "no";
-  attribute equivalent_register_removal of peripheral_aresetn : signal is "no";
-  attribute equivalent_register_removal of peripheral_reset : signal is "no";
 begin
 \ACTIVE_LOW_BSR_OUT_DFF[0].FDRE_BSR_N\: unisim.vcomponents.FDRE
     generic map(
@@ -1018,12 +1023,12 @@ FDRE_inst: unisim.vcomponents.FDRE
     );
 SEQ: entity work.design_1_rst_ps7_0_50M_0_sequence_psr
      port map (
-      \ACTIVE_LOW_BSR_OUT_DFF[0].FDRE_BSR_N\ => SEQ_n_3,
-      \ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N\ => SEQ_n_4,
       Bsr_out => Bsr_out,
       MB_out => MB_out,
       Pr_out => Pr_out,
+      bsr_reg_0 => SEQ_n_3,
       lpf_int => lpf_int,
+      pr_reg_0 => SEQ_n_4,
       slowest_sync_clk => slowest_sync_clk
     );
 end STRUCTURE;
@@ -1051,7 +1056,7 @@ entity design_1_rst_ps7_0_50M_0 is
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of design_1_rst_ps7_0_50M_0 : entity is "yes";
   attribute x_core_info : string;
-  attribute x_core_info of design_1_rst_ps7_0_50M_0 : entity is "proc_sys_reset,Vivado 2018.2";
+  attribute x_core_info of design_1_rst_ps7_0_50M_0 : entity is "proc_sys_reset,Vivado 2018.3";
 end design_1_rst_ps7_0_50M_0;
 
 architecture STRUCTURE of design_1_rst_ps7_0_50M_0 is
@@ -1076,23 +1081,23 @@ architecture STRUCTURE of design_1_rst_ps7_0_50M_0 is
   attribute x_interface_info : string;
   attribute x_interface_info of aux_reset_in : signal is "xilinx.com:signal:reset:1.0 aux_reset RST";
   attribute x_interface_parameter : string;
-  attribute x_interface_parameter of aux_reset_in : signal is "XIL_INTERFACENAME aux_reset, POLARITY ACTIVE_LOW";
+  attribute x_interface_parameter of aux_reset_in : signal is "XIL_INTERFACENAME aux_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute x_interface_info of ext_reset_in : signal is "xilinx.com:signal:reset:1.0 ext_reset RST";
-  attribute x_interface_parameter of ext_reset_in : signal is "XIL_INTERFACENAME ext_reset, BOARD.ASSOCIATED_PARAM RESET_BOARD_INTERFACE, POLARITY ACTIVE_LOW";
+  attribute x_interface_parameter of ext_reset_in : signal is "XIL_INTERFACENAME ext_reset, BOARD.ASSOCIATED_PARAM RESET_BOARD_INTERFACE, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute x_interface_info of mb_debug_sys_rst : signal is "xilinx.com:signal:reset:1.0 dbg_reset RST";
-  attribute x_interface_parameter of mb_debug_sys_rst : signal is "XIL_INTERFACENAME dbg_reset, POLARITY ACTIVE_HIGH";
+  attribute x_interface_parameter of mb_debug_sys_rst : signal is "XIL_INTERFACENAME dbg_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
   attribute x_interface_info of mb_reset : signal is "xilinx.com:signal:reset:1.0 mb_rst RST";
-  attribute x_interface_parameter of mb_reset : signal is "XIL_INTERFACENAME mb_rst, POLARITY ACTIVE_HIGH, TYPE PROCESSOR";
+  attribute x_interface_parameter of mb_reset : signal is "XIL_INTERFACENAME mb_rst, POLARITY ACTIVE_HIGH, TYPE PROCESSOR, INSERT_VIP 0";
   attribute x_interface_info of slowest_sync_clk : signal is "xilinx.com:signal:clock:1.0 clock CLK";
-  attribute x_interface_parameter of slowest_sync_clk : signal is "XIL_INTERFACENAME clock, ASSOCIATED_RESET mb_reset:bus_struct_reset:interconnect_aresetn:peripheral_aresetn:peripheral_reset, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0";
+  attribute x_interface_parameter of slowest_sync_clk : signal is "XIL_INTERFACENAME clock, ASSOCIATED_RESET mb_reset:bus_struct_reset:interconnect_aresetn:peripheral_aresetn:peripheral_reset, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
   attribute x_interface_info of bus_struct_reset : signal is "xilinx.com:signal:reset:1.0 bus_struct_reset RST";
-  attribute x_interface_parameter of bus_struct_reset : signal is "XIL_INTERFACENAME bus_struct_reset, POLARITY ACTIVE_HIGH, TYPE INTERCONNECT";
+  attribute x_interface_parameter of bus_struct_reset : signal is "XIL_INTERFACENAME bus_struct_reset, POLARITY ACTIVE_HIGH, TYPE INTERCONNECT, INSERT_VIP 0";
   attribute x_interface_info of interconnect_aresetn : signal is "xilinx.com:signal:reset:1.0 interconnect_low_rst RST";
-  attribute x_interface_parameter of interconnect_aresetn : signal is "XIL_INTERFACENAME interconnect_low_rst, POLARITY ACTIVE_LOW, TYPE INTERCONNECT";
+  attribute x_interface_parameter of interconnect_aresetn : signal is "XIL_INTERFACENAME interconnect_low_rst, POLARITY ACTIVE_LOW, TYPE INTERCONNECT, INSERT_VIP 0";
   attribute x_interface_info of peripheral_aresetn : signal is "xilinx.com:signal:reset:1.0 peripheral_low_rst RST";
-  attribute x_interface_parameter of peripheral_aresetn : signal is "XIL_INTERFACENAME peripheral_low_rst, POLARITY ACTIVE_LOW, TYPE PERIPHERAL";
+  attribute x_interface_parameter of peripheral_aresetn : signal is "XIL_INTERFACENAME peripheral_low_rst, POLARITY ACTIVE_LOW, TYPE PERIPHERAL, INSERT_VIP 0";
   attribute x_interface_info of peripheral_reset : signal is "xilinx.com:signal:reset:1.0 peripheral_high_rst RST";
-  attribute x_interface_parameter of peripheral_reset : signal is "XIL_INTERFACENAME peripheral_high_rst, POLARITY ACTIVE_HIGH, TYPE PERIPHERAL";
+  attribute x_interface_parameter of peripheral_reset : signal is "XIL_INTERFACENAME peripheral_high_rst, POLARITY ACTIVE_HIGH, TYPE PERIPHERAL, INSERT_VIP 0";
 begin
 U0: entity work.design_1_rst_ps7_0_50M_0_proc_sys_reset
      port map (

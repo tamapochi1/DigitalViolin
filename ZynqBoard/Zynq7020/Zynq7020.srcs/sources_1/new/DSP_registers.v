@@ -18,19 +18,15 @@ module DSP_registers #
     output wire sysNReset,
     output wire outDataValid,
     output wire audioClkInterrupt,
+    output wire fftCompleteInterrupt,
     output wire [15:0] debugData,
     output wire [7:0] synth0Gain,
     
-    output [31:0] m_axis_fft_tdata,
-    input m_axis_fft_tready,
-    output m_axis_fft_tvalid,
+    output fft_start,
     
     output [19:0] fft_scale,
     
-    input [23:0] s_axis_fft_tdata,
-    output s_axis_fft_tready,
-    input s_axis_fft_tvalid,
-    
+    input wire fftComplete,
     input wire audioSample,
     // User ports ends
     // Do not modify the ports beyond this line
@@ -111,13 +107,8 @@ begin
     end
 end
 
-reg [31:0] fft_tdata;
-reg fft_tvalid;
-assign m_axis_fft_tdata = fft_tdata;
-assign m_axis_fft_tvalid = m_axis_fft_tready & fft_tvalid;
-
-reg fft_tready;
-assign s_axis_fft_tready = fft_tready;
+reg fft_start_reg;
+assign fft_start = fft_start_reg;
 
 
 // AXI4LITE signals
@@ -263,18 +254,16 @@ begin
       slv_reg1 <= 0;
       slv_reg2 <= 0;
       slv_reg3 <= 0;
-      fft_tdata <= 32'd0;
-      fft_tvalid <= 1'b0;
+      fft_start_reg <= 1'b0;
     end 
   else begin
-    if(audioSampleRiseEdge)
+    if(audioSampleRiseEdge || fftComplete)
     begin
-        slv_reg0 <= {slv_reg0[31:3], 1'b1 ,slv_reg0[1:0]};
+        slv_reg0 <= {slv_reg0[31:4], fftComplete, audioSample, slv_reg0[1:0]};
           slv_reg1 <= slv_reg1;
           slv_reg2 <= slv_reg2;
           slv_reg3 <= slv_reg3;
-          fft_tdata <= 32'd0;
-          fft_tvalid <= 1'b0;
+          fft_start_reg <= 1'b0;
     end
     else if (slv_reg_wren)
       begin
@@ -309,16 +298,14 @@ begin
               end  
           3'h5:
           begin
-            fft_tdata <= S_AXI_WDATA[31:0];
-            fft_tvalid <= 1'b1;
+            fft_start_reg <= S_AXI_WDATA[0];
           end
           default : begin
                       slv_reg0 <= slv_reg0;
                       slv_reg1 <= slv_reg1;
                       slv_reg2 <= slv_reg2;
                       slv_reg3 <= slv_reg3;
-                      fft_tdata <= 32'd0;
-                      fft_tvalid <= 1'b0;
+                      fft_start_reg <= 1'b0;
                     end
         endcase
       end
@@ -328,8 +315,7 @@ begin
         slv_reg1 <= slv_reg1;
         slv_reg2 <= slv_reg2;
         slv_reg3 <= slv_reg3;
-        fft_tdata <= 32'd0;
-        fft_tvalid <= 1'b0;
+        fft_start_reg <= 1'b0;
     end
   end
 end    
@@ -440,15 +426,9 @@ begin
         3'h1   : reg_data_out <= slv_reg1;
         3'h2   : reg_data_out <= slv_reg2;
         3'h3   : reg_data_out <= slv_reg3;
-        3'h6 :
-        begin
-            fft_tready <= slv_reg_rden ? 1'b1 : 1'b0;
-            reg_data_out <= {8'd0, s_axis_fft_tdata};
-        end
         default :
         begin
             reg_data_out <= 0;
-            fft_tready <= 1'b0;
         end
       endcase
 end
@@ -476,6 +456,7 @@ end
 assign sysNReset = slv_reg0[0];
 assign outDataValid = slv_reg0[1];
 assign audioClkInterrupt = slv_reg0[2];
+assign fftCompleteInterrupt = slv_reg0[3];
 assign debugData = slv_reg1[15:0];
 assign synth0Gain = slv_reg2[7:0];
 

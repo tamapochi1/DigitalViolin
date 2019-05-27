@@ -1,6 +1,6 @@
 {
-   ExpandedHierarchyInLayout: "",
-   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS-threadsafe
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
 preplace port sysClk -pg 1 -y 130 -defaultsOSRD
 preplace port index_valid -pg 1 -y 190 -defaultsOSRD
@@ -29,6 +29,6 @@ preplace netloc phase_gen_256_0_reg_index_valid 1 0 2 NJ 190 NJ
 preplace netloc phase_gen_256_0_m_bram_we 1 2 1 610
 preplace netloc phase_gen_256_0_bram_en 1 2 1 630
 levelinfo -pg 1 0 120 400 790 940 -top 0 -bot 370
-",
+"
 }
 0

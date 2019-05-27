@@ -19,6 +19,7 @@ proc create_report { reportName command } {
 }
 set_param tcl.collectionResultDisplayLimit 0
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
 create_project -in_memory -part xc7z020clg484-1
 
@@ -70,9 +71,10 @@ set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/Z
 set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_1_0/design_1_fifo_generator_1_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_1_0/design_1_fifo_generator_1_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_xfft_0_0/design_1_xfft_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_axis_data_fifo_0_1/design_1_axis_data_fifo_0_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_4/design_1_fifo_generator_0_4.xdc]
-set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_fifo_generator_0_4/design_1_fifo_generator_0_4_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_1_1/design_1_axi_bram_ctrl_0_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_2_1/design_1_axi_bram_ctrl_0_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_0_1/design_1_blk_mem_gen_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_2_1/design_1_blk_mem_gen_0_2_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_3/design_1_auto_pc_3_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]

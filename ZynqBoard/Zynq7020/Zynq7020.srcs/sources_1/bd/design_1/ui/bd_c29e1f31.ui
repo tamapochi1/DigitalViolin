@@ -2,69 +2,83 @@
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS-threadsafe
 #  -string -flagsOSRD
-preplace port audioSample -pg 1 -y 150 -defaultsOSRD
-preplace port s00_axi_aresetn -pg 1 -y 190 -defaultsOSRD
-preplace port s01_axi_aclk -pg 1 -y 610 -defaultsOSRD
-preplace port S00_AXI -pg 1 -y 130 -defaultsOSRD
-preplace port nResetAudio256Clk -pg 1 -y 390 -defaultsOSRD
-preplace port outDataValid -pg 1 -y 450 -defaultsOSRD
-preplace port sysClk -pg 1 -y 390 -defaultsOSRD
-preplace port S01_AXI -pg 1 -y 590 -defaultsOSRD
-preplace port audio256Clk -pg 1 -y 370 -defaultsOSRD
-preplace port nResetSysClk -pg 1 -y 370 -defaultsOSRD
-preplace port audioClkInterrupt -pg 1 -y 150 -defaultsOSRD
-preplace port s01_axi_aresetn -pg 1 -y 630 -defaultsOSRD
-preplace port nResetExt -pg 1 -y 310 -defaultsOSRD
-preplace port s00_axi_aclk -pg 1 -y 170 -defaultsOSRD
-preplace portBus outData1 -pg 1 -y 430 -defaultsOSRD
-preplace portBus outData0 -pg 1 -y 410 -defaultsOSRD
-preplace inst axis_data_fifo_1 -pg 1 -lvl 4 -y 540 -defaultsOSRD
-preplace inst Synthesizer -pg 1 -lvl 2 -y 560 -defaultsOSRD
-preplace inst DSP_registers_0 -pg 1 -lvl 1 -y 180 -defaultsOSRD
-preplace inst DSP_reset_0 -pg 1 -lvl 1 -y 400 -defaultsOSRD
-preplace inst xfft_0 -pg 1 -lvl 3 -y 730 -defaultsOSRD
-preplace inst audio_clk_gen_0 -pg 1 -lvl 1 -y 560 -defaultsOSRD
-preplace inst FFTOutputBitsConvert_0 -pg 1 -lvl 4 -y 690 -defaultsOSRD
-preplace inst FFTInputBitsConverter_0 -pg 1 -lvl 2 -y 780 -defaultsOSRD
-preplace inst fifo_generator_0 -pg 1 -lvl 1 -y 830 -defaultsOSRD
-preplace netloc m_axis_data_tvalid 1 2 1 840
-preplace netloc Synthesizer_sync_0 1 2 3 830J 450 NJ 450 NJ
-preplace netloc Conn2 1 0 2 -280J 650 280
-preplace netloc m_axis_fft_tvalid 1 0 2 -210 710 250
-preplace netloc audioClkSync_0_1 1 0 1 -250
-preplace netloc FFTOutputBitsConvert_0_m_axis_data 1 3 2 1290 620 1690
-preplace netloc FFTInputBitsConverter_0_m_axis_config 1 2 1 830
-preplace netloc audioClk256_0_1 1 0 1 -250J
-preplace netloc s_axi_aclk_0_1 1 0 2 -270J 660 290
-preplace netloc FFTInputBitsConverter_0_m_axis_data_tdata 1 2 1 860
-preplace netloc DSP_registers_0_sysNReset 1 0 2 -230 10 300
-preplace netloc fifo_generator_0_m_axis_tdata 1 1 1 250
-preplace netloc fifo_generator_0_axis_data_count 1 1 1 380
-preplace netloc DSP_reset_0_nResetAudioClk 1 0 5 -220 20 310 390 NJ 390 NJ 390 NJ
-preplace netloc fifo_generator_0_M_AXIS 1 1 1 340
-preplace netloc s_axis_tready 1 0 2 -220 950 240
-preplace netloc DSP_registers_0_synth0Gain 1 1 1 340
-preplace netloc xfft_0_M_AXIS_DATA 1 3 1 1280
-preplace netloc m_axis_tvalid 1 1 1 370
+preplace port audioSample -pg 1 -y 200 -defaultsOSRD
+preplace port s00_axi_aresetn -pg 1 -y 240 -defaultsOSRD
+preplace port s01_axi_aclk -pg 1 -y 350 -defaultsOSRD
+preplace port S02_AXI -pg 1 -y 710 -defaultsOSRD
+preplace port S00_AXI -pg 1 -y 160 -defaultsOSRD
+preplace port nResetAudio256Clk -pg 1 -y 80 -defaultsOSRD
+preplace port outDataValid -pg 1 -y 140 -defaultsOSRD
+preplace port sysClk -pg 1 -y 310 -defaultsOSRD
+preplace port S01_AXI -pg 1 -y 330 -defaultsOSRD
+preplace port fftCompleteInterrupt -pg 1 -y 40 -defaultsOSRD
+preplace port audio256Clk -pg 1 -y 290 -defaultsOSRD
+preplace port nResetSysClk -pg 1 -y 60 -defaultsOSRD
+preplace port S03_AXI -pg 1 -y 850 -defaultsOSRD
+preplace port audioClkInterrupt -pg 1 -y 20 -defaultsOSRD
+preplace port s01_axi_aresetn -pg 1 -y 370 -defaultsOSRD
+preplace port nResetExt -pg 1 -y 270 -defaultsOSRD
+preplace port s00_axi_aclk -pg 1 -y 220 -defaultsOSRD
+preplace portBus outData1 -pg 1 -y 120 -defaultsOSRD
+preplace portBus outData0 -pg 1 -y 100 -defaultsOSRD
+preplace inst Synthesizer -pg 1 -lvl 2 -y 390 -defaultsOSRD
+preplace inst DSP_registers_0 -pg 1 -lvl 1 -y 200 -defaultsOSRD
+preplace inst DSP_reset_0 -pg 1 -lvl 1 -y 420 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 2 -y 900 -defaultsOSRD
+preplace inst xfft_0 -pg 1 -lvl 3 -y 520 -defaultsOSRD
+preplace inst blk_mem_gen_1 -pg 1 -lvl 4 -y 480 -defaultsOSRD
+preplace inst audio_clk_gen_0 -pg 1 -lvl 1 -y 580 -defaultsOSRD
+preplace inst FFTOutputBitsConvert_0 -pg 1 -lvl 4 -y 210 -defaultsOSRD
+preplace inst FFTInputBitsConverter_0 -pg 1 -lvl 2 -y 630 -defaultsOSRD
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 1 -y 730 -defaultsOSRD
+preplace inst axi_bram_ctrl_1 -pg 1 -lvl 1 -y 870 -defaultsOSRD
+preplace netloc Conn1 1 0 1 N
+preplace netloc DSP_registers_0_fft_start 1 1 1 410
+preplace netloc DSP_registers_0_fftCompleteInterrupt 1 1 4 430J 20 NJ 20 NJ 20 1990J
+preplace netloc FFTInputBitsConverter_0_bram_we 1 1 2 530 260 940
+preplace netloc m_axis_data_tvalid 1 2 1 1030
+preplace netloc Synthesizer_sync_0 1 2 3 NJ 400 1450J 80 1970J
+preplace netloc Conn2 1 0 2 NJ 330 N
+preplace netloc FFTInputBitsConverter_0_bram_clk 1 1 2 500 220 970
+preplace netloc audioClkSync_0_1 1 0 1 N
+preplace netloc Conn3 1 0 1 N
+preplace netloc FFTInputBitsConverter_0_m_axis_config 1 2 1 N
+preplace netloc FFTOutputBitsConvert_0_event_fft_complete 1 0 5 53 50 NJ 50 NJ 50 1450J 40 1950
+preplace netloc FFTOutputBitsConvert_0_bram_rst 1 3 2 1540 630 1930
+preplace netloc audioClk256_0_1 1 0 1 -17J
+preplace netloc s_axi_aclk_0_1 1 0 2 -7J 60 490
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 1 1 410
+preplace netloc FFTInputBitsConverter_0_bram_en 1 1 2 510 240 960
+preplace netloc FFTInputBitsConverter_0_m_axis_data_tdata 1 2 1 980
+preplace netloc DSP_registers_0_sysNReset 1 0 2 33 30 400
+preplace netloc DSP_reset_0_nResetAudioClk 1 0 5 43 40 440 30 NJ 30 NJ 30 1980J
+preplace netloc DSP_registers_0_synth0Gain 1 1 1 450
+preplace netloc xfft_0_M_AXIS_DATA 1 3 1 1490
+preplace netloc FFTInputBitsConverter_0_bram_rst 1 1 2 520 250 950
+preplace netloc FFTOutputBitsConvert_0_bram_en 1 3 2 1530 620 1940
 preplace netloc event_frame_started 1 3 1 N
-preplace netloc DSP_registers_0_fft_scale 1 1 1 330
-preplace netloc S00_AXI_1 1 0 1 -240
-preplace netloc s_axi_aresetn_0_1 1 0 2 -290J 670 310
-preplace netloc s_axis_data_tready 1 2 1 880
-preplace netloc s00_axi_aclk_1 1 0 1 -260
-preplace netloc axis_data_fifo_1_M_AXIS 1 0 5 -210 30 NJ 30 NJ 30 NJ 30 1690
-preplace netloc DSP_registers_0_m_axis_fft_tdata 1 0 2 -220 700 260
-preplace netloc s00_axi_aresetn_1 1 0 1 -280
-preplace netloc mult_sum_0_out 1 2 3 820 440 NJ 440 1700
-preplace netloc sysClk_0_1 1 0 4 -260J 960 360 920 870J 560 N
-preplace netloc s_axis_data_tready_1 1 1 1 350
-preplace netloc DSP_reset_0_nResetSysClk1 1 0 5 -240J 690 300J 910 850J 540 1280J 370 NJ
-preplace netloc audio_clk_gen_0_audioClk 1 1 1 320
-preplace netloc DSP_registers_0_m_axis_fft 1 0 2 -230 680 270
-preplace netloc FFTInputBitsConverter_0_m_axis_data 1 2 1 820
-preplace netloc DSP_registers_0_audioClkInterrupt 1 1 4 330J 150 NJ 150 NJ 150 NJ
-preplace netloc nResetExt_0_1 1 0 1 -240
-levelinfo -pg 1 -310 13 600 1080 1532 1730 -top 0 -bot 970
+preplace netloc DSP_registers_0_fft_scale 1 1 1 400
+preplace netloc S00_AXI_1 1 0 1 N
+preplace netloc s_axi_aresetn_0_1 1 0 2 23J 70 460
+preplace netloc FFTInputBitsConverter_0_bram_addr 1 1 2 540 230 930
+preplace netloc s_axis_data_tready 1 2 1 1020
+preplace netloc s00_axi_aclk_1 1 0 1 N
+preplace netloc event_tlast_missing 1 3 1 N
+preplace netloc FFTOutputBitsConvert_0_bram_wddata 1 3 2 1510 330 1920
+preplace netloc blk_mem_gen_0_doutb 1 1 1 550
+preplace netloc s00_axi_aresetn_1 1 0 1 N
+preplace netloc mult_sum_0_out 1 2 3 990 280 1470J 90 1960
+preplace netloc sysClk_0_1 1 0 4 3J 20 420 200 1000J 230 N
+preplace netloc axi_bram_ctrl_1_BRAM_PORTA 1 1 3 480 270 NJ 270 1460J
+preplace netloc FFTOutputBitsConvert_0_bram_addr 1 3 2 1540 70 1910
+preplace netloc DSP_reset_0_nResetSysClk1 1 0 5 53J 950 470J 210 1010J 210 1480J 50 1970J
+preplace netloc audio_clk_gen_0_audioClk 1 1 1 490
+preplace netloc FFTInputBitsConverter_0_m_axis_data 1 2 1 990
+preplace netloc FFTOutputBitsConvert_0_bram_we 1 3 2 1520 340 1910
+preplace netloc FFTOutputBitsConvert_0_bram_clk 1 3 2 1500 60 1920
+preplace netloc DSP_registers_0_audioClkInterrupt 1 1 4 410J 10 NJ 10 NJ 10 2000J
+preplace netloc nResetExt_0_1 1 0 1 13
+levelinfo -pg 1 -37 223 740 1250 1747 2020 -top 0 -bot 1040
 "
 }
 0

@@ -27,11 +27,14 @@ module FFTInputBitsConverter
     input nReset,
     input clk,
     
-    input [31:0] s_axis_data_tdata,
-    output s_axis_data_tready,
-    input s_axis_data_tvalid,
+    output [31:0] bram_addr,
+    output bram_clk,
+    input [31:0] bram_rddata,
+    output bram_en,
+    output bram_rst,
+    output bram_we,
     
-    input [11:0] fifo_count,
+    input start,
     
     input [19:0] scale,
     
@@ -44,35 +47,50 @@ module FFTInputBitsConverter
     output m_axis_config_tvalid
     );
     
-reg fifo_ready;
+reg started;
+reg [15:0] byteCounter; 
 
 always @(posedge clk)
 begin
     if(~nReset)
     begin
-        fifo_ready <= 1'b0;
+        started <= 1'b0;
+        byteCounter <= 16'h0000;
     end
     else
     begin
-        if(fifo_count >= FFT_SIZE)
+        if(~started && start)
         begin
-            fifo_ready <= 1'b1;
+            started <= 1'b1;
+            byteCounter <= 16'h0000;
         end
-        else if(fifo_count <= 12'd0)
+        else if(started && m_axis_data_tready)
         begin
-            fifo_ready <= 1'b0;
+            if(byteCounter < FFT_SIZE)
+            begin
+                byteCounter <= byteCounter + 16'h0001;
+            end
+            else 
+            begin
+                started <= 1'b0;
+                byteCounter <= 16'h0000;
+            end
         end
         else
         begin
-            fifo_ready <= fifo_ready;
+            byteCounter <= byteCounter;
         end
     end
 end
 
-assign s_axis_data_tready = fifo_ready & m_axis_data_tready;
+assign bram_addr = {14'd0,byteCounter,2'b00};
+assign bram_clk = clk;
+assign bram_en = nReset;
+assign bram_rst = ~nReset;
+assign bram_we = 1'b0;
 
-assign m_axis_data_tdata = {20'd0, s_axis_data_tdata[23:12], 20'd0, s_axis_data_tdata[11:0]};
-assign m_axis_data_tvalid = fifo_ready & s_axis_data_tvalid;
+assign m_axis_data_tdata = {20'd0, bram_rddata[27:16], 20'd0, bram_rddata[11:0]};
+assign m_axis_data_tvalid = (byteCounter != 16'h0000);
 
 assign m_axis_config_tdata = {6'd0, scale, scale, 2'b11};
 assign m_axis_config_tvalid = 1'b1;

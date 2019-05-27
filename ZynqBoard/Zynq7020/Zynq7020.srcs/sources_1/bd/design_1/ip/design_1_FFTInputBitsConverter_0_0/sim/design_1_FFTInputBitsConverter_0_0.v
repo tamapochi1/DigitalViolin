@@ -57,10 +57,13 @@
 module design_1_FFTInputBitsConverter_0_0 (
   nReset,
   clk,
-  s_axis_data_tdata,
-  s_axis_data_tready,
-  s_axis_data_tvalid,
-  fifo_count,
+  bram_addr,
+  bram_clk,
+  bram_rddata,
+  bram_en,
+  bram_rst,
+  bram_we,
+  start,
   scale,
   m_axis_data_tdata,
   m_axis_data_tready,
@@ -71,17 +74,20 @@ module design_1_FFTInputBitsConverter_0_0 (
 );
 
 input wire nReset;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF m_axis_config:m_axis_data:s_axis_data, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF m_axis_config:m_axis_data, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_data TDATA" *)
-input wire [31 : 0] s_axis_data_tdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_data TREADY" *)
-output wire s_axis_data_tready;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_data, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_data TVALID" *)
-input wire s_axis_data_tvalid;
-input wire [11 : 0] fifo_count;
+output wire [31 : 0] bram_addr;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_clk, ASSOCIATED_RESET bram_rst, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_FFTInputBitsConverter_0_0_bram_clk, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 bram_clk CLK" *)
+output wire bram_clk;
+input wire [31 : 0] bram_rddata;
+output wire bram_en;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 bram_rst RST" *)
+output wire bram_rst;
+output wire bram_we;
+input wire start;
 input wire [19 : 0] scale;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_data TDATA" *)
 output wire [63 : 0] m_axis_data_tdata;
@@ -103,10 +109,13 @@ output wire m_axis_config_tvalid;
   ) inst (
     .nReset(nReset),
     .clk(clk),
-    .s_axis_data_tdata(s_axis_data_tdata),
-    .s_axis_data_tready(s_axis_data_tready),
-    .s_axis_data_tvalid(s_axis_data_tvalid),
-    .fifo_count(fifo_count),
+    .bram_addr(bram_addr),
+    .bram_clk(bram_clk),
+    .bram_rddata(bram_rddata),
+    .bram_en(bram_en),
+    .bram_rst(bram_rst),
+    .bram_we(bram_we),
+    .start(start),
     .scale(scale),
     .m_axis_data_tdata(m_axis_data_tdata),
     .m_axis_data_tready(m_axis_data_tready),

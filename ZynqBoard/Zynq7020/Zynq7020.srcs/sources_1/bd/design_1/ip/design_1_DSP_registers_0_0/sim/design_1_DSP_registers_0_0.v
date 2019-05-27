@@ -58,15 +58,12 @@ module design_1_DSP_registers_0_0 (
   sysNReset,
   outDataValid,
   audioClkInterrupt,
+  fftCompleteInterrupt,
   debugData,
   synth0Gain,
-  m_axis_fft_tdata,
-  m_axis_fft_tready,
-  m_axis_fft_tvalid,
+  fft_start,
   fft_scale,
-  s_axis_fft_tdata,
-  s_axis_fft_tready,
-  s_axis_fft_tvalid,
+  fftComplete,
   audioSample,
   S_AXI_ACLK,
   S_AXI_ARESETN,
@@ -94,23 +91,12 @@ module design_1_DSP_registers_0_0 (
 output wire sysNReset;
 output wire outDataValid;
 output wire audioClkInterrupt;
+output wire fftCompleteInterrupt;
 output wire [15 : 0] debugData;
 output wire [7 : 0] synth0Gain;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_fft TDATA" *)
-output wire [31 : 0] m_axis_fft_tdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_fft TREADY" *)
-input wire m_axis_fft_tready;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_fft, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_fft TVALID" *)
-output wire m_axis_fft_tvalid;
+output wire fft_start;
 output wire [19 : 0] fft_scale;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_fft TDATA" *)
-input wire [23 : 0] s_axis_fft_tdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_fft TREADY" *)
-output wire s_axis_fft_tready;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axis_fft, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 s_axis_fft TVALID" *)
-input wire s_axis_fft_tvalid;
+input wire fftComplete;
 input wire audioSample;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET S_AXI_ARESETN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK" *)
@@ -166,15 +152,12 @@ input wire S_AXI_RREADY;
     .sysNReset(sysNReset),
     .outDataValid(outDataValid),
     .audioClkInterrupt(audioClkInterrupt),
+    .fftCompleteInterrupt(fftCompleteInterrupt),
     .debugData(debugData),
     .synth0Gain(synth0Gain),
-    .m_axis_fft_tdata(m_axis_fft_tdata),
-    .m_axis_fft_tready(m_axis_fft_tready),
-    .m_axis_fft_tvalid(m_axis_fft_tvalid),
+    .fft_start(fft_start),
     .fft_scale(fft_scale),
-    .s_axis_fft_tdata(s_axis_fft_tdata),
-    .s_axis_fft_tready(s_axis_fft_tready),
-    .s_axis_fft_tvalid(s_axis_fft_tvalid),
+    .fftComplete(fftComplete),
     .audioSample(audioSample),
     .S_AXI_ACLK(S_AXI_ACLK),
     .S_AXI_ARESETN(S_AXI_ARESETN),

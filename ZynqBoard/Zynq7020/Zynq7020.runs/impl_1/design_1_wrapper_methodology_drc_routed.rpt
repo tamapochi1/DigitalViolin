@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Mon May 27 03:23:07 2019
-| Host         : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
+| Date         : Tue May 28 01:43:41 2019
+| Host         : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 | Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
 | Design       : design_1_wrapper
 | Device       : xc7z020clg484-1
@@ -23,14 +23,18 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 66
+             Violations found: 68
 +-----------+----------+-------------------------------------------------+------------+
 | Rule      | Severity | Description                                     | Violations |
 +-----------+----------+-------------------------------------------------+------------+
 | LUTAR-1   | Warning  | LUT drives async reset alert                    | 4          |
-| PDRC-190  | Warning  | Suboptimally placed synchronized register chain | 15         |
+| PDRC-190  | Warning  | Suboptimally placed synchronized register chain | 14         |
+| TIMING-6  | Warning  | No common primary clock between related clocks  | 1          |
+| TIMING-7  | Warning  | No common node between related clocks           | 1          |
+| TIMING-8  | Warning  | No common period between related clocks         | 1          |
+| TIMING-16 | Warning  | Large setup violation                           | 1          |
 | TIMING-18 | Warning  | Missing input or output delay                   | 12         |
-| TIMING-20 | Warning  | Non-clocked latch                               | 35         |
+| TIMING-20 | Warning  | Non-clocked latch                               | 34         |
 +-----------+----------+-------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -57,77 +61,92 @@ Related violations: <none>
 
 PDRC-190#1 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[0] in site SLICE_X59Y133 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[0] in site SLICE_X57Y142 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#2 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[1] in site SLICE_X58Y133 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[1] in site SLICE_X56Y140 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#3 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[2] in site SLICE_X58Y135 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[2] in site SLICE_X57Y140 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#4 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[3] in site SLICE_X59Y135 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[3] is not placed in the same (SLICE) site.
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[3] in site SLICE_X58Y141 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[3] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#5 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[0] in site SLICE_X60Y136 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[0] in site SLICE_X54Y141 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#6 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[1] in site SLICE_X60Y134 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[1] in site SLICE_X55Y140 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#7 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[2] in site SLICE_X61Y135 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[2] in site SLICE_X55Y142 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#8 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[0] in site SLICE_X65Y137 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[0] in site SLICE_X55Y145 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#9 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[1] in site SLICE_X63Y137 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[1] in site SLICE_X58Y145 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#10 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[2] in site SLICE_X64Y137 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
+The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[2] in site SLICE_X57Y145 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#11 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell design_1_i/DSP/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X58Y80 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell design_1_i/DSP/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
+The FDRE cell design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X63Y52 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#12 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X38Y45 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
+The FDRE cell design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X49Y58 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#13 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X36Y64 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
+The FDRE cell design_1_i/UIF/fifo_generator_2/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X57Y56 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell design_1_i/UIF/fifo_generator_2/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#14 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell design_1_i/UIF/fifo_generator_2/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X37Y59 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell design_1_i/UIF/fifo_generator_2/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
+The FDRE cell design_1_i/UIF/fifo_generator_3/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X57Y64 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell design_1_i/UIF/fifo_generator_3/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
 Related violations: <none>
 
-PDRC-190#15 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell design_1_i/UIF/fifo_generator_3/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X28Y62 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell design_1_i/UIF/fifo_generator_3/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
+TIMING-6#1 Warning
+No common primary clock between related clocks  
+The clocks clk_out1_design_1_clk_wiz_0_0 and clk_fpga_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_design_1_clk_wiz_0_0] -to [get_clocks clk_fpga_0]
+Related violations: <none>
+
+TIMING-7#1 Warning
+No common node between related clocks  
+The clocks clk_out1_design_1_clk_wiz_0_0 and clk_fpga_0 are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_design_1_clk_wiz_0_0] -to [get_clocks clk_fpga_0]
+Related violations: <none>
+
+TIMING-8#1 Warning
+No common period between related clocks  
+The clocks clk_out1_design_1_clk_wiz_0_0 and clk_fpga_0 are found related (timed together) but have no common (expandable) period
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -3.576 ns between design_1_i/DAC_Interface/DAC_IF_0/inst/bitCounter_reg[4]/C (clocked by clk_out1_design_1_clk_wiz_0_0) and design_1_i/DSP/DSP_registers_0/inst/slv_reg0_reg[2]/D (clocked by clk_fpga_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning
@@ -192,175 +211,170 @@ Related violations: <none>
 
 TIMING-20#1 Warning
 Non-clocked latch  
-The latch design_1_i/DSP/DSP_registers_0/inst/fft_tready_reg cannot be properly analyzed as its control pin design_1_i/DSP/DSP_registers_0/inst/fft_tready_reg/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/hr_ready_reg cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/hr_ready_reg/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#2 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/hr_ready_reg cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/hr_ready_reg/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[0] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#3 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[0] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[0]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[10] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[10]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#4 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[10] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[10]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[11] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[11]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#5 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[11] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[11]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[12] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[12]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#6 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[12] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[12]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[13] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[13]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#7 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[13] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[13]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[14] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[14]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#8 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[14] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[14]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[15] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[15]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#9 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[15] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[15]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[16] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[16]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#10 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[16] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[16]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[17] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[17]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#11 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[17] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[17]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[18] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[18]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#12 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[18] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[18]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[19] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[19]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#13 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[19] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[19]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[1] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#14 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[1] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[1]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[20] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[20]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#15 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[20] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[20]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[21] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[21]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#16 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[21] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[21]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[22] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[22]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#17 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[22] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[22]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[23] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[23]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#18 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[23] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[23]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[24] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[24]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#19 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[24] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[24]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[25] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[25]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#20 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[25] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[25]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[26] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[26]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#21 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[26] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[26]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[27] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[27]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#22 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[27] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[27]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[28] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[28]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#23 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[28] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[28]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[29] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[29]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#24 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[29] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[29]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[2] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#25 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[2] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[2]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[30] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[30]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#26 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[30] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[30]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[31] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[31]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#27 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[31] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[31]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[3] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#28 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[3] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[3]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[4] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#29 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[4] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[4]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[5] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#30 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[5] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[5]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[6] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#31 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[6] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[6]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[7] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#32 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[7] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[7]/G is not reached by a timing clock
+The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[8] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[8]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#33 Warning
 Non-clocked latch  
-The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[8] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[8]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#34 Warning
-Non-clocked latch  
 The latch design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[9] cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/reg_data_out_reg[9]/G is not reached by a timing clock
 Related violations: <none>
 
-TIMING-20#35 Warning
+TIMING-20#34 Warning
 Non-clocked latch  
 The latch design_1_i/UIF/UIF_AXI_0/inst/st_ready_reg cannot be properly analyzed as its control pin design_1_i/UIF/UIF_AXI_0/inst/st_ready_reg/G is not reached by a timing clock
 Related violations: <none>

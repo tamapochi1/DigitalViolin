@@ -1,6 +1,6 @@
 {
-   ExpandedHierarchyInLayout: "",
-   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
 #  -string -flagsOSRD
 preplace port audioClkSync -pg 1 -y 170 -defaultsOSRD
 preplace port sync -pg 1 -y 400 -defaultsOSRD
@@ -28,6 +28,6 @@ preplace netloc phase_gen_256_0_m_bram_int_rdaddr 1 1 1 470
 preplace netloc audio_clk_gen_0_audioClk 1 0 1 NJ
 preplace netloc phase_gen_256_0_reg_index_valid 1 1 2 NJ 100 NJ
 levelinfo -pg 1 -10 220 610 760 -top 0 -bot 420
-",
+"
 }
 0

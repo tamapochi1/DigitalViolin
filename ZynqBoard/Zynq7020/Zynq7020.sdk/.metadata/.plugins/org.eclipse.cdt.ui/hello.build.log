@@ -1,4 +1,4 @@
-17:33:23 **** Incremental Build of configuration Debug for project hello ****
+03:32:09 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -6,33 +6,37 @@ a9-linaro-pre-build-step
 'Invoking: ARM v7 gcc compiler'
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:92:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+../src/helloworld.c:135:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
   int status;
       ^~~~~~
-../src/helloworld.c:90:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+../src/helloworld.c:133:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
   int note;
       ^~~~
-../src/helloworld.c:88:54: warning: unused variable 'sumcount' [-Wunused-variable]
+../src/helloworld.c:131:54: warning: unused variable 'sumcount' [-Wunused-variable]
   u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
                                                       ^~~~~~~~
-../src/helloworld.c:88:48: warning: unused variable 'sum2' [-Wunused-variable]
+../src/helloworld.c:131:48: warning: unused variable 'sum2' [-Wunused-variable]
   u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
                                                 ^~~~
-../src/helloworld.c:88:42: warning: unused variable 'sum1' [-Wunused-variable]
+../src/helloworld.c:131:42: warning: unused variable 'sum1' [-Wunused-variable]
   u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
                                           ^~~~
-../src/helloworld.c:88:32: warning: unused variable 'temp' [-Wunused-variable]
+../src/helloworld.c:131:32: warning: unused variable 'temp' [-Wunused-variable]
   u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
                                 ^~~~
-../src/helloworld.c:88:26: warning: unused variable 'addr' [-Wunused-variable]
+../src/helloworld.c:131:26: warning: unused variable 'addr' [-Wunused-variable]
   u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
                           ^~~~
-../src/helloworld.c:88:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+../src/helloworld.c:131:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
   u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
                   ^~~~~~
-../src/helloworld.c:88:9: warning: unused variable 'j' [-Wunused-variable]
+../src/helloworld.c:131:9: warning: unused variable 'j' [-Wunused-variable]
   u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
          ^
+At top level:
+../src/helloworld.c:70:24: warning: 'GicConfig' defined but not used [-Wunused-variable]
+ static XScuGic_Config *GicConfig;/* The configuration parameters of the controller */
+                        ^~~~~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
 'Building target: hello.elf'
@@ -43,9 +47,9 @@ arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=non
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size hello.elf  |tee "hello.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  35368	   1200	520024216	520060784	1eff7f70	hello.elf
+  41228	   1216	520024232	520066676	1eff9674	hello.elf
 'Finished building: hello.elf.size'
 ' '
 
-17:33:26 Build Finished (took 3s.770ms)
+03:32:10 Build Finished (took 545ms)
 

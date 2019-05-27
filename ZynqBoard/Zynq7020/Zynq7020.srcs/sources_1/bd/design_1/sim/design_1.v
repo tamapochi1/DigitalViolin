@@ -1,8 +1,8 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sat May 25 16:50:19 2019
-//Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
+//Date        : Mon May 27 03:16:47 2019
+//Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
 //Purpose     : IP block netlist
@@ -148,6 +148,8 @@ module DSP_imp_KXGKBB
     S01_AXI_wstrb,
     S01_AXI_wvalid,
     audio256Clk,
+    audioClkInterrupt,
+    audioSample,
     nResetAudio256Clk,
     nResetExt,
     nResetSysClk,
@@ -214,6 +216,8 @@ module DSP_imp_KXGKBB
   input [3:0]S01_AXI_wstrb;
   input [0:0]S01_AXI_wvalid;
   input audio256Clk;
+  output audioClkInterrupt;
+  input audioSample;
   output nResetAudio256Clk;
   input nResetExt;
   output nResetSysClk;
@@ -226,25 +230,6 @@ module DSP_imp_KXGKBB
   input s01_axi_aresetn;
   input sysClk;
 
-  wire [31:0]Conn1_ARADDR;
-  wire [2:0]Conn1_ARPROT;
-  wire Conn1_ARREADY;
-  wire Conn1_ARVALID;
-  wire [31:0]Conn1_AWADDR;
-  wire [2:0]Conn1_AWPROT;
-  wire Conn1_AWREADY;
-  wire Conn1_AWVALID;
-  wire Conn1_BREADY;
-  wire [1:0]Conn1_BRESP;
-  wire Conn1_BVALID;
-  wire [31:0]Conn1_RDATA;
-  wire Conn1_RREADY;
-  wire [1:0]Conn1_RRESP;
-  wire Conn1_RVALID;
-  wire [31:0]Conn1_WDATA;
-  wire Conn1_WREADY;
-  wire [3:0]Conn1_WSTRB;
-  wire Conn1_WVALID;
   wire [31:0]Conn2_ARADDR;
   wire [1:0]Conn2_ARBURST;
   wire [3:0]Conn2_ARCACHE;
@@ -280,32 +265,66 @@ module DSP_imp_KXGKBB
   wire [0:0]Conn2_WREADY;
   wire [3:0]Conn2_WSTRB;
   wire [0:0]Conn2_WVALID;
-  wire [7:0]DSP_register_0_synth0Gain;
-  wire DSP_register_0_sysNReset;
+  wire DSP_registers_0_audioClkInterrupt;
+  wire [19:0]DSP_registers_0_fft_scale;
+  wire [31:0]DSP_registers_0_m_axis_fft_tdata;
+  wire [7:0]DSP_registers_0_synth0Gain;
+  wire DSP_registers_0_sysNReset;
   wire DSP_reset_0_nResetAudioClk;
   wire DSP_reset_0_nResetSysClk1;
+  wire [47:0]FFTInputBitsConverter_0_m_axis_config_TDATA;
+  wire FFTInputBitsConverter_0_m_axis_config_TREADY;
+  wire FFTInputBitsConverter_0_m_axis_config_TVALID;
+  wire [63:0]FFTInputBitsConverter_0_m_axis_data_tdata;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [31:0]FFTOutputBitsConvert_0_m_axis_data_TDATA;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire FFTOutputBitsConvert_0_m_axis_data_TREADY;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire FFTOutputBitsConvert_0_m_axis_data_TVALID;
+  wire [31:0]S00_AXI_1_ARADDR;
+  wire [2:0]S00_AXI_1_ARPROT;
+  wire S00_AXI_1_ARREADY;
+  wire S00_AXI_1_ARVALID;
+  wire [31:0]S00_AXI_1_AWADDR;
+  wire [2:0]S00_AXI_1_AWPROT;
+  wire S00_AXI_1_AWREADY;
+  wire S00_AXI_1_AWVALID;
+  wire S00_AXI_1_BREADY;
+  wire [1:0]S00_AXI_1_BRESP;
+  wire S00_AXI_1_BVALID;
+  wire [31:0]S00_AXI_1_RDATA;
+  wire S00_AXI_1_RREADY;
+  wire [1:0]S00_AXI_1_RRESP;
+  wire S00_AXI_1_RVALID;
+  wire [31:0]S00_AXI_1_WDATA;
+  wire S00_AXI_1_WREADY;
+  wire [3:0]S00_AXI_1_WSTRB;
+  wire S00_AXI_1_WVALID;
   wire Synthesizer_sync_0;
   wire audioClk256_0_1;
+  wire audioClkSync_0_1;
   wire audio_clk_gen_0_audioClk;
+  wire [31:0]axis_data_fifo_1_M_AXIS_TDATA;
+  wire axis_data_fifo_1_M_AXIS_TREADY;
+  wire axis_data_fifo_1_M_AXIS_TVALID;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire event_frame_started;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [11:0]fifo_generator_0_axis_data_count;
+  wire [31:0]fifo_generator_0_m_axis_tdata;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire m_axis_data_tvalid;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire m_axis_fft_tvalid;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire m_axis_tvalid;
   wire [15:0]mult_sum_0_out;
   wire nResetExt_0_1;
-  wire s00_axi_aclk_0_1;
-  wire s00_axi_aresetn_0_1;
+  wire s00_axi_aclk_1;
+  wire s00_axi_aresetn_1;
   wire s_axi_aclk_0_1;
   wire s_axi_aresetn_0_1;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire s_axis_data_tready;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire s_axis_data_tready_1;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire s_axis_tready;
   wire sysClk_0_1;
+  wire [63:0]xfft_0_M_AXIS_DATA_TDATA;
+  wire xfft_0_M_AXIS_DATA_TREADY;
+  wire xfft_0_M_AXIS_DATA_TVALID;
 
-  assign Conn1_ARADDR = S00_AXI_araddr[31:0];
-  assign Conn1_ARPROT = S00_AXI_arprot[2:0];
-  assign Conn1_ARVALID = S00_AXI_arvalid;
-  assign Conn1_AWADDR = S00_AXI_awaddr[31:0];
-  assign Conn1_AWPROT = S00_AXI_awprot[2:0];
-  assign Conn1_AWVALID = S00_AXI_awvalid;
-  assign Conn1_BREADY = S00_AXI_bready;
-  assign Conn1_RREADY = S00_AXI_rready;
-  assign Conn1_WDATA = S00_AXI_wdata[31:0];
-  assign Conn1_WSTRB = S00_AXI_wstrb[3:0];
-  assign Conn1_WVALID = S00_AXI_wvalid;
   assign Conn2_ARADDR = S01_AXI_araddr[31:0];
   assign Conn2_ARBURST = S01_AXI_arburst[1:0];
   assign Conn2_ARCACHE = S01_AXI_arcache[3:0];
@@ -330,14 +349,25 @@ module DSP_imp_KXGKBB
   assign Conn2_WLAST = S01_AXI_wlast[0];
   assign Conn2_WSTRB = S01_AXI_wstrb[3:0];
   assign Conn2_WVALID = S01_AXI_wvalid[0];
-  assign S00_AXI_arready = Conn1_ARREADY;
-  assign S00_AXI_awready = Conn1_AWREADY;
-  assign S00_AXI_bresp[1:0] = Conn1_BRESP;
-  assign S00_AXI_bvalid = Conn1_BVALID;
-  assign S00_AXI_rdata[31:0] = Conn1_RDATA;
-  assign S00_AXI_rresp[1:0] = Conn1_RRESP;
-  assign S00_AXI_rvalid = Conn1_RVALID;
-  assign S00_AXI_wready = Conn1_WREADY;
+  assign S00_AXI_1_ARADDR = S00_AXI_araddr[31:0];
+  assign S00_AXI_1_ARPROT = S00_AXI_arprot[2:0];
+  assign S00_AXI_1_ARVALID = S00_AXI_arvalid;
+  assign S00_AXI_1_AWADDR = S00_AXI_awaddr[31:0];
+  assign S00_AXI_1_AWPROT = S00_AXI_awprot[2:0];
+  assign S00_AXI_1_AWVALID = S00_AXI_awvalid;
+  assign S00_AXI_1_BREADY = S00_AXI_bready;
+  assign S00_AXI_1_RREADY = S00_AXI_rready;
+  assign S00_AXI_1_WDATA = S00_AXI_wdata[31:0];
+  assign S00_AXI_1_WSTRB = S00_AXI_wstrb[3:0];
+  assign S00_AXI_1_WVALID = S00_AXI_wvalid;
+  assign S00_AXI_arready = S00_AXI_1_ARREADY;
+  assign S00_AXI_awready = S00_AXI_1_AWREADY;
+  assign S00_AXI_bresp[1:0] = S00_AXI_1_BRESP;
+  assign S00_AXI_bvalid = S00_AXI_1_BVALID;
+  assign S00_AXI_rdata[31:0] = S00_AXI_1_RDATA;
+  assign S00_AXI_rresp[1:0] = S00_AXI_1_RRESP;
+  assign S00_AXI_rvalid = S00_AXI_1_RVALID;
+  assign S00_AXI_wready = S00_AXI_1_WREADY;
   assign S01_AXI_arready[0] = Conn2_ARREADY;
   assign S01_AXI_awready[0] = Conn2_AWREADY;
   assign S01_AXI_bid[11:0] = Conn2_BID;
@@ -350,48 +380,80 @@ module DSP_imp_KXGKBB
   assign S01_AXI_rvalid[0] = Conn2_RVALID;
   assign S01_AXI_wready[0] = Conn2_WREADY;
   assign audioClk256_0_1 = audio256Clk;
+  assign audioClkInterrupt = DSP_registers_0_audioClkInterrupt;
+  assign audioClkSync_0_1 = audioSample;
   assign nResetAudio256Clk = DSP_reset_0_nResetAudioClk;
   assign nResetExt_0_1 = nResetExt;
   assign nResetSysClk = DSP_reset_0_nResetSysClk1;
   assign outData0[15:0] = mult_sum_0_out;
   assign outData1[15:0] = mult_sum_0_out;
   assign outDataValid = Synthesizer_sync_0;
-  assign s00_axi_aclk_0_1 = s00_axi_aclk;
-  assign s00_axi_aresetn_0_1 = s00_axi_aresetn;
+  assign s00_axi_aclk_1 = s00_axi_aclk;
+  assign s00_axi_aresetn_1 = s00_axi_aresetn;
   assign s_axi_aclk_0_1 = s01_axi_aclk;
   assign s_axi_aresetn_0_1 = s01_axi_aresetn;
   assign sysClk_0_1 = sysClk;
-  design_1_DSP_register_0_0 DSP_register_0
-       (.s00_axi_aclk(s00_axi_aclk_0_1),
-        .s00_axi_araddr(Conn1_ARADDR[3:0]),
-        .s00_axi_aresetn(s00_axi_aresetn_0_1),
-        .s00_axi_arprot(Conn1_ARPROT),
-        .s00_axi_arready(Conn1_ARREADY),
-        .s00_axi_arvalid(Conn1_ARVALID),
-        .s00_axi_awaddr(Conn1_AWADDR[3:0]),
-        .s00_axi_awprot(Conn1_AWPROT),
-        .s00_axi_awready(Conn1_AWREADY),
-        .s00_axi_awvalid(Conn1_AWVALID),
-        .s00_axi_bready(Conn1_BREADY),
-        .s00_axi_bresp(Conn1_BRESP),
-        .s00_axi_bvalid(Conn1_BVALID),
-        .s00_axi_rdata(Conn1_RDATA),
-        .s00_axi_rready(Conn1_RREADY),
-        .s00_axi_rresp(Conn1_RRESP),
-        .s00_axi_rvalid(Conn1_RVALID),
-        .s00_axi_wdata(Conn1_WDATA),
-        .s00_axi_wready(Conn1_WREADY),
-        .s00_axi_wstrb(Conn1_WSTRB),
-        .s00_axi_wvalid(Conn1_WVALID),
-        .synth0Gain(DSP_register_0_synth0Gain),
-        .sysNReset(DSP_register_0_sysNReset));
+  design_1_DSP_registers_0_0 DSP_registers_0
+       (.S_AXI_ACLK(s00_axi_aclk_1),
+        .S_AXI_ARADDR(S00_AXI_1_ARADDR[4:0]),
+        .S_AXI_ARESETN(s00_axi_aresetn_1),
+        .S_AXI_ARPROT(S00_AXI_1_ARPROT),
+        .S_AXI_ARREADY(S00_AXI_1_ARREADY),
+        .S_AXI_ARVALID(S00_AXI_1_ARVALID),
+        .S_AXI_AWADDR(S00_AXI_1_AWADDR[4:0]),
+        .S_AXI_AWPROT(S00_AXI_1_AWPROT),
+        .S_AXI_AWREADY(S00_AXI_1_AWREADY),
+        .S_AXI_AWVALID(S00_AXI_1_AWVALID),
+        .S_AXI_BREADY(S00_AXI_1_BREADY),
+        .S_AXI_BRESP(S00_AXI_1_BRESP),
+        .S_AXI_BVALID(S00_AXI_1_BVALID),
+        .S_AXI_RDATA(S00_AXI_1_RDATA),
+        .S_AXI_RREADY(S00_AXI_1_RREADY),
+        .S_AXI_RRESP(S00_AXI_1_RRESP),
+        .S_AXI_RVALID(S00_AXI_1_RVALID),
+        .S_AXI_WDATA(S00_AXI_1_WDATA),
+        .S_AXI_WREADY(S00_AXI_1_WREADY),
+        .S_AXI_WSTRB(S00_AXI_1_WSTRB),
+        .S_AXI_WVALID(S00_AXI_1_WVALID),
+        .audioClkInterrupt(DSP_registers_0_audioClkInterrupt),
+        .audioSample(audioClkSync_0_1),
+        .fft_scale(DSP_registers_0_fft_scale),
+        .m_axis_fft_tdata(DSP_registers_0_m_axis_fft_tdata),
+        .m_axis_fft_tready(s_axis_tready),
+        .m_axis_fft_tvalid(m_axis_fft_tvalid),
+        .s_axis_fft_tdata(axis_data_fifo_1_M_AXIS_TDATA[23:0]),
+        .s_axis_fft_tready(axis_data_fifo_1_M_AXIS_TREADY),
+        .s_axis_fft_tvalid(axis_data_fifo_1_M_AXIS_TVALID),
+        .synth0Gain(DSP_registers_0_synth0Gain),
+        .sysNReset(DSP_registers_0_sysNReset));
   design_1_DSP_reset_0_0 DSP_reset_0
        (.audio256Clk(audioClk256_0_1),
         .nResetAudio256Clk(DSP_reset_0_nResetAudioClk),
         .nResetExt(nResetExt_0_1),
-        .nResetInt(DSP_register_0_sysNReset),
+        .nResetInt(DSP_registers_0_sysNReset),
         .nResetSysClk(DSP_reset_0_nResetSysClk1),
         .sysClk(sysClk_0_1));
+  design_1_FFTInputBitsConverter_0_0 FFTInputBitsConverter_0
+       (.clk(sysClk_0_1),
+        .fifo_count(fifo_generator_0_axis_data_count),
+        .m_axis_config_tdata(FFTInputBitsConverter_0_m_axis_config_TDATA),
+        .m_axis_config_tready(FFTInputBitsConverter_0_m_axis_config_TREADY),
+        .m_axis_config_tvalid(FFTInputBitsConverter_0_m_axis_config_TVALID),
+        .m_axis_data_tdata(FFTInputBitsConverter_0_m_axis_data_tdata),
+        .m_axis_data_tready(s_axis_data_tready),
+        .m_axis_data_tvalid(m_axis_data_tvalid),
+        .nReset(DSP_reset_0_nResetSysClk1),
+        .s_axis_data_tdata(fifo_generator_0_m_axis_tdata),
+        .s_axis_data_tready(s_axis_data_tready_1),
+        .s_axis_data_tvalid(m_axis_tvalid),
+        .scale(DSP_registers_0_fft_scale));
+  design_1_FFTOutputBitsConvert_0_0 FFTOutputBitsConvert_0
+       (.m_axis_data_tdata(FFTOutputBitsConvert_0_m_axis_data_TDATA),
+        .m_axis_data_tready(FFTOutputBitsConvert_0_m_axis_data_TREADY),
+        .m_axis_data_tvalid(FFTOutputBitsConvert_0_m_axis_data_TVALID),
+        .s_axis_data_tdata(xfft_0_M_AXIS_DATA_TDATA),
+        .s_axis_data_tready(xfft_0_M_AXIS_DATA_TREADY),
+        .s_axis_data_tvalid(xfft_0_M_AXIS_DATA_TVALID));
   Synthesizer_imp_5BWTWR Synthesizer
        (.S_AXI_araddr(Conn2_ARADDR),
         .S_AXI_arburst(Conn2_ARBURST),
@@ -432,7 +494,7 @@ module DSP_imp_KXGKBB
         .nReset(DSP_reset_0_nResetSysClk1),
         .outData(mult_sum_0_out),
         .outDataValid(Synthesizer_sync_0),
-        .outGain(DSP_register_0_synth0Gain),
+        .outGain(DSP_registers_0_synth0Gain),
         .s_axi_aclk(s_axi_aclk_0_1),
         .s_axi_aresetn(s_axi_aresetn_0_1),
         .sysClk(sysClk_0_1));
@@ -442,6 +504,39 @@ module DSP_imp_KXGKBB
         .nResetAudio256Clk(DSP_reset_0_nResetAudioClk),
         .nResetSysClk(DSP_reset_0_nResetSysClk1),
         .sysClk(sysClk_0_1));
+  design_1_axis_data_fifo_0_1 axis_data_fifo_1
+       (.m_axis_tdata(axis_data_fifo_1_M_AXIS_TDATA),
+        .m_axis_tready(axis_data_fifo_1_M_AXIS_TREADY),
+        .m_axis_tvalid(axis_data_fifo_1_M_AXIS_TVALID),
+        .s_axis_aclk(sysClk_0_1),
+        .s_axis_aresetn(DSP_reset_0_nResetSysClk1),
+        .s_axis_tdata(FFTOutputBitsConvert_0_m_axis_data_TDATA),
+        .s_axis_tready(FFTOutputBitsConvert_0_m_axis_data_TREADY),
+        .s_axis_tvalid(FFTOutputBitsConvert_0_m_axis_data_TVALID));
+  design_1_fifo_generator_0_4 fifo_generator_0
+       (.axis_data_count(fifo_generator_0_axis_data_count),
+        .m_axis_tdata(fifo_generator_0_m_axis_tdata),
+        .m_axis_tready(s_axis_data_tready_1),
+        .m_axis_tvalid(m_axis_tvalid),
+        .s_aclk(sysClk_0_1),
+        .s_aresetn(DSP_reset_0_nResetSysClk1),
+        .s_axis_tdata(DSP_registers_0_m_axis_fft_tdata),
+        .s_axis_tready(s_axis_tready),
+        .s_axis_tvalid(m_axis_fft_tvalid));
+  design_1_xfft_0_0 xfft_0
+       (.aclk(sysClk_0_1),
+        .aresetn(DSP_reset_0_nResetSysClk1),
+        .event_frame_started(event_frame_started),
+        .m_axis_data_tdata(xfft_0_M_AXIS_DATA_TDATA),
+        .m_axis_data_tready(xfft_0_M_AXIS_DATA_TREADY),
+        .m_axis_data_tvalid(xfft_0_M_AXIS_DATA_TVALID),
+        .s_axis_config_tdata(FFTInputBitsConverter_0_m_axis_config_TDATA),
+        .s_axis_config_tready(FFTInputBitsConverter_0_m_axis_config_TREADY),
+        .s_axis_config_tvalid(FFTInputBitsConverter_0_m_axis_config_TVALID),
+        .s_axis_data_tdata(FFTInputBitsConverter_0_m_axis_data_tdata),
+        .s_axis_data_tlast(1'b0),
+        .s_axis_data_tready(s_axis_data_tready),
+        .s_axis_data_tvalid(m_axis_data_tvalid));
 endmodule
 
 module GainAndSum_imp_1USF4QI
@@ -1057,11 +1152,11 @@ module UIF_imp_1KE81ZA
   input UIF_Slave_1_s_txd;
   input s_aclk;
 
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire Conn1_H_RXD;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire Conn1_H_SCK;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire Conn1_H_TXD;
+  wire Conn1_H_RXD;
+  wire Conn1_H_SCK;
+  wire Conn1_H_TXD;
   wire UIF_AXI_0_UIF_res;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_AXI_0_hostStart;
+  wire UIF_AXI_0_hostStart;
   wire [7:0]UIF_AXI_0_m_axis_ht_TDATA;
   wire UIF_AXI_0_m_axis_ht_TREADY;
   wire UIF_AXI_0_m_axis_ht_TVALID;
@@ -1069,7 +1164,7 @@ module UIF_imp_1KE81ZA
   wire UIF_AXI_0_m_axis_sr_TREADY;
   wire UIF_AXI_0_m_axis_sr_TVALID;
   wire UIF_AXI_0_sys_nReset;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_SerialMasterCont_0_SPI_Master_CSn;
+  wire UIF_SerialMasterCont_0_SPI_Master_CSn;
   wire UIF_SerialMasterCont_0_busy;
   wire UIF_SerialSlave_0_UIF_Slave_S_RXD;
   wire UIF_SerialSlave_0_UIF_Slave_S_SCK;
@@ -1093,7 +1188,7 @@ module UIF_imp_1KE81ZA
   wire [7:0]fifo_generator_2_M_AXIS_TDATA;
   wire fifo_generator_2_M_AXIS_TREADY;
   wire fifo_generator_2_M_AXIS_TVALID;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [11:0]fifo_generator_2_axis_data_count;
+  wire [11:0]fifo_generator_2_axis_data_count;
   wire [7:0]fifo_generator_3_M_AXIS_TDATA;
   wire fifo_generator_3_M_AXIS_TREADY;
   wire fifo_generator_3_M_AXIS_TVALID;
@@ -1264,7 +1359,7 @@ module UIF_imp_1KE81ZA
         .s_axis_tvalid(UIF_SerialSlave_1_m_axis_st_TVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=46,numReposBlks=33,numNonXlnxBlks=0,numHierBlks=13,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=12,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=51,numReposBlks=38,numNonXlnxBlks=0,numHierBlks=13,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=15,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (DAC_BICK_0,
     DAC_LRCK_0,
@@ -1295,7 +1390,9 @@ module design_1
     SPI_Master_CSn_1,
     UART_1_rxd,
     UART_1_txd,
+    UIF_Master_1_h_rxd,
     UIF_Master_1_h_sck,
+    UIF_Master_1_h_txd,
     UIF_Res_1,
     UIF_Slave_1_s_rxd,
     UIF_Slave_1_s_sck,
@@ -1330,7 +1427,9 @@ module design_1
   output SPI_Master_CSn_1;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_1 RxD" *) input UART_1_rxd;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_1 TxD" *) output UART_1_txd;
+  (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Master:1.0 UIF_Master_1 H_RXD" *) input UIF_Master_1_h_rxd;
   (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Master:1.0 UIF_Master_1 H_SCK" *) output UIF_Master_1_h_sck;
+  (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Master:1.0 UIF_Master_1 H_TXD" *) output UIF_Master_1_h_txd;
   output UIF_Res_1;
   (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Slave:1.0 UIF_Slave_1 S_RXD" *) output UIF_Slave_1_s_rxd;
   (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Slave:1.0 UIF_Slave_1 S_SCK" *) input UIF_Slave_1_s_sck;
@@ -1341,6 +1440,7 @@ module design_1
   wire DAC_IF_0_DAC_LRCK;
   wire DAC_IF_0_DAC_MCLK;
   wire DAC_IF_0_DAC_SDT;
+  wire DSP_audioClkInterrupt;
   wire DSP_nResetSysClk;
   wire [15:0]DSP_outData1;
   wire [15:0]DSP_outData2;
@@ -1366,12 +1466,13 @@ module design_1
   wire [3:0]S00_AXI_0_1_WSTRB;
   wire S00_AXI_0_1_WVALID;
   wire UIF_AXI_0_UIF_res;
-  wire UIF_Master_1_h_rxd_1;
-  (* DEBUG = "true" *) wire UIF_SPI_Master_CSn_0;
+  wire UIF_SPI_Master_CSn_0;
   wire UIF_SerialSlave_0_UIF_Slave_S_RXD;
   wire UIF_SerialSlave_0_UIF_Slave_S_SCK;
   wire UIF_SerialSlave_0_UIF_Slave_S_TXD;
-  (* DEBUG = "true" *) wire UIF_UIF_Master_0_H_SCK;
+  wire UIF_UIF_Master_0_H_RXD;
+  wire UIF_UIF_Master_0_H_SCK;
+  wire UIF_UIF_Master_0_H_TXD;
   wire clk_wiz_0_clk_out1;
   wire clk_wiz_0_locked;
   wire [2:0]myip_0_RGB_OUT;
@@ -1524,10 +1625,12 @@ module design_1
   assign SPI_Master_CSn_1 = UIF_SPI_Master_CSn_0;
   assign UART_1_txd = processing_system7_0_UART_1_TxD;
   assign UIF_Master_1_h_sck = UIF_UIF_Master_0_H_SCK;
+  assign UIF_Master_1_h_txd = UIF_UIF_Master_0_H_TXD;
   assign UIF_Res_1 = UIF_AXI_0_UIF_res;
   assign UIF_SerialSlave_0_UIF_Slave_S_SCK = UIF_Slave_1_s_sck;
   assign UIF_SerialSlave_0_UIF_Slave_S_TXD = UIF_Slave_1_s_txd;
   assign UIF_Slave_1_s_rxd = UIF_SerialSlave_0_UIF_Slave_S_RXD;
+  assign UIF_UIF_Master_0_H_RXD = UIF_Master_1_h_rxd;
   assign USB_nRESET_0 = myip_0_USB_nRESET;
   assign processing_system7_0_UART_1_RxD = UART_1_rxd;
   DAC_Interface_imp_1OX2TDS DAC_Interface
@@ -1598,6 +1701,8 @@ module design_1
         .S01_AXI_wstrb(ps7_0_axi_periph_M02_AXI_WSTRB),
         .S01_AXI_wvalid(ps7_0_axi_periph_M02_AXI_WVALID),
         .audio256Clk(clk_wiz_0_clk_out1),
+        .audioClkInterrupt(DSP_audioClkInterrupt),
+        .audioSample(DAC_IF_0_DAC_LRCK),
         .nResetAudio256Clk(DSP_outDataValid),
         .nResetExt(clk_wiz_0_locked),
         .nResetSysClk(DSP_nResetSysClk),
@@ -1631,9 +1736,9 @@ module design_1
         .S_AXI_wready(ps7_0_axi_periph_M03_AXI_WREADY),
         .S_AXI_wstrb(ps7_0_axi_periph_M03_AXI_WSTRB),
         .S_AXI_wvalid(ps7_0_axi_periph_M03_AXI_WVALID),
-        .UIF_Master_1_h_rxd(UIF_Master_1_h_rxd_1),
+        .UIF_Master_1_h_rxd(UIF_UIF_Master_0_H_RXD),
         .UIF_Master_1_h_sck(UIF_UIF_Master_0_H_SCK),
-        .UIF_Master_1_h_txd(UIF_Master_1_h_rxd_1),
+        .UIF_Master_1_h_txd(UIF_UIF_Master_0_H_TXD),
         .UIF_Res_1(UIF_AXI_0_UIF_res),
         .UIF_Slave_1_s_rxd(UIF_SerialSlave_0_UIF_Slave_S_RXD),
         .UIF_Slave_1_s_sck(UIF_SerialSlave_0_UIF_Slave_S_SCK),
@@ -1691,6 +1796,7 @@ module design_1
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
         .FCLK_CLK1(processing_system7_0_FCLK_CLK1),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
+        .IRQ_F2P(DSP_audioClkInterrupt),
         .MIO(FIXED_IO_mio[53:0]),
         .M_AXI_GP0_ACLK(processing_system7_0_FCLK_CLK0),
         .M_AXI_GP0_ARADDR(processing_system7_0_M_AXI_GP0_ARADDR),

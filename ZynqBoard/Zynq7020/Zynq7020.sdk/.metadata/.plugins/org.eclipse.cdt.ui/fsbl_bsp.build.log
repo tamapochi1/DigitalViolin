@@ -1,31 +1,145 @@
-20:50:28 **** Clean-only build of project fsbl_bsp ****
-make -k clean 
-make -C ps7_cortexa9_0/libsrc/bram_v4_2/src -s clean 
-make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s clean 
-make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s clean 
-make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s clean 
-make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s clean 
-make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s clean 
-make -C ps7_cortexa9_0/libsrc/DSP_register_v1_0/src -s clean 
-rm: cannot lstat `*.o': Invalid argument
-make[1]: *** [Makefile:26: clean] Error 1
-make: *** [Makefile:33: ps7_cortexa9_0/libsrc/DSP_register_v1_0/src/make.clean] Error 2
-make -C ps7_cortexa9_0/libsrc/gpiops_v3_3/src -s clean 
-make -C ps7_cortexa9_0/libsrc/iicps_v3_7/src -s clean 
-make -C ps7_cortexa9_0/libsrc/myip_v1_0/src -s clean 
-rm: cannot lstat `*.o': Invalid argument
-make[1]: *** [Makefile:26: clean] Error 1
-make: *** [Makefile:33: ps7_cortexa9_0/libsrc/myip_v1_0/src/make.clean] Error 2
-make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s clean 
-make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s clean 
-make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s clean 
-make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s clean 
-make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s clean 
-make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s clean 
-make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s clean 
-make -C ps7_cortexa9_0/libsrc/xilffs_v3_9/src -s clean 
-make -C ps7_cortexa9_0/libsrc/xilrsa_v1_5/src -s clean 
-make: Target 'clean' not remade because of errors.
+20:46:26 **** Build of project fsbl_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/myip_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/myip_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_7/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xilffs_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/xilffs_v3_9/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make include in ps7_cortexa9_0/libsrc/xilrsa_v1_5/src"
+make -C ps7_cortexa9_0/libsrc/xilrsa_v1_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling coresightps_dcc"
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:31: coresightps_dcc_comp_libs] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling ddrps"
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:31: xddrps_libs] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/ddrps_v1_0/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling devcfg"
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:31: xdevcfg_libs] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/devcfg_v3_5/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling dmaps"
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:31: xdmaps_libs] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/dmaps_v2_3/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/myip_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/myip_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling myip..."
+myip_selftest.c: In function 'MYIP_Reg_SelfTest':
+myip_selftest.c:52:53: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( MYIP_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                     ^~
+myip_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:19: libs] Error 1
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/myip_v1_0/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_9/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scugic"
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:31: scugic_libs] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/scugic_v3_9/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scutimer"
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:31: scutimer_libs] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/scutimer_v2_1/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling scuwdt"
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:31: scuwdt_libs] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/scuwdt_v2_1/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_5/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling sdps"
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:31: xsdps_libs] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/sdps_v3_5/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_7/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling standalone"
+xil_mmu.c: In function 'Xil_MemMap':
+xil_mmu.c:213:15: warning: function returns address of local variable [-Wreturn-local-addr]
+        return (void*)&PhysAddr;
+               ^~~~~~~~~~~~~~~~
+xil_mmu.c:228:11: warning: function returns address of local variable [-Wreturn-local-addr]
+    return (void*)&PhysAddr;
+           ^~~~~~~~~~~~~~~~
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:70: standalone_libs] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/standalone_v6_7/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_6/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling uartps"
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:31: xuartps_libs] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/uartps_v3_6/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling xadcps"
+arm-none-eabi-ar: ../../../lib/libxil.a: No such file or directory
+make[1]: *** [Makefile:31: xadcps_libs] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/xadcps_v2_2/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/xilffs_v3_9/src"
+make -C ps7_cortexa9_0/libsrc/xilffs_v3_9/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+"Compiling XilFFs Library"
+arm-none-eabi-ar: ../../../lib/libxilffs.a: No such file or directory
+make[1]: *** [Makefile:63: libxilffs.a] Error 1
+make[1]: Target 'libs' not remade because of errors.
+make: *** [Makefile:30: ps7_cortexa9_0/libsrc/xilffs_v3_9/src/make.libs] Error 2
+"Running Make libs in ps7_cortexa9_0/libsrc/xilrsa_v1_5/src"
+make -C ps7_cortexa9_0/libsrc/xilrsa_v1_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+make: Target 'all' not remade because of errors.
 
-20:50:31 Build Finished (took 3s.854ms)
+20:46:38 Build Finished (took 11s.169ms)
 

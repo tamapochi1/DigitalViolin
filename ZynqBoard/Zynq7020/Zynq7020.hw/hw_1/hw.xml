@@ -23,6 +23,7 @@
       <Properties Property="CORE_REFRESH_RATE_MS" value="500"/>
     </Object>
     <Object name="u_ila_0" gui_info="">
+      <Properties Property="CONTROL.DATA_DEPTH" value="32768"/>
       <Properties Property="CONTROL.TRIGGER_CONDITION" value="AND"/>
       <Properties Property="CONTROL.TRIGGER_POSITION" value="1000"/>
       <Properties Property="CORE_REFRESH_RATE_MS" value="500"/>
@@ -31,11 +32,23 @@
   <ObjectList object_type="hw_probe" gui_info="">
     <Object name="design_1_i/DAC_IF_0_DAC_LRCK" gui_info=""/>
     <Object name="design_1_i/DAC_IF_0_DAC_MCLK" gui_info=""/>
+    <Object name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TREADY" gui_info=""/>
+    <Object name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TVALID" gui_info=""/>
+    <Object name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TVALID" gui_info=""/>
     <Object name="design_1_i/DSP/Synthesizer/DSP_reg_read_0_m_axis_delta_TVALID" gui_info="Trigger Setup=0"/>
     <Object name="design_1_i/DSP/Synthesizer/cordic_0_M_AXIS_DOUT_TVALID" gui_info=""/>
     <Object name="design_1_i/DSP/Synthesizer/sync" gui_info=""/>
+    <Object name="design_1_i/DSP/axis_rd_data_count[11:0]" gui_info="Trigger Setup=0"/>
+    <Object name="design_1_i/DSP/axis_rd_data_count[3:0]" gui_info="Trigger Setup=0"/>
     <Object name="design_1_i/DSP/blk_mem_gen_0_doutb[31:0]" gui_info="Trigger Setup=0"/>
     <Object name="design_1_i/DSP/blk_mem_gen_1_douta[15:0]" gui_info="Trigger Setup=0"/>
+    <Object name="design_1_i/DSP/event_frame_started" gui_info=""/>
+    <Object name="design_1_i/DSP/event_tlast_missing" gui_info=""/>
+    <Object name="design_1_i/DSP/event_tlast_unexpected" gui_info=""/>
+    <Object name="design_1_i/DSP/fifo_generator_0_axis_data_count[11:0]" gui_info=""/>
+    <Object name="design_1_i/DSP/m_axis_tvalid" gui_info=""/>
+    <Object name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[63:0]" gui_info=""/>
+    <Object name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TVALID" gui_info=""/>
     <Object name="design_1_i/DSP_outDataValid" gui_info="Trigger Setup=0"/>
     <Object name="design_1_i/UIF/UIF_AXI_0_hostStart" gui_info=""/>
     <Object name="design_1_i/UIF/UIF_SerialMasterCont_0_SPI_Master_CSn" gui_info=""/>
@@ -43,6 +56,8 @@
     <Object name="design_1_i/UIF_SerialSlave_0_UIF_Slave_S_SCK" gui_info="Trigger Setup=0"/>
     <Object name="design_1_i/system_ila_0/inst/probe4_1" gui_info="Trigger Setup=0"/>
     <Object name="u_ila_0_DSP_outDataValid" gui_info="Trigger Setup=0"/>
+    <Object name="u_ila_0_axis_rd_data_count[11:4]" gui_info=""/>
+    <Object name="u_ila_0_m_axis_fft_tvalid" gui_info="Trigger Setup=0"/>
   </ObjectList>
   <ObjectList object_type="hw_sysmon" gui_info="">
     <Object name="XADC" gui_info="hw_ila_1=[TEMPERATURE=-65281;SCAN_RATE=1000;TRACK_TIME=1;],dashboard_1=[TEMPERATURE=-65281;SCAN_RATE=1000;TRACK_TIME=1;]"/>
@@ -172,6 +187,638 @@
       </probeOptions>
       <nets>
         <net name="design_1_i/DAC_IF_0_DAC_SDT"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq6&apos;hXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq6&apos;hXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[47:42]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq6&apos;hXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[47]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[46]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[45]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[44]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[43]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[42]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq48&apos;hXXXX_XXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq48&apos;hXXXX_XXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe1[47:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq48&apos;hXXXX_XXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[47]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[46]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[45]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[44]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[43]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[42]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[41]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[40]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[39]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[38]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[37]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[36]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[35]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[34]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[33]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[32]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[31]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[30]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[29]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[28]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[27]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[26]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[25]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[24]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[23]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[22]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[21]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[20]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[19]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[18]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[17]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[16]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[15]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[14]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[13]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[12]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[11]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[10]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[9]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[8]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[7]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[6]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[5]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[4]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[3]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[2]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[1]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq40&apos;hXX_XXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq40&apos;hXX_XXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[41:2]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq40&apos;hXX_XXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[41]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[40]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[39]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[38]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[37]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[36]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[35]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[34]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[33]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[32]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[31]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[30]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[29]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[28]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[27]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[26]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[25]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[24]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[23]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[22]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[21]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[20]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[19]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[18]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[17]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[16]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[15]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[14]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[13]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[12]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[11]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[10]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[9]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[8]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[7]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[6]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[5]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[4]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[3]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA_1[2]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe10[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TREADY"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe11[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TVALID"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq20&apos;hX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq20&apos;hX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe2[63:44]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq20&apos;hX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[63]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[62]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[61]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[60]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[59]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[58]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[57]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[56]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[55]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[54]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[53]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[52]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[51]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[50]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[49]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[48]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[47]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[46]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[45]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[44]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="SIGNED"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe3[63:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[63]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[62]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[61]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[60]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[59]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[58]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[57]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[56]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[55]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[54]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[53]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[52]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[51]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[50]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[49]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[48]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[47]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[46]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[45]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[44]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[43]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[42]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[41]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[40]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[39]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[38]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[37]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[36]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[35]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[34]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[33]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[32]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[31]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[30]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[29]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[28]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[27]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[26]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[25]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[24]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[23]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[22]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[21]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[20]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[19]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[18]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[17]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[16]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[15]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[14]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[13]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[12]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[11]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[10]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[9]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[8]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[7]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[6]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[5]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[4]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[3]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[2]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[1]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq12&apos;hXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq12&apos;hXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe2[11:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq12&apos;hXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[11]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[10]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[9]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[8]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[7]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[6]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[5]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[4]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[3]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[2]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[1]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_1[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe2[43:12]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[43]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[42]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[41]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[40]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[39]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[38]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[37]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[36]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[35]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[34]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[33]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[32]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[31]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[30]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[29]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[28]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[27]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[26]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[25]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[24]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[23]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[22]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[21]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[20]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[19]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[18]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[17]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[16]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[15]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[14]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[13]"/>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA_2[12]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe8[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TREADY"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe9[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TVALID"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq4&apos;hX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq4&apos;hX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[31:28]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq4&apos;hX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[31]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[30]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[29]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[28]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="UNSIGNED"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe2[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Analog"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[31]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[30]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[29]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[28]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[27]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[26]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[25]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[24]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[23]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[22]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[21]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[20]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[19]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[18]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[17]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[16]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[15]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[14]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[13]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[12]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[11]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[10]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[9]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[8]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[7]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[6]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[5]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[4]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[3]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[2]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[1]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq12&apos;hXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq12&apos;hXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="UNSIGNED"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[11:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq12&apos;hXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Analog"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[11]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[10]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[9]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[8]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[7]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[6]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[5]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[4]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[3]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[2]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[1]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_1[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq16&apos;hXXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq16&apos;hXXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[27:12]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq16&apos;hXXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[27]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[26]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[25]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[24]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[23]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[22]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[21]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[20]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[19]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[18]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[17]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[16]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[15]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[14]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[13]"/>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TDATA_2[12]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe3[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TREADY"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe4[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/FFTOutputBitsConvert_0_m_axis_data_TVALID"/>
       </nets>
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
@@ -598,6 +1245,62 @@
         <net name="design_1_i/DSP/Synthesizer/sync"/>
       </nets>
     </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq12&apos;hXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq12&apos;u1"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="UNSIGNED"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe3[11:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq12&apos;u1"/>
+        <Option Id="WAVEFORM_STYLE" value="Analog"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/axis_rd_data_count[11]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[10]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[9]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[8]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[7]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[6]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[5]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[4]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[3]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[2]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[1]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq4&apos;hX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq4&apos;h0"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="UNSIGNED"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe3[3:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq4&apos;h0"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/axis_rd_data_count[3]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[2]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[1]"/>
+        <net name="design_1_i/DSP/axis_rd_data_count[0]"/>
+      </nets>
+    </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
@@ -717,6 +1420,185 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe4[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/event_data_in_channel_halt"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe5[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/event_data_out_channel_halt"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe2[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/event_frame_started"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe7[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/event_status_channel_halt"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe8[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/event_tlast_missing"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe9[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/event_tlast_unexpected"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq12&apos;hXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq12&apos;hXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="UNSIGNED"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe1[11:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq12&apos;hXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[11]"/>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[10]"/>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[9]"/>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[8]"/>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[7]"/>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[6]"/>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[5]"/>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[4]"/>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[3]"/>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[2]"/>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[1]"/>
+        <net name="design_1_i/DSP/fifo_generator_0_axis_data_count[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe5[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/m_axis_data_tvalid"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
         <Option Id="MAP" value="probe6[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
@@ -818,6 +1700,27 @@
       </probeOptions>
       <nets>
         <net name="design_1_i/DSP/m_axis_phase_tvalid"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe7[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/m_axis_tvalid"/>
       </nets>
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
@@ -1205,6 +2108,216 @@
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe8[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/s_axis_data_tready"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe9[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/s_axis_data_tready_1"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe10[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/s_axis_tready"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe4[63:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq64&apos;hXXXX_XXXX_XXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[63]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[62]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[61]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[60]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[59]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[58]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[57]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[56]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[55]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[54]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[53]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[52]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[51]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[50]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[49]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[48]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[47]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[46]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[45]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[44]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[43]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[42]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[41]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[40]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[39]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[38]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[37]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[36]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[35]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[34]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[33]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[32]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[31]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[30]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[29]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[28]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[27]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[26]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[25]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[24]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[23]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[22]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[21]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[20]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[19]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[18]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[17]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[16]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[15]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[14]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[13]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[12]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[11]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[10]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[9]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[8]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[7]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[6]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[5]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[4]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[3]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[2]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[1]"/>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe10[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TREADY"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe11[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP/xfft_0_M_AXIS_DATA_TVALID"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe4[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="design_1_i/DSP_audioClkInterrupt"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq16&apos;hXXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq16&apos;hXXXX"/>
         <Option Id="DISPLAY_AS_ENUM" value="1"/>
@@ -1369,7 +2482,7 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe4[0]"/>
+        <Option Id="MAP" value="probe5[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -1390,7 +2503,7 @@
         <Option Id="DISPLAY_VISIBILITY" value=""/>
         <Option Id="HW_ILA" value="hw_ila_1"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe5[0]"/>
+        <Option Id="MAP" value="probe6[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
@@ -1401,7 +2514,7 @@
         <net name="design_1_i/UIF/UIF_SerialMasterCont_0_SPI_Master_CSn"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq12&apos;hXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq12&apos;h001"/>
@@ -1904,6 +3017,90 @@
         <net name="u_ila_0_FCLK_CLK0"/>
       </nets>
     </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe11[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="u_ila_0_FFTInputBitsConverter_0_m_axis_config_TDATA[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="u_ila_0_FFTInputBitsConverter_0_m_axis_config_TDATA[0]_1"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[1]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="u_ila_0_FFTInputBitsConverter_0_m_axis_config_TDATA[0]_2"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe6[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="u_ila_0_FFTInputBitsConverter_0_m_axis_config_TREADY"/>
+      </nets>
+    </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
@@ -1925,6 +3122,76 @@
         <net name="u_ila_0_UIF_SerialSlave_0_m_axis_st_TVALID"/>
       </nets>
     </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq8&apos;hXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq8&apos;hXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe3[11:4]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq8&apos;hXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="u_ila_0_axis_rd_data_count[11]"/>
+        <net name="u_ila_0_axis_rd_data_count[10]"/>
+        <net name="u_ila_0_axis_rd_data_count[9]"/>
+        <net name="u_ila_0_axis_rd_data_count[8]"/>
+        <net name="u_ila_0_axis_rd_data_count[7]"/>
+        <net name="u_ila_0_axis_rd_data_count[6]"/>
+        <net name="u_ila_0_axis_rd_data_count[5]"/>
+        <net name="u_ila_0_axis_rd_data_count[4]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe7[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="u_ila_0_event_status_channel_halt"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe5[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="u_ila_0_m_axis_data_tvalid"/>
+      </nets>
+    </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
@@ -1944,6 +3211,27 @@
       </probeOptions>
       <nets>
         <net name="u_ila_0_m_axis_dout_tvalid"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bR"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe6[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bR"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="u_ila_0_m_axis_fft_tvalid"/>
       </nets>
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
@@ -2142,6 +3430,48 @@
         <net name="u_ila_0_phase_gen_256_0_s_bram_addr[2]"/>
         <net name="u_ila_0_phase_gen_256_0_s_bram_addr[1]"/>
         <net name="u_ila_0_phase_gen_256_0_s_bram_addr[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe8[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="u_ila_0_s_axis_data_tready"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe9[0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="u_ila_0_s_axis_data_tready_1"/>
       </nets>
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">

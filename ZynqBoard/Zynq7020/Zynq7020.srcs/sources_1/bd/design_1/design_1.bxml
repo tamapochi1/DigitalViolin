@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="36">
   <CompositeFile CompositeFileTopName="design_1" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1558770623"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1558770623"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1558770623"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1558770623"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1558894608"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1558894608"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1558894608"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1558894608"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\design_1_processing_system7_0_0\design_1_processing_system7_0_0.xci" Type="IP">
         <Instance HierarchyPath="processing_system7_0"/>
@@ -57,14 +57,6 @@
       </File>
       <File Name="ip\design_1_audio_clk_gen_0_0\design_1_audio_clk_gen_0_0.xci" Type="IP">
         <Instance HierarchyPath="DSP/audio_clk_gen_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip\design_1_DSP_register_0_0\design_1_DSP_register_0_0.xci" Type="IP">
-        <Instance HierarchyPath="DSP/DSP_register_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -252,6 +244,54 @@
       </File>
       <File Name="ip\design_1_UIF_SerialMasterCont_0_0\design_1_UIF_SerialMasterCont_0_0.xci" Type="IP">
         <Instance HierarchyPath="UIF/UIF_SerialMasterCont_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_DSP_registers_0_0\design_1_DSP_registers_0_0.xci" Type="IP">
+        <Instance HierarchyPath="DSP/DSP_registers_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_xfft_0_0\design_1_xfft_0_0.xci" Type="IP">
+        <Instance HierarchyPath="DSP/xfft_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_FFTInputBitsConverter_0_0\design_1_FFTInputBitsConverter_0_0.xci" Type="IP">
+        <Instance HierarchyPath="DSP/FFTInputBitsConverter_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_axis_data_fifo_0_1\design_1_axis_data_fifo_0_1.xci" Type="IP">
+        <Instance HierarchyPath="DSP/axis_data_fifo_1"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_FFTOutputBitsConvert_0_0\design_1_FFTOutputBitsConvert_0_0.xci" Type="IP">
+        <Instance HierarchyPath="DSP/FFTOutputBitsConvert_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\design_1_fifo_generator_0_4\design_1_fifo_generator_0_4.xci" Type="IP">
+        <Instance HierarchyPath="DSP/fifo_generator_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

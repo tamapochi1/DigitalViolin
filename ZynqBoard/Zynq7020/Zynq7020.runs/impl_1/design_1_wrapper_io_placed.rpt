@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date                      : Sat May 25 16:59:56 2019
-| Host                      : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
+| Date                      : Mon May 27 03:22:14 2019
+| Host                      : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 | Command                   : report_io -file design_1_wrapper_io_placed.rpt
 | Design                    : design_1_wrapper
 | Device                    : xc7z020
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|           146 |
+|           148 |
 +---------------+
 
 
@@ -429,7 +429,7 @@ Table of Contents
 | T18        |                    | High Range | IO_L23N_T3_34           | User IO     |                    |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | T19        |                    | High Range | IO_L22N_T3_34           | User IO     |                    |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | T20        |                    |            | GND                     | GND         |                    |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
-| T21        | UIF_Slave_1_s_rxd  | High Range | IO_L1P_T0_33            | OUTPUT      | LVCMOS33           |      33 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| T21        | SPI_Master_CSn_1   | High Range | IO_L1P_T0_33            | OUTPUT      | LVCMOS33           |      33 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | T22        | UIF_Slave_1_s_sck  | High Range | IO_L2P_T0_33            | INPUT       | LVCMOS33           |      33 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | U1         | DDR_dq[25]         |            | PS_DDR_DQ25_502         | INOUT       | SSTL135_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      | PULLUP    |          |      | SPLIT            |              |                   |              |
 | U2         | DDR_dq[27]         |            | PS_DDR_DQ27_502         | INOUT       | SSTL135_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      | PULLUP    |          |      | SPLIT            |              |                   |              |
@@ -474,7 +474,7 @@ Table of Contents
 | V19        |                    | High Range | IO_L6N_T0_VREF_33       | User IO     |                    |      33 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | V20        |                    | High Range | IO_L5N_T0_33            | User IO     |                    |      33 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | V21        |                    | High Range | VCCO_33                 | VCCO        |                    |      33 |            |      |                     |                      |    3.30 |            |           |          |      |                  |              |                   |              |
-| V22        |                    | High Range | IO_L3P_T0_DQS_33        | User IO     |                    |      33 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| V22        | UIF_Master_1_h_rxd | High Range | IO_L3P_T0_DQS_33        | INPUT       | LVCMOS33           |      33 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | W1         | DDR_dq[28]         |            | PS_DDR_DQ28_502         | INOUT       | SSTL135_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      | PULLUP    |          |      | SPLIT            |              |                   |              |
 | W2         | DDR_dqs_n[3]       |            | PS_DDR_DQS_N3_502       | INOUT       | DIFF_SSTL135_T_DCI |         |            | FAST |                     |            FP_VTT_50 |         | FIXED      | PULLUP    |          |      | SPLIT            |              |                   |              |
 | W3         | DDR_dq[30]         |            | PS_DDR_DQ30_502         | INOUT       | SSTL135_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      | PULLUP    |          |      | SPLIT            |              |                   |              |
@@ -496,7 +496,7 @@ Table of Contents
 | W19        |                    |            | GND                     | GND         |                    |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | W20        |                    | High Range | IO_L4P_T0_33            | User IO     |                    |      33 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | W21        | UIF_Res_1          | High Range | IO_L4N_T0_33            | OUTPUT      | LVCMOS33           |      33 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
-| W22        |                    | High Range | IO_L3N_T0_DQS_33        | User IO     |                    |      33 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| W22        | UIF_Master_1_h_txd | High Range | IO_L3N_T0_DQS_33        | OUTPUT      | LVCMOS33           |      33 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | Y1         | DDR_dq[31]         |            | PS_DDR_DQ31_502         | INOUT       | SSTL135_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      | PULLUP    |          |      | SPLIT            |              |                   |              |
 | Y2         |                    |            | GND                     | GND         |                    |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | Y3         | DDR_dq[29]         |            | PS_DDR_DQ29_502         | INOUT       | SSTL135_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      | PULLUP    |          |      | SPLIT            |              |                   |              |
@@ -514,7 +514,7 @@ Table of Contents
 | Y15        |                    | High Range | IO_L21N_T3_DQS_33       | User IO     |                    |      33 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | Y16        |                    | High Range | IO_L14N_T2_SRCC_33      | User IO     |                    |      33 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | Y17        |                    | High Range | VCCO_33                 | VCCO        |                    |      33 |            |      |                     |                      |    3.30 |            |           |          |      |                  |              |                   |              |
-| Y18        | SPI_Master_CSn_1   | High Range | IO_L12P_T1_MRCC_33      | OUTPUT      | LVCMOS33           |      33 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| Y18        | UIF_Slave_1_s_rxd  | High Range | IO_L12P_T1_MRCC_33      | OUTPUT      | LVCMOS33           |      33 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | Y19        |                    | High Range | IO_L11P_T1_SRCC_33      | User IO     |                    |      33 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | Y20        |                    | High Range | IO_L9P_T1_DQS_33        | User IO     |                    |      33 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | Y21        |                    | High Range | IO_L9N_T1_DQS_33        | User IO     |                    |      33 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |

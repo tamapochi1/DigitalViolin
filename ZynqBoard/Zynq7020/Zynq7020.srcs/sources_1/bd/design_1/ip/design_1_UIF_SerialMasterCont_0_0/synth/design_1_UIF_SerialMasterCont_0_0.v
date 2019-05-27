@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "UIF_SerialMasterController,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "design_1_UIF_SerialMasterCont_0_0,UIF_SerialMasterController,{}" *)
-(* CORE_GENERATION_INFO = "design_1_UIF_SerialMasterCont_0_0,UIF_SerialMasterController,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=UIF_SerialMasterController,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,preScale=49}" *)
+(* CORE_GENERATION_INFO = "design_1_UIF_SerialMasterCont_0_0,UIF_SerialMasterController,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=UIF_SerialMasterController,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,preScale=32}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_UIF_SerialMasterCont_0_0 (
@@ -90,7 +90,7 @@ output wire internal_S_TXD;
 output wire busy;
 
   UIF_SerialMasterController #(
-    .preScale(49)
+    .preScale(32)
   ) inst (
     .nReset(nReset),
     .sysClk(sysClk),

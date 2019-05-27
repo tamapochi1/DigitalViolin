@@ -1,8 +1,8 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Thu May 23 15:17:47 2019
-//Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
+//Date        : Sat May 25 23:20:41 2019
+//Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
 //Purpose     : IP block netlist
@@ -998,7 +998,8 @@ module Synthesizer_imp_5BWTWR
 endmodule
 
 module UIF_imp_1KE81ZA
-   (S_AXI_ARESETN,
+   (SPI_Master_CSn_1,
+    S_AXI_ARESETN,
     S_AXI_araddr,
     S_AXI_arprot,
     S_AXI_arready,
@@ -1018,11 +1019,15 @@ module UIF_imp_1KE81ZA
     S_AXI_wready,
     S_AXI_wstrb,
     S_AXI_wvalid,
+    UIF_Master_1_h_rxd,
+    UIF_Master_1_h_sck,
+    UIF_Master_1_h_txd,
     UIF_Res_1,
     UIF_Slave_1_s_rxd,
     UIF_Slave_1_s_sck,
     UIF_Slave_1_s_txd,
     s_aclk);
+  output SPI_Master_CSn_1;
   input S_AXI_ARESETN;
   input [31:0]S_AXI_araddr;
   input [2:0]S_AXI_arprot;
@@ -1043,23 +1048,41 @@ module UIF_imp_1KE81ZA
   output S_AXI_wready;
   input [3:0]S_AXI_wstrb;
   input S_AXI_wvalid;
+  input UIF_Master_1_h_rxd;
+  output UIF_Master_1_h_sck;
+  output UIF_Master_1_h_txd;
   output UIF_Res_1;
   output UIF_Slave_1_s_rxd;
   input UIF_Slave_1_s_sck;
   input UIF_Slave_1_s_txd;
   input s_aclk;
 
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire Conn1_H_RXD;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire Conn1_H_SCK;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire Conn1_H_TXD;
   wire UIF_AXI_0_UIF_res;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_AXI_0_hostStart;
+  wire [7:0]UIF_AXI_0_m_axis_ht_TDATA;
+  wire UIF_AXI_0_m_axis_ht_TREADY;
+  wire UIF_AXI_0_m_axis_ht_TVALID;
   wire [7:0]UIF_AXI_0_m_axis_sr_TDATA;
   wire UIF_AXI_0_m_axis_sr_TREADY;
   wire UIF_AXI_0_m_axis_sr_TVALID;
   wire UIF_AXI_0_sys_nReset;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_SerialMasterCont_0_SPI_Master_CSn;
+  wire UIF_SerialMasterCont_0_busy;
   wire UIF_SerialSlave_0_UIF_Slave_S_RXD;
   wire UIF_SerialSlave_0_UIF_Slave_S_SCK;
   wire UIF_SerialSlave_0_UIF_Slave_S_TXD;
   wire [7:0]UIF_SerialSlave_0_m_axis_st_TDATA;
   wire UIF_SerialSlave_0_m_axis_st_TREADY;
   wire UIF_SerialSlave_0_m_axis_st_TVALID;
+  wire UIF_SerialSlave_1_UIF_Slave_S_RXD;
+  wire UIF_SerialSlave_1_UIF_Slave_S_SCK;
+  wire UIF_SerialSlave_1_UIF_Slave_S_TXD;
+  wire [7:0]UIF_SerialSlave_1_m_axis_st_TDATA;
+  wire UIF_SerialSlave_1_m_axis_st_TREADY;
+  wire UIF_SerialSlave_1_m_axis_st_TVALID;
   wire [7:0]fifo_generator_0_M_AXIS_TDATA;
   wire fifo_generator_0_M_AXIS_TREADY;
   wire fifo_generator_0_M_AXIS_TVALID;
@@ -1067,6 +1090,13 @@ module UIF_imp_1KE81ZA
   wire fifo_generator_1_M_AXIS_TREADY;
   wire fifo_generator_1_M_AXIS_TVALID;
   wire [11:0]fifo_generator_1_axis_data_count;
+  wire [7:0]fifo_generator_2_M_AXIS_TDATA;
+  wire fifo_generator_2_M_AXIS_TREADY;
+  wire fifo_generator_2_M_AXIS_TVALID;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [11:0]fifo_generator_2_axis_data_count;
+  wire [7:0]fifo_generator_3_M_AXIS_TDATA;
+  wire fifo_generator_3_M_AXIS_TREADY;
+  wire fifo_generator_3_M_AXIS_TVALID;
   wire processing_system7_0_FCLK_CLK0;
   wire [31:0]ps7_0_axi_periph_M03_AXI_ARADDR;
   wire [2:0]ps7_0_axi_periph_M03_AXI_ARPROT;
@@ -1089,6 +1119,8 @@ module UIF_imp_1KE81ZA
   wire ps7_0_axi_periph_M03_AXI_WVALID;
   wire rst_ps7_0_50M_peripheral_aresetn;
 
+  assign Conn1_H_RXD = UIF_Master_1_h_rxd;
+  assign SPI_Master_CSn_1 = UIF_SerialMasterCont_0_SPI_Master_CSn;
   assign S_AXI_arready = ps7_0_axi_periph_M03_AXI_ARREADY;
   assign S_AXI_awready = ps7_0_axi_periph_M03_AXI_AWREADY;
   assign S_AXI_bresp[1:0] = ps7_0_axi_periph_M03_AXI_BRESP;
@@ -1097,6 +1129,8 @@ module UIF_imp_1KE81ZA
   assign S_AXI_rresp[1:0] = ps7_0_axi_periph_M03_AXI_RRESP;
   assign S_AXI_rvalid = ps7_0_axi_periph_M03_AXI_RVALID;
   assign S_AXI_wready = ps7_0_axi_periph_M03_AXI_WREADY;
+  assign UIF_Master_1_h_sck = Conn1_H_SCK;
+  assign UIF_Master_1_h_txd = Conn1_H_TXD;
   assign UIF_Res_1 = UIF_AXI_0_UIF_res;
   assign UIF_SerialSlave_0_UIF_Slave_S_SCK = UIF_Slave_1_s_sck;
   assign UIF_SerialSlave_0_UIF_Slave_S_TXD = UIF_Slave_1_s_txd;
@@ -1116,12 +1150,12 @@ module UIF_imp_1KE81ZA
   assign rst_ps7_0_50M_peripheral_aresetn = S_AXI_ARESETN;
   design_1_UIF_AXI_0_0 UIF_AXI_0
        (.S_AXI_ACLK(processing_system7_0_FCLK_CLK0),
-        .S_AXI_ARADDR(ps7_0_axi_periph_M03_AXI_ARADDR[3:0]),
+        .S_AXI_ARADDR(ps7_0_axi_periph_M03_AXI_ARADDR[4:0]),
         .S_AXI_ARESETN(rst_ps7_0_50M_peripheral_aresetn),
         .S_AXI_ARPROT(ps7_0_axi_periph_M03_AXI_ARPROT),
         .S_AXI_ARREADY(ps7_0_axi_periph_M03_AXI_ARREADY),
         .S_AXI_ARVALID(ps7_0_axi_periph_M03_AXI_ARVALID),
-        .S_AXI_AWADDR(ps7_0_axi_periph_M03_AXI_AWADDR[3:0]),
+        .S_AXI_AWADDR(ps7_0_axi_periph_M03_AXI_AWADDR[4:0]),
         .S_AXI_AWPROT(ps7_0_axi_periph_M03_AXI_AWPROT),
         .S_AXI_AWREADY(ps7_0_axi_periph_M03_AXI_AWREADY),
         .S_AXI_AWVALID(ps7_0_axi_periph_M03_AXI_AWVALID),
@@ -1137,14 +1171,35 @@ module UIF_imp_1KE81ZA
         .S_AXI_WSTRB(ps7_0_axi_periph_M03_AXI_WSTRB),
         .S_AXI_WVALID(ps7_0_axi_periph_M03_AXI_WVALID),
         .UIF_res(UIF_AXI_0_UIF_res),
+        .hostIsBusy(UIF_SerialMasterCont_0_busy),
+        .hostStart(UIF_AXI_0_hostStart),
+        .m_axis_ht_tdata(UIF_AXI_0_m_axis_ht_TDATA),
+        .m_axis_ht_tready(UIF_AXI_0_m_axis_ht_TREADY),
+        .m_axis_ht_tvalid(UIF_AXI_0_m_axis_ht_TVALID),
         .m_axis_sr_tdata(UIF_AXI_0_m_axis_sr_TDATA),
         .m_axis_sr_tready(UIF_AXI_0_m_axis_sr_TREADY),
         .m_axis_sr_tvalid(UIF_AXI_0_m_axis_sr_TVALID),
+        .s_axis_hr_tdata(fifo_generator_3_M_AXIS_TDATA),
+        .s_axis_hr_tready(fifo_generator_3_M_AXIS_TREADY),
+        .s_axis_hr_tvalid(fifo_generator_3_M_AXIS_TVALID),
         .s_axis_st_tdata(fifo_generator_1_M_AXIS_TDATA),
         .s_axis_st_tready(fifo_generator_1_M_AXIS_TREADY),
         .s_axis_st_tvalid(fifo_generator_1_M_AXIS_TVALID),
         .st_fifo_count(fifo_generator_1_axis_data_count),
         .sys_nReset(UIF_AXI_0_sys_nReset));
+  design_1_UIF_SerialMasterCont_0_0 UIF_SerialMasterCont_0
+       (.SPI_Master_CSn(UIF_SerialMasterCont_0_SPI_Master_CSn),
+        .UIF_Master_H_RXD(Conn1_H_RXD),
+        .UIF_Master_H_SCK(Conn1_H_SCK),
+        .UIF_Master_H_TXD(Conn1_H_TXD),
+        .busy(UIF_SerialMasterCont_0_busy),
+        .internal_S_RXD(UIF_SerialSlave_1_UIF_Slave_S_RXD),
+        .internal_S_SCK(UIF_SerialSlave_1_UIF_Slave_S_SCK),
+        .internal_S_TXD(UIF_SerialSlave_1_UIF_Slave_S_TXD),
+        .nReset(UIF_AXI_0_sys_nReset),
+        .start(UIF_AXI_0_hostStart),
+        .sysClk(processing_system7_0_FCLK_CLK0),
+        .txFifoCount(fifo_generator_2_axis_data_count));
   design_1_UIF_SerialSlave_0_1 UIF_SerialSlave_0
        (.UIF_Slave_S_RXD(UIF_SerialSlave_0_UIF_Slave_S_RXD),
         .UIF_Slave_S_SCK(UIF_SerialSlave_0_UIF_Slave_S_SCK),
@@ -1156,6 +1211,18 @@ module UIF_imp_1KE81ZA
         .s_axis_sr_tdata(fifo_generator_0_M_AXIS_TDATA),
         .s_axis_sr_tready(fifo_generator_0_M_AXIS_TREADY),
         .s_axis_sr_tvalid(fifo_generator_0_M_AXIS_TVALID),
+        .sysClk(processing_system7_0_FCLK_CLK0));
+  design_1_UIF_SerialSlave_0_2 UIF_SerialSlave_1
+       (.UIF_Slave_S_RXD(UIF_SerialSlave_1_UIF_Slave_S_RXD),
+        .UIF_Slave_S_SCK(UIF_SerialSlave_1_UIF_Slave_S_SCK),
+        .UIF_Slave_S_TXD(UIF_SerialSlave_1_UIF_Slave_S_TXD),
+        .m_axis_st_tdata(UIF_SerialSlave_1_m_axis_st_TDATA),
+        .m_axis_st_tready(UIF_SerialSlave_1_m_axis_st_TREADY),
+        .m_axis_st_tvalid(UIF_SerialSlave_1_m_axis_st_TVALID),
+        .nReset(UIF_AXI_0_sys_nReset),
+        .s_axis_sr_tdata(fifo_generator_2_M_AXIS_TDATA),
+        .s_axis_sr_tready(fifo_generator_2_M_AXIS_TREADY),
+        .s_axis_sr_tvalid(fifo_generator_2_M_AXIS_TVALID),
         .sysClk(processing_system7_0_FCLK_CLK0));
   design_1_fifo_generator_0_1 fifo_generator_0
        (.m_axis_tdata(fifo_generator_0_M_AXIS_TDATA),
@@ -1176,9 +1243,28 @@ module UIF_imp_1KE81ZA
         .s_axis_tdata(UIF_SerialSlave_0_m_axis_st_TDATA),
         .s_axis_tready(UIF_SerialSlave_0_m_axis_st_TREADY),
         .s_axis_tvalid(UIF_SerialSlave_0_m_axis_st_TVALID));
+  design_1_fifo_generator_0_3 fifo_generator_2
+       (.axis_data_count(fifo_generator_2_axis_data_count),
+        .m_axis_tdata(fifo_generator_2_M_AXIS_TDATA),
+        .m_axis_tready(fifo_generator_2_M_AXIS_TREADY),
+        .m_axis_tvalid(fifo_generator_2_M_AXIS_TVALID),
+        .s_aclk(processing_system7_0_FCLK_CLK0),
+        .s_aresetn(UIF_AXI_0_sys_nReset),
+        .s_axis_tdata(UIF_AXI_0_m_axis_ht_TDATA),
+        .s_axis_tready(UIF_AXI_0_m_axis_ht_TREADY),
+        .s_axis_tvalid(UIF_AXI_0_m_axis_ht_TVALID));
+  design_1_fifo_generator_1_0 fifo_generator_3
+       (.m_axis_tdata(fifo_generator_3_M_AXIS_TDATA),
+        .m_axis_tready(fifo_generator_3_M_AXIS_TREADY),
+        .m_axis_tvalid(fifo_generator_3_M_AXIS_TVALID),
+        .s_aclk(processing_system7_0_FCLK_CLK0),
+        .s_aresetn(UIF_AXI_0_sys_nReset),
+        .s_axis_tdata(UIF_SerialSlave_1_m_axis_st_TDATA),
+        .s_axis_tready(UIF_SerialSlave_1_m_axis_st_TREADY),
+        .s_axis_tvalid(UIF_SerialSlave_1_m_axis_st_TVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=42,numReposBlks=29,numNonXlnxBlks=0,numHierBlks=13,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=10,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=46,numReposBlks=33,numNonXlnxBlks=0,numHierBlks=13,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=12,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (DAC_BICK_0,
     DAC_LRCK_0,
@@ -1206,8 +1292,12 @@ module design_1
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
     RGB_OUT_0,
+    SPI_Master_CSn_1,
     UART_1_rxd,
     UART_1_txd,
+    UIF_Master_1_h_rxd,
+    UIF_Master_1_h_sck,
+    UIF_Master_1_h_txd,
     UIF_Res_1,
     UIF_Slave_1_s_rxd,
     UIF_Slave_1_s_sck,
@@ -1239,8 +1329,12 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB" *) inout FIXED_IO_ps_porb;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB" *) inout FIXED_IO_ps_srstb;
   output [2:0]RGB_OUT_0;
+  output SPI_Master_CSn_1;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_1 RxD" *) input UART_1_rxd;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_1 TxD" *) output UART_1_txd;
+  (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Master:1.0 UIF_Master_1 H_RXD" *) input UIF_Master_1_h_rxd;
+  (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Master:1.0 UIF_Master_1 H_SCK" *) output UIF_Master_1_h_sck;
+  (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Master:1.0 UIF_Master_1 H_TXD" *) output UIF_Master_1_h_txd;
   output UIF_Res_1;
   (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Slave:1.0 UIF_Slave_1 S_RXD" *) output UIF_Slave_1_s_rxd;
   (* X_INTERFACE_INFO = "tamapochi1:user:UIF_Slave:1.0 UIF_Slave_1 S_SCK" *) input UIF_Slave_1_s_sck;
@@ -1276,9 +1370,13 @@ module design_1
   wire [3:0]S00_AXI_0_1_WSTRB;
   wire S00_AXI_0_1_WVALID;
   wire UIF_AXI_0_UIF_res;
+  (* DEBUG = "true" *) wire UIF_SPI_Master_CSn_0;
   wire UIF_SerialSlave_0_UIF_Slave_S_RXD;
   wire UIF_SerialSlave_0_UIF_Slave_S_SCK;
   wire UIF_SerialSlave_0_UIF_Slave_S_TXD;
+  (* DEBUG = "true" *) wire UIF_UIF_Master_0_H_RXD;
+  (* DEBUG = "true" *) wire UIF_UIF_Master_0_H_SCK;
+  (* DEBUG = "true" *) wire UIF_UIF_Master_0_H_TXD;
   wire clk_wiz_0_clk_out1;
   wire clk_wiz_0_locked;
   wire [2:0]myip_0_RGB_OUT;
@@ -1428,11 +1526,15 @@ module design_1
   assign DAC_MCLK_0 = DAC_IF_0_DAC_MCLK;
   assign DAC_SDT_0 = DAC_IF_0_DAC_SDT;
   assign RGB_OUT_0[2:0] = myip_0_RGB_OUT;
+  assign SPI_Master_CSn_1 = UIF_SPI_Master_CSn_0;
   assign UART_1_txd = processing_system7_0_UART_1_TxD;
+  assign UIF_Master_1_h_sck = UIF_UIF_Master_0_H_SCK;
+  assign UIF_Master_1_h_txd = UIF_UIF_Master_0_H_TXD;
   assign UIF_Res_1 = UIF_AXI_0_UIF_res;
   assign UIF_SerialSlave_0_UIF_Slave_S_SCK = UIF_Slave_1_s_sck;
   assign UIF_SerialSlave_0_UIF_Slave_S_TXD = UIF_Slave_1_s_txd;
   assign UIF_Slave_1_s_rxd = UIF_SerialSlave_0_UIF_Slave_S_RXD;
+  assign UIF_UIF_Master_0_H_RXD = UIF_Master_1_h_rxd;
   assign USB_nRESET_0 = myip_0_USB_nRESET;
   assign processing_system7_0_UART_1_RxD = UART_1_rxd;
   DAC_Interface_imp_1OX2TDS DAC_Interface
@@ -1515,7 +1617,8 @@ module design_1
         .s01_axi_aresetn(rst_ps7_0_50M_peripheral_aresetn),
         .sysClk(processing_system7_0_FCLK_CLK0));
   UIF_imp_1KE81ZA UIF
-       (.S_AXI_ARESETN(rst_ps7_0_50M_peripheral_aresetn),
+       (.SPI_Master_CSn_1(UIF_SPI_Master_CSn_0),
+        .S_AXI_ARESETN(rst_ps7_0_50M_peripheral_aresetn),
         .S_AXI_araddr(ps7_0_axi_periph_M03_AXI_ARADDR),
         .S_AXI_arprot(ps7_0_axi_periph_M03_AXI_ARPROT),
         .S_AXI_arready(ps7_0_axi_periph_M03_AXI_ARREADY),
@@ -1535,6 +1638,9 @@ module design_1
         .S_AXI_wready(ps7_0_axi_periph_M03_AXI_WREADY),
         .S_AXI_wstrb(ps7_0_axi_periph_M03_AXI_WSTRB),
         .S_AXI_wvalid(ps7_0_axi_periph_M03_AXI_WVALID),
+        .UIF_Master_1_h_rxd(UIF_UIF_Master_0_H_RXD),
+        .UIF_Master_1_h_sck(UIF_UIF_Master_0_H_SCK),
+        .UIF_Master_1_h_txd(UIF_UIF_Master_0_H_TXD),
         .UIF_Res_1(UIF_AXI_0_UIF_res),
         .UIF_Slave_1_s_rxd(UIF_SerialSlave_0_UIF_Slave_S_RXD),
         .UIF_Slave_1_s_sck(UIF_SerialSlave_0_UIF_Slave_S_SCK),
@@ -1592,6 +1698,7 @@ module design_1
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
         .FCLK_CLK1(processing_system7_0_FCLK_CLK1),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
+        .IRQ_F2P(DAC_IF_0_DAC_LRCK),
         .MIO(FIXED_IO_mio[53:0]),
         .M_AXI_GP0_ACLK(processing_system7_0_FCLK_CLK0),
         .M_AXI_GP0_ARADDR(processing_system7_0_M_AXI_GP0_ARADDR),

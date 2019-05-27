@@ -1,78 +1,854 @@
 #-----------------------------------------------------------
-# Vivado v2018.2 (64-bit)
-# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
-# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Wed Oct  3 13:18:09 2018
-# Process ID: 788
-# Current directory: C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7600 C:\Users\Reiji\Documents\GitHub\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.xpr
-# Log file: C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020/vivado.log
-# Journal file: C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020\vivado.jou
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat May 25 20:44:33 2019
+# Process ID: 6000
+# Current directory: C:/Git/DigitalViolin/ZynqBoard/Zynq7020
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13616 C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.xpr
+# Log file: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/vivado.log
+# Journal file: C:/Git/DigitalViolin/ZynqBoard/Zynq7020\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.xpr
-open_bd_design {C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+open_project C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.xpr
+reset_run synth_1
+reset_run design_1_UIF_SerialSlave_0_2_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
 update_compile_order -fileset sources_1
-update_module_reference design_1_output_buffer_0_0
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+launch_sdk -workspace C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk -hwspec C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+regenerate_bd_layout -routing
+regenerate_bd_layout -routing
+startgroup
+set_property -dict [list CONFIG.PCW_USE_FABRIC_INTERRUPT {1} CONFIG.PCW_IRQ_F2P_INTR {1} CONFIG.PCW_CORE0_FIQ_INTR {0}] [get_bd_cells processing_system7_0]
+endgroup
+connect_bd_net [get_bd_pins DAC_Interface/DAC_LRCK_0] [get_bd_pins processing_system7_0/IRQ_F2P]
+save_bd_design
+reset_run synth_1
+reset_run design_1_processing_system7_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+open_run impl_1
+file copy -force C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.sysdef C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf
+
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+set_property -dict [list CONFIG.PCW_CORE0_IRQ_INTR {1}] [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+endgroup
+connect_bd_net [get_bd_pins DAC_Interface/DAC_LRCK_0] [get_bd_pins processing_system7_0/Core0_nIRQ]
+startgroup
+set_property -dict [list CONFIG.PCW_CORE0_IRQ_INTR {0}] [get_bd_cells processing_system7_0]
+endgroup
+validate_bd_design
+generate_target all [get_files  C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd]
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_3] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_1] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_2] }
+export_ip_user_files -of_objects [get_files C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd]
+export_simulation -of_objects [get_files C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.ip_user_files/sim_scripts -ip_user_files_dir C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.ip_user_files -ipstatic_source_dir C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/compile_simlib/modelsim} {questa=C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/compile_simlib/questa} {riviera=C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/compile_simlib/riviera} {activehdl=C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+file copy -force C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.sysdef C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf
+
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+file copy -force C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.sysdef C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf
+
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+open_run synth_1 -name synth_1
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+create_bd_pin -dir O DSP/audioClkSync
+connect_bd_net [get_bd_pins DSP/audioClkSync] [get_bd_pins DSP/audio_clk_gen_0/audioClkSync]
+endgroup
+delete_bd_objs [get_bd_nets DAC_IF_0_DAC_LRCK]
+undo
+disconnect_bd_net /DAC_IF_0_DAC_LRCK [get_bd_pins processing_system7_0/IRQ_F2P]
+startgroup
+connect_bd_net [get_bd_pins DSP/audioClkSync] [get_bd_pins processing_system7_0/IRQ_F2P]
+endgroup
+regenerate_bd_layout -routing
+regenerate_bd_layout -routing
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_nets DSP_audioClkSync] [get_bd_pins DSP/audioClkSync]
+ipx::edit_ip_in_project -upgrade true -name DSP_register_v1_0_project -directory C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.tmp/DSP_register_v1_0_project c:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/DSP_register_1.0/component.xml
+update_compile_order -fileset sources_1
+close_project
+close [ open C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/DSP_registers.v w ]
+add_files C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/DSP_registers.v
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference DSP_registers DSP/DSP_registers_0
+ipx::edit_ip_in_project -upgrade true -name DSP_register_v1_0_project -directory C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.tmp/DSP_register_v1_0_project c:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/DSP_register_1.0/component.xml
+update_compile_order -fileset sources_1
+close_project
+create_bd_cell -type module -reference DSP_registers DSP/DSP_registers_0
+delete_bd_objs [get_bd_nets DSP/DSP_register_0_sysNReset] [get_bd_nets DSP/DSP_register_0_synth0Gain] [get_bd_nets DSP/s00_axi_aclk_0_1] [get_bd_nets DSP/s00_axi_aresetn_0_1] [get_bd_intf_nets DSP/Conn1] [get_bd_cells DSP/DSP_register_0]
+set_property location {1 196 102} [get_bd_cells DSP/DSP_registers_0]
+connect_bd_intf_net [get_bd_intf_pins DSP/S00_AXI] [get_bd_intf_pins DSP/DSP_registers_0/S_AXI]
+connect_bd_net [get_bd_pins DSP/s00_axi_aclk] [get_bd_pins DSP/DSP_registers_0/S_AXI_ACLK]
+connect_bd_net [get_bd_pins DSP/s00_axi_aresetn] [get_bd_pins DSP/DSP_registers_0/S_AXI_ARESETN]
+connect_bd_net [get_bd_pins DSP/DSP_registers_0/sysNReset] [get_bd_pins DSP/DSP_reset_0/nResetInt]
+connect_bd_net [get_bd_pins DSP/DSP_registers_0/synth0Gain] [get_bd_pins DSP/Synthesizer/outGain]
+update_module_reference design_1_DSP_registers_0_0
+update_compile_order -fileset sources_1
+connect_bd_net [get_bd_pins DSP/DSP_registers_0/audioClkSync] [get_bd_pins DSP/audio_clk_gen_0/audioClkSync]
+startgroup
+make_bd_pins_external  [get_bd_pins DSP/DSP_registers_0/audioClkInterrupt]
+endgroup
+set_property name audioClkInterrupt [get_bd_pins DSP/audioClkInterrupt_0]
+regenerate_bd_layout -hierarchy [get_bd_cells DSP] -routing
+set_property location {1 216 123} [get_bd_cells DSP/DSP_registers_0]
+set_property location {1 224 122} [get_bd_cells DSP/DSP_registers_0]
+set_property location {1 232 267} [get_bd_cells DSP/DSP_reset_0]
+set_property location {1 226 248} [get_bd_cells DSP/DSP_reset_0]
+regenerate_bd_layout -hierarchy [get_bd_cells DSP] -routing
+save_bd_design
+delete_bd_objs [get_bd_nets DSP_audioClkInterrupt_0] [get_bd_ports audioClkInterrupt_0]
+connect_bd_net [get_bd_pins DSP/audioClkInterrupt] [get_bd_pins processing_system7_0/IRQ_F2P]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+validate_bd_design -force
+assign_bd_address
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+file copy -force C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.sysdef C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf
+
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {DSP_audioClkInterrupt }]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+reset_run impl_1
+disconnect_bd_net /DSP/audio_clk_gen_0_audioClk [get_bd_pins DSP/DSP_registers_0/audioClkSync]
+startgroup
+make_bd_pins_external  [get_bd_pins DSP/DSP_registers_0/audioClkSync]
+endgroup
+set_property name audioClkSync [get_bd_pins DSP/audioClkSync_0]
+delete_bd_objs [get_bd_nets audioClkSync_0_1] [get_bd_ports audioClkSync_0]
+set_property name audioSample [get_bd_pins DSP/audioClkSync]
+connect_bd_net [get_bd_pins DAC_Interface/DAC_LRCK_0] [get_bd_pins DSP/audioSample] -boundary_type upper
+regenerate_bd_layout -routing
 update_module_reference design_1_audio_clk_gen_0_0
-update_module_reference design_1_phase_generator_0_0
-update_module_reference design_1_DAC_IF_0_0
-close [ open C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/PhaseGen256.v w ]
-add_files C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/PhaseGen256.v
-update_compile_order -fileset sources_1
-export_ip_user_files -of_objects  [get_files C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/PhaseGen256.v] -no_script -reset -force -quiet
-remove_files  C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/PhaseGen256.v
-close [ open C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/phase_gen_256.v w ]
-add_files C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/phase_gen_256.v
-update_compile_order -fileset sources_1
-create_bd_cell -type module -reference phase_gen_256 DSP/phase_gen_256_0
-set_property location {2 398 502} [get_bd_cells DSP/phase_gen_256_0]
-copy_bd_objs DSP  [get_bd_cells {DSP/DSP_Sin/cordic_0}]
-set_property location {3 625 532} [get_bd_cells DSP/cordic_0]
-connect_bd_intf_net [get_bd_intf_pins DSP/phase_gen_256_0/m_axis_phase] [get_bd_intf_pins DSP/cordic_0/S_AXIS_PHASE]
-regenerate_bd_layout -hierarchy [get_bd_cell DSP] -routing
+update_module_reference design_1_DSP_registers_0_0
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+update_module_reference design_1_DSP_registers_0_0
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+connect_bd_net [get_bd_pins DSP/audioSample] [get_bd_pins DSP/DSP_registers_0/audioSample]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd]
+refresh_design
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+delete_debug_core [get_debug_cores {u_ila_0 }]
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 16384 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list design_1_i/processing_system7_0/inst/FCLK_CLK0 ]]
+set_property port_width 12 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {design_1_i/UIF/fifo_generator_2_axis_data_count[0]} {design_1_i/UIF/fifo_generator_2_axis_data_count[1]} {design_1_i/UIF/fifo_generator_2_axis_data_count[2]} {design_1_i/UIF/fifo_generator_2_axis_data_count[3]} {design_1_i/UIF/fifo_generator_2_axis_data_count[4]} {design_1_i/UIF/fifo_generator_2_axis_data_count[5]} {design_1_i/UIF/fifo_generator_2_axis_data_count[6]} {design_1_i/UIF/fifo_generator_2_axis_data_count[7]} {design_1_i/UIF/fifo_generator_2_axis_data_count[8]} {design_1_i/UIF/fifo_generator_2_axis_data_count[9]} {design_1_i/UIF/fifo_generator_2_axis_data_count[10]} {design_1_i/UIF/fifo_generator_2_axis_data_count[11]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list design_1_i/UIF/Conn1_H_RXD ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list design_1_i/UIF/Conn1_H_SCK ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe3]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list design_1_i/UIF/Conn1_H_TXD ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe4]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list design_1_i/DSP_audioClkInterrupt ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe5]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list design_1_i/UIF/UIF_AXI_0_hostStart ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe6]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list design_1_i/UIF/UIF_SerialMasterCont_0_SPI_Master_CSn ]]
+save_constraints
+reset_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {design_1_i/DSP_audioClkInterrupt} }
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
 startgroup
-create_bd_cell -type ip -vlnv xilinx.com:ip:mult_gen:12.0 DSP/mult_gen_0
+set_property -dict [list CONFIG.preScale {32}] [get_bd_cells UIF/UIF_SerialMasterCont_0]
 endgroup
-set_property location {3.5 1002 478} [get_bd_cells DSP/mult_gen_0]
-delete_bd_objs [get_bd_cells DSP/mult_gen_0]
-close [ open C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/mult_sum.v w ]
-add_files C:/Users/Reiji/Documents/GitHub/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/mult_sum.v
-update_compile_order -fileset sources_1
-create_bd_cell -type module -reference mult_sum DSP/mult_sum_0
-create_bd_cell -type module -reference mult_sum DSP/mult_sum_0
-create_bd_cell -type module -reference mult_sum DSP/mult_sum_0
-set_property location {4 984 292} [get_bd_cells DSP/mult_sum_0]
-set_property location {2 395 371} [get_bd_cells DSP/blk_mem_gen_0]
-set_property location {2 459 384} [get_bd_cells DSP/blk_mem_gen_0]
-set_property location {4 971 489} [get_bd_cells DSP/mult_sum_0]
-update_module_reference design_1_mult_sum_0_0
-update_compile_order -fileset sources_1
-connect_bd_intf_net [get_bd_intf_pins DSP/cordic_0/M_AXIS_DOUT] [get_bd_intf_pins DSP/mult_sum_0/s_axis_in]
-update_module_reference design_1_mult_sum_0_0
-delete_bd_objs [get_bd_intf_nets DSP/cordic_0_M_AXIS_DOUT]
-connect_bd_intf_net [get_bd_intf_pins DSP/mult_sum_0/s_axis_sin] [get_bd_intf_pins DSP/cordic_0/M_AXIS_DOUT]
-update_module_reference design_1_mult_sum_0_0
+save_bd_design
+reset_run synth_1
+reset_run design_1_UIF_SerialMasterCont_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+current_design impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd]
+refresh_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd]
+refresh_design
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd]
+refresh_design
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd]
+synth_design -rtl -name rtl_1
+set_property package_pin "" [get_ports [list  UIF_Slave_1_s_rxd]]
+place_ports SPI_Master_CSn_1 T21
+save_constraints
+reset_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+set_property package_pin "" [get_ports [list  UIF_Slave_1_s_rxd]]
+place_ports UIF_Slave_1_s_rxd Y21
+place_ports UIF_Slave_1_s_rxd Y18
+save_constraints
+reset_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+set_property SLEW SLOW [get_ports [list UIF_Slave_1_s_rxd]]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {design_1_i/UIF/UIF_SerialMasterCont_0_SPI_Master_CSn} }
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+save_constraints
+file copy -force C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.sysdef C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper.hdf
+
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
 startgroup
-create_bd_cell -type ip -vlnv xilinx.com:ip:mult_gen:12.0 DSP/mult_gen_0
+create_bd_cell -type ip -vlnv xilinx.com:ip:xfft:9.1 DSP/xfft_0
 endgroup
-set_property -dict [list CONFIG.PortAWidth.VALUE_SRC USER CONFIG.PortBWidth.VALUE_SRC USER] [get_bd_cells DSP/mult_gen_0]
-set_property -dict [list CONFIG.PortAWidth {16} CONFIG.PortBWidth {16} CONFIG.Multiplier_Construction {Use_Mults} CONFIG.OutputWidthHigh {31} CONFIG.PipeStages {3}] [get_bd_cells DSP/mult_gen_0]
-update_module_reference design_1_mult_sum_0_0
-connect_bd_net [get_bd_pins DSP/mult_sum_0/mult_A] [get_bd_pins DSP/mult_gen_0/A]
-connect_bd_net [get_bd_pins DSP/mult_sum_0/mult_B] [get_bd_pins DSP/mult_gen_0/B]
-connect_bd_net [get_bd_pins DSP/mult_gen_0/P] [get_bd_pins DSP/mult_sum_0/mult_P]
-set_property location {4 1049 672} [get_bd_cells DSP/mult_gen_0]
-set_property location {4.5 1289 521} [get_bd_cells DSP/mult_gen_0]
-set_property location {5 1286 472} [get_bd_cells DSP/mult_gen_0]
-update_module_reference design_1_mult_sum_0_0
-regenerate_bd_layout -hierarchy [get_bd_cell DSP] -routing
-connect_bd_net [get_bd_pins DSP/phase_gen_256_0/nReset] [get_bd_pins DSP/DSP_register_0/sysNReset]
-connect_bd_net [get_bd_pins DSP/mult_sum_0/nReset] [get_bd_pins DSP/DSP_register_0/sysNReset]
-connect_bd_net [get_bd_pins DSP/sysClk] [get_bd_pins DSP/phase_gen_256_0/sysClk]
-connect_bd_net [get_bd_pins DSP/sysClk] [get_bd_pins DSP/mult_gen_0/CLK]
-connect_bd_net [get_bd_pins DSP/sysClk] [get_bd_pins DSP/mult_sum_0/sysClk]
-connect_bd_net [get_bd_pins DSP/sysClk] [get_bd_pins DSP/cordic_0/aclk]
-connect_bd_net [get_bd_pins DSP/phase_gen_256_0/audioClk] [get_bd_pins DSP/audio_clk_gen_0/audioClk]
-update_module_reference design_1_mult_sum_0_0
-regenerate_bd_layout -hierarchy [get_bd_cell DSP] -routing
+set_property location {2 554 880} [get_bd_cells DSP/xfft_0]
+set_property location {2 567 830} [get_bd_cells DSP/xfft_0]
+set_property location {2 580 868} [get_bd_cells DSP/xfft_0]
+regenerate_bd_layout -hierarchy [get_bd_cells DSP] -routing
+set_property -dict [list CONFIG.input_width.VALUE_SRC USER CONFIG.data_format.VALUE_SRC PROPAGATED] [get_bd_cells DSP/xfft_0]
+set_property -dict [list CONFIG.channels {8} CONFIG.target_clock_frequency {100} CONFIG.implementation_options {radix_2_lite_burst_io} CONFIG.target_data_throughput {1} CONFIG.input_width {12} CONFIG.phase_factor_width {16} CONFIG.rounding_modes {truncation} CONFIG.aclken {false} CONFIG.aresetn {true} CONFIG.xk_index {false} CONFIG.throttle_scheme {nonrealtime} CONFIG.output_ordering {natural_order} CONFIG.cyclic_prefix_insertion {false} CONFIG.memory_options_data {block_ram} CONFIG.memory_options_hybrid {false} CONFIG.complex_mult_type {use_mults_resources} CONFIG.butterfly_type {use_luts} CONFIG.target_data_throughput {1} CONFIG.number_of_stages_using_block_ram_for_data_and_phase_factors {0}] [get_bd_cells DSP/xfft_0]
+connect_bd_net [get_bd_pins DSP/audio256Clk] [get_bd_pins DSP/xfft_0/aclk]
+undo
+connect_bd_net [get_bd_pins DSP/sysClk] [get_bd_pins DSP/xfft_0/aclk]
+connect_bd_net [get_bd_pins DSP/xfft_0/aresetn] [get_bd_pins DSP/DSP_registers_0/sysNReset]
+undo
+connect_bd_net [get_bd_pins DSP/xfft_0/aresetn] [get_bd_pins DSP/DSP_reset_0/nResetSysClk]
+startgroup
+set_property -dict [list CONFIG.scaling_options {scaled}] [get_bd_cells DSP/xfft_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.channels {1} CONFIG.implementation_options {radix_2_lite_burst_io} CONFIG.target_data_throughput {50} CONFIG.number_of_stages_using_block_ram_for_data_and_phase_factors {0}] [get_bd_cells DSP/xfft_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.channels {2} CONFIG.scaling_options {unscaled} CONFIG.implementation_options {radix_2_lite_burst_io} CONFIG.target_data_throughput {50}] [get_bd_cells DSP/xfft_0]
+endgroup
+set_property location {2 443 834} [get_bd_cells DSP/xfft_0]
+set_property location {2.5 920 839} [get_bd_cells DSP/xfft_0]
+close [ open C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTInputBitsConverter.v w ]
+add_files C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTInputBitsConverter.v
+close [ open C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v w ]
+add_files C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v
+update_compile_order -fileset sources_1
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axis_data_fifo:2.0 DSP/axis_data_fifo_0
+endgroup
+set_property -dict [list CONFIG.TDATA_NUM_BYTES.VALUE_SRC USER] [get_bd_cells DSP/axis_data_fifo_0]
+set_property -dict [list CONFIG.TDATA_NUM_BYTES {3} CONFIG.FIFO_DEPTH {2048}] [get_bd_cells DSP/axis_data_fifo_0]
+startgroup
+set_property -dict [list CONFIG.channels {1} CONFIG.implementation_options {radix_2_lite_burst_io} CONFIG.target_data_throughput {50}] [get_bd_cells DSP/xfft_0]
+endgroup
+set_property location {2 388 833} [get_bd_cells DSP/axis_data_fifo_0]
+connect_bd_intf_net [get_bd_intf_pins DSP/axis_data_fifo_0/M_AXIS] [get_bd_intf_pins DSP/xfft_0/S_AXIS_DATA]
+startgroup
+set_property -dict [list CONFIG.scaling_options {scaled}] [get_bd_cells DSP/xfft_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.channels {2} CONFIG.implementation_options {radix_2_lite_burst_io} CONFIG.target_data_throughput {50}] [get_bd_cells DSP/xfft_0]
+endgroup
+delete_bd_objs [get_bd_intf_nets DSP/axis_data_fifo_0_M_AXIS]
+startgroup
+endgroup
+startgroup
+endgroup
+startgroup
+endgroup
+set_property location {1 89 840} [get_bd_cells DSP/axis_data_fifo_0]
+create_bd_cell -type module -reference FFTInputBitsConverter DSP/FFTInputBitsConverter_0
+create_bd_cell -type module -reference FFTInputBitsConverter DSP/FFTInputBitsConverter_1
+set_property location {4 883 925} [get_bd_cells DSP/FFTInputBitsConverter_1]
+regenerate_bd_layout -hierarchy [get_bd_cells DSP] -routing
+delete_bd_objs [get_bd_cells DSP/FFTInputBitsConverter_1]
+set_property location {3 853 811} [get_bd_cells DSP/FFTInputBitsConverter_0]
+connect_bd_intf_net [get_bd_intf_pins DSP/axis_data_fifo_0/M_AXIS] [get_bd_intf_pins DSP/FFTInputBitsConverter_0/s_axis_data]
+connect_bd_intf_net [get_bd_intf_pins DSP/FFTInputBitsConverter_0/m_axis_data] [get_bd_intf_pins DSP/xfft_0/S_AXIS_DATA]
+connect_bd_intf_net [get_bd_intf_pins DSP/FFTInputBitsConverter_0/m_axis_config] [get_bd_intf_pins DSP/xfft_0/S_AXIS_CONFIG]
+regenerate_bd_layout -routing
+regenerate_bd_layout -routing
+update_module_reference design_1_DSP_registers_0_0
+update_compile_order -fileset sources_1
+connect_bd_intf_net [get_bd_intf_pins DSP/DSP_registers_0/m_axis_fft] [get_bd_intf_pins DSP/axis_data_fifo_0/S_AXIS]
+connect_bd_net [get_bd_pins DSP/axis_data_fifo_0/s_axis_aresetn] [get_bd_pins DSP/DSP_reset_0/nResetSysClk]
+connect_bd_net [get_bd_pins DSP/sysClk] [get_bd_pins DSP/axis_data_fifo_0/s_axis_aclk]
+connect_bd_intf_net [get_bd_intf_pins DSP/xfft_0/M_AXIS_DATA] [get_bd_intf_pins DSP/DSP_registers_0/s_axis_fft]
+regenerate_bd_layout -hierarchy [get_bd_cells DSP] -routing
+delete_bd_objs [get_bd_intf_nets DSP/xfft_0_M_AXIS_DATA]
+update_module_reference design_1_DSP_registers_0_0
+connect_bd_net [get_bd_pins DSP/DSP_registers_0/fft_scale] [get_bd_pins DSP/FFTInputBitsConverter_0/scale]
+regenerate_bd_layout -hierarchy [get_bd_cells DSP]
+undo
+startgroup
+endgroup
+update_module_reference {design_1_FFTInputBitsConverter_0_0 design_1_FFTInputBitsConverter_1_0}
+startgroup
+set_property HDL_ATTRIBUTE.DEBUG false [get_bd_intf_nets { UIF_UIF_Master_0 } ]
+endgroup
+startgroup
+set_property HDL_ATTRIBUTE.DEBUG false [get_bd_nets { UIF_SPI_Master_CSn_0 } ]
+endgroup
+startgroup
+set_property HDL_ATTRIBUTE.DEBUG false [get_bd_nets { UIF/fifo_generator_2_axis_data_count } ]
+endgroup
+startgroup
+set_property HDL_ATTRIBUTE.DEBUG false [get_bd_nets { DSP_audioClkInterrupt } ]
+endgroup
+create_bd_cell -type module -reference FFTOutputBitsConverter DSP/FFTOutputBitsConvert_0
+set_property location {4 1347 645} [get_bd_cells DSP/FFTOutputBitsConvert_0]
+connect_bd_intf_net [get_bd_intf_pins DSP/xfft_0/M_AXIS_DATA] [get_bd_intf_pins DSP/FFTOutputBitsConvert_0/m_axis_data]
+set_property location {4 1342 634} [get_bd_cells DSP/FFTOutputBitsConvert_0]
+connect_bd_intf_net [get_bd_intf_pins DSP/FFTOutputBitsConvert_0/s_axis_data] [get_bd_intf_pins DSP/DSP_registers_0/s_axis_fft]
+undo
+undo
+redo
+copy_bd_objs DSP  [get_bd_cells {DSP/FFTInputBitsConverter_0}]
+undo
+copy_bd_objs DSP  [get_bd_cells {DSP/axis_data_fifo_0}]
+set_property location {5 1743 572} [get_bd_cells DSP/axis_data_fifo_1]
+connect_bd_intf_net [get_bd_intf_pins DSP/axis_data_fifo_1/S_AXIS] [get_bd_intf_pins DSP/FFTOutputBitsConvert_0/s_axis_data]
+connect_bd_net [get_bd_pins DSP/axis_data_fifo_1/s_axis_aresetn] [get_bd_pins DSP/DSP_reset_0/nResetSysClk]
+connect_bd_net [get_bd_pins DSP/sysClk] [get_bd_pins DSP/axis_data_fifo_1/s_axis_aclk]
+connect_bd_intf_net [get_bd_intf_pins DSP/axis_data_fifo_1/M_AXIS] [get_bd_intf_pins DSP/DSP_registers_0/s_axis_fft]
+regenerate_bd_layout -hierarchy [get_bd_cells DSP] -routing
+update_module_reference design_1_FFTOutputBitsConvert_0_0
+update_compile_order -fileset sources_1
+delete_bd_objs [get_bd_intf_nets DSP/FFTOutputBitsConvert_0_s_axis_data]
+delete_bd_objs [get_bd_cells DSP/FFTOutputBitsConvert_0]
+update_compile_order -fileset sources_1
+set_property location {4 1336 672} [get_bd_cells DSP/FFTOutputBitsConvert_0_upgraded_ipi]
+connect_bd_intf_net [get_bd_intf_pins DSP/FFTOutputBitsConvert_0_upgraded_ipi/s_axis_data] [get_bd_intf_pins DSP/xfft_0/M_AXIS_DATA]
+connect_bd_intf_net [get_bd_intf_pins DSP/FFTOutputBitsConvert_0_upgraded_ipi/m_axis_data] [get_bd_intf_pins DSP/axis_data_fifo_1/S_AXIS]
+regenerate_bd_layout -hierarchy [get_bd_cells DSP] -routing
+startgroup
+endgroup
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {DSP/xfft_0_M_AXIS_DATA}]
+startgroup
+connect_bd_net -net event_frame_started [get_bd_pins DSP/xfft_0/event_frame_started]
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {DSP/event_frame_started }]
+endgroup
+startgroup
+connect_bd_net -net event_tlast_unexpected [get_bd_pins DSP/xfft_0/event_tlast_unexpected]
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {DSP/event_tlast_unexpected }]
+endgroup
+startgroup
+connect_bd_net -net event_data_in_channel_halt [get_bd_pins DSP/xfft_0/event_data_in_channel_halt]
+connect_bd_net -net event_tlast_missing [get_bd_pins DSP/xfft_0/event_tlast_missing]
+connect_bd_net -net event_data_out_channel_halt [get_bd_pins DSP/xfft_0/event_data_out_channel_halt]
+connect_bd_net -net event_status_channel_halt [get_bd_pins DSP/xfft_0/event_status_channel_halt]
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {DSP/event_data_in_channel_halt DSP/event_tlast_missing DSP/event_data_out_channel_halt DSP/event_status_channel_halt }]
+endgroup
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {DSP/FFTInputBitsConverter_0_m_axis_data}]
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {DSP/FFTInputBitsConverter_0_m_axis_config}]
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+wait_on_run synth_1
+reset_run synth_1
+set_property name FFTOutputBitsConvert_0 [get_bd_cells DSP/FFTOutputBitsConvert_0_upgraded_ipi]
+delete_bd_objs [get_bd_intf_nets DSP/FFTOutputBitsConvert_0_upgraded_ipi_m_axis_data] [get_bd_intf_nets DSP/xfft_0_M_AXIS_DATA] [get_bd_cells DSP/FFTOutputBitsConvert_0]
+create_bd_cell -type module -reference FFTOutputBitsConverter DSP/FFTOutputBitsConvert_0
+connect_bd_intf_net [get_bd_intf_pins DSP/FFTOutputBitsConvert_0/s_axis_data] [get_bd_intf_pins DSP/xfft_0/M_AXIS_DATA]
+connect_bd_intf_net [get_bd_intf_pins DSP/FFTOutputBitsConvert_0/m_axis_data] [get_bd_intf_pins DSP/axis_data_fifo_1/S_AXIS]
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_intf_nets {DSP/xfft_0_M_AXIS_DATA}]
+save_bd_design
+launch_runs synth_1 -jobs 16
+wait_on_run synth_1
+current_design synth_1
+close_design
+open_run synth_1 -name synth_1
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+set_property HDL_ATTRIBUTE.DEBUG false [get_bd_nets { UIF/UIF_AXI_0_hostStart } ]
+endgroup
+delete_debug_core [get_debug_cores {u_ila_0 }]
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list design_1_i/processing_system7_0/inst/FCLK_CLK0 ]]
+set_property port_width 64 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[0]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[1]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[2]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[3]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[4]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[5]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[6]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[7]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[8]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[9]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[10]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[11]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[12]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[13]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[14]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[15]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[16]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[17]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[18]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[19]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[20]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[21]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[22]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[23]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[24]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[25]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[26]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[27]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[28]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[29]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[30]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[31]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[32]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[33]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[34]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[35]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[36]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[37]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[38]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[39]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[40]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[41]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[42]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[43]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[44]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[45]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[46]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[47]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[48]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[49]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[50]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[51]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[52]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[53]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[54]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[55]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[56]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[57]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[58]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[59]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[60]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[61]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[62]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA[63]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 48 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[0]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[1]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[2]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[3]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[4]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[5]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[6]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[7]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[8]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[9]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[10]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[11]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[12]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[13]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[14]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[15]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[16]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[17]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[18]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[19]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[20]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[21]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[22]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[23]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[24]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[25]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[26]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[27]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[28]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[29]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[30]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[31]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[32]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[33]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[34]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[35]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[36]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[37]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[38]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[39]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[40]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[41]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[42]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[43]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[44]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[45]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[46]} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA[47]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 64 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[0]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[1]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[2]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[3]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[4]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[5]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[6]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[7]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[8]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[9]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[10]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[11]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[12]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[13]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[14]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[15]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[16]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[17]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[18]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[19]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[20]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[21]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[22]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[23]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[24]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[25]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[26]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[27]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[28]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[29]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[30]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[31]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[32]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[33]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[34]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[35]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[36]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[37]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[38]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[39]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[40]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[41]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[42]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[43]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[44]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[45]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[46]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[47]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[48]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[49]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[50]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[51]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[52]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[53]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[54]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[55]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[56]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[57]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[58]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[59]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[60]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[61]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[62]} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA[63]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe3]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list design_1_i/DSP/event_data_in_channel_halt ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe4]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list design_1_i/DSP/event_data_out_channel_halt ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe5]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list design_1_i/DSP/event_frame_started ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe6]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list design_1_i/DSP/event_status_channel_halt ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe7]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list design_1_i/DSP/event_tlast_missing ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe8]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list design_1_i/DSP/event_tlast_unexpected ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe9]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe10]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe11]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe11]
+connect_debug_port u_ila_0/probe11 [get_nets [list design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe12]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe12]
+connect_debug_port u_ila_0/probe12 [get_nets [list design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe13]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe13]
+connect_debug_port u_ila_0/probe13 [get_nets [list design_1_i/DSP/xfft_0_M_AXIS_DATA_TREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe14]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe14]
+connect_debug_port u_ila_0/probe14 [get_nets [list design_1_i/DSP/xfft_0_M_AXIS_DATA_TVALID ]]
+save_bd_design
+save_constraints
+reset_run synth_1
+launch_runs synth_1 -jobs 16
+wait_on_run synth_1
+close_design
+open_run synth_1 -name synth_1
+launch_runs impl_1 -jobs 16
+wait_on_run impl_1
+current_design impl_1
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd]
+refresh_design
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+wait_on_run impl_1
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TDATA} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TREADY} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_config_TVALID} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TDATA} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TREADY} {design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TVALID} {design_1_i/DSP/event_data_in_channel_halt} {design_1_i/DSP/event_data_out_channel_halt} {design_1_i/DSP/event_frame_started} {design_1_i/DSP/event_status_channel_halt} {design_1_i/DSP/event_tlast_missing} {design_1_i/DSP/event_tlast_unexpected} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TREADY} {design_1_i/DSP/xfft_0_M_AXIS_DATA_TVALID} }
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+set_property TRIGGER_COMPARE_VALUE eq1'bR [get_hw_probes design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TVALID -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TVALID -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+set_property TRIGGER_COMPARE_VALUE eq1'bR [get_hw_probes design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TREADY -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TREADY -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property CONTROL.TRIGGER_POSITION 100 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+open_bd_design {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/design_1.bd}
+set_property TRIGGER_COMPARE_VALUE eq1'bR [get_hw_probes design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TVALID -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes design_1_i/DSP/FFTInputBitsConverter_0_m_axis_data_TVALID -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE neq64'hXXXX_XXXX_XXXX_XXXX [get_hw_probes design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq64'hXXXX_XXXX_XXXX_XXXX [get_hw_probes design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq64'h0000_0000_0000_0000 [get_hw_probes design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE neq64'h0000_0000_0000_0000 [get_hw_probes design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq64'hXXXX_XXXX_XXXX_XXXX [get_hw_probes design_1_i/DSP/xfft_0_M_AXIS_DATA_TDATA -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'bR [get_hw_probes design_1_i/DSP/xfft_0_M_AXIS_DATA_TVALID -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7z020_1] -filter {CELL_NAME=~"u_ila_0"}]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.ltx} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]

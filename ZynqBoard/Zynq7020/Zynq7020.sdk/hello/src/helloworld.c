@@ -60,10 +60,22 @@
 #include "myip.h"
 #include "DSP_register.h"
 #include "fingering.h"
+#include "xscugic.h"
+#include "xil_exception.h"
 
 u32 test[130000000];
 int scale[] = {0, 2, 4, 5, 7, 9, 11, 12};
 XIicPs Iic;
+XScuGic InterruptController; /* Instance of the Interrupt Controller */
+static XScuGic_Config *GicConfig;/* The configuration parameters of the controller */
+u8 adcCh = 0;
+u16 adcData;
+volatile u32 *UIF1WRITE = (volatile u32 *)(0x43C20000 + 16);
+
+volatile u32 *DSP_FFT_SCALE = (volatile u32 *)(0x43C10000 + 12);
+volatile u32 *DSP_FFT_WRITE = (volatile u32 *)(0x43C10000 + 20);
+volatile u32 *DSP_FFT_READ = (volatile u32 *)(0x43C10000 + 24);
+u32 ffttemp = 1;
 
 int i2c_write(XIicPs *Iic, u8 addr, u8 command, u16 i2c_adder)
 {
@@ -83,8 +95,39 @@ int i2c_write(XIicPs *Iic, u8 addr, u8 command, u16 i2c_adder)
     return XST_SUCCESS;
 }
 
+void OnAudioClk()
+{
+	while(Xil_In32(0x43C20000 + 28));
+
+	Xil_In32(0x43C20000 + 20);	// ignore
+	adcData = (Xil_In32(0x43C20000 + 20) & 0x0F) << 8;
+	adcData |= Xil_In32(0x43C20000 + 20) & 0xFF;
+
+	if(adcCh < 5)
+	{
+		adcCh++;
+	}
+	else
+	{
+		adcCh = 0;
+	}
+
+//    Xil_Out32(0x43C20000 + 16, 0x06 | adcCh >> 2);
+//    Xil_Out32(0x43C20000 + 16, adcCh << 6);
+//    Xil_Out32(0x43C20000 + 16, 0x00);
+    *UIF1WRITE = 0x06 | adcCh >> 2;		// <- and above codes are same execution speed.
+    *UIF1WRITE = adcCh << 6;
+    *UIF1WRITE = 0x00;
+
+    Xil_Out32(0x43C20000 + 24, 0x01);
+
+    // clear interrupt bit
+	*(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR &= ~0x00000004;
+}
+
 int main()
 {
+	s32 value[1025];
 	u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
 	u8 rddata[10][672], currentRow = 0;
 	int note;
@@ -94,11 +137,23 @@ int main()
 	XGpioPs instXGpioPs;
 	XGpioPs_Config *configXGpioPs;
 
+
     init_platform();
 
     MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x5);
-    MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG0_OFFSET, 0x0);
+    *(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR = 0x0;
+//    MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG0_OFFSET, 0x0);
     MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG2_OFFSET, 0xF);
+
+
+
+//    GicConfig = XScuGic_LookupConfig(XPAR_PS7_SCUGIC_0_DEVICE_ID);
+//    i = XScuGic_CfgInitialize(&InterruptController, GicConfig, GicConfig->CpuBaseAddress);
+//    Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (Xil_ExceptionHandler)XScuGic_InterruptHandler, &InterruptController);
+//    Xil_ExceptionEnable();
+//    i = XScuGic_Connect(&InterruptController, 61, (Xil_ExceptionHandler)OnAudioClk, NULL);
+//    XScuGic_Enable(&InterruptController, 61);
+
 
     Config = XIicPs_LookupConfig(XPAR_XIICPS_0_DEVICE_ID);
     status = XIicPs_CfgInitialize(&Iic, Config, Config->BaseAddress);
@@ -169,23 +224,41 @@ int main()
     Xil_Out32(0x43C20000, (u32)3);
 
 
+    *DSP_FFT_SCALE = 0x55556; // 0x05556 = x1, 0x15556 = x0.5, 0x55556 = x0.25 but perfectly secure.
+
+
+
     while(1)
     {
-        Xil_Out32(0x43C20000 + 16, 0x7F);
-        Xil_Out32(0x43C20000 + 16, 0xFE);
-        Xil_Out32(0x43C20000 + 16, 0x55);
-        Xil_Out32(0x43C20000 + 24, 0xFF);
-
-    	usleep(500000);
-
-    	i = Xil_In32(0x43C20000 + 20);
-    	i = Xil_In32(0x43C20000 + 20);
-    	i = Xil_In32(0x43C20000 + 20);
-    	i = Xil_In32(0x43C20000 + 20);
-
+    	usleep(2000000);
     	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x1);
-    	usleep(500000);
+    	usleep(2000000);
     	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x5);
+
+        for(i = 0; i < 1025; i++)
+        {
+        	value[i] = (s32)(1000.f * sinf((float)ffttemp * 2.f * 3.141592655358f * (float)i / 1024.f)) + (s32)(1000.f * cosf((float)ffttemp * 4.f * 3.141592655358f * (float)i / 1024.f));
+//        	value[i] = i * 2;
+        }
+
+        if(ffttemp < 100)
+        {
+        	ffttemp++;
+        }
+        else
+        {
+        	ffttemp = 1;
+        }
+
+        for(i = 0; i < 1024; i++)
+    	{
+    		*DSP_FFT_WRITE = value[i] & 0xFFF;
+    	}
+
+        for(i = 0; i < 1024; i++)
+        {
+            *DSP_FFT_READ;
+        }
     }
 
 

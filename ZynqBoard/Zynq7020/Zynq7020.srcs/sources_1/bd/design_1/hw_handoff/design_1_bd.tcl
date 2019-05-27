@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# DAC_FIFO, DAC_IF, DSP_reset, audio_clk_gen, UIF_AXI, UIF_SerialMasterController, UIF_SerialSlave, UIF_SerialSlave, delay, mult_sum, phase_gen_256, DSP_reg_read
+# DAC_FIFO, DAC_IF, DSP_registers, DSP_reset, FFTInputBitsConverter, FFTOutputBitsConverter, audio_clk_gen, UIF_AXI, UIF_SerialMasterController, UIF_SerialSlave, UIF_SerialSlave, delay, mult_sum, phase_gen_256, DSP_reg_read
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -626,7 +626,10 @@ proc create_hier_cell_UIF { parentCell nameHier } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
-  
+    set_property -dict [ list \
+   CONFIG.preScale {32} \
+ ] $UIF_SerialMasterCont_0
+
   # Create instance: UIF_SerialSlave_0, and set properties
   set block_name UIF_SerialSlave
   set block_cell_name UIF_SerialSlave_0
@@ -779,7 +782,6 @@ proc create_hier_cell_UIF { parentCell nameHier } {
 
   # Create interface connections
   connect_bd_intf_net -intf_net Conn1 [get_bd_intf_pins UIF_Master_1] [get_bd_intf_pins UIF_SerialMasterCont_0/UIF_Master]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_intf_nets Conn1]
   connect_bd_intf_net -intf_net UIF_AXI_0_m_axis_ht [get_bd_intf_pins UIF_AXI_0/m_axis_ht] [get_bd_intf_pins fifo_generator_2/S_AXIS]
   connect_bd_intf_net -intf_net UIF_AXI_0_m_axis_sr [get_bd_intf_pins UIF_AXI_0/m_axis_sr] [get_bd_intf_pins fifo_generator_0/S_AXIS]
   connect_bd_intf_net -intf_net UIF_SerialSlave_0_UIF_Slave [get_bd_intf_pins UIF_Slave_1] [get_bd_intf_pins UIF_SerialSlave_0/UIF_Slave]
@@ -795,14 +797,11 @@ set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_intf_nets Conn1]
   # Create port connections
   connect_bd_net -net UIF_AXI_0_UIF_res [get_bd_pins UIF_Res_1] [get_bd_pins UIF_AXI_0/UIF_res]
   connect_bd_net -net UIF_AXI_0_hostStart [get_bd_pins UIF_AXI_0/hostStart] [get_bd_pins UIF_SerialMasterCont_0/start]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets UIF_AXI_0_hostStart]
   connect_bd_net -net UIF_AXI_0_sys_nReset [get_bd_pins UIF_AXI_0/sys_nReset] [get_bd_pins UIF_SerialMasterCont_0/nReset] [get_bd_pins UIF_SerialSlave_0/nReset] [get_bd_pins UIF_SerialSlave_1/nReset] [get_bd_pins fifo_generator_0/s_aresetn] [get_bd_pins fifo_generator_1/s_aresetn] [get_bd_pins fifo_generator_2/s_aresetn] [get_bd_pins fifo_generator_3/s_aresetn]
   connect_bd_net -net UIF_SerialMasterCont_0_SPI_Master_CSn [get_bd_pins SPI_Master_CSn_1] [get_bd_pins UIF_SerialMasterCont_0/SPI_Master_CSn]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets UIF_SerialMasterCont_0_SPI_Master_CSn]
   connect_bd_net -net UIF_SerialMasterCont_0_busy [get_bd_pins UIF_AXI_0/hostIsBusy] [get_bd_pins UIF_SerialMasterCont_0/busy]
   connect_bd_net -net fifo_generator_1_axis_data_count [get_bd_pins UIF_AXI_0/st_fifo_count] [get_bd_pins fifo_generator_1/axis_data_count]
   connect_bd_net -net fifo_generator_2_axis_data_count [get_bd_pins UIF_SerialMasterCont_0/txFifoCount] [get_bd_pins fifo_generator_2/axis_data_count]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets fifo_generator_2_axis_data_count]
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins s_aclk] [get_bd_pins UIF_AXI_0/S_AXI_ACLK] [get_bd_pins UIF_SerialMasterCont_0/sysClk] [get_bd_pins UIF_SerialSlave_0/sysClk] [get_bd_pins UIF_SerialSlave_1/sysClk] [get_bd_pins fifo_generator_0/s_aclk] [get_bd_pins fifo_generator_1/s_aclk] [get_bd_pins fifo_generator_2/s_aclk] [get_bd_pins fifo_generator_3/s_aclk]
   connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins S_AXI_ARESETN] [get_bd_pins UIF_AXI_0/S_AXI_ARESETN]
 
@@ -850,6 +849,8 @@ proc create_hier_cell_DSP { parentCell nameHier } {
 
   # Create pins
   create_bd_pin -dir I audio256Clk
+  create_bd_pin -dir O audioClkInterrupt
+  create_bd_pin -dir I audioSample
   create_bd_pin -dir O nResetAudio256Clk
   create_bd_pin -dir I nResetExt
   create_bd_pin -dir O nResetSysClk
@@ -862,9 +863,17 @@ proc create_hier_cell_DSP { parentCell nameHier } {
   create_bd_pin -dir I -type rst s01_axi_aresetn
   create_bd_pin -dir I sysClk
 
-  # Create instance: DSP_register_0, and set properties
-  set DSP_register_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:DSP_register:1.0 DSP_register_0 ]
-
+  # Create instance: DSP_registers_0, and set properties
+  set block_name DSP_registers
+  set block_cell_name DSP_registers_0
+  if { [catch {set DSP_registers_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $DSP_registers_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: DSP_reset_0, and set properties
   set block_name DSP_reset
   set block_cell_name DSP_reset_0
@@ -872,6 +881,28 @@ proc create_hier_cell_DSP { parentCell nameHier } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    } elseif { $DSP_reset_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: FFTInputBitsConverter_0, and set properties
+  set block_name FFTInputBitsConverter
+  set block_cell_name FFTInputBitsConverter_0
+  if { [catch {set FFTInputBitsConverter_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $FFTInputBitsConverter_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: FFTOutputBitsConvert_0, and set properties
+  set block_name FFTOutputBitsConverter
+  set block_cell_name FFTOutputBitsConvert_0
+  if { [catch {set FFTOutputBitsConvert_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $FFTOutputBitsConvert_0 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -890,25 +921,121 @@ proc create_hier_cell_DSP { parentCell nameHier } {
      return 1
    }
   
+  # Create instance: axis_data_fifo_1, and set properties
+  set axis_data_fifo_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_data_fifo:2.0 axis_data_fifo_1 ]
+  set_property -dict [ list \
+   CONFIG.FIFO_DEPTH {2048} \
+   CONFIG.TDATA_NUM_BYTES {4} \
+ ] $axis_data_fifo_1
+
+  # Create instance: fifo_generator_0, and set properties
+  set fifo_generator_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:fifo_generator:13.2 fifo_generator_0 ]
+  set_property -dict [ list \
+   CONFIG.Clock_Type_AXI {Common_Clock} \
+   CONFIG.Empty_Threshold_Assert_Value_axis {2046} \
+   CONFIG.Empty_Threshold_Assert_Value_rach {14} \
+   CONFIG.Empty_Threshold_Assert_Value_rdch {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wach {14} \
+   CONFIG.Empty_Threshold_Assert_Value_wdch {1022} \
+   CONFIG.Empty_Threshold_Assert_Value_wrch {14} \
+   CONFIG.Enable_Data_Counts_axis {true} \
+   CONFIG.Enable_Safety_Circuit {true} \
+   CONFIG.FIFO_Implementation_axis {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_rach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_rdch {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_wach {Common_Clock_Distributed_RAM} \
+   CONFIG.FIFO_Implementation_wdch {Common_Clock_Block_RAM} \
+   CONFIG.FIFO_Implementation_wrch {Common_Clock_Distributed_RAM} \
+   CONFIG.Full_Flags_Reset_Value {1} \
+   CONFIG.Full_Threshold_Assert_Value_axis {2047} \
+   CONFIG.Full_Threshold_Assert_Value_rach {15} \
+   CONFIG.Full_Threshold_Assert_Value_wach {15} \
+   CONFIG.Full_Threshold_Assert_Value_wrch {15} \
+   CONFIG.HAS_TKEEP {false} \
+   CONFIG.HAS_TSTRB {false} \
+   CONFIG.INTERFACE_TYPE {AXI_STREAM} \
+   CONFIG.Input_Depth_axis {2048} \
+   CONFIG.Reset_Type {Asynchronous_Reset} \
+   CONFIG.TDATA_NUM_BYTES {4} \
+   CONFIG.TKEEP_WIDTH {4} \
+   CONFIG.TSTRB_WIDTH {4} \
+   CONFIG.TUSER_WIDTH {0} \
+ ] $fifo_generator_0
+
+  # Create instance: xfft_0, and set properties
+  set xfft_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xfft:9.1 xfft_0 ]
+  set_property -dict [ list \
+   CONFIG.aclken {false} \
+   CONFIG.aresetn {true} \
+   CONFIG.butterfly_type {use_luts} \
+   CONFIG.channels {2} \
+   CONFIG.complex_mult_type {use_mults_resources} \
+   CONFIG.cyclic_prefix_insertion {false} \
+   CONFIG.implementation_options {radix_2_burst_io} \
+   CONFIG.input_width {12} \
+   CONFIG.memory_options_data {block_ram} \
+   CONFIG.memory_options_hybrid {false} \
+   CONFIG.memory_options_phase_factors {block_ram} \
+   CONFIG.number_of_stages_using_block_ram_for_data_and_phase_factors {0} \
+   CONFIG.output_ordering {natural_order} \
+   CONFIG.phase_factor_width {16} \
+   CONFIG.rounding_modes {truncation} \
+   CONFIG.run_time_configurable_transform_length {false} \
+   CONFIG.scaling_options {scaled} \
+   CONFIG.target_clock_frequency {100} \
+   CONFIG.target_data_throughput {50} \
+   CONFIG.throttle_scheme {nonrealtime} \
+   CONFIG.xk_index {false} \
+ ] $xfft_0
+
   # Create interface connections
-  connect_bd_intf_net -intf_net Conn1 [get_bd_intf_pins S00_AXI] [get_bd_intf_pins DSP_register_0/S00_AXI]
   connect_bd_intf_net -intf_net Conn2 [get_bd_intf_pins S01_AXI] [get_bd_intf_pins Synthesizer/S_AXI]
+  connect_bd_intf_net -intf_net DSP_registers_0_m_axis_fft [get_bd_intf_pins DSP_registers_0/m_axis_fft] [get_bd_intf_pins fifo_generator_0/S_AXIS]
+  connect_bd_intf_net -intf_net FFTInputBitsConverter_0_m_axis_config [get_bd_intf_pins FFTInputBitsConverter_0/m_axis_config] [get_bd_intf_pins xfft_0/S_AXIS_CONFIG]
+  connect_bd_intf_net -intf_net FFTInputBitsConverter_0_m_axis_data [get_bd_intf_pins FFTInputBitsConverter_0/m_axis_data] [get_bd_intf_pins xfft_0/S_AXIS_DATA]
+  connect_bd_intf_net -intf_net FFTOutputBitsConvert_0_m_axis_data [get_bd_intf_pins FFTOutputBitsConvert_0/m_axis_data] [get_bd_intf_pins axis_data_fifo_1/S_AXIS]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_intf_nets FFTOutputBitsConvert_0_m_axis_data]
+  connect_bd_intf_net -intf_net S00_AXI_1 [get_bd_intf_pins S00_AXI] [get_bd_intf_pins DSP_registers_0/S_AXI]
+  connect_bd_intf_net -intf_net axis_data_fifo_1_M_AXIS [get_bd_intf_pins DSP_registers_0/s_axis_fft] [get_bd_intf_pins axis_data_fifo_1/M_AXIS]
+  connect_bd_intf_net -intf_net fifo_generator_0_M_AXIS [get_bd_intf_pins FFTInputBitsConverter_0/s_axis_data] [get_bd_intf_pins fifo_generator_0/M_AXIS]
+  connect_bd_intf_net -intf_net xfft_0_M_AXIS_DATA [get_bd_intf_pins FFTOutputBitsConvert_0/s_axis_data] [get_bd_intf_pins xfft_0/M_AXIS_DATA]
 
   # Create port connections
-  connect_bd_net -net DSP_register_0_synth0Gain [get_bd_pins DSP_register_0/synth0Gain] [get_bd_pins Synthesizer/outGain]
-  connect_bd_net -net DSP_register_0_sysNReset [get_bd_pins DSP_register_0/sysNReset] [get_bd_pins DSP_reset_0/nResetInt]
+  connect_bd_net -net DSP_registers_0_audioClkInterrupt [get_bd_pins audioClkInterrupt] [get_bd_pins DSP_registers_0/audioClkInterrupt]
+  connect_bd_net -net DSP_registers_0_fft_scale [get_bd_pins DSP_registers_0/fft_scale] [get_bd_pins FFTInputBitsConverter_0/scale]
+  connect_bd_net -net DSP_registers_0_m_axis_fft_tdata [get_bd_pins DSP_registers_0/m_axis_fft_tdata] [get_bd_pins fifo_generator_0/s_axis_tdata]
+  connect_bd_net -net DSP_registers_0_synth0Gain [get_bd_pins DSP_registers_0/synth0Gain] [get_bd_pins Synthesizer/outGain]
+  connect_bd_net -net DSP_registers_0_sysNReset [get_bd_pins DSP_registers_0/sysNReset] [get_bd_pins DSP_reset_0/nResetInt]
   connect_bd_net -net DSP_reset_0_nResetAudioClk [get_bd_pins nResetAudio256Clk] [get_bd_pins DSP_reset_0/nResetAudio256Clk] [get_bd_pins audio_clk_gen_0/nResetAudio256Clk]
-  connect_bd_net -net DSP_reset_0_nResetSysClk1 [get_bd_pins nResetSysClk] [get_bd_pins DSP_reset_0/nResetSysClk] [get_bd_pins Synthesizer/nReset] [get_bd_pins audio_clk_gen_0/nResetSysClk]
+  connect_bd_net -net DSP_reset_0_nResetSysClk1 [get_bd_pins nResetSysClk] [get_bd_pins DSP_reset_0/nResetSysClk] [get_bd_pins FFTInputBitsConverter_0/nReset] [get_bd_pins Synthesizer/nReset] [get_bd_pins audio_clk_gen_0/nResetSysClk] [get_bd_pins axis_data_fifo_1/s_axis_aresetn] [get_bd_pins fifo_generator_0/s_aresetn] [get_bd_pins xfft_0/aresetn]
+  connect_bd_net -net FFTInputBitsConverter_0_m_axis_data_tdata [get_bd_pins FFTInputBitsConverter_0/m_axis_data_tdata] [get_bd_pins xfft_0/s_axis_data_tdata]
   connect_bd_net -net Synthesizer_sync_0 [get_bd_pins outDataValid] [get_bd_pins Synthesizer/outDataValid]
   connect_bd_net -net audioClk256_0_1 [get_bd_pins audio256Clk] [get_bd_pins DSP_reset_0/audio256Clk] [get_bd_pins audio_clk_gen_0/audio256Clk]
+  connect_bd_net -net audioClkSync_0_1 [get_bd_pins audioSample] [get_bd_pins DSP_registers_0/audioSample]
   connect_bd_net -net audio_clk_gen_0_audioClk [get_bd_pins Synthesizer/audioClkSync] [get_bd_pins audio_clk_gen_0/audioClkSync]
+  connect_bd_net -net event_frame_started [get_bd_pins xfft_0/event_frame_started]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets event_frame_started]
+  connect_bd_net -net fifo_generator_0_axis_data_count [get_bd_pins FFTInputBitsConverter_0/fifo_count] [get_bd_pins fifo_generator_0/axis_data_count]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets fifo_generator_0_axis_data_count]
+  connect_bd_net -net fifo_generator_0_m_axis_tdata [get_bd_pins FFTInputBitsConverter_0/s_axis_data_tdata] [get_bd_pins fifo_generator_0/m_axis_tdata]
+  connect_bd_net -net m_axis_data_tvalid [get_bd_pins FFTInputBitsConverter_0/m_axis_data_tvalid] [get_bd_pins xfft_0/s_axis_data_tvalid]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets m_axis_data_tvalid]
+  connect_bd_net -net m_axis_fft_tvalid [get_bd_pins DSP_registers_0/m_axis_fft_tvalid] [get_bd_pins fifo_generator_0/s_axis_tvalid]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets m_axis_fft_tvalid]
+  connect_bd_net -net m_axis_tvalid [get_bd_pins FFTInputBitsConverter_0/s_axis_data_tvalid] [get_bd_pins fifo_generator_0/m_axis_tvalid]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets m_axis_tvalid]
   connect_bd_net -net mult_sum_0_out [get_bd_pins outData0] [get_bd_pins outData1] [get_bd_pins Synthesizer/outData]
   connect_bd_net -net nResetExt_0_1 [get_bd_pins nResetExt] [get_bd_pins DSP_reset_0/nResetExt]
-  connect_bd_net -net s00_axi_aclk_0_1 [get_bd_pins s00_axi_aclk] [get_bd_pins DSP_register_0/s00_axi_aclk]
-  connect_bd_net -net s00_axi_aresetn_0_1 [get_bd_pins s00_axi_aresetn] [get_bd_pins DSP_register_0/s00_axi_aresetn]
+  connect_bd_net -net s00_axi_aclk_1 [get_bd_pins s00_axi_aclk] [get_bd_pins DSP_registers_0/S_AXI_ACLK]
+  connect_bd_net -net s00_axi_aresetn_1 [get_bd_pins s00_axi_aresetn] [get_bd_pins DSP_registers_0/S_AXI_ARESETN]
   connect_bd_net -net s_axi_aclk_0_1 [get_bd_pins s01_axi_aclk] [get_bd_pins Synthesizer/s_axi_aclk]
   connect_bd_net -net s_axi_aresetn_0_1 [get_bd_pins s01_axi_aresetn] [get_bd_pins Synthesizer/s_axi_aresetn]
-  connect_bd_net -net sysClk_0_1 [get_bd_pins sysClk] [get_bd_pins DSP_reset_0/sysClk] [get_bd_pins Synthesizer/sysClk] [get_bd_pins audio_clk_gen_0/sysClk]
+  connect_bd_net -net s_axis_data_tready [get_bd_pins FFTInputBitsConverter_0/m_axis_data_tready] [get_bd_pins xfft_0/s_axis_data_tready]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets s_axis_data_tready]
+  connect_bd_net -net s_axis_data_tready_1 [get_bd_pins FFTInputBitsConverter_0/s_axis_data_tready] [get_bd_pins fifo_generator_0/m_axis_tready]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets s_axis_data_tready_1]
+  connect_bd_net -net s_axis_tready [get_bd_pins DSP_registers_0/m_axis_fft_tready] [get_bd_pins fifo_generator_0/s_axis_tready]
+  connect_bd_net -net sysClk_0_1 [get_bd_pins sysClk] [get_bd_pins DSP_reset_0/sysClk] [get_bd_pins FFTInputBitsConverter_0/clk] [get_bd_pins Synthesizer/sysClk] [get_bd_pins audio_clk_gen_0/sysClk] [get_bd_pins axis_data_fifo_1/s_axis_aclk] [get_bd_pins fifo_generator_0/s_aclk] [get_bd_pins xfft_0/aclk]
 
   # Restore current instance
   current_bd_instance $oldCurInst
@@ -1165,6 +1292,8 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_CLK1_FREQ {100000000} \
    CONFIG.PCW_CLK2_FREQ {10000000} \
    CONFIG.PCW_CLK3_FREQ {10000000} \
+   CONFIG.PCW_CORE0_FIQ_INTR {0} \
+   CONFIG.PCW_CORE0_IRQ_INTR {0} \
    CONFIG.PCW_CPU_CPU_PLL_FREQMHZ {1333.333} \
    CONFIG.PCW_CPU_PERIPHERAL_DIVISOR0 {2} \
    CONFIG.PCW_DCI_PERIPHERAL_DIVISOR0 {15} \
@@ -1220,6 +1349,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_I2C_RESET_ENABLE {0} \
    CONFIG.PCW_IOPLL_CTRL_FBDIV {48} \
    CONFIG.PCW_IO_IO_PLL_FREQMHZ {1600.000} \
+   CONFIG.PCW_IRQ_F2P_INTR {1} \
    CONFIG.PCW_MIO_0_DIRECTION {inout} \
    CONFIG.PCW_MIO_0_IOTYPE {LVCMOS 3.3V} \
    CONFIG.PCW_MIO_0_PULLUP {enabled} \
@@ -1515,6 +1645,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_USB0_USB0_IO {<Select>} \
    CONFIG.PCW_USB1_RESET_ENABLE {0} \
    CONFIG.PCW_USB_RESET_ENABLE {0} \
+   CONFIG.PCW_USE_FABRIC_INTERRUPT {1} \
  ] $processing_system7_0
 
   # Create instance: ps7_0_axi_periph, and set properties
@@ -1540,17 +1671,16 @@ proc create_root_design { parentCell } {
 
   # Create port connections
   connect_bd_net -net DAC_IF_0_DAC_BCLK [get_bd_ports DAC_BICK_0] [get_bd_pins DAC_Interface/DAC_BICK_0]
-  connect_bd_net -net DAC_IF_0_DAC_LRCK [get_bd_ports DAC_LRCK_0] [get_bd_pins DAC_Interface/DAC_LRCK_0]
+  connect_bd_net -net DAC_IF_0_DAC_LRCK [get_bd_ports DAC_LRCK_0] [get_bd_pins DAC_Interface/DAC_LRCK_0] [get_bd_pins DSP/audioSample]
   connect_bd_net -net DAC_IF_0_DAC_MCLK [get_bd_ports DAC_MCLK_0] [get_bd_pins DAC_Interface/DAC_MCLK_0]
   connect_bd_net -net DAC_IF_0_DAC_SDT [get_bd_ports DAC_SDT_0] [get_bd_pins DAC_Interface/DAC_SDT_0]
+  connect_bd_net -net DSP_audioClkInterrupt [get_bd_pins DSP/audioClkInterrupt] [get_bd_pins processing_system7_0/IRQ_F2P]
   connect_bd_net -net DSP_nResetSysClk [get_bd_pins DAC_Interface/fifo_aresetn] [get_bd_pins DSP/nResetSysClk]
   connect_bd_net -net DSP_outData1 [get_bd_pins DAC_Interface/Data0] [get_bd_pins DSP/outData0]
   connect_bd_net -net DSP_outData2 [get_bd_pins DAC_Interface/Data1] [get_bd_pins DSP/outData1]
   connect_bd_net -net DSP_outDataValid [get_bd_pins DAC_Interface/nResetAudio256Clk] [get_bd_pins DSP/nResetAudio256Clk]
   connect_bd_net -net DSP_outDataValid1 [get_bd_pins DAC_Interface/DataValid] [get_bd_pins DSP/outDataValid]
   connect_bd_net -net UIF_AXI_0_UIF_res [get_bd_ports UIF_Res_1] [get_bd_pins UIF/UIF_Res_1]
-  create_bd_net UIF_Master_1_h_rxd_1
-  connect_bd_net -net [get_bd_nets UIF_Master_1_h_rxd_1] [get_bd_pins UIF/UIF_Master_1_h_rxd] [get_bd_pins UIF/UIF_Master_1_h_txd]
   connect_bd_net -net UIF_SPI_Master_CSn_0 [get_bd_ports SPI_Master_CSn_1] [get_bd_pins UIF/SPI_Master_CSn_1]
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins DAC_Interface/audio256Clk] [get_bd_pins DSP/audio256Clk] [get_bd_pins clk_wiz_0/clk_out1]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins DSP/nResetExt] [get_bd_pins clk_wiz_0/locked]
@@ -1563,7 +1693,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins DSP/s00_axi_aresetn] [get_bd_pins DSP/s01_axi_aresetn] [get_bd_pins UIF/S_AXI_ARESETN] [get_bd_pins myip_0/s00_axi_aresetn] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
 
   # Create address segments
-  create_bd_addr_seg -range 0x00010000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/DSP_register_0/S00_AXI/S00_AXI_reg] SEG_DSP_register_0_S00_AXI_reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/DSP_registers_0/S_AXI/reg0] SEG_DSP_registers_0_reg0
   create_bd_addr_seg -range 0x00010000 -offset 0x43C20000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs UIF/UIF_AXI_0/S_AXI/reg0] SEG_UIF_AXI_0_reg0
   create_bd_addr_seg -range 0x00002000 -offset 0x40000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/Synthesizer/axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
   create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs myip_0/S00_AXI/S00_AXI_reg] SEG_myip_0_S00_AXI_reg

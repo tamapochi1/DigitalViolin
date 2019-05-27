@@ -27,9 +27,6 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_DAC_IF
 # IP: bd/design_1/ip/design_1_audio_clk_gen_0_0/design_1_audio_clk_gen_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_audio_clk_gen_0_0 || ORIG_REF_NAME==design_1_audio_clk_gen_0_0} -quiet] -quiet
 
-# IP: bd/design_1/ip/design_1_DSP_register_0_0/design_1_DSP_register_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_DSP_register_0_0 || ORIG_REF_NAME==design_1_DSP_register_0_0} -quiet] -quiet
-
 # IP: bd/design_1/ip/design_1_blk_mem_gen_0_1/design_1_blk_mem_gen_0_1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_blk_mem_gen_0_1 || ORIG_REF_NAME==design_1_blk_mem_gen_0_1} -quiet] -quiet
 
@@ -95,6 +92,24 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_UIF_Se
 
 # IP: bd/design_1/ip/design_1_UIF_SerialMasterCont_0_0/design_1_UIF_SerialMasterCont_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_UIF_SerialMasterCont_0_0 || ORIG_REF_NAME==design_1_UIF_SerialMasterCont_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_DSP_registers_0_0/design_1_DSP_registers_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_DSP_registers_0_0 || ORIG_REF_NAME==design_1_DSP_registers_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_xfft_0_0/design_1_xfft_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_xfft_0_0 || ORIG_REF_NAME==design_1_xfft_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_FFTInputBitsConverter_0_0/design_1_FFTInputBitsConverter_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_FFTInputBitsConverter_0_0 || ORIG_REF_NAME==design_1_FFTInputBitsConverter_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_axis_data_fifo_0_1/design_1_axis_data_fifo_0_1.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_axis_data_fifo_0_1 || ORIG_REF_NAME==design_1_axis_data_fifo_0_1} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_FFTOutputBitsConvert_0_0/design_1_FFTOutputBitsConvert_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_FFTOutputBitsConvert_0_0 || ORIG_REF_NAME==design_1_FFTOutputBitsConvert_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_fifo_generator_0_4/design_1_fifo_generator_0_4.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_fifo_generator_0_4 || ORIG_REF_NAME==design_1_fifo_generator_0_4} -quiet] -quiet
 
 # IP: bd/design_1/ip/design_1_auto_pc_3/design_1_auto_pc_3.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_auto_pc_3 || ORIG_REF_NAME==design_1_auto_pc_3} -quiet] -quiet

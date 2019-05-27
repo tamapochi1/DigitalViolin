@@ -4,9 +4,9 @@
 	<item value="Default C source template" key="LastUsedSourceTemplate"/>
 	<item value="Default C header template" key="LastUsedHeaderTemplate"/>
 	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
-		<item value="1018" key="DIALOG_WIDTH"/>
-		<item value="1|メイリオ|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|メイリオ" key="DIALOG_FONT_NAME"/>
-		<item value="514" key="DIALOG_HEIGHT"/>
+		<item value="398" key="DIALOG_WIDTH"/>
+		<item value="1|Yu Gothic UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Yu Gothic UI" key="DIALOG_FONT_NAME"/>
+		<item value="438" key="DIALOG_HEIGHT"/>
 		<item value="532" key="DIALOG_X_ORIGIN"/>
 		<item value="251" key="DIALOG_Y_ORIGIN"/>
 	</section>
@@ -15,6 +15,13 @@
 		<item value="704" key="size.width"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+	<section name="PDOMSearchPage">
+		<item value="false" key="caseSensitive"/>
+		<item value="227191" key="searchFlags"/>
+		<list key="previousPatterns">
+			<item value="XScuGicInstancePtr"/>
+		</list>
 	</section>
 	<section name="completion_proposal_size">
 	</section>

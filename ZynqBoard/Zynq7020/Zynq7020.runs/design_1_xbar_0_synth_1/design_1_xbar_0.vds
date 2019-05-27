@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Fri May 24 02:27:37 2019
-# Process ID: 11832
+# Start of session at: Sun May 26 00:34:59 2019
+# Process ID: 20936
 # Current directory: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_xbar_0_synth_1
 # Command line: vivado.exe -log design_1_xbar_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_xbar_0.tcl
 # Log file: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_xbar_0_synth_1/design_1_xbar_0.vds
@@ -23,9 +23,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 13192 
+INFO: Helper process launched with PID 11460 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 381.711 ; gain = 107.652
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 379.402 ; gain = 107.094
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/synth/design_1_xbar_0.v:59]
 INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_19_axi_crossbar' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:4884]
@@ -53,8 +53,8 @@ INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_19_axi_crossbar' [c:
 	Parameter C_S_AXI_SINGLE_THREAD bound to: 0 - type: integer 
 	Parameter C_S_AXI_WRITE_ACCEPTANCE bound to: 8 - type: integer 
 	Parameter C_S_AXI_READ_ACCEPTANCE bound to: 8 - type: integer 
-	Parameter C_M_AXI_WRITE_ISSUING bound to: 128'b00000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000 
-	Parameter C_M_AXI_READ_ISSUING bound to: 128'b00000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000 
+	Parameter C_M_AXI_WRITE_ISSUING bound to: 128'b00000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000001000000000000000000000000000001000 
+	Parameter C_M_AXI_READ_ISSUING bound to: 128'b00000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000001000000000000000000000000000001000 
 	Parameter C_S_AXI_ARB_PRIORITY bound to: 0 - type: integer 
 	Parameter C_M_AXI_SECURE bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter C_CONNECTIVITY_MODE bound to: 1 - type: integer 
@@ -106,15 +106,15 @@ INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_19_crossbar' [c:/Git
 	Parameter C_S_AXI_SINGLE_THREAD bound to: 0 - type: integer 
 	Parameter C_S_AXI_WRITE_ACCEPTANCE bound to: 8 - type: integer 
 	Parameter C_S_AXI_READ_ACCEPTANCE bound to: 8 - type: integer 
-	Parameter C_M_AXI_WRITE_ISSUING bound to: 128'b00000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000 
-	Parameter C_M_AXI_READ_ISSUING bound to: 128'b00000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000 
+	Parameter C_M_AXI_WRITE_ISSUING bound to: 128'b00000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000001000000000000000000000000000001000 
+	Parameter C_M_AXI_READ_ISSUING bound to: 128'b00000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000001000000000000000000000000000001000 
 	Parameter C_S_AXI_ARB_PRIORITY bound to: 0 - type: integer 
 	Parameter C_M_AXI_SECURE bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter C_M_AXI_ERR_MODE bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter C_RANGE_CHECK bound to: 1 - type: integer 
 	Parameter C_ADDR_DECODE bound to: 1 - type: integer 
-	Parameter C_W_ISSUE_WIDTH bound to: 160'b0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000110000000000000000000000000000001100000000000000000000000000000011 
-	Parameter C_R_ISSUE_WIDTH bound to: 160'b0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000110000000000000000000000000000001100000000000000000000000000000011 
+	Parameter C_W_ISSUE_WIDTH bound to: 160'b0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000110000000000000000000000000000000100000000000000000000000000000011 
+	Parameter C_R_ISSUE_WIDTH bound to: 160'b0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000110000000000000000000000000000000100000000000000000000000000000011 
 	Parameter C_W_ACCEPT_WIDTH bound to: 32'b00000000000000000000000000000011 
 	Parameter C_R_ACCEPT_WIDTH bound to: 32'b00000000000000000000000000000011 
 	Parameter C_DEBUG bound to: 1 - type: integer 
@@ -142,8 +142,8 @@ INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_19_crossbar' [c:/Git
 	Parameter P_M_AXI_READ_CONNECTIVITY bound to: 160'b1111111111111111111111111111111100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001 
 	Parameter P_S_AXI_WRITE_CONNECTIVITY bound to: 32'b11111111111111111111111111111111 
 	Parameter P_S_AXI_READ_CONNECTIVITY bound to: 32'b11111111111111111111111111111111 
-	Parameter P_M_AXI_READ_ISSUING bound to: 160'b0000000000000000000000000000000100000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000 
-	Parameter P_M_AXI_WRITE_ISSUING bound to: 160'b0000000000000000000000000000000100000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000 
+	Parameter P_M_AXI_READ_ISSUING bound to: 160'b0000000000000000000000000000000100000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000001000000000000000000000000000001000 
+	Parameter P_M_AXI_WRITE_ISSUING bound to: 160'b0000000000000000000000000000000100000000000000000000000000000010000000000000000000000000000010000000000000000000000000000000001000000000000000000000000000001000 
 	Parameter P_DECERR bound to: 2'b11 
 INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_19_si_transactor' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3800]
 	Parameter C_FAMILY bound to: zynq - type: string 
@@ -715,8 +715,6 @@ INFO: [Synth 8-6157] synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' 
 INFO: [Synth 8-6155] done synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' (17#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v:474]
 INFO: [Synth 8-6155] done synthesizing module 'axi_register_slice_v2_1_18_axi_register_slice' (18#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/cc23/hdl/axi_register_slice_v2_1_vl_rfs.v:2637]
 WARNING: [Synth 8-350] instance 'reg_slice_mi' of module 'axi_register_slice_v2_1_18_axi_register_slice' requires 93 connections, but only 92 given [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3122]
-WARNING: [Synth 8-350] instance 'reg_slice_mi' of module 'axi_register_slice_v2_1_18_axi_register_slice' requires 93 connections, but only 92 given [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3122]
-WARNING: [Synth 8-350] instance 'reg_slice_mi' of module 'axi_register_slice_v2_1_18_axi_register_slice' requires 93 connections, but only 92 given [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3122]
 INFO: [Synth 8-6157] synthesizing module 'axi_data_fifo_v2_1_17_axic_srl_fifo__parameterized1' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/c4fd/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_FIFO_WIDTH bound to: 8 - type: integer 
@@ -748,6 +746,8 @@ INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_19_wdata_mux__parame
 	Parameter C_FIFO_DEPTH_LOG bound to: 1 - type: integer 
 	Parameter P_FIFO_DEPTH_LOG bound to: 1 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'axi_crossbar_v2_1_19_wdata_mux__parameterized0' (18#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:4561]
+WARNING: [Synth 8-350] instance 'reg_slice_mi' of module 'axi_register_slice_v2_1_18_axi_register_slice' requires 93 connections, but only 92 given [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3122]
+WARNING: [Synth 8-350] instance 'reg_slice_mi' of module 'axi_register_slice_v2_1_18_axi_register_slice' requires 93 connections, but only 92 given [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3122]
 WARNING: [Synth 8-350] instance 'reg_slice_mi' of module 'axi_register_slice_v2_1_18_axi_register_slice' requires 93 connections, but only 92 given [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3122]
 INFO: [Synth 8-6157] synthesizing module 'axi_data_fifo_v2_1_17_axic_srl_fifo__parameterized2' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/c4fd/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
 	Parameter C_FAMILY bound to: zynq - type: string 
@@ -883,7 +883,7 @@ WARNING: [Synth 8-3331] design axi_crossbar_v2_1_19_axi_crossbar has unconnected
 WARNING: [Synth 8-3331] design axi_crossbar_v2_1_19_axi_crossbar has unconnected port m_axi_ruser[1]
 WARNING: [Synth 8-3331] design axi_crossbar_v2_1_19_axi_crossbar has unconnected port m_axi_ruser[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 553.621 ; gain = 279.563
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 550.953 ; gain = 278.645
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -896,10 +896,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 553.621 ; gain = 279.563
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 550.953 ; gain = 278.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 553.621 ; gain = 279.563
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 550.953 ; gain = 278.645
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 64 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -914,28 +914,28 @@ Parsing XDC File [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1
 Finished Parsing XDC File [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_xbar_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 828.805 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 826.613 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 830.449 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.138 . Memory (MB): peak = 832.066 ; gain = 3.262
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 828.473 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.102 . Memory (MB): peak = 829.887 ; gain = 3.273
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 832.066 ; gain = 558.008
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 829.887 ; gain = 557.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 832.066 ; gain = 558.008
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 829.887 ; gain = 557.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for inst. (constraint file  C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_xbar_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 832.066 ; gain = 558.008
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 829.887 ; gain = 557.578
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4471] merging register 'gen_axi.s_axi_rvalid_i_reg' into 'gen_axi.read_cs_reg[0:0]' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3669]
 INFO: [Synth 8-802] inferred FSM for state register 'gen_axi.write_cs_reg' in module 'axi_crossbar_v2_1_19_decerr_slave'
@@ -973,8 +973,6 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'axi_d
 INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3092]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3092]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3092]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3087]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3087]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v:3087]
 ---------------------------------------------------------------------------------------------------
@@ -995,7 +993,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'gen_axi.write_cs_reg' usin
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'axi_data_fifo_v2_1_17_axic_reg_srl_fifo'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 832.066 ; gain = 558.008
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 829.887 ; gain = 557.578
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1009,9 +1007,9 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input      8 Bit       Adders := 3     
-	   2 Input      4 Bit       Adders := 40    
-	   2 Input      3 Bit       Adders := 5     
-	   2 Input      2 Bit       Adders := 4     
+	   2 Input      4 Bit       Adders := 38    
+	   2 Input      3 Bit       Adders := 4     
+	   2 Input      2 Bit       Adders := 7     
 	   2 Input      1 Bit       Adders := 2     
 +---XORs : 
 	   2 Input      1 Bit         XORs := 22    
@@ -1023,8 +1021,8 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 3     
 	                5 Bit    Registers := 6     
 	                4 Bit    Registers := 18    
-	                3 Bit    Registers := 5     
-	                2 Bit    Registers := 14    
+	                3 Bit    Registers := 4     
+	                2 Bit    Registers := 15    
 	                1 Bit    Registers := 57    
 +---Muxes : 
 	   2 Input     64 Bit        Muxes := 16    
@@ -1032,10 +1030,10 @@ Detailed RTL Component Info :
 	   2 Input     40 Bit        Muxes := 10    
 	   2 Input      8 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 11    
+	   2 Input      4 Bit        Muxes := 9     
 	   3 Input      4 Bit        Muxes := 17    
 	   2 Input      3 Bit        Muxes := 4     
-	   2 Input      2 Bit        Muxes := 51    
+	   2 Input      2 Bit        Muxes := 53    
 	   3 Input      1 Bit        Muxes := 9     
 	   2 Input      1 Bit        Muxes := 64    
 	   4 Input      1 Bit        Muxes := 3     
@@ -1197,16 +1195,16 @@ Module axi_crossbar_v2_1_19_crossbar
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input      8 Bit       Adders := 2     
-	   2 Input      4 Bit       Adders := 6     
-	   2 Input      2 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 4     
+	   2 Input      2 Bit       Adders := 4     
 	   2 Input      1 Bit       Adders := 2     
 +---Registers : 
 	                8 Bit    Registers := 2     
 	                1 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input     40 Bit        Muxes := 10    
-	   2 Input      4 Bit        Muxes := 6     
-	   2 Input      2 Bit        Muxes := 12    
+	   2 Input      4 Bit        Muxes := 4     
+	   2 Input      2 Bit        Muxes := 14    
 	   2 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
@@ -1350,7 +1348,7 @@ INFO: [Synth 8-3886] merging instance 'inst/gen_samd.crossbar_samd/gen_master_sl
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/\gen_samd.crossbar_samd/gen_master_slots[4].reg_slice_mi/b.b_pipe/m_payload_i_reg[1] )
 INFO: [Synth 8-3332] Sequential element (gen_samd.crossbar_samd/gen_slave_slots[0].gen_si_write.wdata_router_w/wrouter_aw_fifo/FSM_onehot_state_reg[2]) is unused and will be removed from module axi_crossbar_v2_1_19_axi_crossbar.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 832.066 ; gain = 558.008
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 829.887 ; gain = 557.578
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1362,13 +1360,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 832.066 ; gain = 558.008
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 829.887 ; gain = 557.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 907.035 ; gain = 632.977
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 900.969 ; gain = 628.660
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1380,7 +1378,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 908.043 ; gain = 633.984
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 901.984 ; gain = 629.676
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1404,7 +1402,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 908.043 ; gain = 633.984
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 901.984 ; gain = 629.676
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1417,7 +1415,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 908.043 ; gain = 633.984
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 901.984 ; gain = 629.676
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1429,25 +1427,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 908.043 ; gain = 633.984
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 901.984 ; gain = 629.676
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 908.043 ; gain = 633.984
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 901.984 ; gain = 629.676
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 908.043 ; gain = 633.984
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 901.984 ; gain = 629.676
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 908.043 ; gain = 633.984
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 901.984 ; gain = 629.676
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1464,15 +1462,15 @@ Report Cell Usage:
 |      |Cell    |Count |
 +------+--------+------+
 |1     |CARRY4  |    32|
-|2     |LUT1    |    43|
-|3     |LUT2    |    29|
-|4     |LUT3    |   243|
-|5     |LUT4    |   161|
-|6     |LUT5    |   187|
-|7     |LUT6    |   258|
+|2     |LUT1    |    37|
+|3     |LUT2    |    28|
+|4     |LUT3    |   244|
+|5     |LUT4    |   153|
+|6     |LUT5    |   179|
+|7     |LUT6    |   259|
 |8     |MUXF7   |    62|
 |9     |SRLC32E |     3|
-|10    |FDRE    |  1057|
+|10    |FDRE    |  1053|
 |11    |FDSE    |     7|
 +------+--------+------+
 
@@ -1480,69 +1478,71 @@ Report Instance Areas:
 +------+---------------------------------------------------------+------------------------------------------------------------------+------+
 |      |Instance                                                 |Module                                                            |Cells |
 +------+---------------------------------------------------------+------------------------------------------------------------------+------+
-|1     |top                                                      |                                                                  |  2082|
-|2     |  inst                                                   |axi_crossbar_v2_1_19_axi_crossbar                                 |  2082|
-|3     |    \gen_samd.crossbar_samd                              |axi_crossbar_v2_1_19_crossbar                                     |  2082|
-|4     |      addr_arbiter_ar                                    |axi_crossbar_v2_1_19_addr_arbiter                                 |   117|
-|5     |      addr_arbiter_aw                                    |axi_crossbar_v2_1_19_addr_arbiter_0                               |   117|
-|6     |      \gen_decerr_slave.decerr_slave_inst                |axi_crossbar_v2_1_19_decerr_slave                                 |    67|
-|7     |      \gen_master_slots[0].reg_slice_mi                  |axi_register_slice_v2_1_18_axi_register_slice                     |   170|
-|8     |        \b.b_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized1_15 |    19|
-|9     |        \r.r_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized2_16 |   151|
-|10    |      \gen_master_slots[1].reg_slice_mi                  |axi_register_slice_v2_1_18_axi_register_slice_1                   |   176|
+|1     |top                                                      |                                                                  |  2057|
+|2     |  inst                                                   |axi_crossbar_v2_1_19_axi_crossbar                                 |  2057|
+|3     |    \gen_samd.crossbar_samd                              |axi_crossbar_v2_1_19_crossbar                                     |  2057|
+|4     |      addr_arbiter_ar                                    |axi_crossbar_v2_1_19_addr_arbiter                                 |   112|
+|5     |      addr_arbiter_aw                                    |axi_crossbar_v2_1_19_addr_arbiter_0                               |   113|
+|6     |      \gen_decerr_slave.decerr_slave_inst                |axi_crossbar_v2_1_19_decerr_slave                                 |    66|
+|7     |      \gen_master_slots[0].reg_slice_mi                  |axi_register_slice_v2_1_18_axi_register_slice                     |   177|
+|8     |        \b.b_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized1_15 |    24|
+|9     |        \r.r_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized2_16 |   153|
+|10    |      \gen_master_slots[1].reg_slice_mi                  |axi_register_slice_v2_1_18_axi_register_slice_1                   |   171|
 |11    |        \b.b_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized1_13 |    22|
-|12    |        \r.r_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized2_14 |   154|
-|13    |      \gen_master_slots[2].reg_slice_mi                  |axi_register_slice_v2_1_18_axi_register_slice_2                   |   171|
-|14    |        \b.b_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized1_11 |    22|
-|15    |        \r.r_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized2_12 |   149|
-|16    |      \gen_master_slots[3].reg_slice_mi                  |axi_register_slice_v2_1_18_axi_register_slice_3                   |   168|
-|17    |        \b.b_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized1_9  |    22|
-|18    |        \r.r_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized2_10 |   146|
-|19    |      \gen_master_slots[4].reg_slice_mi                  |axi_register_slice_v2_1_18_axi_register_slice_4                   |    69|
-|20    |        \b.b_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized1    |    23|
+|12    |        \r.r_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized2_14 |   149|
+|13    |      \gen_master_slots[2].reg_slice_mi                  |axi_register_slice_v2_1_18_axi_register_slice_2                   |   173|
+|14    |        \b.b_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized1_11 |    21|
+|15    |        \r.r_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized2_12 |   152|
+|16    |      \gen_master_slots[3].reg_slice_mi                  |axi_register_slice_v2_1_18_axi_register_slice_3                   |   172|
+|17    |        \b.b_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized1_9  |    24|
+|18    |        \r.r_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized2_10 |   148|
+|19    |      \gen_master_slots[4].reg_slice_mi                  |axi_register_slice_v2_1_18_axi_register_slice_4                   |    66|
+|20    |        \b.b_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized1    |    20|
 |21    |        \r.r_pipe                                        |axi_register_slice_v2_1_18_axic_register_slice__parameterized2    |    46|
-|22    |      \gen_slave_slots[0].gen_si_read.si_transactor_ar   |axi_crossbar_v2_1_19_si_transactor                                |   512|
-|23    |        \gen_multi_thread.arbiter_resp_inst              |axi_crossbar_v2_1_19_arbiter_resp_8                               |   135|
-|24    |        \gen_multi_thread.mux_resp_multi_thread          |generic_baseblocks_v2_1_0_mux_enc                                 |    86|
-|25    |      \gen_slave_slots[0].gen_si_write.si_transactor_aw  |axi_crossbar_v2_1_19_si_transactor__parameterized0                |   421|
-|26    |        \gen_multi_thread.arbiter_resp_inst              |axi_crossbar_v2_1_19_arbiter_resp                                 |    77|
-|27    |        \gen_multi_thread.mux_resp_multi_thread          |generic_baseblocks_v2_1_0_mux_enc__parameterized0                 |    54|
+|22    |      \gen_slave_slots[0].gen_si_read.si_transactor_ar   |axi_crossbar_v2_1_19_si_transactor                                |   508|
+|23    |        \gen_multi_thread.arbiter_resp_inst              |axi_crossbar_v2_1_19_arbiter_resp_8                               |   131|
+|24    |        \gen_multi_thread.mux_resp_multi_thread          |generic_baseblocks_v2_1_0_mux_enc                                 |    87|
+|25    |      \gen_slave_slots[0].gen_si_write.si_transactor_aw  |axi_crossbar_v2_1_19_si_transactor__parameterized0                |   410|
+|26    |        \gen_multi_thread.arbiter_resp_inst              |axi_crossbar_v2_1_19_arbiter_resp                                 |    70|
+|27    |        \gen_multi_thread.mux_resp_multi_thread          |generic_baseblocks_v2_1_0_mux_enc__parameterized0                 |    55|
 |28    |      \gen_slave_slots[0].gen_si_write.splitter_aw_si    |axi_crossbar_v2_1_19_splitter                                     |     6|
 |29    |      \gen_slave_slots[0].gen_si_write.wdata_router_w    |axi_crossbar_v2_1_19_wdata_router                                 |    44|
 |30    |        wrouter_aw_fifo                                  |axi_data_fifo_v2_1_17_axic_reg_srl_fifo                           |    44|
 |31    |          \gen_srls[0].gen_rep[0].srl_nx1                |axi_data_fifo_v2_1_17_ndeep_srl__parameterized0                   |     2|
 |32    |          \gen_srls[0].gen_rep[1].srl_nx1                |axi_data_fifo_v2_1_17_ndeep_srl__parameterized0_6                 |     2|
-|33    |          \gen_srls[0].gen_rep[2].srl_nx1                |axi_data_fifo_v2_1_17_ndeep_srl__parameterized0_7                 |     7|
-|34    |      splitter_aw_mi                                     |axi_crossbar_v2_1_19_splitter_5                                   |     7|
+|33    |          \gen_srls[0].gen_rep[2].srl_nx1                |axi_data_fifo_v2_1_17_ndeep_srl__parameterized0_7                 |     6|
+|34    |      splitter_aw_mi                                     |axi_crossbar_v2_1_19_splitter_5                                   |     8|
 +------+---------------------------------------------------------+------------------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 908.043 ; gain = 633.984
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 901.984 ; gain = 629.676
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 57 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:44 . Memory (MB): peak = 908.043 ; gain = 355.539
-Synthesis Optimization Complete : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 908.043 ; gain = 633.984
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:29 . Memory (MB): peak = 901.984 ; gain = 350.742
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 901.984 ; gain = 629.676
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 94 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 908.043 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 901.984 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-237 Infos, 137 Warnings, 0 Critical Warnings and 0 Errors encountered.
+235 Infos, 137 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:52 ; elapsed = 00:00:55 . Memory (MB): peak = 908.043 ; gain = 640.883
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 908.043 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 901.984 ; gain = 636.691
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 901.984 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_xbar_0_synth_1/design_1_xbar_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_xbar_0, cache-ID = 75c809b261f68782
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_xbar_0, cache-ID = c747168662746bfc
 INFO: [Coretcl 2-1174] Renamed 33 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 908.043 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 901.984 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_xbar_0_synth_1/design_1_xbar_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_xbar_0_utilization_synth.rpt -pb design_1_xbar_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri May 24 02:28:39 2019...
+INFO: [Common 17-206] Exiting Vivado at Sun May 26 00:35:41 2019...

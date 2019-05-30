@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue May 28 01:37:22 2019
+| Date         : Thu May 30 22:57:46 2019
 | Host         : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
@@ -178,8 +178,8 @@ Table of Contents
 | design_1_blk_mem_gen_0_2           |    1 |
 | design_1_blk_mem_gen_0_1           |    1 |
 | design_1_blk_mem_gen_0_0           |    1 |
-| design_1_axi_bram_ctrl_0_2         |    1 |
-| design_1_axi_bram_ctrl_0_1         |    1 |
+| design_1_axi_bram_ctrl_source_0    |    1 |
+| design_1_axi_bram_ctrl_0_3         |    1 |
 | design_1_axi_bram_ctrl_0_0         |    1 |
 | design_1_auto_pc_3                 |    1 |
 | design_1_auto_pc_2                 |    1 |

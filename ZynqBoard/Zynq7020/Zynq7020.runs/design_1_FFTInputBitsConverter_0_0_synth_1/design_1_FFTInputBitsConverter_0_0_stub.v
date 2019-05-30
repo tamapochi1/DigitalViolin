@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Mon May 27 23:47:41 2019
+// Date        : Thu May 30 22:55:56 2019
 // Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_FFTInputBitsConverter_0_0_stub.v
@@ -17,21 +17,21 @@
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix(nReset, clk, bram_addr, bram_clk, bram_rddata, 
   bram_en, bram_rst, bram_we, start, scale, m_axis_data_tdata, m_axis_data_tready, 
   m_axis_data_tvalid, m_axis_config_tdata, m_axis_config_tready, m_axis_config_tvalid)
-/* synthesis syn_black_box black_box_pad_pin="nReset,clk,bram_addr[31:0],bram_clk,bram_rddata[31:0],bram_en,bram_rst,bram_we,start,scale[19:0],m_axis_data_tdata[63:0],m_axis_data_tready,m_axis_data_tvalid,m_axis_config_tdata[47:0],m_axis_config_tready,m_axis_config_tvalid" */;
+/* synthesis syn_black_box black_box_pad_pin="nReset,clk,bram_addr[31:0],bram_clk,bram_rddata[127:0],bram_en,bram_rst,bram_we,start,scale[19:0],m_axis_data_tdata[255:0],m_axis_data_tready,m_axis_data_tvalid,m_axis_config_tdata[223:0],m_axis_config_tready,m_axis_config_tvalid" */;
   input nReset;
   input clk;
   output [31:0]bram_addr;
   output bram_clk;
-  input [31:0]bram_rddata;
+  input [127:0]bram_rddata;
   output bram_en;
   output bram_rst;
   output bram_we;
   input start;
   input [19:0]scale;
-  output [63:0]m_axis_data_tdata;
+  output [255:0]m_axis_data_tdata;
   input m_axis_data_tready;
   output m_axis_data_tvalid;
-  output [47:0]m_axis_config_tdata;
+  output [223:0]m_axis_config_tdata;
   input m_axis_config_tready;
   output m_axis_config_tvalid;
 endmodule

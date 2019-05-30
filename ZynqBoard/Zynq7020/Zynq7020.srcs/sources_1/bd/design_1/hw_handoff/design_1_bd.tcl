@@ -924,23 +924,17 @@ proc create_hier_cell_DSP { parentCell nameHier } {
      return 1
    }
   
-  # Create instance: axi_bram_ctrl_0, and set properties
-  set axi_bram_ctrl_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.1 axi_bram_ctrl_0 ]
+  # Create instance: axi_bram_ctrl_result, and set properties
+  set axi_bram_ctrl_result [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.1 axi_bram_ctrl_result ]
   set_property -dict [ list \
-   CONFIG.DATA_WIDTH {32} \
-   CONFIG.ECC_TYPE {Hamming} \
-   CONFIG.PROTOCOL {AXI4} \
    CONFIG.SINGLE_PORT_BRAM {1} \
- ] $axi_bram_ctrl_0
+ ] $axi_bram_ctrl_result
 
-  # Create instance: axi_bram_ctrl_1, and set properties
-  set axi_bram_ctrl_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.1 axi_bram_ctrl_1 ]
+  # Create instance: axi_bram_ctrl_source, and set properties
+  set axi_bram_ctrl_source [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.1 axi_bram_ctrl_source ]
   set_property -dict [ list \
-   CONFIG.DATA_WIDTH {32} \
-   CONFIG.ECC_TYPE {Hamming} \
-   CONFIG.PROTOCOL {AXI4} \
    CONFIG.SINGLE_PORT_BRAM {1} \
- ] $axi_bram_ctrl_1
+ ] $axi_bram_ctrl_source
 
   # Create instance: blk_mem_gen_0, and set properties
   set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_0 ]
@@ -957,13 +951,17 @@ proc create_hier_cell_DSP { parentCell nameHier } {
    CONFIG.Port_B_Clock {100} \
    CONFIG.Port_B_Enable_Rate {100} \
    CONFIG.Port_B_Write_Rate {50} \
-   CONFIG.Read_Width_B {32} \
+   CONFIG.Read_Width_A {32} \
+   CONFIG.Read_Width_B {128} \
    CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
    CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
    CONFIG.Use_Byte_Write_Enable {true} \
    CONFIG.Use_RSTA_Pin {true} \
    CONFIG.Use_RSTB_Pin {true} \
-   CONFIG.use_bram_block {BRAM_Controller} \
+   CONFIG.Write_Depth_A {4096} \
+   CONFIG.Write_Width_A {32} \
+   CONFIG.Write_Width_B {128} \
+   CONFIG.use_bram_block {Stand_Alone} \
  ] $blk_mem_gen_0
 
   # Create instance: blk_mem_gen_1, and set properties
@@ -981,13 +979,15 @@ proc create_hier_cell_DSP { parentCell nameHier } {
    CONFIG.Port_B_Clock {100} \
    CONFIG.Port_B_Enable_Rate {100} \
    CONFIG.Port_B_Write_Rate {50} \
-   CONFIG.Read_Width_B {32} \
+   CONFIG.Read_Width_B {128} \
    CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
    CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
    CONFIG.Use_Byte_Write_Enable {true} \
    CONFIG.Use_RSTA_Pin {true} \
    CONFIG.Use_RSTB_Pin {true} \
-   CONFIG.use_bram_block {BRAM_Controller} \
+   CONFIG.Write_Depth_A {4096} \
+   CONFIG.Write_Width_B {128} \
+   CONFIG.use_bram_block {Stand_Alone} \
  ] $blk_mem_gen_1
 
   # Create instance: xfft_0, and set properties
@@ -996,10 +996,11 @@ proc create_hier_cell_DSP { parentCell nameHier } {
    CONFIG.aclken {false} \
    CONFIG.aresetn {true} \
    CONFIG.butterfly_type {use_luts} \
-   CONFIG.channels {2} \
+   CONFIG.channels {8} \
    CONFIG.complex_mult_type {use_mults_resources} \
    CONFIG.cyclic_prefix_insertion {false} \
-   CONFIG.implementation_options {radix_2_burst_io} \
+   CONFIG.data_format {fixed_point} \
+   CONFIG.implementation_options {radix_2_lite_burst_io} \
    CONFIG.input_width {12} \
    CONFIG.memory_options_data {block_ram} \
    CONFIG.memory_options_hybrid {false} \
@@ -1017,16 +1018,15 @@ proc create_hier_cell_DSP { parentCell nameHier } {
  ] $xfft_0
 
   # Create interface connections
-  connect_bd_intf_net -intf_net Conn1 [get_bd_intf_pins S02_AXI] [get_bd_intf_pins axi_bram_ctrl_0/S_AXI]
   connect_bd_intf_net -intf_net Conn2 [get_bd_intf_pins S01_AXI] [get_bd_intf_pins Synthesizer/S_AXI]
-  connect_bd_intf_net -intf_net Conn3 [get_bd_intf_pins S03_AXI] [get_bd_intf_pins axi_bram_ctrl_1/S_AXI]
   connect_bd_intf_net -intf_net FFTInputBitsConverter_0_m_axis_config [get_bd_intf_pins FFTInputBitsConverter_0/m_axis_config] [get_bd_intf_pins xfft_0/S_AXIS_CONFIG]
   connect_bd_intf_net -intf_net FFTInputBitsConverter_0_m_axis_data [get_bd_intf_pins FFTInputBitsConverter_0/m_axis_data] [get_bd_intf_pins xfft_0/S_AXIS_DATA]
   connect_bd_intf_net -intf_net S00_AXI_1 [get_bd_intf_pins S00_AXI] [get_bd_intf_pins DSP_registers_0/S_AXI]
-  connect_bd_intf_net -intf_net axi_bram_ctrl_0_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
-  connect_bd_intf_net -intf_net axi_bram_ctrl_1_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_1/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_1/BRAM_PORTA]
+  connect_bd_intf_net -intf_net S02_AXI_1 [get_bd_intf_pins S02_AXI] [get_bd_intf_pins axi_bram_ctrl_source/S_AXI]
+  connect_bd_intf_net -intf_net S03_AXI_1 [get_bd_intf_pins S03_AXI] [get_bd_intf_pins axi_bram_ctrl_result/S_AXI]
+  connect_bd_intf_net -intf_net axi_bram_ctrl_result_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_result/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_1/BRAM_PORTA]
+  connect_bd_intf_net -intf_net axi_bram_ctrl_source_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_source/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
   connect_bd_intf_net -intf_net xfft_0_M_AXIS_DATA [get_bd_intf_pins FFTOutputBitsConvert_0/s_axis_data] [get_bd_intf_pins xfft_0/M_AXIS_DATA]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_intf_nets xfft_0_M_AXIS_DATA]
 
   # Create port connections
   connect_bd_net -net DSP_registers_0_audioClkInterrupt [get_bd_pins audioClkInterrupt] [get_bd_pins DSP_registers_0/audioClkInterrupt]
@@ -1036,45 +1036,31 @@ set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_intf_nets xfft_0_M_AXIS_DATA]
   connect_bd_net -net DSP_registers_0_synth0Gain [get_bd_pins DSP_registers_0/synth0Gain] [get_bd_pins Synthesizer/outGain]
   connect_bd_net -net DSP_registers_0_sysNReset [get_bd_pins DSP_registers_0/sysNReset] [get_bd_pins DSP_reset_0/nResetInt]
   connect_bd_net -net DSP_reset_0_nResetAudioClk [get_bd_pins nResetAudio256Clk] [get_bd_pins DSP_reset_0/nResetAudio256Clk] [get_bd_pins audio_clk_gen_0/nResetAudio256Clk]
-  connect_bd_net -net DSP_reset_0_nResetSysClk1 [get_bd_pins nResetSysClk] [get_bd_pins DSP_reset_0/nResetSysClk] [get_bd_pins FFTInputBitsConverter_0/nReset] [get_bd_pins FFTOutputBitsConvert_0/nReset] [get_bd_pins Synthesizer/nReset] [get_bd_pins audio_clk_gen_0/nResetSysClk] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_1/s_axi_aresetn] [get_bd_pins xfft_0/aresetn]
+  connect_bd_net -net DSP_reset_0_nResetSysClk1 [get_bd_pins nResetSysClk] [get_bd_pins DSP_reset_0/nResetSysClk] [get_bd_pins FFTInputBitsConverter_0/nReset] [get_bd_pins FFTOutputBitsConvert_0/nReset] [get_bd_pins Synthesizer/nReset] [get_bd_pins audio_clk_gen_0/nResetSysClk] [get_bd_pins axi_bram_ctrl_result/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_source/s_axi_aresetn] [get_bd_pins xfft_0/aresetn]
   connect_bd_net -net FFTInputBitsConverter_0_bram_addr [get_bd_pins FFTInputBitsConverter_0/bram_addr] [get_bd_pins blk_mem_gen_0/addrb]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets FFTInputBitsConverter_0_bram_addr]
   connect_bd_net -net FFTInputBitsConverter_0_bram_clk [get_bd_pins FFTInputBitsConverter_0/bram_clk] [get_bd_pins blk_mem_gen_0/clkb]
   connect_bd_net -net FFTInputBitsConverter_0_bram_en [get_bd_pins FFTInputBitsConverter_0/bram_en] [get_bd_pins blk_mem_gen_0/enb]
-  connect_bd_net -net FFTInputBitsConverter_0_bram_rst [get_bd_pins FFTInputBitsConverter_0/bram_rst] [get_bd_pins blk_mem_gen_0/rstb]
   connect_bd_net -net FFTInputBitsConverter_0_bram_we [get_bd_pins FFTInputBitsConverter_0/bram_we] [get_bd_pins blk_mem_gen_0/web]
-  connect_bd_net -net FFTInputBitsConverter_0_m_axis_data_tdata [get_bd_pins FFTInputBitsConverter_0/m_axis_data_tdata] [get_bd_pins xfft_0/s_axis_data_tdata]
   connect_bd_net -net FFTOutputBitsConvert_0_bram_addr [get_bd_pins FFTOutputBitsConvert_0/bram_addr] [get_bd_pins blk_mem_gen_1/addrb]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets FFTOutputBitsConvert_0_bram_addr]
   connect_bd_net -net FFTOutputBitsConvert_0_bram_clk [get_bd_pins FFTOutputBitsConvert_0/bram_clk] [get_bd_pins blk_mem_gen_1/clkb]
   connect_bd_net -net FFTOutputBitsConvert_0_bram_en [get_bd_pins FFTOutputBitsConvert_0/bram_en] [get_bd_pins blk_mem_gen_1/enb]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets FFTOutputBitsConvert_0_bram_en]
-  connect_bd_net -net FFTOutputBitsConvert_0_bram_rst [get_bd_pins FFTOutputBitsConvert_0/bram_rst] [get_bd_pins blk_mem_gen_1/rstb]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets FFTOutputBitsConvert_0_bram_rst]
   connect_bd_net -net FFTOutputBitsConvert_0_bram_wddata [get_bd_pins FFTOutputBitsConvert_0/bram_wddata] [get_bd_pins blk_mem_gen_1/dinb]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets FFTOutputBitsConvert_0_bram_wddata]
   connect_bd_net -net FFTOutputBitsConvert_0_bram_we [get_bd_pins FFTOutputBitsConvert_0/bram_we] [get_bd_pins blk_mem_gen_1/web]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets FFTOutputBitsConvert_0_bram_we]
   connect_bd_net -net FFTOutputBitsConvert_0_event_fft_complete [get_bd_pins DSP_registers_0/fftComplete] [get_bd_pins FFTOutputBitsConvert_0/event_fft_complete]
   connect_bd_net -net Synthesizer_sync_0 [get_bd_pins outDataValid] [get_bd_pins Synthesizer/outDataValid]
   connect_bd_net -net audioClk256_0_1 [get_bd_pins audio256Clk] [get_bd_pins DSP_reset_0/audio256Clk] [get_bd_pins audio_clk_gen_0/audio256Clk]
   connect_bd_net -net audioClkSync_0_1 [get_bd_pins audioSample] [get_bd_pins DSP_registers_0/audioSample]
   connect_bd_net -net audio_clk_gen_0_audioClk [get_bd_pins Synthesizer/audioClkSync] [get_bd_pins audio_clk_gen_0/audioClkSync]
   connect_bd_net -net blk_mem_gen_0_doutb [get_bd_pins FFTInputBitsConverter_0/bram_rddata] [get_bd_pins blk_mem_gen_0/doutb]
-  connect_bd_net -net event_frame_started [get_bd_pins xfft_0/event_frame_started]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets event_frame_started]
-  connect_bd_net -net event_tlast_missing [get_bd_pins xfft_0/event_tlast_missing]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets event_tlast_missing]
-  connect_bd_net -net m_axis_data_tvalid [get_bd_pins FFTInputBitsConverter_0/m_axis_data_tvalid] [get_bd_pins xfft_0/s_axis_data_tvalid]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets m_axis_data_tvalid]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets blk_mem_gen_0_doutb]
   connect_bd_net -net mult_sum_0_out [get_bd_pins outData0] [get_bd_pins outData1] [get_bd_pins Synthesizer/outData]
   connect_bd_net -net nResetExt_0_1 [get_bd_pins nResetExt] [get_bd_pins DSP_reset_0/nResetExt]
   connect_bd_net -net s00_axi_aclk_1 [get_bd_pins s00_axi_aclk] [get_bd_pins DSP_registers_0/S_AXI_ACLK]
   connect_bd_net -net s00_axi_aresetn_1 [get_bd_pins s00_axi_aresetn] [get_bd_pins DSP_registers_0/S_AXI_ARESETN]
   connect_bd_net -net s_axi_aclk_0_1 [get_bd_pins s01_axi_aclk] [get_bd_pins Synthesizer/s_axi_aclk]
   connect_bd_net -net s_axi_aresetn_0_1 [get_bd_pins s01_axi_aresetn] [get_bd_pins Synthesizer/s_axi_aresetn]
-  connect_bd_net -net s_axis_data_tready [get_bd_pins FFTInputBitsConverter_0/m_axis_data_tready] [get_bd_pins xfft_0/s_axis_data_tready]
-set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets s_axis_data_tready]
-  connect_bd_net -net sysClk_0_1 [get_bd_pins sysClk] [get_bd_pins DSP_reset_0/sysClk] [get_bd_pins FFTInputBitsConverter_0/clk] [get_bd_pins FFTOutputBitsConvert_0/clk] [get_bd_pins Synthesizer/sysClk] [get_bd_pins audio_clk_gen_0/sysClk] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_bram_ctrl_1/s_axi_aclk] [get_bd_pins xfft_0/aclk]
+  connect_bd_net -net sysClk_0_1 [get_bd_pins sysClk] [get_bd_pins DSP_reset_0/sysClk] [get_bd_pins FFTInputBitsConverter_0/clk] [get_bd_pins FFTOutputBitsConvert_0/clk] [get_bd_pins Synthesizer/sysClk] [get_bd_pins audio_clk_gen_0/sysClk] [get_bd_pins axi_bram_ctrl_result/s_axi_aclk] [get_bd_pins axi_bram_ctrl_source/s_axi_aclk] [get_bd_pins xfft_0/aclk]
 
   # Restore current instance
   current_bd_instance $oldCurInst
@@ -1742,8 +1728,8 @@ proc create_root_design { parentCell } {
   create_bd_addr_seg -range 0x00010000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/DSP_registers_0/S_AXI/reg0] SEG_DSP_registers_0_reg0
   create_bd_addr_seg -range 0x00010000 -offset 0x43C20000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs UIF/UIF_AXI_0/S_AXI/reg0] SEG_UIF_AXI_0_reg0
   create_bd_addr_seg -range 0x00002000 -offset 0x40000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/Synthesizer/axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
-  create_bd_addr_seg -range 0x00002000 -offset 0x42000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem01
-  create_bd_addr_seg -range 0x00002000 -offset 0x44000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/axi_bram_ctrl_1/S_AXI/Mem0] SEG_axi_bram_ctrl_1_Mem0
+  create_bd_addr_seg -range 0x00004000 -offset 0x44000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/axi_bram_ctrl_result/S_AXI/Mem0] SEG_axi_bram_ctrl_result_Mem0
+  create_bd_addr_seg -range 0x00004000 -offset 0x42000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs DSP/axi_bram_ctrl_source/S_AXI/Mem0] SEG_axi_bram_ctrl_source_Mem0
   create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs myip_0/S00_AXI/S00_AXI_reg] SEG_myip_0_S00_AXI_reg
 
 

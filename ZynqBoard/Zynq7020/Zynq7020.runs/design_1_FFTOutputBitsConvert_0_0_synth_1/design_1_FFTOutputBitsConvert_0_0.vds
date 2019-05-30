@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Tue May 28 01:34:58 2019
-# Process ID: 7588
+# Start of session at: Thu May 30 21:53:03 2019
+# Process ID: 3256
 # Current directory: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_FFTOutputBitsConvert_0_0_synth_1
 # Command line: vivado.exe -log design_1_FFTOutputBitsConvert_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_FFTOutputBitsConvert_0_0.tcl
 # Log file: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_FFTOutputBitsConvert_0_0_synth_1/design_1_FFTOutputBitsConvert_0_0.vds
@@ -23,15 +23,62 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10376 
+INFO: Helper process launched with PID 9868 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 371.254 ; gain = 106.328
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 371.816 ; gain = 107.281
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_FFTOutputBitsConvert_0_0' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_FFTOutputBitsConvert_0_0/synth/design_1_FFTOutputBitsConvert_0_0.v:58]
 INFO: [Synth 8-6157] synthesizing module 'FFTOutputBitsConverter' [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:2]
-	Parameter FFT_SIZE bound to: 1024 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'FFTOutputBitsConverter' (1#1) [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:2]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_FFTOutputBitsConvert_0_0' (2#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_FFTOutputBitsConvert_0_0/synth/design_1_FFTOutputBitsConvert_0_0.v:58]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[255]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[254]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[253]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[252]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[239]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[238]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[237]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[236]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[223]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[222]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[221]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[220]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[207]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[206]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[205]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[204]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[191]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[190]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[189]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[188]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[175]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[174]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[173]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[172]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[159]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[158]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[157]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[156]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[143]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[142]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[141]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[140]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[127]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[126]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[125]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[124]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[111]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[110]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[109]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[108]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[95]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[94]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[93]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[92]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[79]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[78]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[77]
+WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[76]
 WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[63]
 WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[62]
 WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[61]
@@ -49,7 +96,7 @@ WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axi
 WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[13]
 WARNING: [Synth 8-3331] design FFTOutputBitsConverter has unconnected port s_axis_data_tdata[12]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 427.422 ; gain = 162.496
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 427.203 ; gain = 162.668
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -62,10 +109,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 427.422 ; gain = 162.496
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 427.203 ; gain = 162.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 427.422 ; gain = 162.496
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 427.203 ; gain = 162.668
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -74,36 +121,48 @@ Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 756.824 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 770.496 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 756.824 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 770.496 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.075 . Memory (MB): peak = 759.066 ; gain = 2.242
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 772.395 ; gain = 1.898
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 759.066 ; gain = 494.141
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 772.395 ; gain = 507.859
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 759.066 ; gain = 494.141
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 772.395 ; gain = 507.859
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 759.066 ; gain = 494.141
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 772.395 ; gain = 507.859
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:33]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:32]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:35]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:34]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:42]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:41]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:44]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:43]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:46]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:45]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:48]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:47]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:50]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:49]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:52]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:51]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:54]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:53]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:56]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/FFTOutputBitsConverter.v:55]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 759.066 ; gain = 494.141
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 772.395 ; gain = 507.859
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -116,14 +175,14 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   4 Input     12 Bit       Adders := 2     
+	   4 Input     12 Bit       Adders := 8     
 	   2 Input     10 Bit       Adders := 1     
 +---Registers : 
 	               10 Bit    Registers := 1     
 	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input     12 Bit        Muxes := 4     
-	   2 Input      1 Bit        Muxes := 2     
+	   2 Input     12 Bit        Muxes := 16    
+	   2 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -134,14 +193,14 @@ Hierarchical RTL Component report
 Module FFTOutputBitsConverter 
 Detailed RTL Component Info : 
 +---Adders : 
-	   4 Input     12 Bit       Adders := 2     
+	   4 Input     12 Bit       Adders := 8     
 	   2 Input     10 Bit       Adders := 1     
 +---Registers : 
 	               10 Bit    Registers := 1     
 	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input     12 Bit        Muxes := 4     
-	   2 Input      1 Bit        Muxes := 2     
+	   2 Input     12 Bit        Muxes := 16    
+	   2 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -176,10 +235,34 @@ INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_addr
 INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_addr[16] driven by constant 0
 INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_addr[15] driven by constant 0
 INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_addr[14] driven by constant 0
-INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_addr[13] driven by constant 0
-INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_addr[12] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_addr[3] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_addr[2] driven by constant 0
 INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_addr[1] driven by constant 0
 INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_addr[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[127] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[126] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[125] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[124] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[111] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[110] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[109] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[108] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[95] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[94] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[93] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[92] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[79] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[78] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[77] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[76] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[63] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[62] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[61] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[60] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[47] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[46] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[45] driven by constant 0
+INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[44] driven by constant 0
 INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[31] driven by constant 0
 INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[30] driven by constant 0
 INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[29] driven by constant 0
@@ -188,24 +271,45 @@ INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wdda
 INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[14] driven by constant 0
 INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[13] driven by constant 0
 INFO: [Synth 8-3917] design design_1_FFTOutputBitsConvert_0_0 has port bram_wddata[12] driven by constant 0
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[63]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[62]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[61]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[60]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[47]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[46]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[45]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[44]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[31]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[30]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[29]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[28]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[15]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[14]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[13]
-WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[12]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[255]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[254]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[253]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[252]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[239]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[238]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[237]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[236]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[223]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[222]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[221]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[220]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[207]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[206]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[205]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[204]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[191]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[190]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[189]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[188]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[175]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[174]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[173]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[172]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[159]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[158]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[157]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[156]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[143]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[142]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[141]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[140]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[127]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[126]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[125]
+WARNING: [Synth 8-3331] design design_1_FFTOutputBitsConvert_0_0 has unconnected port s_axis_data_tdata[124]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 759.066 ; gain = 494.141
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 772.395 ; gain = 507.859
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -217,13 +321,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 772.934 ; gain = 508.008
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 775.551 ; gain = 511.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 773.008 ; gain = 508.082
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 775.703 ; gain = 511.168
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -235,7 +339,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 792.574 ; gain = 527.648
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 786.293 ; gain = 521.758
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -259,7 +363,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 792.574 ; gain = 527.648
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 786.293 ; gain = 521.758
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -272,7 +376,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 792.574 ; gain = 527.648
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 786.293 ; gain = 521.758
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -284,25 +388,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 792.574 ; gain = 527.648
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 786.293 ; gain = 521.758
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 792.574 ; gain = 527.648
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 786.293 ; gain = 521.758
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 792.574 ; gain = 527.648
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 786.293 ; gain = 521.758
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 792.574 ; gain = 527.648
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 786.293 ; gain = 521.758
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -318,13 +422,13 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |CARRY4 |     6|
+|1     |CARRY4 |    24|
 |2     |LUT1   |     2|
-|3     |LUT2   |     4|
-|4     |LUT3   |     1|
-|5     |LUT4   |    28|
-|6     |LUT5   |    22|
-|7     |LUT6   |     4|
+|3     |LUT2   |    10|
+|4     |LUT3   |     3|
+|5     |LUT4   |    91|
+|6     |LUT5   |    82|
+|7     |LUT6   |     3|
 |8     |FDRE   |    12|
 +------+-------+------+
 
@@ -332,35 +436,35 @@ Report Instance Areas:
 +------+---------+-----------------------+------+
 |      |Instance |Module                 |Cells |
 +------+---------+-----------------------+------+
-|1     |top      |                       |    79|
-|2     |  inst   |FFTOutputBitsConverter |    78|
+|1     |top      |                       |   227|
+|2     |  inst   |FFTOutputBitsConverter |   227|
 +------+---------+-----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 792.574 ; gain = 527.648
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 786.293 ; gain = 521.758
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 16 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 792.574 ; gain = 196.004
-Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 792.574 ; gain = 527.648
+Synthesis finished with 0 errors, 0 critical warnings and 64 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 786.293 ; gain = 176.566
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 786.293 ; gain = 521.758
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 799.094 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 797.941 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-53 Infos, 36 Warnings, 0 Critical Warnings and 0 Errors encountered.
+90 Infos, 104 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 799.094 ; gain = 547.555
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 799.094 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 797.941 ; gain = 540.344
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 797.941 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_FFTOutputBitsConvert_0_0_synth_1/design_1_FFTOutputBitsConvert_0_0.dcp' has been generated.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 799.094 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 797.941 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_FFTOutputBitsConvert_0_0_synth_1/design_1_FFTOutputBitsConvert_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_FFTOutputBitsConvert_0_0_utilization_synth.rpt -pb design_1_FFTOutputBitsConvert_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue May 28 01:35:34 2019...
+INFO: [Common 17-206] Exiting Vivado at Thu May 30 21:53:36 2019...

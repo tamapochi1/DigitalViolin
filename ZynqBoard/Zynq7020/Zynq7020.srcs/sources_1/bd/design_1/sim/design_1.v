@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Tue May 28 01:34:24 2019
+//Date        : Thu May 30 22:54:36 2019
 //Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -372,41 +372,6 @@ module DSP_imp_KXGKBB
   input s01_axi_aresetn;
   input sysClk;
 
-  wire [31:0]Conn1_ARADDR;
-  wire [1:0]Conn1_ARBURST;
-  wire [3:0]Conn1_ARCACHE;
-  wire [11:0]Conn1_ARID;
-  wire [7:0]Conn1_ARLEN;
-  wire [0:0]Conn1_ARLOCK;
-  wire [2:0]Conn1_ARPROT;
-  wire Conn1_ARREADY;
-  wire [2:0]Conn1_ARSIZE;
-  wire [0:0]Conn1_ARVALID;
-  wire [31:0]Conn1_AWADDR;
-  wire [1:0]Conn1_AWBURST;
-  wire [3:0]Conn1_AWCACHE;
-  wire [11:0]Conn1_AWID;
-  wire [7:0]Conn1_AWLEN;
-  wire [0:0]Conn1_AWLOCK;
-  wire [2:0]Conn1_AWPROT;
-  wire Conn1_AWREADY;
-  wire [2:0]Conn1_AWSIZE;
-  wire [0:0]Conn1_AWVALID;
-  wire [11:0]Conn1_BID;
-  wire [0:0]Conn1_BREADY;
-  wire [1:0]Conn1_BRESP;
-  wire Conn1_BVALID;
-  wire [31:0]Conn1_RDATA;
-  wire [11:0]Conn1_RID;
-  wire Conn1_RLAST;
-  wire [0:0]Conn1_RREADY;
-  wire [1:0]Conn1_RRESP;
-  wire Conn1_RVALID;
-  wire [31:0]Conn1_WDATA;
-  wire [0:0]Conn1_WLAST;
-  wire Conn1_WREADY;
-  wire [3:0]Conn1_WSTRB;
-  wire [0:0]Conn1_WVALID;
   wire [31:0]Conn2_ARADDR;
   wire [1:0]Conn2_ARBURST;
   wire [3:0]Conn2_ARCACHE;
@@ -442,41 +407,6 @@ module DSP_imp_KXGKBB
   wire [0:0]Conn2_WREADY;
   wire [3:0]Conn2_WSTRB;
   wire [0:0]Conn2_WVALID;
-  wire [31:0]Conn3_ARADDR;
-  wire [1:0]Conn3_ARBURST;
-  wire [3:0]Conn3_ARCACHE;
-  wire [11:0]Conn3_ARID;
-  wire [7:0]Conn3_ARLEN;
-  wire [0:0]Conn3_ARLOCK;
-  wire [2:0]Conn3_ARPROT;
-  wire Conn3_ARREADY;
-  wire [2:0]Conn3_ARSIZE;
-  wire [0:0]Conn3_ARVALID;
-  wire [31:0]Conn3_AWADDR;
-  wire [1:0]Conn3_AWBURST;
-  wire [3:0]Conn3_AWCACHE;
-  wire [11:0]Conn3_AWID;
-  wire [7:0]Conn3_AWLEN;
-  wire [0:0]Conn3_AWLOCK;
-  wire [2:0]Conn3_AWPROT;
-  wire Conn3_AWREADY;
-  wire [2:0]Conn3_AWSIZE;
-  wire [0:0]Conn3_AWVALID;
-  wire [11:0]Conn3_BID;
-  wire [0:0]Conn3_BREADY;
-  wire [1:0]Conn3_BRESP;
-  wire Conn3_BVALID;
-  wire [31:0]Conn3_RDATA;
-  wire [11:0]Conn3_RID;
-  wire Conn3_RLAST;
-  wire [0:0]Conn3_RREADY;
-  wire [1:0]Conn3_RRESP;
-  wire Conn3_RVALID;
-  wire [31:0]Conn3_WDATA;
-  wire [0:0]Conn3_WLAST;
-  wire Conn3_WREADY;
-  wire [3:0]Conn3_WSTRB;
-  wire [0:0]Conn3_WVALID;
   wire DSP_registers_0_audioClkInterrupt;
   wire DSP_registers_0_fftCompleteInterrupt;
   wire [19:0]DSP_registers_0_fft_scale;
@@ -485,21 +415,21 @@ module DSP_imp_KXGKBB
   wire DSP_registers_0_sysNReset;
   wire DSP_reset_0_nResetAudioClk;
   wire DSP_reset_0_nResetSysClk1;
-  wire [31:0]FFTInputBitsConverter_0_bram_addr;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [31:0]FFTInputBitsConverter_0_bram_addr;
   wire FFTInputBitsConverter_0_bram_clk;
   wire FFTInputBitsConverter_0_bram_en;
-  wire FFTInputBitsConverter_0_bram_rst;
   wire FFTInputBitsConverter_0_bram_we;
-  wire [47:0]FFTInputBitsConverter_0_m_axis_config_TDATA;
+  wire [223:0]FFTInputBitsConverter_0_m_axis_config_TDATA;
   wire FFTInputBitsConverter_0_m_axis_config_TREADY;
   wire FFTInputBitsConverter_0_m_axis_config_TVALID;
-  wire [63:0]FFTInputBitsConverter_0_m_axis_data_tdata;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [31:0]FFTOutputBitsConvert_0_bram_addr;
+  wire [255:0]FFTInputBitsConverter_0_m_axis_data_TDATA;
+  wire FFTInputBitsConverter_0_m_axis_data_TREADY;
+  wire FFTInputBitsConverter_0_m_axis_data_TVALID;
+  wire [31:0]FFTOutputBitsConvert_0_bram_addr;
   wire FFTOutputBitsConvert_0_bram_clk;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire FFTOutputBitsConvert_0_bram_en;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire FFTOutputBitsConvert_0_bram_rst;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [31:0]FFTOutputBitsConvert_0_bram_wddata;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire FFTOutputBitsConvert_0_bram_we;
+  wire FFTOutputBitsConvert_0_bram_en;
+  wire [127:0]FFTOutputBitsConvert_0_bram_wddata;
+  wire FFTOutputBitsConvert_0_bram_we;
   wire FFTOutputBitsConvert_0_event_fft_complete;
   wire [31:0]S00_AXI_1_ARADDR;
   wire [2:0]S00_AXI_1_ARPROT;
@@ -520,64 +450,106 @@ module DSP_imp_KXGKBB
   wire S00_AXI_1_WREADY;
   wire [3:0]S00_AXI_1_WSTRB;
   wire S00_AXI_1_WVALID;
+  wire [31:0]S02_AXI_1_ARADDR;
+  wire [1:0]S02_AXI_1_ARBURST;
+  wire [3:0]S02_AXI_1_ARCACHE;
+  wire [11:0]S02_AXI_1_ARID;
+  wire [7:0]S02_AXI_1_ARLEN;
+  wire [0:0]S02_AXI_1_ARLOCK;
+  wire [2:0]S02_AXI_1_ARPROT;
+  wire S02_AXI_1_ARREADY;
+  wire [2:0]S02_AXI_1_ARSIZE;
+  wire [0:0]S02_AXI_1_ARVALID;
+  wire [31:0]S02_AXI_1_AWADDR;
+  wire [1:0]S02_AXI_1_AWBURST;
+  wire [3:0]S02_AXI_1_AWCACHE;
+  wire [11:0]S02_AXI_1_AWID;
+  wire [7:0]S02_AXI_1_AWLEN;
+  wire [0:0]S02_AXI_1_AWLOCK;
+  wire [2:0]S02_AXI_1_AWPROT;
+  wire S02_AXI_1_AWREADY;
+  wire [2:0]S02_AXI_1_AWSIZE;
+  wire [0:0]S02_AXI_1_AWVALID;
+  wire [11:0]S02_AXI_1_BID;
+  wire [0:0]S02_AXI_1_BREADY;
+  wire [1:0]S02_AXI_1_BRESP;
+  wire S02_AXI_1_BVALID;
+  wire [31:0]S02_AXI_1_RDATA;
+  wire [11:0]S02_AXI_1_RID;
+  wire S02_AXI_1_RLAST;
+  wire [0:0]S02_AXI_1_RREADY;
+  wire [1:0]S02_AXI_1_RRESP;
+  wire S02_AXI_1_RVALID;
+  wire [31:0]S02_AXI_1_WDATA;
+  wire [0:0]S02_AXI_1_WLAST;
+  wire S02_AXI_1_WREADY;
+  wire [3:0]S02_AXI_1_WSTRB;
+  wire [0:0]S02_AXI_1_WVALID;
+  wire [31:0]S03_AXI_1_ARADDR;
+  wire [1:0]S03_AXI_1_ARBURST;
+  wire [3:0]S03_AXI_1_ARCACHE;
+  wire [11:0]S03_AXI_1_ARID;
+  wire [7:0]S03_AXI_1_ARLEN;
+  wire [0:0]S03_AXI_1_ARLOCK;
+  wire [2:0]S03_AXI_1_ARPROT;
+  wire S03_AXI_1_ARREADY;
+  wire [2:0]S03_AXI_1_ARSIZE;
+  wire [0:0]S03_AXI_1_ARVALID;
+  wire [31:0]S03_AXI_1_AWADDR;
+  wire [1:0]S03_AXI_1_AWBURST;
+  wire [3:0]S03_AXI_1_AWCACHE;
+  wire [11:0]S03_AXI_1_AWID;
+  wire [7:0]S03_AXI_1_AWLEN;
+  wire [0:0]S03_AXI_1_AWLOCK;
+  wire [2:0]S03_AXI_1_AWPROT;
+  wire S03_AXI_1_AWREADY;
+  wire [2:0]S03_AXI_1_AWSIZE;
+  wire [0:0]S03_AXI_1_AWVALID;
+  wire [11:0]S03_AXI_1_BID;
+  wire [0:0]S03_AXI_1_BREADY;
+  wire [1:0]S03_AXI_1_BRESP;
+  wire S03_AXI_1_BVALID;
+  wire [31:0]S03_AXI_1_RDATA;
+  wire [11:0]S03_AXI_1_RID;
+  wire S03_AXI_1_RLAST;
+  wire [0:0]S03_AXI_1_RREADY;
+  wire [1:0]S03_AXI_1_RRESP;
+  wire S03_AXI_1_RVALID;
+  wire [31:0]S03_AXI_1_WDATA;
+  wire [0:0]S03_AXI_1_WLAST;
+  wire S03_AXI_1_WREADY;
+  wire [3:0]S03_AXI_1_WSTRB;
+  wire [0:0]S03_AXI_1_WVALID;
   wire Synthesizer_sync_0;
   wire audioClk256_0_1;
   wire audioClkSync_0_1;
   wire audio_clk_gen_0_audioClk;
-  wire [12:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
-  wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
-  wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DIN;
-  wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DOUT;
-  wire axi_bram_ctrl_0_BRAM_PORTA_EN;
-  wire axi_bram_ctrl_0_BRAM_PORTA_RST;
-  wire [3:0]axi_bram_ctrl_0_BRAM_PORTA_WE;
-  wire [12:0]axi_bram_ctrl_1_BRAM_PORTA_ADDR;
-  wire axi_bram_ctrl_1_BRAM_PORTA_CLK;
-  wire [31:0]axi_bram_ctrl_1_BRAM_PORTA_DIN;
-  wire [31:0]axi_bram_ctrl_1_BRAM_PORTA_DOUT;
-  wire axi_bram_ctrl_1_BRAM_PORTA_EN;
-  wire axi_bram_ctrl_1_BRAM_PORTA_RST;
-  wire [3:0]axi_bram_ctrl_1_BRAM_PORTA_WE;
-  wire [31:0]blk_mem_gen_0_doutb;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire event_frame_started;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire event_tlast_missing;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire m_axis_data_tvalid;
+  wire [13:0]axi_bram_ctrl_result_BRAM_PORTA_ADDR;
+  wire axi_bram_ctrl_result_BRAM_PORTA_CLK;
+  wire [31:0]axi_bram_ctrl_result_BRAM_PORTA_DIN;
+  wire [31:0]axi_bram_ctrl_result_BRAM_PORTA_DOUT;
+  wire axi_bram_ctrl_result_BRAM_PORTA_EN;
+  wire axi_bram_ctrl_result_BRAM_PORTA_RST;
+  wire [3:0]axi_bram_ctrl_result_BRAM_PORTA_WE;
+  wire [13:0]axi_bram_ctrl_source_BRAM_PORTA_ADDR;
+  wire axi_bram_ctrl_source_BRAM_PORTA_CLK;
+  wire [31:0]axi_bram_ctrl_source_BRAM_PORTA_DIN;
+  wire [31:0]axi_bram_ctrl_source_BRAM_PORTA_DOUT;
+  wire axi_bram_ctrl_source_BRAM_PORTA_EN;
+  wire axi_bram_ctrl_source_BRAM_PORTA_RST;
+  wire [3:0]axi_bram_ctrl_source_BRAM_PORTA_WE;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]blk_mem_gen_0_doutb;
   wire [15:0]mult_sum_0_out;
   wire nResetExt_0_1;
   wire s00_axi_aclk_1;
   wire s00_axi_aresetn_1;
   wire s_axi_aclk_0_1;
   wire s_axi_aresetn_0_1;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire s_axis_data_tready;
   wire sysClk_0_1;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [63:0]xfft_0_M_AXIS_DATA_TDATA;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire xfft_0_M_AXIS_DATA_TREADY;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire xfft_0_M_AXIS_DATA_TVALID;
+  wire [255:0]xfft_0_M_AXIS_DATA_TDATA;
+  wire xfft_0_M_AXIS_DATA_TREADY;
+  wire xfft_0_M_AXIS_DATA_TVALID;
 
-  assign Conn1_ARADDR = S02_AXI_araddr[31:0];
-  assign Conn1_ARBURST = S02_AXI_arburst[1:0];
-  assign Conn1_ARCACHE = S02_AXI_arcache[3:0];
-  assign Conn1_ARID = S02_AXI_arid[11:0];
-  assign Conn1_ARLEN = S02_AXI_arlen[7:0];
-  assign Conn1_ARLOCK = S02_AXI_arlock[0];
-  assign Conn1_ARPROT = S02_AXI_arprot[2:0];
-  assign Conn1_ARSIZE = S02_AXI_arsize[2:0];
-  assign Conn1_ARVALID = S02_AXI_arvalid[0];
-  assign Conn1_AWADDR = S02_AXI_awaddr[31:0];
-  assign Conn1_AWBURST = S02_AXI_awburst[1:0];
-  assign Conn1_AWCACHE = S02_AXI_awcache[3:0];
-  assign Conn1_AWID = S02_AXI_awid[11:0];
-  assign Conn1_AWLEN = S02_AXI_awlen[7:0];
-  assign Conn1_AWLOCK = S02_AXI_awlock[0];
-  assign Conn1_AWPROT = S02_AXI_awprot[2:0];
-  assign Conn1_AWSIZE = S02_AXI_awsize[2:0];
-  assign Conn1_AWVALID = S02_AXI_awvalid[0];
-  assign Conn1_BREADY = S02_AXI_bready[0];
-  assign Conn1_RREADY = S02_AXI_rready[0];
-  assign Conn1_WDATA = S02_AXI_wdata[31:0];
-  assign Conn1_WLAST = S02_AXI_wlast[0];
-  assign Conn1_WSTRB = S02_AXI_wstrb[3:0];
-  assign Conn1_WVALID = S02_AXI_wvalid[0];
   assign Conn2_ARADDR = S01_AXI_araddr[31:0];
   assign Conn2_ARBURST = S01_AXI_arburst[1:0];
   assign Conn2_ARCACHE = S01_AXI_arcache[3:0];
@@ -602,30 +574,6 @@ module DSP_imp_KXGKBB
   assign Conn2_WLAST = S01_AXI_wlast[0];
   assign Conn2_WSTRB = S01_AXI_wstrb[3:0];
   assign Conn2_WVALID = S01_AXI_wvalid[0];
-  assign Conn3_ARADDR = S03_AXI_araddr[31:0];
-  assign Conn3_ARBURST = S03_AXI_arburst[1:0];
-  assign Conn3_ARCACHE = S03_AXI_arcache[3:0];
-  assign Conn3_ARID = S03_AXI_arid[11:0];
-  assign Conn3_ARLEN = S03_AXI_arlen[7:0];
-  assign Conn3_ARLOCK = S03_AXI_arlock[0];
-  assign Conn3_ARPROT = S03_AXI_arprot[2:0];
-  assign Conn3_ARSIZE = S03_AXI_arsize[2:0];
-  assign Conn3_ARVALID = S03_AXI_arvalid[0];
-  assign Conn3_AWADDR = S03_AXI_awaddr[31:0];
-  assign Conn3_AWBURST = S03_AXI_awburst[1:0];
-  assign Conn3_AWCACHE = S03_AXI_awcache[3:0];
-  assign Conn3_AWID = S03_AXI_awid[11:0];
-  assign Conn3_AWLEN = S03_AXI_awlen[7:0];
-  assign Conn3_AWLOCK = S03_AXI_awlock[0];
-  assign Conn3_AWPROT = S03_AXI_awprot[2:0];
-  assign Conn3_AWSIZE = S03_AXI_awsize[2:0];
-  assign Conn3_AWVALID = S03_AXI_awvalid[0];
-  assign Conn3_BREADY = S03_AXI_bready[0];
-  assign Conn3_RREADY = S03_AXI_rready[0];
-  assign Conn3_WDATA = S03_AXI_wdata[31:0];
-  assign Conn3_WLAST = S03_AXI_wlast[0];
-  assign Conn3_WSTRB = S03_AXI_wstrb[3:0];
-  assign Conn3_WVALID = S03_AXI_wvalid[0];
   assign S00_AXI_1_ARADDR = S00_AXI_araddr[31:0];
   assign S00_AXI_1_ARPROT = S00_AXI_arprot[2:0];
   assign S00_AXI_1_ARVALID = S00_AXI_arvalid;
@@ -656,28 +604,76 @@ module DSP_imp_KXGKBB
   assign S01_AXI_rresp[1:0] = Conn2_RRESP;
   assign S01_AXI_rvalid[0] = Conn2_RVALID;
   assign S01_AXI_wready[0] = Conn2_WREADY;
-  assign S02_AXI_arready[0] = Conn1_ARREADY;
-  assign S02_AXI_awready[0] = Conn1_AWREADY;
-  assign S02_AXI_bid[11:0] = Conn1_BID;
-  assign S02_AXI_bresp[1:0] = Conn1_BRESP;
-  assign S02_AXI_bvalid[0] = Conn1_BVALID;
-  assign S02_AXI_rdata[31:0] = Conn1_RDATA;
-  assign S02_AXI_rid[11:0] = Conn1_RID;
-  assign S02_AXI_rlast[0] = Conn1_RLAST;
-  assign S02_AXI_rresp[1:0] = Conn1_RRESP;
-  assign S02_AXI_rvalid[0] = Conn1_RVALID;
-  assign S02_AXI_wready[0] = Conn1_WREADY;
-  assign S03_AXI_arready[0] = Conn3_ARREADY;
-  assign S03_AXI_awready[0] = Conn3_AWREADY;
-  assign S03_AXI_bid[11:0] = Conn3_BID;
-  assign S03_AXI_bresp[1:0] = Conn3_BRESP;
-  assign S03_AXI_bvalid[0] = Conn3_BVALID;
-  assign S03_AXI_rdata[31:0] = Conn3_RDATA;
-  assign S03_AXI_rid[11:0] = Conn3_RID;
-  assign S03_AXI_rlast[0] = Conn3_RLAST;
-  assign S03_AXI_rresp[1:0] = Conn3_RRESP;
-  assign S03_AXI_rvalid[0] = Conn3_RVALID;
-  assign S03_AXI_wready[0] = Conn3_WREADY;
+  assign S02_AXI_1_ARADDR = S02_AXI_araddr[31:0];
+  assign S02_AXI_1_ARBURST = S02_AXI_arburst[1:0];
+  assign S02_AXI_1_ARCACHE = S02_AXI_arcache[3:0];
+  assign S02_AXI_1_ARID = S02_AXI_arid[11:0];
+  assign S02_AXI_1_ARLEN = S02_AXI_arlen[7:0];
+  assign S02_AXI_1_ARLOCK = S02_AXI_arlock[0];
+  assign S02_AXI_1_ARPROT = S02_AXI_arprot[2:0];
+  assign S02_AXI_1_ARSIZE = S02_AXI_arsize[2:0];
+  assign S02_AXI_1_ARVALID = S02_AXI_arvalid[0];
+  assign S02_AXI_1_AWADDR = S02_AXI_awaddr[31:0];
+  assign S02_AXI_1_AWBURST = S02_AXI_awburst[1:0];
+  assign S02_AXI_1_AWCACHE = S02_AXI_awcache[3:0];
+  assign S02_AXI_1_AWID = S02_AXI_awid[11:0];
+  assign S02_AXI_1_AWLEN = S02_AXI_awlen[7:0];
+  assign S02_AXI_1_AWLOCK = S02_AXI_awlock[0];
+  assign S02_AXI_1_AWPROT = S02_AXI_awprot[2:0];
+  assign S02_AXI_1_AWSIZE = S02_AXI_awsize[2:0];
+  assign S02_AXI_1_AWVALID = S02_AXI_awvalid[0];
+  assign S02_AXI_1_BREADY = S02_AXI_bready[0];
+  assign S02_AXI_1_RREADY = S02_AXI_rready[0];
+  assign S02_AXI_1_WDATA = S02_AXI_wdata[31:0];
+  assign S02_AXI_1_WLAST = S02_AXI_wlast[0];
+  assign S02_AXI_1_WSTRB = S02_AXI_wstrb[3:0];
+  assign S02_AXI_1_WVALID = S02_AXI_wvalid[0];
+  assign S02_AXI_arready[0] = S02_AXI_1_ARREADY;
+  assign S02_AXI_awready[0] = S02_AXI_1_AWREADY;
+  assign S02_AXI_bid[11:0] = S02_AXI_1_BID;
+  assign S02_AXI_bresp[1:0] = S02_AXI_1_BRESP;
+  assign S02_AXI_bvalid[0] = S02_AXI_1_BVALID;
+  assign S02_AXI_rdata[31:0] = S02_AXI_1_RDATA;
+  assign S02_AXI_rid[11:0] = S02_AXI_1_RID;
+  assign S02_AXI_rlast[0] = S02_AXI_1_RLAST;
+  assign S02_AXI_rresp[1:0] = S02_AXI_1_RRESP;
+  assign S02_AXI_rvalid[0] = S02_AXI_1_RVALID;
+  assign S02_AXI_wready[0] = S02_AXI_1_WREADY;
+  assign S03_AXI_1_ARADDR = S03_AXI_araddr[31:0];
+  assign S03_AXI_1_ARBURST = S03_AXI_arburst[1:0];
+  assign S03_AXI_1_ARCACHE = S03_AXI_arcache[3:0];
+  assign S03_AXI_1_ARID = S03_AXI_arid[11:0];
+  assign S03_AXI_1_ARLEN = S03_AXI_arlen[7:0];
+  assign S03_AXI_1_ARLOCK = S03_AXI_arlock[0];
+  assign S03_AXI_1_ARPROT = S03_AXI_arprot[2:0];
+  assign S03_AXI_1_ARSIZE = S03_AXI_arsize[2:0];
+  assign S03_AXI_1_ARVALID = S03_AXI_arvalid[0];
+  assign S03_AXI_1_AWADDR = S03_AXI_awaddr[31:0];
+  assign S03_AXI_1_AWBURST = S03_AXI_awburst[1:0];
+  assign S03_AXI_1_AWCACHE = S03_AXI_awcache[3:0];
+  assign S03_AXI_1_AWID = S03_AXI_awid[11:0];
+  assign S03_AXI_1_AWLEN = S03_AXI_awlen[7:0];
+  assign S03_AXI_1_AWLOCK = S03_AXI_awlock[0];
+  assign S03_AXI_1_AWPROT = S03_AXI_awprot[2:0];
+  assign S03_AXI_1_AWSIZE = S03_AXI_awsize[2:0];
+  assign S03_AXI_1_AWVALID = S03_AXI_awvalid[0];
+  assign S03_AXI_1_BREADY = S03_AXI_bready[0];
+  assign S03_AXI_1_RREADY = S03_AXI_rready[0];
+  assign S03_AXI_1_WDATA = S03_AXI_wdata[31:0];
+  assign S03_AXI_1_WLAST = S03_AXI_wlast[0];
+  assign S03_AXI_1_WSTRB = S03_AXI_wstrb[3:0];
+  assign S03_AXI_1_WVALID = S03_AXI_wvalid[0];
+  assign S03_AXI_arready[0] = S03_AXI_1_ARREADY;
+  assign S03_AXI_awready[0] = S03_AXI_1_AWREADY;
+  assign S03_AXI_bid[11:0] = S03_AXI_1_BID;
+  assign S03_AXI_bresp[1:0] = S03_AXI_1_BRESP;
+  assign S03_AXI_bvalid[0] = S03_AXI_1_BVALID;
+  assign S03_AXI_rdata[31:0] = S03_AXI_1_RDATA;
+  assign S03_AXI_rid[11:0] = S03_AXI_1_RID;
+  assign S03_AXI_rlast[0] = S03_AXI_1_RLAST;
+  assign S03_AXI_rresp[1:0] = S03_AXI_1_RRESP;
+  assign S03_AXI_rvalid[0] = S03_AXI_1_RVALID;
+  assign S03_AXI_wready[0] = S03_AXI_1_WREADY;
   assign audioClk256_0_1 = audio256Clk;
   assign audioClkInterrupt = DSP_registers_0_audioClkInterrupt;
   assign audioClkSync_0_1 = audioSample;
@@ -735,15 +731,14 @@ module DSP_imp_KXGKBB
         .bram_clk(FFTInputBitsConverter_0_bram_clk),
         .bram_en(FFTInputBitsConverter_0_bram_en),
         .bram_rddata(blk_mem_gen_0_doutb),
-        .bram_rst(FFTInputBitsConverter_0_bram_rst),
         .bram_we(FFTInputBitsConverter_0_bram_we),
         .clk(sysClk_0_1),
         .m_axis_config_tdata(FFTInputBitsConverter_0_m_axis_config_TDATA),
         .m_axis_config_tready(FFTInputBitsConverter_0_m_axis_config_TREADY),
         .m_axis_config_tvalid(FFTInputBitsConverter_0_m_axis_config_TVALID),
-        .m_axis_data_tdata(FFTInputBitsConverter_0_m_axis_data_tdata),
-        .m_axis_data_tready(s_axis_data_tready),
-        .m_axis_data_tvalid(m_axis_data_tvalid),
+        .m_axis_data_tdata(FFTInputBitsConverter_0_m_axis_data_TDATA),
+        .m_axis_data_tready(FFTInputBitsConverter_0_m_axis_data_TREADY),
+        .m_axis_data_tvalid(FFTInputBitsConverter_0_m_axis_data_TVALID),
         .nReset(DSP_reset_0_nResetSysClk1),
         .scale(DSP_registers_0_fft_scale),
         .start(DSP_registers_0_fft_start));
@@ -751,7 +746,6 @@ module DSP_imp_KXGKBB
        (.bram_addr(FFTOutputBitsConvert_0_bram_addr),
         .bram_clk(FFTOutputBitsConvert_0_bram_clk),
         .bram_en(FFTOutputBitsConvert_0_bram_en),
-        .bram_rst(FFTOutputBitsConvert_0_bram_rst),
         .bram_wddata(FFTOutputBitsConvert_0_bram_wddata),
         .bram_we(FFTOutputBitsConvert_0_bram_we),
         .clk(sysClk_0_1),
@@ -810,144 +804,142 @@ module DSP_imp_KXGKBB
         .nResetAudio256Clk(DSP_reset_0_nResetAudioClk),
         .nResetSysClk(DSP_reset_0_nResetSysClk1),
         .sysClk(sysClk_0_1));
-  (* BMM_INFO_ADDRESS_SPACE = "byte  0x42000000 32 > design_1 DSP/blk_mem_gen_0" *) 
-  (* KEEP_HIERARCHY = "yes" *) 
-  design_1_axi_bram_ctrl_0_1 axi_bram_ctrl_0
-       (.bram_addr_a(axi_bram_ctrl_0_BRAM_PORTA_ADDR),
-        .bram_clk_a(axi_bram_ctrl_0_BRAM_PORTA_CLK),
-        .bram_en_a(axi_bram_ctrl_0_BRAM_PORTA_EN),
-        .bram_rddata_a(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
-        .bram_rst_a(axi_bram_ctrl_0_BRAM_PORTA_RST),
-        .bram_we_a(axi_bram_ctrl_0_BRAM_PORTA_WE),
-        .bram_wrdata_a(axi_bram_ctrl_0_BRAM_PORTA_DIN),
-        .s_axi_aclk(sysClk_0_1),
-        .s_axi_araddr(Conn1_ARADDR[12:0]),
-        .s_axi_arburst(Conn1_ARBURST),
-        .s_axi_arcache(Conn1_ARCACHE),
-        .s_axi_aresetn(DSP_reset_0_nResetSysClk1),
-        .s_axi_arid(Conn1_ARID),
-        .s_axi_arlen(Conn1_ARLEN),
-        .s_axi_arlock(Conn1_ARLOCK),
-        .s_axi_arprot(Conn1_ARPROT),
-        .s_axi_arready(Conn1_ARREADY),
-        .s_axi_arsize(Conn1_ARSIZE),
-        .s_axi_arvalid(Conn1_ARVALID),
-        .s_axi_awaddr(Conn1_AWADDR[12:0]),
-        .s_axi_awburst(Conn1_AWBURST),
-        .s_axi_awcache(Conn1_AWCACHE),
-        .s_axi_awid(Conn1_AWID),
-        .s_axi_awlen(Conn1_AWLEN),
-        .s_axi_awlock(Conn1_AWLOCK),
-        .s_axi_awprot(Conn1_AWPROT),
-        .s_axi_awready(Conn1_AWREADY),
-        .s_axi_awsize(Conn1_AWSIZE),
-        .s_axi_awvalid(Conn1_AWVALID),
-        .s_axi_bid(Conn1_BID),
-        .s_axi_bready(Conn1_BREADY),
-        .s_axi_bresp(Conn1_BRESP),
-        .s_axi_bvalid(Conn1_BVALID),
-        .s_axi_rdata(Conn1_RDATA),
-        .s_axi_rid(Conn1_RID),
-        .s_axi_rlast(Conn1_RLAST),
-        .s_axi_rready(Conn1_RREADY),
-        .s_axi_rresp(Conn1_RRESP),
-        .s_axi_rvalid(Conn1_RVALID),
-        .s_axi_wdata(Conn1_WDATA),
-        .s_axi_wlast(Conn1_WLAST),
-        .s_axi_wready(Conn1_WREADY),
-        .s_axi_wstrb(Conn1_WSTRB),
-        .s_axi_wvalid(Conn1_WVALID));
   (* BMM_INFO_ADDRESS_SPACE = "byte  0x44000000 32 > design_1 DSP/blk_mem_gen_1" *) 
   (* KEEP_HIERARCHY = "yes" *) 
-  design_1_axi_bram_ctrl_0_2 axi_bram_ctrl_1
-       (.bram_addr_a(axi_bram_ctrl_1_BRAM_PORTA_ADDR),
-        .bram_clk_a(axi_bram_ctrl_1_BRAM_PORTA_CLK),
-        .bram_en_a(axi_bram_ctrl_1_BRAM_PORTA_EN),
-        .bram_rddata_a(axi_bram_ctrl_1_BRAM_PORTA_DOUT),
-        .bram_rst_a(axi_bram_ctrl_1_BRAM_PORTA_RST),
-        .bram_we_a(axi_bram_ctrl_1_BRAM_PORTA_WE),
-        .bram_wrdata_a(axi_bram_ctrl_1_BRAM_PORTA_DIN),
+  design_1_axi_bram_ctrl_source_0 axi_bram_ctrl_result
+       (.bram_addr_a(axi_bram_ctrl_result_BRAM_PORTA_ADDR),
+        .bram_clk_a(axi_bram_ctrl_result_BRAM_PORTA_CLK),
+        .bram_en_a(axi_bram_ctrl_result_BRAM_PORTA_EN),
+        .bram_rddata_a(axi_bram_ctrl_result_BRAM_PORTA_DOUT),
+        .bram_rst_a(axi_bram_ctrl_result_BRAM_PORTA_RST),
+        .bram_we_a(axi_bram_ctrl_result_BRAM_PORTA_WE),
+        .bram_wrdata_a(axi_bram_ctrl_result_BRAM_PORTA_DIN),
         .s_axi_aclk(sysClk_0_1),
-        .s_axi_araddr(Conn3_ARADDR[12:0]),
-        .s_axi_arburst(Conn3_ARBURST),
-        .s_axi_arcache(Conn3_ARCACHE),
+        .s_axi_araddr(S03_AXI_1_ARADDR[13:0]),
+        .s_axi_arburst(S03_AXI_1_ARBURST),
+        .s_axi_arcache(S03_AXI_1_ARCACHE),
         .s_axi_aresetn(DSP_reset_0_nResetSysClk1),
-        .s_axi_arid(Conn3_ARID),
-        .s_axi_arlen(Conn3_ARLEN),
-        .s_axi_arlock(Conn3_ARLOCK),
-        .s_axi_arprot(Conn3_ARPROT),
-        .s_axi_arready(Conn3_ARREADY),
-        .s_axi_arsize(Conn3_ARSIZE),
-        .s_axi_arvalid(Conn3_ARVALID),
-        .s_axi_awaddr(Conn3_AWADDR[12:0]),
-        .s_axi_awburst(Conn3_AWBURST),
-        .s_axi_awcache(Conn3_AWCACHE),
-        .s_axi_awid(Conn3_AWID),
-        .s_axi_awlen(Conn3_AWLEN),
-        .s_axi_awlock(Conn3_AWLOCK),
-        .s_axi_awprot(Conn3_AWPROT),
-        .s_axi_awready(Conn3_AWREADY),
-        .s_axi_awsize(Conn3_AWSIZE),
-        .s_axi_awvalid(Conn3_AWVALID),
-        .s_axi_bid(Conn3_BID),
-        .s_axi_bready(Conn3_BREADY),
-        .s_axi_bresp(Conn3_BRESP),
-        .s_axi_bvalid(Conn3_BVALID),
-        .s_axi_rdata(Conn3_RDATA),
-        .s_axi_rid(Conn3_RID),
-        .s_axi_rlast(Conn3_RLAST),
-        .s_axi_rready(Conn3_RREADY),
-        .s_axi_rresp(Conn3_RRESP),
-        .s_axi_rvalid(Conn3_RVALID),
-        .s_axi_wdata(Conn3_WDATA),
-        .s_axi_wlast(Conn3_WLAST),
-        .s_axi_wready(Conn3_WREADY),
-        .s_axi_wstrb(Conn3_WSTRB),
-        .s_axi_wvalid(Conn3_WVALID));
+        .s_axi_arid(S03_AXI_1_ARID),
+        .s_axi_arlen(S03_AXI_1_ARLEN),
+        .s_axi_arlock(S03_AXI_1_ARLOCK),
+        .s_axi_arprot(S03_AXI_1_ARPROT),
+        .s_axi_arready(S03_AXI_1_ARREADY),
+        .s_axi_arsize(S03_AXI_1_ARSIZE),
+        .s_axi_arvalid(S03_AXI_1_ARVALID),
+        .s_axi_awaddr(S03_AXI_1_AWADDR[13:0]),
+        .s_axi_awburst(S03_AXI_1_AWBURST),
+        .s_axi_awcache(S03_AXI_1_AWCACHE),
+        .s_axi_awid(S03_AXI_1_AWID),
+        .s_axi_awlen(S03_AXI_1_AWLEN),
+        .s_axi_awlock(S03_AXI_1_AWLOCK),
+        .s_axi_awprot(S03_AXI_1_AWPROT),
+        .s_axi_awready(S03_AXI_1_AWREADY),
+        .s_axi_awsize(S03_AXI_1_AWSIZE),
+        .s_axi_awvalid(S03_AXI_1_AWVALID),
+        .s_axi_bid(S03_AXI_1_BID),
+        .s_axi_bready(S03_AXI_1_BREADY),
+        .s_axi_bresp(S03_AXI_1_BRESP),
+        .s_axi_bvalid(S03_AXI_1_BVALID),
+        .s_axi_rdata(S03_AXI_1_RDATA),
+        .s_axi_rid(S03_AXI_1_RID),
+        .s_axi_rlast(S03_AXI_1_RLAST),
+        .s_axi_rready(S03_AXI_1_RREADY),
+        .s_axi_rresp(S03_AXI_1_RRESP),
+        .s_axi_rvalid(S03_AXI_1_RVALID),
+        .s_axi_wdata(S03_AXI_1_WDATA),
+        .s_axi_wlast(S03_AXI_1_WLAST),
+        .s_axi_wready(S03_AXI_1_WREADY),
+        .s_axi_wstrb(S03_AXI_1_WSTRB),
+        .s_axi_wvalid(S03_AXI_1_WVALID));
+  (* BMM_INFO_ADDRESS_SPACE = "byte  0x42000000 32 > design_1 DSP/blk_mem_gen_0" *) 
+  (* KEEP_HIERARCHY = "yes" *) 
+  design_1_axi_bram_ctrl_0_3 axi_bram_ctrl_source
+       (.bram_addr_a(axi_bram_ctrl_source_BRAM_PORTA_ADDR),
+        .bram_clk_a(axi_bram_ctrl_source_BRAM_PORTA_CLK),
+        .bram_en_a(axi_bram_ctrl_source_BRAM_PORTA_EN),
+        .bram_rddata_a(axi_bram_ctrl_source_BRAM_PORTA_DOUT),
+        .bram_rst_a(axi_bram_ctrl_source_BRAM_PORTA_RST),
+        .bram_we_a(axi_bram_ctrl_source_BRAM_PORTA_WE),
+        .bram_wrdata_a(axi_bram_ctrl_source_BRAM_PORTA_DIN),
+        .s_axi_aclk(sysClk_0_1),
+        .s_axi_araddr(S02_AXI_1_ARADDR[13:0]),
+        .s_axi_arburst(S02_AXI_1_ARBURST),
+        .s_axi_arcache(S02_AXI_1_ARCACHE),
+        .s_axi_aresetn(DSP_reset_0_nResetSysClk1),
+        .s_axi_arid(S02_AXI_1_ARID),
+        .s_axi_arlen(S02_AXI_1_ARLEN),
+        .s_axi_arlock(S02_AXI_1_ARLOCK),
+        .s_axi_arprot(S02_AXI_1_ARPROT),
+        .s_axi_arready(S02_AXI_1_ARREADY),
+        .s_axi_arsize(S02_AXI_1_ARSIZE),
+        .s_axi_arvalid(S02_AXI_1_ARVALID),
+        .s_axi_awaddr(S02_AXI_1_AWADDR[13:0]),
+        .s_axi_awburst(S02_AXI_1_AWBURST),
+        .s_axi_awcache(S02_AXI_1_AWCACHE),
+        .s_axi_awid(S02_AXI_1_AWID),
+        .s_axi_awlen(S02_AXI_1_AWLEN),
+        .s_axi_awlock(S02_AXI_1_AWLOCK),
+        .s_axi_awprot(S02_AXI_1_AWPROT),
+        .s_axi_awready(S02_AXI_1_AWREADY),
+        .s_axi_awsize(S02_AXI_1_AWSIZE),
+        .s_axi_awvalid(S02_AXI_1_AWVALID),
+        .s_axi_bid(S02_AXI_1_BID),
+        .s_axi_bready(S02_AXI_1_BREADY),
+        .s_axi_bresp(S02_AXI_1_BRESP),
+        .s_axi_bvalid(S02_AXI_1_BVALID),
+        .s_axi_rdata(S02_AXI_1_RDATA),
+        .s_axi_rid(S02_AXI_1_RID),
+        .s_axi_rlast(S02_AXI_1_RLAST),
+        .s_axi_rready(S02_AXI_1_RREADY),
+        .s_axi_rresp(S02_AXI_1_RRESP),
+        .s_axi_rvalid(S02_AXI_1_RVALID),
+        .s_axi_wdata(S02_AXI_1_WDATA),
+        .s_axi_wlast(S02_AXI_1_WLAST),
+        .s_axi_wready(S02_AXI_1_WREADY),
+        .s_axi_wstrb(S02_AXI_1_WSTRB),
+        .s_axi_wvalid(S02_AXI_1_WVALID));
   design_1_blk_mem_gen_0_0 blk_mem_gen_0
-       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
+       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_source_BRAM_PORTA_ADDR}),
         .addrb(FFTInputBitsConverter_0_bram_addr),
-        .clka(axi_bram_ctrl_0_BRAM_PORTA_CLK),
+        .clka(axi_bram_ctrl_source_BRAM_PORTA_CLK),
         .clkb(FFTInputBitsConverter_0_bram_clk),
-        .dina(axi_bram_ctrl_0_BRAM_PORTA_DIN),
-        .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
-        .douta(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
+        .dina(axi_bram_ctrl_source_BRAM_PORTA_DIN),
+        .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
+        .douta(axi_bram_ctrl_source_BRAM_PORTA_DOUT),
         .doutb(blk_mem_gen_0_doutb),
-        .ena(axi_bram_ctrl_0_BRAM_PORTA_EN),
+        .ena(axi_bram_ctrl_source_BRAM_PORTA_EN),
         .enb(FFTInputBitsConverter_0_bram_en),
-        .rsta(axi_bram_ctrl_0_BRAM_PORTA_RST),
-        .rstb(FFTInputBitsConverter_0_bram_rst),
-        .wea(axi_bram_ctrl_0_BRAM_PORTA_WE),
-        .web({FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we}));
+        .rsta(axi_bram_ctrl_source_BRAM_PORTA_RST),
+        .rstb(1'b0),
+        .wea(axi_bram_ctrl_source_BRAM_PORTA_WE),
+        .web({FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we,FFTInputBitsConverter_0_bram_we}));
   design_1_blk_mem_gen_0_2 blk_mem_gen_1
-       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_1_BRAM_PORTA_ADDR}),
+       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_result_BRAM_PORTA_ADDR}),
         .addrb(FFTOutputBitsConvert_0_bram_addr),
-        .clka(axi_bram_ctrl_1_BRAM_PORTA_CLK),
+        .clka(axi_bram_ctrl_result_BRAM_PORTA_CLK),
         .clkb(FFTOutputBitsConvert_0_bram_clk),
-        .dina(axi_bram_ctrl_1_BRAM_PORTA_DIN),
+        .dina(axi_bram_ctrl_result_BRAM_PORTA_DIN),
         .dinb(FFTOutputBitsConvert_0_bram_wddata),
-        .douta(axi_bram_ctrl_1_BRAM_PORTA_DOUT),
-        .ena(axi_bram_ctrl_1_BRAM_PORTA_EN),
+        .douta(axi_bram_ctrl_result_BRAM_PORTA_DOUT),
+        .ena(axi_bram_ctrl_result_BRAM_PORTA_EN),
         .enb(FFTOutputBitsConvert_0_bram_en),
-        .rsta(axi_bram_ctrl_1_BRAM_PORTA_RST),
-        .rstb(FFTOutputBitsConvert_0_bram_rst),
-        .wea(axi_bram_ctrl_1_BRAM_PORTA_WE),
-        .web({FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we}));
+        .rsta(axi_bram_ctrl_result_BRAM_PORTA_RST),
+        .rstb(1'b0),
+        .wea(axi_bram_ctrl_result_BRAM_PORTA_WE),
+        .web({FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we,FFTOutputBitsConvert_0_bram_we}));
   design_1_xfft_0_0 xfft_0
        (.aclk(sysClk_0_1),
         .aresetn(DSP_reset_0_nResetSysClk1),
-        .event_frame_started(event_frame_started),
-        .event_tlast_missing(event_tlast_missing),
         .m_axis_data_tdata(xfft_0_M_AXIS_DATA_TDATA),
         .m_axis_data_tready(xfft_0_M_AXIS_DATA_TREADY),
         .m_axis_data_tvalid(xfft_0_M_AXIS_DATA_TVALID),
         .s_axis_config_tdata(FFTInputBitsConverter_0_m_axis_config_TDATA),
         .s_axis_config_tready(FFTInputBitsConverter_0_m_axis_config_TREADY),
         .s_axis_config_tvalid(FFTInputBitsConverter_0_m_axis_config_TVALID),
-        .s_axis_data_tdata(FFTInputBitsConverter_0_m_axis_data_tdata),
+        .s_axis_data_tdata(FFTInputBitsConverter_0_m_axis_data_TDATA),
         .s_axis_data_tlast(1'b0),
-        .s_axis_data_tready(s_axis_data_tready),
-        .s_axis_data_tvalid(m_axis_data_tvalid));
+        .s_axis_data_tready(FFTInputBitsConverter_0_m_axis_data_TREADY),
+        .s_axis_data_tvalid(FFTInputBitsConverter_0_m_axis_data_TVALID));
 endmodule
 
 module GainAndSum_imp_1USF4QI
@@ -2327,7 +2319,7 @@ module design_1
         .s00_axi_wready(ps7_0_axi_periph_M00_AXI_WREADY),
         .s00_axi_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
         .s00_axi_wvalid(ps7_0_axi_periph_M00_AXI_WVALID));
-  (* BMM_INFO_PROCESSOR = "arm > design_1 DSP/Synthesizer/axi_bram_ctrl_0 design_1 DSP/axi_bram_ctrl_0 design_1 DSP/axi_bram_ctrl_1" *) 
+  (* BMM_INFO_PROCESSOR = "arm > design_1 DSP/Synthesizer/axi_bram_ctrl_0 design_1 DSP/axi_bram_ctrl_source design_1 DSP/axi_bram_ctrl_result" *) 
   (* KEEP_HIERARCHY = "yes" *) 
   design_1_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr[14:0]),

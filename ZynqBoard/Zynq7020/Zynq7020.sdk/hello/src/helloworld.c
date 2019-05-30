@@ -69,8 +69,9 @@ XIicPs Iic;
 XScuGic InterruptController; /* Instance of the Interrupt Controller */
 static XScuGic_Config *GicConfig;/* The configuration parameters of the controller */
 u8 adcCh = 0;
-u16 adcData;
+s16 adcData;
 volatile u32 *UIF1WRITE = (volatile u32 *)(0x43C20000 + 16);
+volatile u32 *UIF1_START = (volatile u32 *)(0x43C20000 + 24);
 
 volatile u32 *DSP_FFT_SCALE = (volatile u32 *)(0x43C10000 + 12);
 //volatile u32 *DSP_FFT_WRITE = (volatile u32 *)(0x43C10000 + 20);
@@ -79,6 +80,7 @@ volatile u32 *DSP_FFT_READ = (volatile u32 *)(0x43C10000 + 24);
 volatile u32 *DSP_FFT_DATA = (volatile u32 *)(0x42000000);
 volatile u32 *DSP_FFT_RESULT = (volatile u32 *)(0x44000000);
 u32 ffttemp = 1;
+u32 fftSourceDataIndex = 0;
 
 int i2c_write(XIicPs *Iic, u8 addr, u8 command, u16 i2c_adder)
 {
@@ -106,6 +108,37 @@ void OnAudioClk()
 	adcData = (Xil_In32(0x43C20000 + 20) & 0x0F) << 8;
 	adcData |= Xil_In32(0x43C20000 + 20) & 0xFF;
 
+	adcData -= 2048;
+
+	switch(adcCh)
+	{
+	case 0:		DSP_FFT_DATA[fftSourceDataIndex * 4] = (u32)0 | (u16)adcData;
+		break;
+	case 1:
+		DSP_FFT_DATA[fftSourceDataIndex * 4] |= (s32)adcData << 16;
+		break;
+	case 2:
+		DSP_FFT_DATA[fftSourceDataIndex * 4 + 1] = (u32)0 | (u16)adcData;
+		break;
+	case 3:
+		DSP_FFT_DATA[fftSourceDataIndex * 4 + 1] |= (s32)adcData << 16;
+		break;
+	case 4:
+		DSP_FFT_DATA[fftSourceDataIndex * 4 + 2] = (u32)0 | (u16)adcData;
+		break;
+	case 5:
+		DSP_FFT_DATA[fftSourceDataIndex * 4 + 2] |= (s32)adcData << 16;
+		fftSourceDataIndex++;
+		if(fftSourceDataIndex == 1024)
+		{
+			*DSP_FFT_START = 1;
+			fftSourceDataIndex = 0;
+		}
+		break;
+	default:
+		break;
+	}
+
 	if(adcCh < 5)
 	{
 		adcCh++;
@@ -122,7 +155,8 @@ void OnAudioClk()
     *UIF1WRITE = adcCh << 6;
     *UIF1WRITE = 0x00;
 
-    Xil_Out32(0x43C20000 + 24, 0x01);
+   *UIF1_START = 0xFF;
+//    Xil_Out32(0x43C20000 + 24, 0x01);
 
     // clear interrupt bit
 	*(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR &= ~0x00000004;
@@ -130,6 +164,14 @@ void OnAudioClk()
 
 void OnFFTComplete()
 {
+	s32 value[1024], i;
+
+    for(i = 0; i < 1024; i++)
+    {
+        value[i] = (s32)(DSP_FFT_RESULT[i * 4] & 0xFFFF);
+    }
+
+
     // clear interrupt bit
 	*(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR &= ~0x00000008;
 }
@@ -190,7 +232,7 @@ int main()
     i2c_write(&Iic, 0x0F, 0x09, 0x12);
     i2c_write(&Iic, 0x02, 0x02, 0x12);	// Pseudo cap-less
     i2c_write(&Iic, 0x09, 0x91, 0x12);	// ALC部ディジタルボリューム 0dB
-    i2c_write(&Iic, 0x0A, 0x18, 0x12);	// 出力ディジタルボリューム
+    i2c_write(&Iic, 0x0A, 0x00, 0x12);	// 出力ディジタルボリューム 0x18
 //    i2c_write(&Iic, 0x0E, 0x02, 0x12);	// ディエンファシスフィルタ 48kHz
     i2c_write(&Iic, 0x00, 0x64, 0x12);	// DAC, MIN-Ampオン
     i2c_write(&Iic, 0x01, 0x30, 0x12);	// ヘッドホンアンプオン
@@ -237,7 +279,7 @@ int main()
 
     *DSP_FFT_SCALE = 0x55556; // 0x05556 = x1, 0x15556 = x0.5, 0x55556 = x0.25 but perfectly secure.
 
-
+    Xil_Out32(0x40000000 + 0, ((u32)10000 << 18) + 1000 * 10);
 
     while(1)
     {
@@ -246,13 +288,13 @@ int main()
     	usleep(50000);
     	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x5);
 
-        for(i = 0; i < 1024; i++)
-        {
-        	DSP_FFT_DATA[i] = (s32)(1000.f * sinf((float)ffttemp * 2.f * 3.141592655358f * (float)i / 1024.f)) + (s32)(1000.f * cosf((float)ffttemp * 4.f * 3.141592655358f * (float)i / 1024.f));
-//        	value[i] = i * 2;
-        }
-
-        *DSP_FFT_START = 1;
+//        for(i = 0; i < 1024; i++)
+//        {
+//        	// ch7
+//        	DSP_FFT_DATA[i * 4 + 3] = (((s32)(1000.f * sinf((float)ffttemp * 2.f * 3.141592655358f * (float)i / 1024.f)) + (s32)(1000.f * cosf((float)15 * 2.f * 3.141592655358f * (float)i / 1024.f))) & 0xFFFF) << 16;
+//        }
+//
+//        *DSP_FFT_START = 1;
 
         if(ffttemp < 100)
         {
@@ -267,14 +309,12 @@ int main()
 //    	{
 //    		*DSP_FFT_WRITE = value[i] & 0xFFF;
 //    	}
-
-        for(i = 0; i < 1024; i++)
-        {
-            value[i] = (s32)DSP_FFT_RESULT[i] & 0xFFFF;
-        }
-
-        value[0] = value[0];
     }
+
+
+
+
+
 
 
 	while(1)

@@ -1,8 +1,8 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Mon May 27 03:18:17 2019
-// Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
+// Date        : Thu May 30 20:32:08 2019
+// Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_xfft_0_0/design_1_xfft_0_0_stub.v
 // Design      : design_1_xfft_0_0
@@ -20,17 +20,17 @@ module design_1_xfft_0_0(aclk, aresetn, s_axis_config_tdata,
   m_axis_data_tready, m_axis_data_tlast, event_frame_started, event_tlast_unexpected, 
   event_tlast_missing, event_status_channel_halt, event_data_in_channel_halt, 
   event_data_out_channel_halt)
-/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axis_config_tdata[47:0],s_axis_config_tvalid,s_axis_config_tready,s_axis_data_tdata[63:0],s_axis_data_tvalid,s_axis_data_tready,s_axis_data_tlast,m_axis_data_tdata[63:0],m_axis_data_tvalid,m_axis_data_tready,m_axis_data_tlast,event_frame_started,event_tlast_unexpected,event_tlast_missing,event_status_channel_halt,event_data_in_channel_halt,event_data_out_channel_halt" */;
+/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axis_config_tdata[223:0],s_axis_config_tvalid,s_axis_config_tready,s_axis_data_tdata[255:0],s_axis_data_tvalid,s_axis_data_tready,s_axis_data_tlast,m_axis_data_tdata[255:0],m_axis_data_tvalid,m_axis_data_tready,m_axis_data_tlast,event_frame_started,event_tlast_unexpected,event_tlast_missing,event_status_channel_halt,event_data_in_channel_halt,event_data_out_channel_halt" */;
   input aclk;
   input aresetn;
-  input [47:0]s_axis_config_tdata;
+  input [223:0]s_axis_config_tdata;
   input s_axis_config_tvalid;
   output s_axis_config_tready;
-  input [63:0]s_axis_data_tdata;
+  input [255:0]s_axis_data_tdata;
   input s_axis_data_tvalid;
   output s_axis_data_tready;
   input s_axis_data_tlast;
-  output [63:0]m_axis_data_tdata;
+  output [255:0]m_axis_data_tdata;
   output m_axis_data_tvalid;
   input m_axis_data_tready;
   output m_axis_data_tlast;

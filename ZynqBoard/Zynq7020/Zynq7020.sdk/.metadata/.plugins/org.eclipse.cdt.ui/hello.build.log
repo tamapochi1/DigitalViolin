@@ -1,51 +1,8 @@
-01:56:32 **** Incremental Build of configuration Debug for project hello ****
+23:51:22 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-'Building file: ../src/helloworld.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:144:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
-  int status;
-      ^~~~~~
-../src/helloworld.c:142:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
-  int note;
-      ^~~~
-../src/helloworld.c:140:54: warning: unused variable 'sumcount' [-Wunused-variable]
-  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
-                                                      ^~~~~~~~
-../src/helloworld.c:140:48: warning: unused variable 'sum2' [-Wunused-variable]
-  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
-                                                ^~~~
-../src/helloworld.c:140:42: warning: unused variable 'sum1' [-Wunused-variable]
-  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
-                                          ^~~~
-../src/helloworld.c:140:32: warning: unused variable 'temp' [-Wunused-variable]
-  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
-                                ^~~~
-../src/helloworld.c:140:26: warning: unused variable 'addr' [-Wunused-variable]
-  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
-                          ^~~~
-../src/helloworld.c:140:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
-  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
-                  ^~~~~~
-../src/helloworld.c:140:9: warning: unused variable 'j' [-Wunused-variable]
-  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
-         ^
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: hello.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: hello.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size hello.elf  |tee "hello.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  44500	   2800	520024248	520071548	1effa97c	hello.elf
-'Finished building: hello.elf.size'
-' '
+make: Nothing to be done for 'main-build'.
 
-01:56:33 Build Finished (took 1s.86ms)
+23:51:22 Build Finished (took 282ms)
 

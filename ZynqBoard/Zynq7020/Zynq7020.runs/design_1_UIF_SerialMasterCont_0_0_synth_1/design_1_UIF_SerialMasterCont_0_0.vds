@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun May 26 02:17:35 2019
-# Process ID: 9940
+# Start of session at: Sat Jun  1 17:11:56 2019
+# Process ID: 4240
 # Current directory: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_UIF_SerialMasterCont_0_0_synth_1
 # Command line: vivado.exe -log design_1_UIF_SerialMasterCont_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_UIF_SerialMasterCont_0_0.tcl
 # Log file: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_UIF_SerialMasterCont_0_0_synth_1/design_1_UIF_SerialMasterCont_0_0.vds
@@ -23,19 +23,19 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6872 
+INFO: Helper process launched with PID 8816 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 370.141 ; gain = 106.094
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 370.359 ; gain = 106.742
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_UIF_SerialMasterCont_0_0' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_SerialMasterCont_0_0/synth/design_1_UIF_SerialMasterCont_0_0.v:58]
 INFO: [Synth 8-6157] synthesizing module 'UIF_SerialMasterController' [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/UIF_SerialMasterController.v:23]
-	Parameter preScale bound to: 32 - type: integer 
+	Parameter preScale bound to: 24 - type: integer 
 WARNING: [Synth 8-6104] Input port 'UIF_Master_H_RXD' has an internal driver [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/UIF_SerialMasterController.v:45]
 WARNING: [Synth 8-3848] Net internal_S_TXD in module/entity UIF_SerialMasterController does not have driver. [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/UIF_SerialMasterController.v:40]
 INFO: [Synth 8-6155] done synthesizing module 'UIF_SerialMasterController' (1#1) [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/new/UIF_SerialMasterController.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_UIF_SerialMasterCont_0_0' (2#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_UIF_SerialMasterCont_0_0/synth/design_1_UIF_SerialMasterCont_0_0.v:58]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 425.551 ; gain = 161.504
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 426.328 ; gain = 162.711
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -48,10 +48,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 425.551 ; gain = 161.504
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 426.328 ; gain = 162.711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 425.551 ; gain = 161.504
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 426.328 ; gain = 162.711
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -60,33 +60,33 @@ Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 762.199 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 761.402 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 762.199 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 761.402 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 764.285 ; gain = 2.086
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 763.953 ; gain = 2.551
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 764.285 ; gain = 500.238
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 763.953 ; gain = 500.336
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 764.285 ; gain = 500.238
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 763.953 ; gain = 500.336
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 764.285 ; gain = 500.238
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 763.953 ; gain = 500.336
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "spiClk" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 764.285 ; gain = 500.238
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 763.953 ; gain = 500.336
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -99,10 +99,10 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
 	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
-	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                1 Bit    Registers := 4     
 +---Muxes : 
@@ -119,10 +119,10 @@ Hierarchical RTL Component report
 Module UIF_SerialMasterController 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
 	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
-	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                1 Bit    Registers := 4     
 +---Muxes : 
@@ -147,7 +147,7 @@ Start Cross Boundary and Area Optimization
 Warning: Parallel synthesis criteria is not met 
 INFO: [Synth 8-5546] ROM "inst/spiClk" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 764.285 ; gain = 500.238
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 763.953 ; gain = 500.336
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -159,13 +159,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 769.094 ; gain = 505.047
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 772.703 ; gain = 509.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 769.168 ; gain = 505.121
+Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 772.703 ; gain = 509.086
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -177,7 +177,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 788.742 ; gain = 524.695
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 792.270 ; gain = 528.652
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -201,7 +201,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 788.742 ; gain = 524.695
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 792.270 ; gain = 528.652
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -214,7 +214,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 788.742 ; gain = 524.695
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 792.270 ; gain = 528.652
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -226,25 +226,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 788.742 ; gain = 524.695
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 792.270 ; gain = 528.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 788.742 ; gain = 524.695
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 792.270 ; gain = 528.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 788.742 ; gain = 524.695
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 792.270 ; gain = 528.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 788.742 ; gain = 524.695
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 792.270 ; gain = 528.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -262,47 +262,47 @@ Report Cell Usage:
 +------+-------+------+
 |1     |CARRY4 |     3|
 |2     |LUT1   |     3|
-|3     |LUT2   |    15|
+|3     |LUT2   |    13|
 |4     |LUT3   |     3|
-|5     |LUT4   |    17|
-|6     |LUT5   |     5|
+|5     |LUT4   |    18|
+|6     |LUT5   |     6|
 |7     |LUT6   |     6|
-|8     |FDRE   |    26|
+|8     |FDRE   |    25|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+---------+---------------------------+------+
 |      |Instance |Module                     |Cells |
 +------+---------+---------------------------+------+
-|1     |top      |                           |    78|
-|2     |  inst   |UIF_SerialMasterController |    78|
+|1     |top      |                           |    77|
+|2     |  inst   |UIF_SerialMasterController |    77|
 +------+---------+---------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 788.742 ; gain = 524.695
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 792.270 ; gain = 528.652
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 788.742 ; gain = 185.961
-Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 788.742 ; gain = 524.695
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 792.270 ; gain = 191.027
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 792.270 ; gain = 528.652
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 792.371 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 793.715 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 21 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 792.371 ; gain = 530.926
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 792.371 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 793.715 ; gain = 536.707
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 793.715 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_UIF_SerialMasterCont_0_0_synth_1/design_1_UIF_SerialMasterCont_0_0.dcp' has been generated.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 792.371 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 793.715 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_UIF_SerialMasterCont_0_0_synth_1/design_1_UIF_SerialMasterCont_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_UIF_SerialMasterCont_0_0_utilization_synth.rpt -pb design_1_UIF_SerialMasterCont_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May 26 02:17:56 2019...
+INFO: [Common 17-206] Exiting Vivado at Sat Jun  1 17:12:19 2019...

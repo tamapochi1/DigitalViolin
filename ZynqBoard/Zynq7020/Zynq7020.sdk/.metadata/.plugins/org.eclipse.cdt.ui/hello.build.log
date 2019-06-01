@@ -1,8 +1,60 @@
-23:51:22 **** Incremental Build of configuration Debug for project hello ****
+19:13:08 **** Incremental Build of configuration Debug for project hello ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-make: Nothing to be done for 'main-build'.
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../hello_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:425:3: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+ 
+   ^    
+../src/helloworld.c:427:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+   {
+   ^  
+../src/helloworld.c:226:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  XIicPs_Config *Config;
+      ^~~~~~
+../src/helloworld.c:224:6: warning: variable 'note' set but not used [-Wunused-but-set-variable]
+  float gain, fingerPos[4];
+      ^~~~
+../src/helloworld.c:222:68: warning: unused variable 'offset' [-Wunused-variable]
+  u8 rddata[10][672], currentRow = 0;
+                                                                    ^     
+../src/helloworld.c:222:54: warning: unused variable 'sumcount' [-Wunused-variable]
+  u8 rddata[10][672], currentRow = 0;
+                                                      ^       
+../src/helloworld.c:222:48: warning: unused variable 'sum2' [-Wunused-variable]
+  u8 rddata[10][672], currentRow = 0;
+                                                ^   
+../src/helloworld.c:222:42: warning: unused variable 'sum1' [-Wunused-variable]
+  u8 rddata[10][672], currentRow = 0;
+                                          ^   
+../src/helloworld.c:222:32: warning: unused variable 'temp' [-Wunused-variable]
+  u8 rddata[10][672], currentRow = 0;
+                                ^~~~
+../src/helloworld.c:222:26: warning: unused variable 'addr' [-Wunused-variable]
+  u8 rddata[10][672], currentRow = 0;
+                          ^~~~
+../src/helloworld.c:222:18: warning: variable 'upDown' set but not used [-Wunused-but-set-variable]
+  u8 rddata[10][672], currentRow = 0;
+                  ^~~~~~
+../src/helloworld.c:221:6: warning: unused variable 'value' [-Wunused-variable]
+  u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
+      ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../hello_bsp/ps7_cortexa9_0/lib -o "hello.elf"  ./src/fingering.o ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: hello.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size hello.elf  |tee "hello.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  39996	   2808	  57032	  99836	  185fc	hello.elf
+'Finished building: hello.elf.size'
+' '
 
-23:51:22 Build Finished (took 282ms)
+19:13:09 Build Finished (took 489ms)
 

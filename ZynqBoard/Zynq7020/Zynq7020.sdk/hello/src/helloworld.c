@@ -63,7 +63,6 @@
 #include "xscugic.h"
 #include "xil_exception.h"
 
-u32 test[130000000];
 int scale[] = {0, 2, 4, 5, 7, 9, 11, 12};
 XIicPs Iic;
 XScuGic InterruptController; /* Instance of the Interrupt Controller */
@@ -72,6 +71,33 @@ u8 adcCh = 0;
 s16 adcData;
 volatile u32 *UIF1WRITE = (volatile u32 *)(0x43C20000 + 16);
 volatile u32 *UIF1_START = (volatile u32 *)(0x43C20000 + 24);
+typedef union
+{
+	struct
+	{
+		u16 ch0;
+		u16 ch1;
+		u16 ch2;
+		u16 ch3;
+		u16 ch4;
+		u16 ch5;
+		u16 ch6;
+		u16 ch7;
+	}channels;
+	struct
+	{
+		u32 ch1ch0;
+		u32 ch3ch2;
+		u32 ch5ch4;
+		u32 ch7ch6;
+	}u32;
+}fftData;
+fftData soundDataBufferA[1024];
+fftData soundDataBufferB[1024];
+u32 soundDataIndex = 0;
+u32 soundDataReady = 0;
+fftData *writingSoundDataBuffer = soundDataBufferA;
+fftData *readingSoundDataBuffer = soundDataBufferB;
 
 volatile u32 *DSP_FFT_SCALE = (volatile u32 *)(0x43C10000 + 12);
 //volatile u32 *DSP_FFT_WRITE = (volatile u32 *)(0x43C10000 + 20);
@@ -81,6 +107,7 @@ volatile u32 *DSP_FFT_DATA = (volatile u32 *)(0x42000000);
 volatile u32 *DSP_FFT_RESULT = (volatile u32 *)(0x44000000);
 u32 ffttemp = 1;
 u32 fftSourceDataIndex = 0;
+u32 fftBusy = 0;
 
 int i2c_write(XIicPs *Iic, u8 addr, u8 command, u16 i2c_adder)
 {
@@ -102,6 +129,8 @@ int i2c_write(XIicPs *Iic, u8 addr, u8 command, u16 i2c_adder)
 
 void OnAudioClk()
 {
+	fftData *temp;
+
 	while(Xil_In32(0x43C20000 + 28));
 
 	Xil_In32(0x43C20000 + 20);	// ignore
@@ -112,27 +141,36 @@ void OnAudioClk()
 
 	switch(adcCh)
 	{
-	case 0:		DSP_FFT_DATA[fftSourceDataIndex * 4] = (u32)0 | (u16)adcData;
+	case 0:		writingSoundDataBuffer[soundDataIndex].channels.ch0 = (u16)adcData;
 		break;
 	case 1:
-		DSP_FFT_DATA[fftSourceDataIndex * 4] |= (s32)adcData << 16;
+		writingSoundDataBuffer[soundDataIndex].channels.ch1 = (u16)adcData;
 		break;
 	case 2:
-		DSP_FFT_DATA[fftSourceDataIndex * 4 + 1] = (u32)0 | (u16)adcData;
+		writingSoundDataBuffer[soundDataIndex].channels.ch2 = (u16)adcData;
 		break;
 	case 3:
-		DSP_FFT_DATA[fftSourceDataIndex * 4 + 1] |= (s32)adcData << 16;
+		writingSoundDataBuffer[soundDataIndex].channels.ch3 = (u16)adcData;
 		break;
 	case 4:
-		DSP_FFT_DATA[fftSourceDataIndex * 4 + 2] = (u32)0 | (u16)adcData;
+		writingSoundDataBuffer[soundDataIndex].channels.ch4 = (u16)adcData;
 		break;
 	case 5:
-		DSP_FFT_DATA[fftSourceDataIndex * 4 + 2] |= (s32)adcData << 16;
-		fftSourceDataIndex++;
-		if(fftSourceDataIndex == 1024)
+		writingSoundDataBuffer[soundDataIndex].channels.ch5 = (u16)adcData;
+		break;
+	case 6:
+		writingSoundDataBuffer[soundDataIndex].channels.ch6 = (u16)adcData;
+		break;
+	case 7:
+		writingSoundDataBuffer[soundDataIndex].channels.ch7 = (u16)adcData;
+		soundDataIndex++;
+		if(soundDataIndex == 1024)
 		{
-			*DSP_FFT_START = 1;
-			fftSourceDataIndex = 0;
+			soundDataIndex = 0;
+			temp = readingSoundDataBuffer;
+			readingSoundDataBuffer = writingSoundDataBuffer;
+			writingSoundDataBuffer = temp;
+			soundDataReady = 1;
 		}
 		break;
 	default:
@@ -164,13 +202,14 @@ void OnAudioClk()
 
 void OnFFTComplete()
 {
-	s32 value[1024], i;
+//	s32 value[1024], i;
+//
+//    for(i = 0; i < 1024; i++)
+//    {
+//        value[i] = (s32)(DSP_FFT_RESULT[i * 4] & 0xFFFF);
+//    }
 
-    for(i = 0; i < 1024; i++)
-    {
-        value[i] = (s32)(DSP_FFT_RESULT[i * 4] & 0xFFFF);
-    }
-
+	fftBusy = 0;
 
     // clear interrupt bit
 	*(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR &= ~0x00000008;
@@ -179,7 +218,7 @@ void OnFFTComplete()
 int main()
 {
 	s32 value[1025];
-	u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0;
+	u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
 	u8 rddata[10][672], currentRow = 0;
 	int note;
 	float gain, fingerPos[4];
@@ -246,8 +285,6 @@ int main()
 	}
 
 
-    test[0] = Xil_In32(0x40000010);
-
 //    for(i = 0; i < 130000000; i++)
 //    {
 //    	test[i] = i;
@@ -283,10 +320,25 @@ int main()
 
     while(1)
     {
-    	usleep(50000);
-    	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x1);
-    	usleep(50000);
-    	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x5);
+    	if(soundDataReady && !fftBusy)
+    	{
+    		soundDataReady = 0;
+    		j = 0;
+    		fftBusy = 1;
+    		for(i = 0; i < 1024; i++)
+    		{
+    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch1ch0;
+    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch3ch2;
+    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch5ch4;
+    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch7ch6;
+    		}
+    		*DSP_FFT_START = 1;
+    	}
+
+//    	usleep(50000);
+//    	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x1);
+//    	usleep(50000);
+//    	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x5);
 
 //        for(i = 0; i < 1024; i++)
 //        {
@@ -296,14 +348,14 @@ int main()
 //
 //        *DSP_FFT_START = 1;
 
-        if(ffttemp < 100)
-        {
-        	ffttemp++;
-        }
-        else
-        {
-        	ffttemp = 1;
-        }
+//        if(ffttemp < 100)
+//        {
+//        	ffttemp++;
+//        }
+//        else
+//        {
+//        	ffttemp = 1;
+//        }
 
 //        for(i = 0; i < 1024; i++)
 //    	{

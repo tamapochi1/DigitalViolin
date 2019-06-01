@@ -1,18 +1,18 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Thu May 30 21:27:54 2019
-// Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top design_1_blk_mem_gen_0_2 -prefix
-//               design_1_blk_mem_gen_0_2_ design_1_blk_mem_gen_0_0_sim_netlist.v
-// Design      : design_1_blk_mem_gen_0_0
+// Date        : Sat Jun  1 17:14:09 2019
+// Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim
+//               C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_2_1/design_1_blk_mem_gen_0_2_sim_netlist.v
+// Design      : design_1_blk_mem_gen_0_2
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg484-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "design_1_blk_mem_gen_0_0,blk_mem_gen_v8_4_2,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "blk_mem_gen_v8_4_2,Vivado 2018.3" *) 
+(* CHECK_LICENSE_TYPE = "design_1_blk_mem_gen_0_2,blk_mem_gen_v8_4_2,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "blk_mem_gen_v8_4_2,Vivado 2018.3" *) 
 (* NotValidForBitStream *)
 module design_1_blk_mem_gen_0_2
    (clka,
@@ -224,6 +224,7 @@ module design_1_blk_mem_gen_0_2
         .web(web));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_generic_cstr
    (douta,
     doutb,
@@ -347,6 +348,7 @@ module design_1_blk_mem_gen_0_2_blk_mem_gen_generic_cstr
         .web({web[15],web[11],web[7],web[3]}));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_prim_width
    (douta,
     doutb,
@@ -786,6 +788,7 @@ module design_1_blk_mem_gen_0_2_blk_mem_gen_prim_width__parameterized2
         .web(web));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_prim_wrapper
    (douta,
     doutb,
@@ -1917,6 +1920,7 @@ module design_1_blk_mem_gen_0_2_blk_mem_gen_prim_wrapper__parameterized2
         .O(ram_rstram_b));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_top
    (douta,
     doutb,
@@ -2012,7 +2016,7 @@ endmodule
 (* C_WEA_WIDTH = "4" *) (* C_WEB_WIDTH = "16" *) (* C_WRITE_DEPTH_A = "4096" *) 
 (* C_WRITE_DEPTH_B = "1024" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) (* C_WRITE_MODE_B = "WRITE_FIRST" *) 
 (* C_WRITE_WIDTH_A = "32" *) (* C_WRITE_WIDTH_B = "128" *) (* C_XDEVICEFAMILY = "zynq" *) 
-(* downgradeipidentifiedwarnings = "yes" *) 
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_2" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_v8_4_2
    (clka,
     rsta,
@@ -2394,6 +2398,7 @@ module design_1_blk_mem_gen_0_2_blk_mem_gen_v8_4_2
         .web(web));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_2_synth" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_v8_4_2_synth
    (douta,
     doutb,

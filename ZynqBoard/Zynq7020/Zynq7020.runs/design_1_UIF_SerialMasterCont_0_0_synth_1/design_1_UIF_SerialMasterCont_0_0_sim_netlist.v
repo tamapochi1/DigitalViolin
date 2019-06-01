@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Sun May 26 02:17:56 2019
+// Date        : Sat Jun  1 17:12:19 2019
 // Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_UIF_SerialMasterCont_0_0_sim_netlist.v
@@ -29,10 +29,11 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
   input [11:0]txFifoCount;
 
   wire SPI_Master_CSn;
+  wire [1:1]bitCounter;
   wire \bitCounter[0]_i_1_n_0 ;
   wire \bitCounter[1]_i_1_n_0 ;
   wire \bitCounter[2]_i_1_n_0 ;
-  wire \bitCounter[2]_i_2_n_0 ;
+  wire \bitCounter[2]_i_3_n_0 ;
   wire \bitCounter[3]_i_1_n_0 ;
   wire \bitCounter[3]_i_2_n_0 ;
   wire \bitCounter_reg_n_0_[0] ;
@@ -99,9 +100,9 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
   wire ending_reg_n_0;
   wire internal_S_SCK;
   wire nReset;
-  wire [5:0]p_0_in;
-  wire \preScaler[5]_i_1_n_0 ;
-  wire [5:0]preScaler_reg__0;
+  wire [4:0]p_0_in;
+  wire \preScaler[4]_i_1_n_0 ;
+  wire [4:0]preScaler_reg__0;
   wire sclk_i_1_n_0;
   wire sclk_i_2_n_0;
   wire spiClk;
@@ -135,24 +136,34 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .I4(nReset),
         .I5(cs0),
         .O(\bitCounter[1]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hAA0C000000000000)) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'h00009AAA)) 
     \bitCounter[2]_i_1 
        (.I0(\bitCounter_reg_n_0_[2] ),
-        .I1(\bitCounter[2]_i_2_n_0 ),
-        .I2(\bitCounter_reg_n_0_[3] ),
-        .I3(cs_i_2_n_0),
-        .I4(nReset),
-        .I5(cs0),
+        .I1(cs_i_2_n_0),
+        .I2(\bitCounter_reg_n_0_[0] ),
+        .I3(\bitCounter_reg_n_0_[1] ),
+        .I4(bitCounter),
         .O(\bitCounter[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT3 #(
-    .INIT(8'h78)) 
+  LUT6 #(
+    .INIT(64'h01FFFFFF01FF01FF)) 
     \bitCounter[2]_i_2 
-       (.I0(\bitCounter_reg_n_0_[1] ),
-        .I1(\bitCounter_reg_n_0_[0] ),
-        .I2(\bitCounter_reg_n_0_[2] ),
-        .O(\bitCounter[2]_i_2_n_0 ));
+       (.I0(cs_i_4_n_0),
+        .I1(\bitCounter[2]_i_3_n_0 ),
+        .I2(cs_i_5_n_0),
+        .I3(nReset),
+        .I4(cs_i_2_n_0),
+        .I5(\bitCounter_reg_n_0_[3] ),
+        .O(bitCounter));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \bitCounter[2]_i_3 
+       (.I0(byteCounter_reg[5]),
+        .I1(byteCounter_reg[4]),
+        .I2(byteCounter_reg[7]),
+        .I3(byteCounter_reg[6]),
+        .O(\bitCounter[2]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hF002000000000000)) 
     \bitCounter[3]_i_1 
@@ -163,6 +174,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .I4(nReset),
         .I5(cs0),
         .O(\bitCounter[3]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \bitCounter[3]_i_2 
@@ -239,7 +251,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .I3(start),
         .I4(cs_reg_0),
         .O(\byteCounter[0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     \byteCounter[0]_i_4 
@@ -503,7 +514,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .D(\byteCounter_reg[8]_i_1_n_6 ),
         .Q(byteCounter_reg[9]),
         .R(clear));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'hAFA20000)) 
     cs_i_1
@@ -513,12 +524,15 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .I3(cs0),
         .I4(nReset),
         .O(cs_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFEFFF)) 
     cs_i_2
-       (.I0(sclk_i_2_n_0),
-        .I1(spiClk),
+       (.I0(preScaler_reg__0[1]),
+        .I1(preScaler_reg__0[2]),
+        .I2(preScaler_reg__0[4]),
+        .I3(preScaler_reg__0[3]),
+        .I4(preScaler_reg__0[0]),
+        .I5(spiClk),
         .O(cs_i_2_n_0));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
@@ -554,7 +568,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .D(cs_i_1_n_0),
         .Q(cs_reg_0),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h8084)) 
     ending_i_1
@@ -571,13 +585,13 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .D(ending_i_1_n_0),
         .Q(ending_reg_n_0),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \preScaler[0]_i_1 
        (.I0(preScaler_reg__0[0]),
         .O(p_0_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \preScaler[1]_i_1 
@@ -601,32 +615,23 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .I2(preScaler_reg__0[1]),
         .I3(preScaler_reg__0[3]),
         .O(p_0_in[3]));
+  LUT3 #(
+    .INIT(8'h8F)) 
+    \preScaler[4]_i_1 
+       (.I0(preScaler_reg__0[4]),
+        .I1(preScaler_reg__0[3]),
+        .I2(nReset),
+        .O(\preScaler[4]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
-    \preScaler[4]_i_1 
+    \preScaler[4]_i_2 
        (.I0(preScaler_reg__0[3]),
         .I1(preScaler_reg__0[1]),
         .I2(preScaler_reg__0[0]),
         .I3(preScaler_reg__0[2]),
         .I4(preScaler_reg__0[4]),
         .O(p_0_in[4]));
-  LUT2 #(
-    .INIT(4'hB)) 
-    \preScaler[5]_i_1 
-       (.I0(preScaler_reg__0[5]),
-        .I1(nReset),
-        .O(\preScaler[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT5 #(
-    .INIT(32'h80000000)) 
-    \preScaler[5]_i_2 
-       (.I0(preScaler_reg__0[4]),
-        .I1(preScaler_reg__0[2]),
-        .I2(preScaler_reg__0[0]),
-        .I3(preScaler_reg__0[1]),
-        .I4(preScaler_reg__0[3]),
-        .O(p_0_in[5]));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \preScaler_reg[0] 
@@ -634,7 +639,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .CE(1'b1),
         .D(p_0_in[0]),
         .Q(preScaler_reg__0[0]),
-        .R(\preScaler[5]_i_1_n_0 ));
+        .R(\preScaler[4]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \preScaler_reg[1] 
@@ -642,7 +647,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .CE(1'b1),
         .D(p_0_in[1]),
         .Q(preScaler_reg__0[1]),
-        .R(\preScaler[5]_i_1_n_0 ));
+        .R(\preScaler[4]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \preScaler_reg[2] 
@@ -650,7 +655,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .CE(1'b1),
         .D(p_0_in[2]),
         .Q(preScaler_reg__0[2]),
-        .R(\preScaler[5]_i_1_n_0 ));
+        .R(\preScaler[4]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \preScaler_reg[3] 
@@ -658,7 +663,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .CE(1'b1),
         .D(p_0_in[3]),
         .Q(preScaler_reg__0[3]),
-        .R(\preScaler[5]_i_1_n_0 ));
+        .R(\preScaler[4]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \preScaler_reg[4] 
@@ -666,15 +671,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .CE(1'b1),
         .D(p_0_in[4]),
         .Q(preScaler_reg__0[4]),
-        .R(\preScaler[5]_i_1_n_0 ));
-  FDRE #(
-    .IS_C_INVERTED(1'b1)) 
-    \preScaler_reg[5] 
-       (.C(sysClk),
-        .CE(1'b1),
-        .D(p_0_in[5]),
-        .Q(preScaler_reg__0[5]),
-        .R(\preScaler[5]_i_1_n_0 ));
+        .R(\preScaler[4]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hFFF75557FFFFFFFF)) 
     sclk_i_1
@@ -685,15 +682,15 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .I4(internal_S_SCK),
         .I5(nReset),
         .O(sclk_i_1_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFB)) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'hFFFFFFBF)) 
     sclk_i_2
-       (.I0(preScaler_reg__0[4]),
-        .I1(preScaler_reg__0[5]),
-        .I2(preScaler_reg__0[2]),
-        .I3(preScaler_reg__0[3]),
+       (.I0(preScaler_reg__0[0]),
+        .I1(preScaler_reg__0[3]),
+        .I2(preScaler_reg__0[4]),
+        .I3(preScaler_reg__0[2]),
         .I4(preScaler_reg__0[1]),
-        .I5(preScaler_reg__0[0]),
         .O(sclk_i_2_n_0));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
@@ -703,7 +700,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_UIF_SerialMasterController
         .D(sclk_i_1_n_0),
         .Q(internal_S_SCK),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'h90)) 
     spiClk_i_1

@@ -17,8 +17,8 @@ preplace inst fifo_generator_0 -pg 1 -lvl 2 -y 710 -defaultsOSRD
 preplace inst UIF_SerialSlave_1 -pg 1 -lvl 3 -y 360 -defaultsOSRD
 preplace inst fifo_generator_1 -pg 1 -lvl 2 -y 550 -defaultsOSRD -orient R180
 preplace inst fifo_generator_2 -pg 1 -lvl 2 -y 370 -defaultsOSRD
-preplace netloc fifo_generator_1_M_AXIS 1 0 2 -10 580 N
 preplace netloc fifo_generator_2_M_AXIS 1 2 1 N
+preplace netloc fifo_generator_1_M_AXIS 1 0 2 -10 580 N
 preplace netloc Conn1 1 3 1 N
 preplace netloc UIF_SerialSlave_1_m_axis_st 1 2 2 N 210 1150
 preplace netloc fifo_generator_2_axis_data_count 1 2 1 780
@@ -27,10 +27,10 @@ preplace netloc UIF_AXI_0_hostStart 1 1 2 320 100 780J
 preplace netloc UIF_SerialSlave_0_m_axis_st 1 2 2 NJ 570 1140
 preplace netloc UIF_SerialMasterCont_0_busy 1 0 4 -20 10 NJ 10 NJ 10 1150
 preplace netloc UIF_AXI_0_UIF_res 1 1 3 320J 460 NJ 460 NJ
-preplace netloc UIF_AXI_0_m_axis_sr 1 1 1 330
 preplace netloc UIF_SerialSlave_0_UIF_Slave 1 3 1 N
-preplace netloc fifo_generator_0_M_AXIS 1 2 1 N
+preplace netloc UIF_AXI_0_m_axis_sr 1 1 1 330
 preplace netloc ps7_0_axi_periph_M03_AXI 1 0 1 NJ
+preplace netloc fifo_generator_0_M_AXIS 1 2 1 N
 preplace netloc UIF_AXI_0_m_axis_ht 1 1 1 N
 preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 0 1 NJ
 preplace netloc fifo_generator_1_axis_data_count 1 0 2 0 520 N

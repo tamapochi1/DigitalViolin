@@ -120,6 +120,9 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_axi_br
 # IP: bd/design_1/ip/design_1_axi_bram_ctrl_source_0/design_1_axi_bram_ctrl_source_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_axi_bram_ctrl_source_0 || ORIG_REF_NAME==design_1_axi_bram_ctrl_source_0} -quiet] -quiet
 
+# IP: bd/design_1/ip/design_1_prescaler_0_0/design_1_prescaler_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_prescaler_0_0 || ORIG_REF_NAME==design_1_prescaler_0_0} -quiet] -quiet
+
 # IP: bd/design_1/ip/design_1_auto_pc_3/design_1_auto_pc_3.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_auto_pc_3 || ORIG_REF_NAME==design_1_auto_pc_3} -quiet] -quiet
 

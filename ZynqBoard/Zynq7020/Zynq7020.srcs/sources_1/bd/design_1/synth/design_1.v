@@ -1,8 +1,8 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Thu May 30 22:54:35 2019
-//Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
+//Date        : Sat Jun  1 22:10:19 2019
+//Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
 //Purpose     : IP block netlist
@@ -415,7 +415,7 @@ module DSP_imp_KXGKBB
   wire DSP_registers_0_sysNReset;
   wire DSP_reset_0_nResetAudioClk;
   wire DSP_reset_0_nResetSysClk1;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [31:0]FFTInputBitsConverter_0_bram_addr;
+  wire [31:0]FFTInputBitsConverter_0_bram_addr;
   wire FFTInputBitsConverter_0_bram_clk;
   wire FFTInputBitsConverter_0_bram_en;
   wire FFTInputBitsConverter_0_bram_we;
@@ -538,7 +538,7 @@ module DSP_imp_KXGKBB
   wire axi_bram_ctrl_source_BRAM_PORTA_EN;
   wire axi_bram_ctrl_source_BRAM_PORTA_RST;
   wire [3:0]axi_bram_ctrl_source_BRAM_PORTA_WE;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]blk_mem_gen_0_doutb;
+  wire [127:0]blk_mem_gen_0_doutb;
   wire [15:0]mult_sum_0_out;
   wire nResetExt_0_1;
   wire s00_axi_aclk_1;
@@ -1555,9 +1555,9 @@ module UIF_imp_1KE81ZA
   input UIF_Slave_1_s_txd;
   input s_aclk;
 
-  wire Conn1_H_RXD;
-  wire Conn1_H_SCK;
-  wire Conn1_H_TXD;
+  (* DEBUG = "true" *) wire Conn1_H_RXD;
+  (* DEBUG = "true" *) wire Conn1_H_SCK;
+  (* DEBUG = "true" *) wire Conn1_H_TXD;
   wire UIF_AXI_0_UIF_res;
   wire UIF_AXI_0_hostStart;
   wire [7:0]UIF_AXI_0_m_axis_ht_TDATA;
@@ -1567,7 +1567,7 @@ module UIF_imp_1KE81ZA
   wire UIF_AXI_0_m_axis_sr_TREADY;
   wire UIF_AXI_0_m_axis_sr_TVALID;
   wire UIF_AXI_0_sys_nReset;
-  wire UIF_SerialMasterCont_0_SPI_Master_CSn;
+  (* DEBUG = "true" *) wire UIF_SerialMasterCont_0_SPI_Master_CSn;
   wire UIF_SerialMasterCont_0_busy;
   wire UIF_SerialSlave_0_UIF_Slave_S_RXD;
   wire UIF_SerialSlave_0_UIF_Slave_S_SCK;
@@ -1762,7 +1762,7 @@ module UIF_imp_1KE81ZA
         .s_axis_tvalid(UIF_SerialSlave_1_m_axis_st_TVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=56,numReposBlks=41,numNonXlnxBlks=0,numHierBlks=15,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=15,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=57,numReposBlks=42,numNonXlnxBlks=0,numHierBlks=15,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=16,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_board_cnt=1,da_bram_cntlr_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (DAC_BICK_0,
     DAC_LRCK_0,
@@ -1840,9 +1840,9 @@ module design_1
   output USB_nRESET_0;
 
   wire DAC_IF_0_DAC_BCLK;
-  wire DAC_IF_0_DAC_LRCK;
   wire DAC_IF_0_DAC_MCLK;
   wire DAC_IF_0_DAC_SDT;
+  wire DAC_Interface_DAC_LRCK_0;
   wire DSP_audioClkInterrupt;
   wire DSP_fftCompleteInterrupt;
   wire DSP_nResetSysClk;
@@ -1940,17 +1940,18 @@ module design_1
   wire [3:0]S03_AXI_1_WSTRB;
   wire [0:0]S03_AXI_1_WVALID;
   wire UIF_AXI_0_UIF_res;
-  wire UIF_SPI_Master_CSn_0;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_SPI_Master_CSn_0;
   wire UIF_SerialSlave_0_UIF_Slave_S_RXD;
   wire UIF_SerialSlave_0_UIF_Slave_S_SCK;
   wire UIF_SerialSlave_0_UIF_Slave_S_TXD;
-  wire UIF_UIF_Master_0_H_RXD;
-  wire UIF_UIF_Master_0_H_SCK;
-  wire UIF_UIF_Master_0_H_TXD;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_UIF_Master_0_H_RXD;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_UIF_Master_0_H_SCK;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire UIF_UIF_Master_0_H_TXD;
   wire clk_wiz_0_clk_out1;
   wire clk_wiz_0_locked;
   wire [2:0]myip_0_RGB_OUT;
   wire myip_0_USB_nRESET;
+  wire prescaler_0_clkOut;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -2093,7 +2094,7 @@ module design_1
   wire [1:0]xlconcat_0_dout;
 
   assign DAC_BICK_0 = DAC_IF_0_DAC_BCLK;
-  assign DAC_LRCK_0 = DAC_IF_0_DAC_LRCK;
+  assign DAC_LRCK_0 = DAC_Interface_DAC_LRCK_0;
   assign DAC_MCLK_0 = DAC_IF_0_DAC_MCLK;
   assign DAC_SDT_0 = DAC_IF_0_DAC_SDT;
   assign RGB_OUT_0[2:0] = myip_0_RGB_OUT;
@@ -2110,7 +2111,7 @@ module design_1
   assign processing_system7_0_UART_1_RxD = UART_1_rxd;
   DAC_Interface_imp_1OX2TDS DAC_Interface
        (.DAC_BICK_0(DAC_IF_0_DAC_BCLK),
-        .DAC_LRCK_0(DAC_IF_0_DAC_LRCK),
+        .DAC_LRCK_0(DAC_Interface_DAC_LRCK_0),
         .DAC_MCLK_0(DAC_IF_0_DAC_MCLK),
         .DAC_SDT_0(DAC_IF_0_DAC_SDT),
         .Data0(DSP_outData1),
@@ -2247,7 +2248,7 @@ module design_1
         .S03_AXI_wvalid(S03_AXI_1_WVALID),
         .audio256Clk(clk_wiz_0_clk_out1),
         .audioClkInterrupt(DSP_audioClkInterrupt),
-        .audioSample(DAC_IF_0_DAC_LRCK),
+        .audioSample(prescaler_0_clkOut),
         .fftCompleteInterrupt(DSP_fftCompleteInterrupt),
         .nResetAudio256Clk(DSP_outDataValid),
         .nResetExt(clk_wiz_0_locked),
@@ -2319,6 +2320,10 @@ module design_1
         .s00_axi_wready(ps7_0_axi_periph_M00_AXI_WREADY),
         .s00_axi_wstrb(ps7_0_axi_periph_M00_AXI_WSTRB),
         .s00_axi_wvalid(ps7_0_axi_periph_M00_AXI_WVALID));
+  design_1_prescaler_0_0 prescaler_0
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .clkOut(prescaler_0_clkOut),
+        .nReset(processing_system7_0_FCLK_RESET0_N));
   (* BMM_INFO_PROCESSOR = "arm > design_1 DSP/Synthesizer/axi_bram_ctrl_0 design_1 DSP/axi_bram_ctrl_source design_1 DSP/axi_bram_ctrl_result" *) 
   (* KEEP_HIERARCHY = "yes" *) 
   design_1_processing_system7_0_0 processing_system7_0

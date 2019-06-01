@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1559224518">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1559395055">
+  <File Type="OPT-HWDEF" Name="design_1_wrapper.hwdef"/>
+  <File Type="ROUTE-BUS-SKEW" Name="design_1_wrapper_bus_skew_routed.rpt"/>
+  <File Type="PA-DCP" Name="design_1_wrapper.dcp"/>
   <File Type="BITSTR-BMM" Name="design_1_wrapper_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="design_1_wrapper_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="design_1_wrapper_timing_summary_init.rpt"/>
@@ -10,7 +13,6 @@
   <File Type="ROUTE-PWR-SUM" Name="design_1_wrapper_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="design_1_wrapper_reports.tcl"/>
   <File Type="OPT-DRC" Name="design_1_wrapper_drc_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="design_1_wrapper.hwdef"/>
   <File Type="PWROPT-DCP" Name="design_1_wrapper_pwropt.dcp"/>
   <File Type="PWROPT-DRC" Name="design_1_wrapper_drc_pwropted.rpt"/>
   <File Type="PWROPT-TIMING" Name="design_1_wrapper_timing_summary_pwropted.rpt"/>
@@ -22,7 +24,6 @@
   <File Type="PLACE-CTRL" Name="design_1_wrapper_control_sets_placed.rpt"/>
   <File Type="PLACE-SIMILARITY" Name="design_1_wrapper_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="design_1_wrapper_incremental_reuse_pre_placed.rpt"/>
-  <File Type="BG-BGN" Name="design_1_wrapper.bgn"/>
   <File Type="PLACE-TIMING" Name="design_1_wrapper_timing_summary_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="design_1_wrapper_postplace_pwropt.dcp"/>
   <File Type="BG-BIN" Name="design_1_wrapper.bin"/>
@@ -52,7 +53,6 @@
   <File Type="ROUTE-TIMING-RPX" Name="design_1_wrapper_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="design_1_wrapper_incremental_reuse_routed.rpt"/>
   <File Type="ROUTE-CLK" Name="design_1_wrapper_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="design_1_wrapper_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="design_1_wrapper_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="design_1_wrapper_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="design_1_wrapper_postroute_physopt.dcp"/>
@@ -66,6 +66,7 @@
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="design_1_wrapper_bus_skew_postroute_physopted.rpx"/>
   <File Type="BITSTR-RBT" Name="design_1_wrapper.rbt"/>
   <File Type="BITSTR-NKY" Name="design_1_wrapper.nky"/>
+  <File Type="BG-BGN" Name="design_1_wrapper.bgn"/>
   <File Type="BG-DRC" Name="design_1_wrapper.drc"/>
   <File Type="RDI-RDI" Name="design_1_wrapper.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
@@ -169,6 +170,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/prescaler.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -261,6 +269,7 @@
   <BlockFileSet Type="BlockSrcs" Name="design_1_DAC_FIFO_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_delay_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_2"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_DAC_IF_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_DSP_reg_read_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_UIF_AXI_0_0"/>
@@ -277,4 +286,8 @@
   <BlockFileSet Type="BlockSrcs" Name="design_1_axi_bram_ctrl_0_3"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_FFTOutputBitsConvert_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_FFTInputBitsConverter_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_prescaler_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_3"/>
 </GenRun>

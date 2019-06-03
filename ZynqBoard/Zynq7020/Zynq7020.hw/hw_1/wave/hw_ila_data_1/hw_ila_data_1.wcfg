@@ -9,216 +9,43 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="502750fs"></ZoomStartTime>
-      <ZoomEndTime time="1026251fs"></ZoomEndTime>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="8192001fs"></ZoomEndTime>
       <Cursor1Time time="686000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="560"></NameColumnWidth>
-      <ValueColumnWidth column_width="469"></ValueColumnWidth>
+      <ValueColumnWidth column_width="461"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="6" />
+   <WVObjectSize size="4" />
    <wave_markers>
    </wave_markers>
-   <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb" type="array">
+   <wvobject fp_name="design_1_i/UIF_SPI_Master_CSn_0" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/DSP/blk_mem_gen_0_doutb[127:0]</obj_property>
-      <obj_property name="ObjectShortName">blk_mem_gen_0_doutb[127:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="ElementShortName">design_1_i/UIF_SPI_Master_CSn_0</obj_property>
+      <obj_property name="ObjectShortName">UIF_SPI_Master_CSn_0</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="vbus567" type="vbus">
-      <obj_property name="label">source1</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
-      <obj_property name="AnalogYRangeMin">-1000.000000</obj_property>
-      <obj_property name="AnalogYRRangeMax">1000.000000</obj_property>
-      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_LINEAR</obj_property>
-      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-      <obj_property name="AnalogHorizLine">0.000000</obj_property>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[31]" type="logic">
-         <obj_property name="ElementShortName">[31]</obj_property>
-         <obj_property name="ObjectShortName">[31]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[30]" type="logic">
-         <obj_property name="ElementShortName">[30]</obj_property>
-         <obj_property name="ObjectShortName">[30]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[29]" type="logic">
-         <obj_property name="ElementShortName">[29]</obj_property>
-         <obj_property name="ObjectShortName">[29]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[28]" type="logic">
-         <obj_property name="ElementShortName">[28]</obj_property>
-         <obj_property name="ObjectShortName">[28]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[27]" type="logic">
-         <obj_property name="ElementShortName">[27]</obj_property>
-         <obj_property name="ObjectShortName">[27]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[26]" type="logic">
-         <obj_property name="ElementShortName">[26]</obj_property>
-         <obj_property name="ObjectShortName">[26]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[25]" type="logic">
-         <obj_property name="ElementShortName">[25]</obj_property>
-         <obj_property name="ObjectShortName">[25]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[24]" type="logic">
-         <obj_property name="ElementShortName">[24]</obj_property>
-         <obj_property name="ObjectShortName">[24]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[23]" type="logic">
-         <obj_property name="ElementShortName">[23]</obj_property>
-         <obj_property name="ObjectShortName">[23]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[22]" type="logic">
-         <obj_property name="ElementShortName">[22]</obj_property>
-         <obj_property name="ObjectShortName">[22]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[21]" type="logic">
-         <obj_property name="ElementShortName">[21]</obj_property>
-         <obj_property name="ObjectShortName">[21]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[20]" type="logic">
-         <obj_property name="ElementShortName">[20]</obj_property>
-         <obj_property name="ObjectShortName">[20]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[19]" type="logic">
-         <obj_property name="ElementShortName">[19]</obj_property>
-         <obj_property name="ObjectShortName">[19]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[18]" type="logic">
-         <obj_property name="ElementShortName">[18]</obj_property>
-         <obj_property name="ObjectShortName">[18]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[17]" type="logic">
-         <obj_property name="ElementShortName">[17]</obj_property>
-         <obj_property name="ObjectShortName">[17]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[16]" type="logic">
-         <obj_property name="ElementShortName">[16]</obj_property>
-         <obj_property name="ObjectShortName">[16]</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="vbus179" type="vbus">
-      <obj_property name="label">source0</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[11]" type="logic">
-         <obj_property name="ElementShortName">[11]</obj_property>
-         <obj_property name="ObjectShortName">[11]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[10]" type="logic">
-         <obj_property name="ElementShortName">[10]</obj_property>
-         <obj_property name="ObjectShortName">[10]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[9]" type="logic">
-         <obj_property name="ElementShortName">[9]</obj_property>
-         <obj_property name="ObjectShortName">[9]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[8]" type="logic">
-         <obj_property name="ElementShortName">[8]</obj_property>
-         <obj_property name="ObjectShortName">[8]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[7]" type="logic">
-         <obj_property name="ElementShortName">[7]</obj_property>
-         <obj_property name="ObjectShortName">[7]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[6]" type="logic">
-         <obj_property name="ElementShortName">[6]</obj_property>
-         <obj_property name="ObjectShortName">[6]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[5]" type="logic">
-         <obj_property name="ElementShortName">[5]</obj_property>
-         <obj_property name="ObjectShortName">[5]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[4]" type="logic">
-         <obj_property name="ElementShortName">[4]</obj_property>
-         <obj_property name="ObjectShortName">[4]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[3]" type="logic">
-         <obj_property name="ElementShortName">[3]</obj_property>
-         <obj_property name="ObjectShortName">[3]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[2]" type="logic">
-         <obj_property name="ElementShortName">[2]</obj_property>
-         <obj_property name="ObjectShortName">[2]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[1]" type="logic">
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">[1]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/blk_mem_gen_0_doutb[0]" type="logic">
-         <obj_property name="ElementShortName">[0]</obj_property>
-         <obj_property name="ObjectShortName">[0]</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr" type="array">
+   <wvobject fp_name="design_1_i/UIF_UIF_Master_0_H_RXD" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/DSP/FFTInputBitsConverter_0_bram_addr[31:14]</obj_property>
-      <obj_property name="ObjectShortName">FFTInputBitsConverter_0_bram_addr[31:14]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="ElementShortName">design_1_i/UIF_UIF_Master_0_H_RXD</obj_property>
+      <obj_property name="ObjectShortName">UIF_UIF_Master_0_H_RXD</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1" type="array">
+   <wvobject fp_name="design_1_i/UIF_UIF_Master_0_H_SCK" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1[13:0]</obj_property>
-      <obj_property name="ObjectShortName">FFTInputBitsConverter_0_bram_addr_1[13:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="ElementShortName">design_1_i/UIF_UIF_Master_0_H_SCK</obj_property>
+      <obj_property name="ObjectShortName">UIF_UIF_Master_0_H_SCK</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="vbus192" type="vbus">
-      <obj_property name="label">count</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1[13]" type="logic">
-         <obj_property name="ElementShortName">[13]</obj_property>
-         <obj_property name="ObjectShortName">[13]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1[12]" type="logic">
-         <obj_property name="ElementShortName">[12]</obj_property>
-         <obj_property name="ObjectShortName">[12]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1[11]" type="logic">
-         <obj_property name="ElementShortName">[11]</obj_property>
-         <obj_property name="ObjectShortName">[11]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1[10]" type="logic">
-         <obj_property name="ElementShortName">[10]</obj_property>
-         <obj_property name="ObjectShortName">[10]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1[9]" type="logic">
-         <obj_property name="ElementShortName">[9]</obj_property>
-         <obj_property name="ObjectShortName">[9]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1[8]" type="logic">
-         <obj_property name="ElementShortName">[8]</obj_property>
-         <obj_property name="ObjectShortName">[8]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1[7]" type="logic">
-         <obj_property name="ElementShortName">[7]</obj_property>
-         <obj_property name="ObjectShortName">[7]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1[6]" type="logic">
-         <obj_property name="ElementShortName">[6]</obj_property>
-         <obj_property name="ObjectShortName">[6]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1[5]" type="logic">
-         <obj_property name="ElementShortName">[5]</obj_property>
-         <obj_property name="ObjectShortName">[5]</obj_property>
-      </wvobject>
-      <wvobject fp_name="design_1_i/DSP/FFTInputBitsConverter_0_bram_addr_1[4]" type="logic">
-         <obj_property name="ElementShortName">[4]</obj_property>
-         <obj_property name="ObjectShortName">[4]</obj_property>
-      </wvobject>
+   <wvobject fp_name="design_1_i/UIF_UIF_Master_0_H_TXD" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">design_1_i/UIF_UIF_Master_0_H_TXD</obj_property>
+      <obj_property name="ObjectShortName">UIF_UIF_Master_0_H_TXD</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
 </wave_config>

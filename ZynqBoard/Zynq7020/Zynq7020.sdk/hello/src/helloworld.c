@@ -63,6 +63,7 @@
 #include "xscugic.h"
 #include "xil_exception.h"
 
+u32 count = 0;
 int scale[] = {0, 2, 4, 5, 7, 9, 11, 12};
 XIicPs Iic;
 XScuGic InterruptController; /* Instance of the Interrupt Controller */
@@ -91,6 +92,7 @@ typedef union
 		u32 ch5ch4;
 		u32 ch7ch6;
 	}u32;
+	u16 array16[8];
 }fftData;
 fftData soundDataBufferA[1024];
 fftData soundDataBufferB[1024];
@@ -108,6 +110,7 @@ volatile u32 *DSP_FFT_RESULT = (volatile u32 *)(0x44000000);
 u32 ffttemp = 1;
 u32 fftSourceDataIndex = 0;
 u32 fftBusy = 0;
+u32 fftCompleted = 0;
 
 int i2c_write(XIicPs *Iic, u8 addr, u8 command, u16 i2c_adder)
 {
@@ -127,7 +130,7 @@ int i2c_write(XIicPs *Iic, u8 addr, u8 command, u16 i2c_adder)
     return XST_SUCCESS;
 }
 
-void OnAudioClk()
+void OnAudioClk(void *data)
 {
 	fftData *temp;
 
@@ -177,7 +180,7 @@ void OnAudioClk()
 		break;
 	}
 
-	if(adcCh < 5)
+	if(adcCh < 7)
 	{
 		adcCh++;
 	}
@@ -196,20 +199,27 @@ void OnAudioClk()
    *UIF1_START = 0xFF;
 //    Xil_Out32(0x43C20000 + 24, 0x01);
 
-    // clear interrupt bit
+   // clear interrupt bit
 	*(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR &= ~0x00000004;
 }
 
-void OnFFTComplete()
+void OnFFTComplete(void *data)
 {
-//	s32 value[1024], i;
-//
+	fftData value[1024];
+	u32 i, j = 0;
+
+	// 時間のかかる処理は他の割り込みに影響を与えるのでNG
 //    for(i = 0; i < 1024; i++)
 //    {
-//        value[i] = (s32)(DSP_FFT_RESULT[i * 4] & 0xFFFF);
+//        value[i].u32.ch1ch0 = DSP_FFT_RESULT[j++];
+//        value[i].u32.ch3ch2 = DSP_FFT_RESULT[j++];
+//        value[i].u32.ch5ch4 = DSP_FFT_RESULT[j++];
+//        value[i].u32.ch7ch6 = DSP_FFT_RESULT[j++];
 //    }
 
-	fftBusy = 0;
+    fftBusy = 0;
+    fftCompleted = 1;
+//    MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x1);
 
     // clear interrupt bit
 	*(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR &= ~0x00000008;
@@ -217,7 +227,9 @@ void OnFFTComplete()
 
 int main()
 {
-	s32 value[1025];
+	fftData value[1024];
+	u32 mag[8];
+//	s32 value[1025];
 	u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
 	u8 rddata[10][672], currentRow = 0;
 	int note;
@@ -230,7 +242,7 @@ int main()
 
     init_platform();
 
-    MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x5);
+    MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x6);
     *(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR = 0x0;
 //    MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG0_OFFSET, 0x0);
     MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG2_OFFSET, 0xF);
@@ -247,42 +259,42 @@ int main()
     XScuGic_Enable(&InterruptController, 62);
 
 
-    Config = XIicPs_LookupConfig(XPAR_XIICPS_0_DEVICE_ID);
-    status = XIicPs_CfgInitialize(&Iic, Config, Config->BaseAddress);
-    status = XIicPs_SelfTest(&Iic);
-    status = XIicPs_SetSClk(&Iic, 400000);
+//    Config = XIicPs_LookupConfig(XPAR_XIICPS_0_DEVICE_ID);
+//    status = XIicPs_CfgInitialize(&Iic, Config, Config->BaseAddress);
+//    status = XIicPs_SelfTest(&Iic);
+//    status = XIicPs_SetSClk(&Iic, 400000);
 
-    configXGpioPs = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID);
-    XGpioPs_CfgInitialize(&instXGpioPs, configXGpioPs,configXGpioPs->BaseAddr);
-    /* Set MIO12 as output */
-    XGpioPs_SetDirectionPin(&instXGpioPs, 12, 1);
-    XGpioPs_SetOutputEnablePin(&instXGpioPs, 12, 1);
-
-    i2c_write(&Iic, 0x01, 0x30, 0x12);	// ヘッドホンアンプのミュート
-    usleep(300000);
-    i2c_write(&Iic, 0x01, 0x00, 0x12);	// ヘッドホンアンプオフ
-    XGpioPs_WritePin(&instXGpioPs, 12, 0);
-    usleep(10);
-    XGpioPs_WritePin(&instXGpioPs, 12, 1);
-
-    i2c_write(&Iic, 0x04, 0x03, 0x12);
-    i2c_write(&Iic, 0x05, 0x00, 0x12);
-    i2c_write(&Iic, 0x00, 0x40, 0x12);
-    i2c_write(&Iic, 0x0F, 0x09, 0x12);
-    i2c_write(&Iic, 0x02, 0x02, 0x12);	// Pseudo cap-less
-    i2c_write(&Iic, 0x09, 0x91, 0x12);	// ALC部ディジタルボリューム 0dB
-    i2c_write(&Iic, 0x0A, 0x00, 0x12);	// 出力ディジタルボリューム 0x18
-//    i2c_write(&Iic, 0x0E, 0x02, 0x12);	// ディエンファシスフィルタ 48kHz
-    i2c_write(&Iic, 0x00, 0x64, 0x12);	// DAC, MIN-Ampオン
-    i2c_write(&Iic, 0x01, 0x30, 0x12);	// ヘッドホンアンプオン
-    i2c_write(&Iic, 0x01, 0x70, 0x12);	// ヘッドホンアンプのミュート解除
-
+//    configXGpioPs = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID);
+//    XGpioPs_CfgInitialize(&instXGpioPs, configXGpioPs,configXGpioPs->BaseAddr);
+//    /* Set MIO12 as output */
+//    XGpioPs_SetDirectionPin(&instXGpioPs, 12, 1);
+//    XGpioPs_SetOutputEnablePin(&instXGpioPs, 12, 1);
+//
+//    i2c_write(&Iic, 0x01, 0x30, 0x12);	// ヘッドホンアンプのミュート
+//    usleep(300000);
+//    i2c_write(&Iic, 0x01, 0x00, 0x12);	// ヘッドホンアンプオフ
+//    XGpioPs_WritePin(&instXGpioPs, 12, 0);
+//    usleep(10);
+//    XGpioPs_WritePin(&instXGpioPs, 12, 1);
+//
+//    i2c_write(&Iic, 0x04, 0x03, 0x12);
+//    i2c_write(&Iic, 0x05, 0x00, 0x12);
+//    i2c_write(&Iic, 0x00, 0x40, 0x12);
+//    i2c_write(&Iic, 0x0F, 0x09, 0x12);
+//    i2c_write(&Iic, 0x02, 0x02, 0x12);	// Pseudo cap-less
+//    i2c_write(&Iic, 0x09, 0x91, 0x12);	// ALC部ディジタルボリューム 0dB
+//    i2c_write(&Iic, 0x0A, 0x00, 0x12);	// 出力ディジタルボリューム 0x18
+////    i2c_write(&Iic, 0x0E, 0x02, 0x12);	// ディエンファシスフィルタ 48kHz
+//    i2c_write(&Iic, 0x00, 0x64, 0x12);	// DAC, MIN-Ampオン
+//    i2c_write(&Iic, 0x01, 0x30, 0x12);	// ヘッドホンアンプオン
+//    i2c_write(&Iic, 0x01, 0x70, 0x12);	// ヘッドホンアンプのミュート解除
+//
     MYIP_mWriteReg(XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR, DSP_REGISTER_S00_AXI_SLV_REG0_OFFSET, 0x3);
-
-	for(i=0; i < 2048; i++)
-	{
-		Xil_Out32(0x40000000 + i * 4, 0x00000000);
-	}
+//
+//	for(i=0; i < 2048; i++)
+//	{
+//		Xil_Out32(0x40000000 + i * 4, 0x00000000);
+//	}
 
 
 //    for(i = 0; i < 130000000; i++)
@@ -306,25 +318,50 @@ int main()
 
 
 
-    Xil_Out32(0x43C20000, (u32)0);
-
-//    while(!XUartPs_IsReceiveData(STDIN_BASEADDRESS));
-    usleep(100000);
-
+//    Xil_Out32(0x43C20000, (u32)0);
+//
+////    while(!XUartPs_IsReceiveData(STDIN_BASEADDRESS));
+//    usleep(100000);
+//
     Xil_Out32(0x43C20000, (u32)3);
 
 
     *DSP_FFT_SCALE = 0x55556; // 0x05556 = x1, 0x15556 = x0.5, 0x55556 = x0.25 but perfectly secure.
 
-    Xil_Out32(0x40000000 + 0, ((u32)10000 << 18) + 1000 * 10);
+//    Xil_Out32(0x40000000 + 0, ((u32)10000 << 18) + 1000 * 10);
 
     while(1)
     {
-    	if(soundDataReady && !fftBusy)
+    	// do not change this.
+    	if(*(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR & 0xC)
+    	{
+    		*(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR &= ~0x0000000C;
+    	}
+
+
+
+//    	usleep(100000);
+    	if(soundDataReady) // && !fftBusy
     	{
     		soundDataReady = 0;
+
+    		if(fftBusy)
+    		{
+    			printf("fft failed\n");
+    		}
+
+    		fftBusy = 1; //ときどきFFTが終了しない
+    		MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x6);
+
+    		for(i = 0; i < 1024; i++)
+			{
+    			for(j = 0; j < 8; j++)
+    			{
+        			readingSoundDataBuffer[i].array16[j] *= 5;
+    			}
+			}
+
     		j = 0;
-    		fftBusy = 1;
     		for(i = 0; i < 1024; i++)
     		{
     			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch1ch0;
@@ -334,6 +371,44 @@ int main()
     		}
     		*DSP_FFT_START = 1;
     	}
+
+    	if(fftCompleted)
+    	{
+    		fftCompleted = 0;
+			j = 0;
+			for(i = 0; i < 1024; i++)
+			{
+			value[i].u32.ch1ch0 = DSP_FFT_RESULT[j++];
+			value[i].u32.ch3ch2 = DSP_FFT_RESULT[j++];
+			value[i].u32.ch5ch4 = DSP_FFT_RESULT[j++];
+			value[i].u32.ch7ch6 = DSP_FFT_RESULT[j++];
+			}
+
+			for(i = 0; i < 8; i++)
+			{
+				mag[i] = 0;
+				// HPF
+				for(j = 10; j < 1024; j++)
+				{
+					mag[i] += (value[j].array16[i] > 10 && value[j].array16[i] < 0x7FF) ? (u32)((float)value[j].array16[i] * ((1024.f + (float)j) / 1024.f)) : 0;
+				}
+				mag[i] /= 10;
+			}
+
+    		printf("%d %d %d %d %d %d %d %d\n",	mag[0],	mag[1],	mag[2], mag[3], mag[4],	mag[5],	mag[6],	mag[7]);
+
+    	    MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x2);
+    	}
+
+    	// ループの中のここの位置じゃないとすぐフリーズする
+//    	if(XUartPs_IsReceiveData(STDIN_BASEADDRESS))
+//    	{
+//    		switch(XUartPs_RecvByte(STDIN_BASEADDRESS))
+//    		{
+//    		default:
+//    			break;
+//    		}
+//    	}
 
 //    	usleep(50000);
 //    	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x1);

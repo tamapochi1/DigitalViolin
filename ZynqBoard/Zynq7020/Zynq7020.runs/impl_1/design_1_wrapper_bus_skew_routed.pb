@@ -1,3 +1,2 @@
 
-2018.1íBus skew resultsò•πR
-A
+2018.1íBus skew resultsò•ÒQ	A

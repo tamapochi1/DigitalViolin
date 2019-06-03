@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sat Jun  1 22:10:19 2019
+//Date        : Tue Jun  4 01:10:50 2019
 //Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -2323,7 +2323,7 @@ module design_1
   design_1_prescaler_0_0 prescaler_0
        (.clk(processing_system7_0_FCLK_CLK0),
         .clkOut(prescaler_0_clkOut),
-        .nReset(processing_system7_0_FCLK_RESET0_N));
+        .nReset(DSP_nResetSysClk));
   (* BMM_INFO_PROCESSOR = "arm > design_1 DSP/Synthesizer/axi_bram_ctrl_0 design_1 DSP/axi_bram_ctrl_source design_1 DSP/axi_bram_ctrl_result" *) 
   (* KEEP_HIERARCHY = "yes" *) 
   design_1_processing_system7_0_0 processing_system7_0

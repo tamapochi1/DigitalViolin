@@ -222,7 +222,7 @@ begin
     end 
   else
     begin    
-      if (~axi_wready && S_AXI_WVALID && S_AXI_AWVALID && aw_en )
+      if (~axi_wready && S_AXI_WVALID && S_AXI_AWVALID && aw_en)
         begin
           // slave is ready to accept write data when 
           // there is a valid write address and write data
@@ -259,7 +259,7 @@ begin
   else begin
     if(audioSampleRiseEdge || fftComplete)
     begin
-        slv_reg0 <= {slv_reg0[31:4], fftComplete, audioSample, slv_reg0[1:0]};
+        slv_reg0 <= {slv_reg0[31:4], fftComplete | slv_reg0[3], audioSampleRiseEdge | slv_reg0[2], slv_reg0[1:0]};
           slv_reg1 <= slv_reg1;
           slv_reg2 <= slv_reg2;
           slv_reg3 <= slv_reg3;

@@ -3,7 +3,7 @@
    "PinnedBlocks":"",
    "PinnedPorts":"",
    "commentid":"",
-   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS-threadsafe
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
 preplace port DDR -pg 1 -y 80 -defaultsOSRD
 preplace port UIF_Res_1 -pg 1 -y 790 -defaultsOSRD
@@ -36,32 +36,32 @@ preplace netloc S00_AXI_0_1 1 2 1 850
 preplace netloc DSP_outData2 1 3 1 N
 preplace netloc clk_wiz_0_locked 1 2 1 820
 preplace netloc DAC_IF_0_DAC_BCLK 1 4 1 1780
-preplace netloc myip_0_USB_nRESET 1 3 2 1340 240 NJ
+preplace netloc myip_0_USB_nRESET 1 3 2 1320 240 NJ
 preplace netloc processing_system7_0_UART_1 1 1 4 N 120 NJ 120 NJ 120 NJ
 preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 430
 preplace netloc S02_AXI_1 1 2 1 N
-preplace netloc UIF_AXI_0_UIF_res 1 3 2 1340 790 NJ
+preplace netloc UIF_AXI_0_UIF_res 1 3 2 1320 790 NJ
 preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 -30 260 410
-preplace netloc UIF_UIF_Master_0 1 3 2 1330J 770 NJ
-preplace netloc ps7_0_axi_periph_M03_AXI 1 2 1 800
 preplace netloc UIF_SerialSlave_0_UIF_Slave 1 3 2 N 740 N
-preplace netloc UIF_SPI_Master_CSn_0 1 3 2 1330J 810 NJ
+preplace netloc UIF_UIF_Master_0 1 3 2 1310J 770 NJ
+preplace netloc ps7_0_axi_periph_M03_AXI 1 2 1 800
+preplace netloc UIF_SPI_Master_CSn_0 1 3 2 1310J 810 NJ
 preplace netloc rst_ps7_0_50M_interconnect_aresetn 1 1 1 430
 preplace netloc DAC_Interface_DAC_LRCK_0 1 4 1 1780
 preplace netloc xlconcat_0_dout 1 0 2 -30 10 400
-preplace netloc DSP_nResetSysClk 1 0 4 -10 730 N 730 850 571 1340J
+preplace netloc DSP_nResetSysClk 1 0 4 -10 730 N 730 850 571 1320J
 preplace netloc processing_system7_0_FIXED_IO 1 1 4 NJ 100 NJ 100 NJ 100 NJ
-preplace netloc DSP_audioClkInterrupt 1 0 4 -30 710 NJ 710 870J 680 1320
-preplace netloc DSP_outDataValid 1 3 1 1330
-preplace netloc clk_wiz_0_clk_out1 1 2 2 790 551 1350J
+preplace netloc DSP_audioClkInterrupt 1 0 4 -30 710 NJ 710 870J 680 1300
+preplace netloc DSP_outDataValid 1 3 1 1310
+preplace netloc clk_wiz_0_clk_out1 1 2 2 790 551 1330J
 preplace netloc DAC_IF_0_DAC_SDT 1 4 1 1780
 preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 2 440 110 810
 preplace netloc DAC_IF_0_DAC_MCLK 1 4 1 N
 preplace netloc DSP_outDataValid1 1 3 1 N
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 -40 20 450 70 830 561 1360
-preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 800
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 -40 20 450 70 830 561 1340
 preplace netloc S03_AXI_1 1 2 1 790
-preplace netloc DSP_fftCompleteInterrupt 1 0 4 -20 720 NJ 720 860J 670 1310
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 800
+preplace netloc DSP_fftCompleteInterrupt 1 0 4 -20 720 NJ 720 860J 670 1290
 preplace netloc processing_system7_0_FCLK_CLK1 1 1 1 420
 preplace netloc myip_0_RGB_OUT 1 3 2 N 211 NJ
 levelinfo -pg 1 -60 200 640 1140 1640 1820 -top -80 -bot 1910

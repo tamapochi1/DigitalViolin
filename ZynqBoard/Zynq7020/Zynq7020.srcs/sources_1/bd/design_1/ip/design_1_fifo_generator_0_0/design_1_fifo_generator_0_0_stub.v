@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Tue May 28 19:40:50 2019
+// Date        : Fri May 24 02:21:43 2019
 // Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub -rename_top design_1_fifo_generator_0_0 -prefix
 //               design_1_fifo_generator_0_0_ design_1_fifo_generator_0_0_stub.v

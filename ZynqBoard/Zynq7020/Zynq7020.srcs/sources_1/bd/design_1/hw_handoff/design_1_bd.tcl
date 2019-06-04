@@ -1000,7 +1000,7 @@ proc create_hier_cell_DSP { parentCell nameHier } {
    CONFIG.complex_mult_type {use_mults_resources} \
    CONFIG.cyclic_prefix_insertion {false} \
    CONFIG.data_format {fixed_point} \
-   CONFIG.implementation_options {radix_2_lite_burst_io} \
+   CONFIG.implementation_options {radix_2_burst_io} \
    CONFIG.input_width {12} \
    CONFIG.memory_options_data {block_ram} \
    CONFIG.memory_options_hybrid {false} \
@@ -1014,6 +1014,7 @@ proc create_hier_cell_DSP { parentCell nameHier } {
    CONFIG.target_clock_frequency {100} \
    CONFIG.target_data_throughput {50} \
    CONFIG.throttle_scheme {nonrealtime} \
+   CONFIG.transform_length {256} \
    CONFIG.xk_index {false} \
  ] $xfft_0
 
@@ -1025,6 +1026,7 @@ proc create_hier_cell_DSP { parentCell nameHier } {
   connect_bd_intf_net -intf_net S02_AXI_1 [get_bd_intf_pins S02_AXI] [get_bd_intf_pins axi_bram_ctrl_source/S_AXI]
   connect_bd_intf_net -intf_net S03_AXI_1 [get_bd_intf_pins S03_AXI] [get_bd_intf_pins axi_bram_ctrl_result/S_AXI]
   connect_bd_intf_net -intf_net axi_bram_ctrl_result_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_result/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_1/BRAM_PORTA]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_intf_nets axi_bram_ctrl_result_BRAM_PORTA]
   connect_bd_intf_net -intf_net axi_bram_ctrl_source_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_source/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
   connect_bd_intf_net -intf_net xfft_0_M_AXIS_DATA [get_bd_intf_pins FFTOutputBitsConvert_0/s_axis_data] [get_bd_intf_pins xfft_0/M_AXIS_DATA]
 
@@ -1042,9 +1044,11 @@ proc create_hier_cell_DSP { parentCell nameHier } {
   connect_bd_net -net FFTInputBitsConverter_0_bram_en [get_bd_pins FFTInputBitsConverter_0/bram_en] [get_bd_pins blk_mem_gen_0/enb]
   connect_bd_net -net FFTInputBitsConverter_0_bram_we [get_bd_pins FFTInputBitsConverter_0/bram_we] [get_bd_pins blk_mem_gen_0/web]
   connect_bd_net -net FFTOutputBitsConvert_0_bram_addr [get_bd_pins FFTOutputBitsConvert_0/bram_addr] [get_bd_pins blk_mem_gen_1/addrb]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets FFTOutputBitsConvert_0_bram_addr]
   connect_bd_net -net FFTOutputBitsConvert_0_bram_clk [get_bd_pins FFTOutputBitsConvert_0/bram_clk] [get_bd_pins blk_mem_gen_1/clkb]
   connect_bd_net -net FFTOutputBitsConvert_0_bram_en [get_bd_pins FFTOutputBitsConvert_0/bram_en] [get_bd_pins blk_mem_gen_1/enb]
   connect_bd_net -net FFTOutputBitsConvert_0_bram_wddata [get_bd_pins FFTOutputBitsConvert_0/bram_wddata] [get_bd_pins blk_mem_gen_1/dinb]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets FFTOutputBitsConvert_0_bram_wddata]
   connect_bd_net -net FFTOutputBitsConvert_0_bram_we [get_bd_pins FFTOutputBitsConvert_0/bram_we] [get_bd_pins blk_mem_gen_1/web]
   connect_bd_net -net FFTOutputBitsConvert_0_event_fft_complete [get_bd_pins DSP_registers_0/fftComplete] [get_bd_pins FFTOutputBitsConvert_0/event_fft_complete]
   connect_bd_net -net Synthesizer_sync_0 [get_bd_pins outDataValid] [get_bd_pins Synthesizer/outDataValid]
@@ -1052,6 +1056,7 @@ proc create_hier_cell_DSP { parentCell nameHier } {
   connect_bd_net -net audioClkSync_0_1 [get_bd_pins audioSample] [get_bd_pins DSP_registers_0/audioSample]
   connect_bd_net -net audio_clk_gen_0_audioClk [get_bd_pins Synthesizer/audioClkSync] [get_bd_pins audio_clk_gen_0/audioClkSync]
   connect_bd_net -net blk_mem_gen_0_doutb [get_bd_pins FFTInputBitsConverter_0/bram_rddata] [get_bd_pins blk_mem_gen_0/doutb]
+set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_nets blk_mem_gen_0_doutb]
   connect_bd_net -net mult_sum_0_out [get_bd_pins outData0] [get_bd_pins outData1] [get_bd_pins Synthesizer/outData]
   connect_bd_net -net nResetExt_0_1 [get_bd_pins nResetExt] [get_bd_pins DSP_reset_0/nResetExt]
   connect_bd_net -net s00_axi_aclk_1 [get_bd_pins s00_axi_aclk] [get_bd_pins DSP_registers_0/S_AXI_ACLK]

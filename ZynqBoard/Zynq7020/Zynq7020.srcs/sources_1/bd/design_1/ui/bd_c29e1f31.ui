@@ -1,6 +1,6 @@
 {
    "ExpandedHierarchyInLayout":"",
-   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS-threadsafe
 #  -string -flagsOSRD
 preplace port audioSample -pg 1 -y 350 -defaultsOSRD
 preplace port s00_axi_aresetn -pg 1 -y 390 -defaultsOSRD
@@ -35,43 +35,43 @@ preplace inst FFTInputBitsConverter_0 -pg 1 -lvl 2 -y 780 -defaultsOSRD
 preplace netloc DSP_registers_0_fft_start 1 1 1 480
 preplace netloc DSP_registers_0_fftCompleteInterrupt 1 1 4 470J 50 NJ 50 NJ 50 NJ
 preplace netloc FFTInputBitsConverter_0_bram_we 1 1 2 550 930 910
-preplace netloc Synthesizer_sync_0 1 2 3 940J 60 NJ 60 1790J
+preplace netloc Synthesizer_sync_0 1 2 3 940J 60 NJ 60 1850J
 preplace netloc Conn2 1 0 2 NJ 480 N
 preplace netloc FFTInputBitsConverter_0_bram_clk 1 1 2 570 910 930
 preplace netloc audioClkSync_0_1 1 0 1 N
 preplace netloc FFTInputBitsConverter_0_m_axis_config 1 2 1 N
-preplace netloc FFTOutputBitsConvert_0_event_fft_complete 1 0 5 80J 30 NJ 30 NJ 30 NJ 30 1780
+preplace netloc FFTOutputBitsConvert_0_event_fft_complete 1 0 5 80J 30 NJ 30 NJ 30 NJ 30 1840
 preplace netloc audioClk256_0_1 1 0 1 40J
 preplace netloc s_axi_aclk_0_1 1 0 2 30J 220 530
 preplace netloc FFTInputBitsConverter_0_bram_en 1 1 2 540 920 920
 preplace netloc DSP_registers_0_sysNReset 1 0 2 90 190 430
-preplace netloc S02_AXI_1 1 0 1 20
 preplace netloc axi_bram_ctrl_source_BRAM_PORTA 1 1 1 470
-preplace netloc DSP_reset_0_nResetAudioClk 1 0 5 70 180 450 20 NJ 20 NJ 20 1810J
+preplace netloc S02_AXI_1 1 0 1 20
+preplace netloc DSP_reset_0_nResetAudioClk 1 0 5 70 180 450 20 NJ 20 NJ 20 1870J
 preplace netloc DSP_registers_0_synth0Gain 1 1 1 490
-preplace netloc xfft_0_M_AXIS_DATA 1 3 1 1360
-preplace netloc FFTOutputBitsConvert_0_bram_en 1 3 2 1390 330 1740
+preplace netloc xfft_0_M_AXIS_DATA 1 3 1 1380
+preplace netloc FFTOutputBitsConvert_0_bram_en 1 3 2 1410 330 1800
 preplace netloc DSP_registers_0_fft_scale 1 1 1 470
 preplace netloc S00_AXI_1 1 0 1 N
 preplace netloc s_axi_aresetn_0_1 1 0 2 20J 200 570
 preplace netloc FFTInputBitsConverter_0_bram_addr 1 1 2 560 900 940
 preplace netloc s00_axi_aclk_1 1 0 1 N
-preplace netloc FFTOutputBitsConvert_0_bram_wddata 1 3 2 1400 340 1760
+preplace netloc FFTOutputBitsConvert_0_bram_wddata 1 3 2 1420 340 1820
 preplace netloc blk_mem_gen_0_doutb 1 1 1 530
 preplace netloc s00_axi_aresetn_1 1 0 1 N
-preplace netloc mult_sum_0_out 1 2 3 910 40 NJ 40 1800
+preplace netloc mult_sum_0_out 1 2 3 910 40 NJ 40 1860
 preplace netloc sysClk_0_1 1 0 4 50J 210 500 410 970J 230 N
 preplace netloc S03_AXI_1 1 0 1 20
-preplace netloc FFTOutputBitsConvert_0_bram_addr 1 3 2 1410 350 1770
-preplace netloc DSP_reset_0_nResetSysClk1 1 0 5 90J 820 460J 650 950J 210 1350J 70 NJ
+preplace netloc FFTOutputBitsConvert_0_bram_addr 1 3 2 1430 350 1830
+preplace netloc DSP_reset_0_nResetSysClk1 1 0 5 90J 820 460J 650 950J 210 1370J 70 NJ
 preplace netloc audio_clk_gen_0_audioClk 1 1 1 510
-preplace netloc axi_bram_ctrl_result_BRAM_PORTA 1 1 3 520 420 NJ 420 1350J
 preplace netloc FFTInputBitsConverter_0_m_axis_data 1 2 1 960
-preplace netloc FFTOutputBitsConvert_0_bram_we 1 3 2 1370 90 1750
-preplace netloc FFTOutputBitsConvert_0_bram_clk 1 3 2 1380 80 1760
-preplace netloc DSP_registers_0_audioClkInterrupt 1 1 4 440J 10 NJ 10 NJ 10 1820J
+preplace netloc axi_bram_ctrl_result_BRAM_PORTA 1 1 3 520 420 NJ 420 1370J
+preplace netloc FFTOutputBitsConvert_0_bram_we 1 3 2 1390 90 1810
+preplace netloc FFTOutputBitsConvert_0_bram_clk 1 3 2 1400 80 1820
+preplace netloc DSP_registers_0_audioClkInterrupt 1 1 4 440J 10 NJ 10 NJ 10 1880J
 preplace netloc nResetExt_0_1 1 0 1 60
-levelinfo -pg 1 0 260 740 1163 1573 1840 -top 0 -bot 1390
+levelinfo -pg 1 0 260 740 1190 1630 1900 -top 0 -bot 1390
 "
 }
 0

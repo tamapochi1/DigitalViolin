@@ -1,8 +1,8 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Thu May 30 22:55:56 2019
-// Host        : DESKTOP-S2QNSDM running 64-bit major release  (build 9200)
+// Date        : Tue Jun  4 05:02:18 2019
+// Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_FFTInputBitsConverter_0_0_sim_netlist.v
 // Design      : design_1_FFTInputBitsConverter_0_0
@@ -16,23 +16,22 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FFTInputBitsConverter
    (Q,
     m_axis_data_tvalid,
     clk,
+    nReset,
     start,
-    m_axis_data_tready,
-    nReset);
+    m_axis_data_tready);
   output [9:0]Q;
   output m_axis_data_tvalid;
   input clk;
+  input nReset;
   input start;
   input m_axis_data_tready;
-  input nReset;
 
   wire [9:0]Q;
   wire [10:10]byteCounter;
-  wire \byteCounter[10]_i_2_n_0 ;
-  wire \byteCounter[5]_i_2_n_0 ;
+  wire \byteCounter[8]_i_2_n_0 ;
+  wire \byteCounter[8]_i_3_n_0 ;
   wire \byteCounter[9]_i_1_n_0 ;
   wire \byteCounter[9]_i_4_n_0 ;
-  wire \byteCounter[9]_i_5_n_0 ;
   wire [10:0]byteCounter_0;
   wire clk;
   wire m_axis_data_tready;
@@ -45,112 +44,109 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FFTInputBitsConverter
   wire started0;
   wire started_i_1_n_0;
 
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT2 #(
-    .INIT(4'h2)) 
+    .INIT(4'h1)) 
     \byteCounter[0]_i_1 
-       (.I0(\byteCounter[9]_i_5_n_0 ),
-        .I1(Q[0]),
+       (.I0(Q[0]),
+        .I1(\byteCounter[8]_i_2_n_0 ),
         .O(byteCounter_0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT4 #(
-    .INIT(16'h7080)) 
+  LUT6 #(
+    .INIT(64'h6AAAAAAAAAAAAAAA)) 
     \byteCounter[10]_i_1 
-       (.I0(\byteCounter[10]_i_2_n_0 ),
-        .I1(Q[9]),
-        .I2(\byteCounter[9]_i_5_n_0 ),
-        .I3(byteCounter),
+       (.I0(byteCounter),
+        .I1(Q[8]),
+        .I2(Q[6]),
+        .I3(\byteCounter[9]_i_4_n_0 ),
+        .I4(Q[7]),
+        .I5(Q[9]),
         .O(byteCounter_0[10]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT4 #(
-    .INIT(16'h0800)) 
-    \byteCounter[10]_i_2 
-       (.I0(Q[8]),
-        .I1(Q[6]),
-        .I2(\byteCounter[9]_i_4_n_0 ),
-        .I3(Q[7]),
-        .O(\byteCounter[10]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \byteCounter[1]_i_1 
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .O(byteCounter_0[1]));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
-    .INIT(8'h28)) 
-    \byteCounter[1]_i_1 
-       (.I0(\byteCounter[9]_i_5_n_0 ),
-        .I1(Q[0]),
-        .I2(Q[1]),
-        .O(byteCounter_0[1]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h2A80)) 
+    .INIT(8'h6A)) 
     \byteCounter[2]_i_1 
-       (.I0(\byteCounter[9]_i_5_n_0 ),
+       (.I0(Q[2]),
         .I1(Q[0]),
         .I2(Q[1]),
-        .I3(Q[2]),
         .O(byteCounter_0[2]));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT5 #(
-    .INIT(32'h2AAA8000)) 
+  LUT4 #(
+    .INIT(16'h6AAA)) 
     \byteCounter[3]_i_1 
-       (.I0(\byteCounter[9]_i_5_n_0 ),
+       (.I0(Q[3]),
         .I1(Q[1]),
         .I2(Q[0]),
         .I3(Q[2]),
-        .I4(Q[3]),
         .O(byteCounter_0[3]));
-  LUT6 #(
-    .INIT(64'h2AAAAAAA80000000)) 
-    \byteCounter[4]_i_1 
-       (.I0(\byteCounter[9]_i_5_n_0 ),
-        .I1(Q[2]),
-        .I2(Q[0]),
-        .I3(Q[1]),
-        .I4(Q[3]),
-        .I5(Q[4]),
-        .O(byteCounter_0[4]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT3 #(
-    .INIT(8'h28)) 
-    \byteCounter[5]_i_1 
-       (.I0(\byteCounter[9]_i_5_n_0 ),
-        .I1(\byteCounter[5]_i_2_n_0 ),
-        .I2(Q[5]),
-        .O(byteCounter_0[5]));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'h80000000)) 
-    \byteCounter[5]_i_2 
+    .INIT(32'h6AAAAAAA)) 
+    \byteCounter[4]_i_1 
        (.I0(Q[4]),
         .I1(Q[2]),
         .I2(Q[0]),
         .I3(Q[1]),
         .I4(Q[3]),
-        .O(\byteCounter[5]_i_2_n_0 ));
+        .O(byteCounter_0[4]));
+  LUT6 #(
+    .INIT(64'h7FFFFFFF80000000)) 
+    \byteCounter[5]_i_1 
+       (.I0(Q[3]),
+        .I1(Q[1]),
+        .I2(Q[0]),
+        .I3(Q[2]),
+        .I4(Q[4]),
+        .I5(Q[5]),
+        .O(byteCounter_0[5]));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT3 #(
-    .INIT(8'h84)) 
+  LUT2 #(
+    .INIT(4'h6)) 
     \byteCounter[6]_i_1 
-       (.I0(\byteCounter[9]_i_4_n_0 ),
-        .I1(\byteCounter[9]_i_5_n_0 ),
-        .I2(Q[6]),
-        .O(byteCounter_0[6]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT4 #(
-    .INIT(16'hD020)) 
-    \byteCounter[7]_i_1 
        (.I0(Q[6]),
         .I1(\byteCounter[9]_i_4_n_0 ),
-        .I2(\byteCounter[9]_i_5_n_0 ),
-        .I3(Q[7]),
-        .O(byteCounter_0[7]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT5 #(
-    .INIT(32'hDF002000)) 
-    \byteCounter[8]_i_1 
+        .O(byteCounter_0[6]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT3 #(
+    .INIT(8'h6A)) 
+    \byteCounter[7]_i_1 
        (.I0(Q[7]),
         .I1(\byteCounter[9]_i_4_n_0 ),
         .I2(Q[6]),
-        .I3(\byteCounter[9]_i_5_n_0 ),
+        .O(byteCounter_0[7]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT5 #(
+    .INIT(32'h15554000)) 
+    \byteCounter[8]_i_1 
+       (.I0(\byteCounter[8]_i_2_n_0 ),
+        .I1(Q[7]),
+        .I2(\byteCounter[9]_i_4_n_0 ),
+        .I3(Q[6]),
         .I4(Q[8]),
         .O(byteCounter_0[8]));
+  LUT5 #(
+    .INIT(32'h00000010)) 
+    \byteCounter[8]_i_2 
+       (.I0(m_axis_data_tvalid_INST_0_i_2_n_0),
+        .I1(\byteCounter[8]_i_3_n_0 ),
+        .I2(Q[8]),
+        .I3(Q[9]),
+        .I4(byteCounter),
+        .O(\byteCounter[8]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \byteCounter[8]_i_3 
+       (.I0(Q[1]),
+        .I1(Q[0]),
+        .I2(Q[3]),
+        .I3(Q[2]),
+        .O(\byteCounter[8]_i_3_n_0 ));
   LUT3 #(
     .INIT(8'h4F)) 
     \byteCounter[9]_i_1 
@@ -161,39 +157,29 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FFTInputBitsConverter
   LUT2 #(
     .INIT(4'h8)) 
     \byteCounter[9]_i_2 
-       (.I0(started),
-        .I1(m_axis_data_tready),
+       (.I0(m_axis_data_tready),
+        .I1(started),
         .O(started0));
-  LUT6 #(
-    .INIT(64'hF7FF000008000000)) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT5 #(
+    .INIT(32'h6AAAAAAA)) 
     \byteCounter[9]_i_3 
-       (.I0(Q[8]),
-        .I1(Q[6]),
+       (.I0(Q[9]),
+        .I1(Q[7]),
         .I2(\byteCounter[9]_i_4_n_0 ),
-        .I3(Q[7]),
-        .I4(\byteCounter[9]_i_5_n_0 ),
-        .I5(Q[9]),
+        .I3(Q[6]),
+        .I4(Q[8]),
         .O(byteCounter_0[9]));
   LUT6 #(
-    .INIT(64'h7FFFFFFFFFFFFFFF)) 
+    .INIT(64'h8000000000000000)) 
     \byteCounter[9]_i_4 
        (.I0(Q[5]),
-        .I1(Q[3]),
-        .I2(Q[1]),
+        .I1(Q[4]),
+        .I2(Q[2]),
         .I3(Q[0]),
-        .I4(Q[2]),
-        .I5(Q[4]),
+        .I4(Q[1]),
+        .I5(Q[3]),
         .O(\byteCounter[9]_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFEFFFFFFFF)) 
-    \byteCounter[9]_i_5 
-       (.I0(Q[6]),
-        .I1(Q[7]),
-        .I2(Q[4]),
-        .I3(Q[5]),
-        .I4(m_axis_data_tvalid_INST_0_i_2_n_0),
-        .I5(byteCounter),
-        .O(\byteCounter[9]_i_5_n_0 ));
   FDRE \byteCounter_reg[0] 
        (.C(clk),
         .CE(started0),
@@ -260,40 +246,40 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_FFTInputBitsConverter
         .D(byteCounter_0[9]),
         .Q(Q[9]),
         .R(\byteCounter[9]_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'hE)) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
     m_axis_data_tvalid_INST_0
        (.I0(m_axis_data_tvalid_INST_0_i_1_n_0),
-        .I1(byteCounter),
+        .I1(Q[9]),
+        .I2(byteCounter),
+        .I3(Q[8]),
         .O(m_axis_data_tvalid));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     m_axis_data_tvalid_INST_0_i_1
-       (.I0(m_axis_data_tvalid_INST_0_i_2_n_0),
-        .I1(Q[5]),
-        .I2(Q[4]),
-        .I3(Q[7]),
-        .I4(Q[6]),
+       (.I0(Q[2]),
+        .I1(Q[3]),
+        .I2(Q[0]),
+        .I3(Q[1]),
+        .I4(m_axis_data_tvalid_INST_0_i_2_n_0),
         .O(m_axis_data_tvalid_INST_0_i_1_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
     m_axis_data_tvalid_INST_0_i_2
-       (.I0(Q[1]),
-        .I1(Q[0]),
-        .I2(Q[3]),
-        .I3(Q[2]),
-        .I4(Q[8]),
-        .I5(Q[9]),
+       (.I0(Q[5]),
+        .I1(Q[4]),
+        .I2(Q[7]),
+        .I3(Q[6]),
         .O(m_axis_data_tvalid_INST_0_i_2_n_0));
-  LUT6 #(
-    .INIT(64'hEE2EEEEE00000000)) 
+  LUT5 #(
+    .INIT(32'h08A8A8A8)) 
     started_i_1
-       (.I0(start),
-        .I1(started),
-        .I2(m_axis_data_tready),
-        .I3(m_axis_data_tvalid_INST_0_i_1_n_0),
-        .I4(byteCounter),
-        .I5(nReset),
+       (.I0(nReset),
+        .I1(start),
+        .I2(started),
+        .I3(m_axis_data_tready),
+        .I4(\byteCounter[8]_i_2_n_0 ),
         .O(started_i_1_n_0));
   FDRE started_reg
        (.C(clk),

@@ -48,6 +48,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 #include "xil_io.h"
 #include "xil_printf.h"
 #include "xparameters.h"
@@ -70,6 +71,7 @@ XScuGic InterruptController; /* Instance of the Interrupt Controller */
 static XScuGic_Config *GicConfig;/* The configuration parameters of the controller */
 u8 adcCh = 0;
 s16 adcData;
+u8 adcGain = 5;
 volatile u32 *UIF1WRITE = (volatile u32 *)(0x43C20000 + 16);
 volatile u32 *UIF1_START = (volatile u32 *)(0x43C20000 + 24);
 typedef union
@@ -141,6 +143,7 @@ void OnAudioClk(void *data)
 	adcData |= Xil_In32(0x43C20000 + 20) & 0xFF;
 
 	adcData -= 2048;
+	adcData *= adcGain;
 
 	switch(adcCh)
 	{
@@ -167,7 +170,7 @@ void OnAudioClk(void *data)
 	case 7:
 		writingSoundDataBuffer[soundDataIndex].channels.ch7 = (u16)adcData;
 		soundDataIndex++;
-		if(soundDataIndex == 1024)
+		if(soundDataIndex == 256)
 		{
 			soundDataIndex = 0;
 			temp = readingSoundDataBuffer;
@@ -229,6 +232,7 @@ int main()
 {
 	fftData value[1024];
 	u32 mag[8];
+	u8 receivedByte;
 //	s32 value[1025];
 	u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
 	u8 rddata[10][672], currentRow = 0;
@@ -332,7 +336,7 @@ int main()
 
     while(1)
     {
-    	// do not change this.
+    	// 念のために割り込みフラグをクリア
     	if(*(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR & 0xC)
     	{
     		*(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR &= ~0x0000000C;
@@ -353,22 +357,15 @@ int main()
     		fftBusy = 1; //ときどきFFTが終了しない
     		MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x6);
 
-    		for(i = 0; i < 1024; i++)
-			{
-    			for(j = 0; j < 8; j++)
-    			{
-        			readingSoundDataBuffer[i].array16[j] *= 5;
-    			}
-			}
-
     		j = 0;
-    		for(i = 0; i < 1024; i++)
-    		{
-    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch1ch0;
-    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch3ch2;
-    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch5ch4;
-    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch7ch6;
-    		}
+//    		for(i = 0; i < 256; i++)
+//    		{
+//    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch1ch0;
+//    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch3ch2;
+//    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch5ch4;
+//    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch7ch6;
+//    		}
+    		memcpy(DSP_FFT_DATA, readingSoundDataBuffer, 256 * 4 * 4);
     		*DSP_FFT_START = 1;
     	}
 
@@ -376,39 +373,55 @@ int main()
     	{
     		fftCompleted = 0;
 			j = 0;
-			for(i = 0; i < 1024; i++)
-			{
-			value[i].u32.ch1ch0 = DSP_FFT_RESULT[j++];
-			value[i].u32.ch3ch2 = DSP_FFT_RESULT[j++];
-			value[i].u32.ch5ch4 = DSP_FFT_RESULT[j++];
-			value[i].u32.ch7ch6 = DSP_FFT_RESULT[j++];
-			}
+//			for(i = 0; i < 256; i++)
+//			{
+//			value[i].u32.ch1ch0 = DSP_FFT_RESULT[j++];
+//			value[i].u32.ch3ch2 = DSP_FFT_RESULT[j++];
+//			value[i].u32.ch5ch4 = DSP_FFT_RESULT[j++];
+//			value[i].u32.ch7ch6 = DSP_FFT_RESULT[j++];
+//			}
+			memcpy(value, DSP_FFT_RESULT, 128 * 4 * 4);
 
 			for(i = 0; i < 8; i++)
 			{
 				mag[i] = 0;
 				// HPF
-				for(j = 10; j < 1024; j++)
+				for(j = 10; j < 128; j++)
 				{
-					mag[i] += (value[j].array16[i] > 10 && value[j].array16[i] < 0x7FF) ? (u32)((float)value[j].array16[i] * ((1024.f + (float)j) / 1024.f)) : 0;
+					mag[i] += (value[j].array16[i] > 10) ? (u32)((float)value[j].array16[i] * ((float)(128 + j) / 128.f)) : 0;
 				}
 				mag[i] /= 10;
 			}
 
-    		printf("%d %d %d %d %d %d %d %d\n",	mag[0],	mag[1],	mag[2], mag[3], mag[4],	mag[5],	mag[6],	mag[7]);
+			if(count == 1)
+			{
+				// なぜかch4だけ結果が大きい
+	    		printf("%d %d %d %d %d %d %d %d\n", mag[0], mag[1], mag[2], mag[3], mag[4] / 3, mag[5], mag[6], mag[7]);
+	    		count = 0;
+			}
+			count++;
 
     	    MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x2);
     	}
 
-    	// ループの中のここの位置じゃないとすぐフリーズする
-//    	if(XUartPs_IsReceiveData(STDIN_BASEADDRESS))
-//    	{
-//    		switch(XUartPs_RecvByte(STDIN_BASEADDRESS))
-//    		{
-//    		default:
-//    			break;
-//    		}
-//    	}
+    	// ループの中のここの位置じゃないとすぐフリーズする？
+    	if(XUartPs_IsReceiveData(STDIN_BASEADDRESS))
+    	{
+    		receivedByte = XUartPs_RecvByte(STDIN_BASEADDRESS);
+
+    		if((receivedByte & 0xF0) == 0x30)
+    		{
+    			adcGain = receivedByte & 0x0F;
+    		}
+    		else
+    		{
+        		switch(receivedByte)
+        		{
+        		default:
+        			break;
+        		}
+    		}
+    	}
 
 //    	usleep(50000);
 //    	MYIP_mWriteReg(XPAR_MYIP_0_S00_AXI_BASEADDR, MYIP_S00_AXI_SLV_REG0_OFFSET, 0x1);

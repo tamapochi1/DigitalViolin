@@ -63,7 +63,7 @@ begin
         end
         else if(started && m_axis_data_tready)
         begin
-            if(byteCounter == 11'd1024)
+            if(byteCounter == 11'd256)
             begin
                 started <= 1'b0;
                 byteCounter <= 11'h000;

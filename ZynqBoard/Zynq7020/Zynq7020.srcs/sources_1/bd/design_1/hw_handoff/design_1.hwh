@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jun  4 01:10:51 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Jun  5 00:38:31 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="design_1" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -119,16 +119,6 @@
         <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_DQS"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="UART_1_txd" SIGIS="undef" SIGNAME="processing_system7_0_UART1_TX">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="UART1_TX"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="UART_1_rxd" SIGIS="undef" SIGNAME="processing_system7_0_UART1_RX">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="UART1_RX"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="IO" LEFT="53" NAME="FIXED_IO_mio" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_MIO">
       <CONNECTIONS>
         <CONNECTION INSTANCE="processing_system7_0" PORT="MIO"/>
@@ -172,6 +162,16 @@
     <PORT DIR="I" NAME="UIF_Slave_1_s_txd" SIGIS="undef" SIGNAME="UIF_UIF_SerialSlave_0_UIF_Slave_S_TXD">
       <CONNECTIONS>
         <CONNECTION INSTANCE="UIF_UIF_SerialSlave_0" PORT="UIF_Slave_S_TXD"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="UART_1_txd" SIGIS="undef" SIGNAME="processing_system7_0_UART1_TX">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="UART1_TX"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="UART_1_rxd" SIGIS="undef" SIGNAME="processing_system7_0_UART1_RX">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="UART1_RX"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="UIF_Master_1_h_sck" SIGIS="undef" SIGNAME="UIF_UIF_SerialMasterCont_0_UIF_Master_H_SCK">
@@ -1127,8 +1127,8 @@
             <CONNECTION INSTANCE="DSP_xfft_0" PORT="aresetn"/>
             <CONNECTION INSTANCE="DSP_axi_bram_ctrl_source" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="DSP_axi_bram_ctrl_result" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="DSP_FFTOutputBitsConvert_0" PORT="nReset"/>
             <CONNECTION INSTANCE="DSP_FFTInputBitsConverter_0" PORT="nReset"/>
+            <CONNECTION INSTANCE="DSP_FFTOutputBitsConvert_0" PORT="nReset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="nResetAudio256Clk" SIGIS="undef" SIGNAME="DSP_DSP_reset_0_nResetAudio256Clk">
@@ -1344,7 +1344,7 @@
           <PARAMETER NAME="FREQ_HZ" VALUE="1e+08"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 262140} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type generated dependency chan_stride format long minimum {} maximum {}} value 32} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 261916} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_xn_re {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xn_re} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 261900} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency frame_size format long minimum {} maximum {}} value 1024} stride {attribs {resolve_type generated dependency frame_stride format long minimum {} maximum {}} value 256} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xn_width format long minimum {} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency xn_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}} field_xn_im {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xn_im} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 261900} bitoffset {attribs {resolve_type generated dependency xn_im_offset format long minimum {} maximum {}} value 16} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency frame_size format long minimum {} maximum {}} value 1024} stride {attribs {resolve_type generated dependency frame_stride format long minimum {} maximum {}} value 256} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xn_width format long minimum {} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency xn_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}}}}}}} TDATA_WIDTH 256 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_xk_index {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xk_index} enabled {attribs {resolve_type generated dependency xk_index_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xk_index_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_blk_exp {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value blk_exp} enabled {attribs {resolve_type generated dependency blk_exp_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 61} bitoffset {attribs {resolve_type generated dependency blk_exp_offset format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 5} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}} field_ovflo {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value ovflo} enabled {attribs {resolve_type generated dependency ovflo_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type generated dependency ovflo_offset format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}}}} TUSER_WIDTH 0}"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 65532} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type generated dependency chan_stride format long minimum {} maximum {}} value 32} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 65308} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_xn_re {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xn_re} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 65292} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency frame_size format long minimum {} maximum {}} value 256} stride {attribs {resolve_type generated dependency frame_stride format long minimum {} maximum {}} value 256} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xn_width format long minimum {} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency xn_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}} field_xn_im {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xn_im} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 65292} bitoffset {attribs {resolve_type generated dependency xn_im_offset format long minimum {} maximum {}} value 16} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency frame_size format long minimum {} maximum {}} value 256} stride {attribs {resolve_type generated dependency frame_stride format long minimum {} maximum {}} value 256} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xn_width format long minimum {} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency xn_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}}}}}}} TDATA_WIDTH 256 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_xk_index {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xk_index} enabled {attribs {resolve_type generated dependency xk_index_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xk_index_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_blk_exp {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value blk_exp} enabled {attribs {resolve_type generated dependency blk_exp_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 61} bitoffset {attribs {resolve_type generated dependency blk_exp_offset format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 5} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}} field_ovflo {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value ovflo} enabled {attribs {resolve_type generated dependency ovflo_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type generated dependency ovflo_offset format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}}}} TUSER_WIDTH 0}"/>
           <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_data_tdata"/>
@@ -5124,15 +5124,15 @@
       </DOCUMENTS>
       <PARAMETERS>
         <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="zynq"/>
-        <PARAMETER NAME="C_S_AXIS_CONFIG_TDATA_WIDTH" VALUE="224"/>
+        <PARAMETER NAME="C_S_AXIS_CONFIG_TDATA_WIDTH" VALUE="192"/>
         <PARAMETER NAME="C_S_AXIS_DATA_TDATA_WIDTH" VALUE="256"/>
         <PARAMETER NAME="C_M_AXIS_DATA_TDATA_WIDTH" VALUE="256"/>
         <PARAMETER NAME="C_M_AXIS_DATA_TUSER_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_M_AXIS_STATUS_TDATA_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_THROTTLE_SCHEME" VALUE="1"/>
         <PARAMETER NAME="C_CHANNELS" VALUE="8"/>
-        <PARAMETER NAME="C_NFFT_MAX" VALUE="10"/>
-        <PARAMETER NAME="C_ARCH" VALUE="4"/>
+        <PARAMETER NAME="C_NFFT_MAX" VALUE="8"/>
+        <PARAMETER NAME="C_ARCH" VALUE="2"/>
         <PARAMETER NAME="C_HAS_NFFT" VALUE="0"/>
         <PARAMETER NAME="C_USE_FLT_PT" VALUE="0"/>
         <PARAMETER NAME="C_INPUT_WIDTH" VALUE="12"/>
@@ -5158,9 +5158,9 @@
         <PARAMETER NAME="C_BFLY_TYPE" VALUE="0"/>
         <PARAMETER NAME="Component_Name" VALUE="design_1_xfft_0_0"/>
         <PARAMETER NAME="channels" VALUE="8"/>
-        <PARAMETER NAME="transform_length" VALUE="1024"/>
+        <PARAMETER NAME="transform_length" VALUE="256"/>
         <PARAMETER NAME="target_clock_frequency" VALUE="100"/>
-        <PARAMETER NAME="implementation_options" VALUE="radix_2_lite_burst_io"/>
+        <PARAMETER NAME="implementation_options" VALUE="radix_2_burst_io"/>
         <PARAMETER NAME="target_data_throughput" VALUE="50"/>
         <PARAMETER NAME="run_time_configurable_transform_length" VALUE="false"/>
         <PARAMETER NAME="data_format" VALUE="fixed_point"/>
@@ -5195,7 +5195,7 @@
             <CONNECTION INSTANCE="DSP_DSP_reset_0" PORT="nResetSysClk"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="223" NAME="s_axis_config_tdata" RIGHT="0" SIGIS="undef" SIGNAME="DSP_FFTInputBitsConverter_0_m_axis_config_tdata">
+        <PORT DIR="I" LEFT="191" NAME="s_axis_config_tdata" RIGHT="0" SIGIS="undef" SIGNAME="DSP_FFTInputBitsConverter_0_m_axis_config_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="DSP_FFTInputBitsConverter_0" PORT="m_axis_config_tdata"/>
           </CONNECTIONS>
@@ -5283,7 +5283,7 @@
           <PARAMETER NAME="FREQ_HZ" VALUE="1e+08"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 262140} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type generated dependency chan_stride format long minimum {} maximum {}} value 32} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 261916} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_xn_re {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xn_re} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 261900} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency frame_size format long minimum {} maximum {}} value 1024} stride {attribs {resolve_type generated dependency frame_stride format long minimum {} maximum {}} value 256} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xn_width format long minimum {} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency xn_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}} field_xn_im {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xn_im} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 261900} bitoffset {attribs {resolve_type generated dependency xn_im_offset format long minimum {} maximum {}} value 16} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency frame_size format long minimum {} maximum {}} value 1024} stride {attribs {resolve_type generated dependency frame_stride format long minimum {} maximum {}} value 256} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xn_width format long minimum {} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency xn_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}}}}}}} TDATA_WIDTH 256 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_xk_index {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xk_index} enabled {attribs {resolve_type generated dependency xk_index_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xk_index_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_blk_exp {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value blk_exp} enabled {attribs {resolve_type generated dependency blk_exp_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 61} bitoffset {attribs {resolve_type generated dependency blk_exp_offset format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 5} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}} field_ovflo {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value ovflo} enabled {attribs {resolve_type generated dependency ovflo_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type generated dependency ovflo_offset format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}}}} TUSER_WIDTH 0}"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 65532} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type generated dependency chan_stride format long minimum {} maximum {}} value 32} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 65308} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_xn_re {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xn_re} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 65292} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency frame_size format long minimum {} maximum {}} value 256} stride {attribs {resolve_type generated dependency frame_stride format long minimum {} maximum {}} value 256} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xn_width format long minimum {} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency xn_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}} field_xn_im {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xn_im} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 65292} bitoffset {attribs {resolve_type generated dependency xn_im_offset format long minimum {} maximum {}} value 16} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency frame_size format long minimum {} maximum {}} value 256} stride {attribs {resolve_type generated dependency frame_stride format long minimum {} maximum {}} value 256} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xn_width format long minimum {} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency xn_fractwidth format long minimum {} maximum {}} value 11} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}}}}}}} TDATA_WIDTH 256 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_xk_index {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value xk_index} enabled {attribs {resolve_type generated dependency xk_index_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency xk_index_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_blk_exp {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value blk_exp} enabled {attribs {resolve_type generated dependency blk_exp_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 61} bitoffset {attribs {resolve_type generated dependency blk_exp_offset format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 8} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 5} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}} field_ovflo {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value ovflo} enabled {attribs {resolve_type generated dependency ovflo_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 8} bitoffset {attribs {resolve_type generated dependency ovflo_offset format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 8} stride {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}}}} TUSER_WIDTH 0}"/>
           <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_data_tdata"/>
@@ -5293,7 +5293,7 @@
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="DSP_FFTInputBitsConverter_0_m_axis_config" NAME="S_AXIS_CONFIG" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
-          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="28"/>
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="24"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
@@ -9817,8 +9817,8 @@
             <CONNECTION INSTANCE="DSP_xfft_0" PORT="aclk"/>
             <CONNECTION INSTANCE="DSP_axi_bram_ctrl_source" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="DSP_axi_bram_ctrl_result" PORT="s_axi_aclk"/>
-            <CONNECTION INSTANCE="DSP_FFTOutputBitsConvert_0" PORT="clk"/>
             <CONNECTION INSTANCE="DSP_FFTInputBitsConverter_0" PORT="clk"/>
+            <CONNECTION INSTANCE="DSP_FFTOutputBitsConvert_0" PORT="clk"/>
             <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_ACLK"/>
             <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="DAC_Interface_fifo_generator_0" PORT="s_aclk"/>
@@ -10503,194 +10503,99 @@
             <CONNECTION INSTANCE="rst_ps7_0_50M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M01_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_AWADDR">
+        <PORT DIR="O" LEFT="31" NAME="M03_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_AWADDR"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M01_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_AWPROT">
+        <PORT DIR="O" LEFT="2" NAME="M03_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWPROT">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_AWPROT"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWPROT"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M01_AXI_awvalid" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_AWVALID">
+        <PORT DIR="O" NAME="M03_AXI_awvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_AWVALID"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_AXI_awready" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_AWREADY">
+        <PORT DIR="I" NAME="M03_AXI_awready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_AWREADY"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M01_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_WDATA">
+        <PORT DIR="O" LEFT="31" NAME="M03_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_WDATA"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M01_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_WSTRB">
+        <PORT DIR="O" LEFT="3" NAME="M03_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WSTRB">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_WSTRB"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WSTRB"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M01_AXI_wvalid" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_WVALID">
+        <PORT DIR="O" NAME="M03_AXI_wvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_WVALID"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_AXI_wready" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_WREADY">
+        <PORT DIR="I" NAME="M03_AXI_wready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_WREADY"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M01_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_BRESP">
+        <PORT DIR="I" LEFT="1" NAME="M03_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BRESP">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_BRESP"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_BRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_AXI_bvalid" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_BVALID">
+        <PORT DIR="I" NAME="M03_AXI_bvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_BVALID"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_BVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M01_AXI_bready" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_BREADY">
+        <PORT DIR="O" NAME="M03_AXI_bready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_BREADY"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_BREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M01_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_ARADDR">
+        <PORT DIR="O" LEFT="31" NAME="M03_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_ARADDR"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M01_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_ARPROT">
+        <PORT DIR="O" LEFT="2" NAME="M03_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARPROT">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_ARPROT"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARPROT"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M01_AXI_arvalid" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_ARVALID">
+        <PORT DIR="O" NAME="M03_AXI_arvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_ARVALID"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_AXI_arready" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_ARREADY">
+        <PORT DIR="I" NAME="M03_AXI_arready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_ARREADY"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M01_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_RDATA">
+        <PORT DIR="I" LEFT="31" NAME="M03_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_RDATA"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M01_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_RRESP">
+        <PORT DIR="I" LEFT="1" NAME="M03_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RRESP">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_RRESP"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_AXI_rvalid" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_RVALID">
+        <PORT DIR="I" NAME="M03_AXI_rvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_RVALID"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M01_AXI_rready" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_RREADY">
+        <PORT DIR="O" NAME="M03_AXI_rready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_RREADY"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_awaddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_awaddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M00_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_awprot">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_awprot"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="myip_0_s00_axi_awvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_awvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="myip_0_s00_axi_awready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_awready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_wdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_wdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_wstrb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_wstrb"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="myip_0_s00_axi_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_wvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="myip_0_s00_axi_wready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_wready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_bresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_bresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="myip_0_s00_axi_bvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_bvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="myip_0_s00_axi_bready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_bready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_araddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_araddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M00_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_arprot">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_arprot"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="myip_0_s00_axi_arvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_arvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="myip_0_s00_axi_arready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_arready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_rdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_rdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_rresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_rresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="myip_0_s00_axi_rvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_rvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="myip_0_s00_axi_rready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_rready"/>
+            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RREADY"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="11" NAME="M04_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_axi_bram_ctrl_source_s_axi_awid">
@@ -10872,280 +10777,6 @@
             <CONNECTION INSTANCE="DSP_axi_bram_ctrl_source" PORT="s_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="11" NAME="M02_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M02_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awaddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awaddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="M02_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awlen">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awlen"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M02_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awsize">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awsize"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="M02_AXI_awburst" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awburst">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awburst"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_awlock" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awlock">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awlock"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M02_AXI_awcache" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awcache">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awcache"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M02_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awprot">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awprot"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M02_AXI_awregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_awqos" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_awready" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M02_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_wdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_wdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M02_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_wstrb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_wstrb"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_wlast" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_wlast">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_wlast"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_wvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_wready" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_wready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_wready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="11" NAME="M02_AXI_bid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_bid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_bid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M02_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_bresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_bresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_bvalid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_bvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_bvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_bready" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_bready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_bready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="11" NAME="M02_AXI_arid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M02_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_araddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_araddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="M02_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arlen">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arlen"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M02_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arsize">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arsize"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="M02_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arburst">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arburst"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_arlock" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arlock">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arlock"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M02_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arcache">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arcache"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M02_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arprot">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arprot"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M02_AXI_arregion" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M02_AXI_arqos" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_arready" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="11" NAME="M02_AXI_rid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M02_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M02_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_rlast" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rlast">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rlast"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M02_AXI_rready" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M03_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWADDR">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWADDR"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M03_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWPROT">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWPROT"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M03_AXI_awvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWVALID"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M03_AXI_awready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_AWREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_AWREADY"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M03_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WDATA">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WDATA"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M03_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WSTRB">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WSTRB"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M03_AXI_wvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WVALID"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M03_AXI_wready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_WREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_WREADY"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M03_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BRESP">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_BRESP"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M03_AXI_bvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_BVALID"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M03_AXI_bready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_BREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_BREADY"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M03_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARADDR">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARADDR"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M03_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARPROT">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARPROT"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M03_AXI_arvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARVALID"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M03_AXI_arready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_ARREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_ARREADY"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M03_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RDATA">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RDATA"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M03_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RRESP">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RRESP"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M03_AXI_rvalid" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RVALID"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M03_AXI_rready" SIGIS="undef" SIGNAME="UIF_UIF_AXI_0_S_AXI_RREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="UIF_UIF_AXI_0" PORT="S_AXI_RREADY"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" LEFT="11" NAME="M05_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_axi_bram_ctrl_result_s_axi_awid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="DSP_axi_bram_ctrl_result" PORT="s_axi_awid"/>
@@ -11323,6 +10954,185 @@
         <PORT DIR="O" LEFT="0" NAME="M05_AXI_rready" RIGHT="0" SIGIS="undef" SIGNAME="DSP_axi_bram_ctrl_result_s_axi_rready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="DSP_axi_bram_ctrl_result" PORT="s_axi_rready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="M02_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M02_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awaddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awaddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="M02_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awlen">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awlen"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M02_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awsize">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awsize"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="M02_AXI_awburst" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awburst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awburst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="M02_AXI_awlock" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awlock">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awlock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="M02_AXI_awcache" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awcache">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awcache"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M02_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awprot">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M02_AXI_awregion" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M02_AXI_awqos" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="0" NAME="M02_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="M02_AXI_awready" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_awready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_awready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M02_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_wdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_wdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="M02_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_wstrb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_wstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="M02_AXI_wlast" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_wlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_wlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="M02_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="M02_AXI_wready" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="M02_AXI_bid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_bid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_bid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M02_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_bresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_bresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="M02_AXI_bvalid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_bvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_bvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="M02_AXI_bready" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_bready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_bready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="11" NAME="M02_AXI_arid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M02_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_araddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_araddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="M02_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arlen">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arlen"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M02_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arsize">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arsize"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="M02_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arburst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arburst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="M02_AXI_arlock" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arlock">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arlock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="M02_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arcache">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arcache"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M02_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arprot">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M02_AXI_arregion" SIGIS="undef"/>
+        <PORT DIR="O" NAME="M02_AXI_arqos" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="0" NAME="M02_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="M02_AXI_arready" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_arready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_arready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="M02_AXI_rid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="M02_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M02_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="M02_AXI_rlast" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="M02_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="M02_AXI_rready" RIGHT="0" SIGIS="undef" SIGNAME="DSP_Synthesizer_axi_bram_ctrl_0_s_axi_rready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_Synthesizer_axi_bram_ctrl_0" PORT="s_axi_rready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="11" NAME="S00_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_M_AXI_GP0_AWID">
@@ -11513,6 +11323,196 @@
         <PORT DIR="I" NAME="S00_AXI_rready" SIGIS="undef" SIGNAME="processing_system7_0_M_AXI_GP0_RREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_RREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_awaddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_awaddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M00_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_awprot">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_awprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="myip_0_s00_axi_awvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="myip_0_s00_axi_awready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_awready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_wdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_wdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_wstrb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_wstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="myip_0_s00_axi_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="myip_0_s00_axi_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_bresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_bresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="myip_0_s00_axi_bvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_bvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="myip_0_s00_axi_bready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_bready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_araddr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_araddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M00_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_arprot">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_arprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="myip_0_s00_axi_arvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_arvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="myip_0_s00_axi_arready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_arready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_rdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="myip_0_s00_axi_rresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_rresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="myip_0_s00_axi_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="myip_0_s00_axi_rready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="myip_0" PORT="s00_axi_rready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M01_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_AWADDR">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_AWADDR"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M01_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_AWPROT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_AWPROT"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M01_AXI_awvalid" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_AWVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_AWVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M01_AXI_awready" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_AWREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_AWREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M01_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_WDATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_WDATA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="M01_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_WSTRB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_WSTRB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M01_AXI_wvalid" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_WVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_WVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M01_AXI_wready" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_WREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_WREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M01_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_BRESP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_BRESP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M01_AXI_bvalid" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_BVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_BVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M01_AXI_bready" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_BREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_BREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="M01_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_ARADDR">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_ARADDR"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M01_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_ARPROT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_ARPROT"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M01_AXI_arvalid" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_ARVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_ARVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M01_AXI_arready" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_ARREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_ARREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="M01_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_RDATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_RDATA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M01_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_RRESP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_RRESP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M01_AXI_rvalid" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_RVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_RVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M01_AXI_rready" SIGIS="undef" SIGNAME="DSP_DSP_registers_0_S_AXI_RREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DSP_DSP_registers_0" PORT="S_AXI_RREADY"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

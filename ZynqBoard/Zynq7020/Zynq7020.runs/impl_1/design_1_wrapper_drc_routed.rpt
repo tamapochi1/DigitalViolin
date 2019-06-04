@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Jun  4 01:17:41 2019
+| Date         : Wed Jun  5 00:45:59 2019
 | Host         : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 | Command      : report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
 | Design       : design_1_wrapper
@@ -24,14 +24,13 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 19
-+-----------+----------+-------------------------------------------------------------------+------------+
-| Rule      | Severity | Description                                                       | Violations |
-+-----------+----------+-------------------------------------------------------------------+------------+
-| PDRC-153  | Warning  | Gated clock check                                                 | 2          |
-| RTSTAT-10 | Warning  | No routable loads                                                 | 1          |
-| AVAL-4    | Advisory | enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND | 16         |
-+-----------+----------+-------------------------------------------------------------------+------------+
+             Violations found: 3
++-----------+----------+-------------------+------------+
+| Rule      | Severity | Description       | Violations |
++-----------+----------+-------------------+------------+
+| PDRC-153  | Warning  | Gated clock check | 2          |
+| RTSTAT-10 | Warning  | No routable loads | 1          |
++-----------+----------+-------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -47,87 +46,7 @@ Related violations: <none>
 
 RTSTAT-10#1 Warning
 No routable loads  
-44 net(s) have no routable loads. The problem bus(es) and/or net(s) are design_1_i/DAC_Interface/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_2/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_3/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, design_1_i/UIF/fifo_generator_3/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb (the first 15 of 42 listed).
-Related violations: <none>
-
-AVAL-4#1 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[0].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[0].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#2 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[0].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[1].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#3 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[1].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[0].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#4 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[1].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[1].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#5 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[2].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[0].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#6 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[2].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[1].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#7 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[3].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[0].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#8 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[3].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[1].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#9 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[4].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[0].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#10 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[4].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[1].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#11 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[5].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[0].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#12 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[5].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[1].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#13 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[6].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[0].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#14 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[6].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[1].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#15 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[7].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[0].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#16 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-design_1_i/DSP/xfft_0/U0/i_synth/xfft_inst/non_floating_point.arch_e.xfft_inst/multichannel.multichannel_datapath[7].datapath/complex_multiplier/i_cmpy/four_mult_structure.use_dsp.i_dsp/re_im/use_DSP48.qDSP[0].appDSP[0].bppDSP[0].u_l[1].use_dsp48e1.dsp: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+44 net(s) have no routable loads. The problem bus(es) and/or net(s) are design_1_i/UIF/fifo_generator_2/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/DAC_Interface/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_0/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, design_1_i/UIF/fifo_generator_3/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, design_1_i/UIF/fifo_generator_1/U0/inst_fifo_gen/gaxis_fifo.gaxisf.axisf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb (the first 15 of 42 listed).
 Related violations: <none>
 
 

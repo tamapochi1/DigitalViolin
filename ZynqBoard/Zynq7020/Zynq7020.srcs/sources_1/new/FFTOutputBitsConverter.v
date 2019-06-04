@@ -83,7 +83,7 @@ begin
     begin
         if(s_axis_data_tvalid)
         begin
-            if(byteCounter == 10'd1023)
+            if(byteCounter == 10'd255)
             begin
                 byteCounter <= 10'h000;
             end
@@ -130,7 +130,7 @@ begin
     end
     else
     begin
-        if(started && ~complete && byteCounter == 10'd1023)
+        if(started && ~complete && byteCounter == 10'd255)
         begin
             complete <= 1'b1;
         end

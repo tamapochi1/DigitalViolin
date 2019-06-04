@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Tue Jun  4 01:10:50 2019
+//Date        : Wed Jun  5 00:38:30 2019
 //Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -425,10 +425,10 @@ module DSP_imp_KXGKBB
   wire [255:0]FFTInputBitsConverter_0_m_axis_data_TDATA;
   wire FFTInputBitsConverter_0_m_axis_data_TREADY;
   wire FFTInputBitsConverter_0_m_axis_data_TVALID;
-  wire [31:0]FFTOutputBitsConvert_0_bram_addr;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [31:0]FFTOutputBitsConvert_0_bram_addr;
   wire FFTOutputBitsConvert_0_bram_clk;
   wire FFTOutputBitsConvert_0_bram_en;
-  wire [127:0]FFTOutputBitsConvert_0_bram_wddata;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]FFTOutputBitsConvert_0_bram_wddata;
   wire FFTOutputBitsConvert_0_bram_we;
   wire FFTOutputBitsConvert_0_event_fft_complete;
   wire [31:0]S00_AXI_1_ARADDR;
@@ -524,13 +524,13 @@ module DSP_imp_KXGKBB
   wire audioClk256_0_1;
   wire audioClkSync_0_1;
   wire audio_clk_gen_0_audioClk;
-  wire [13:0]axi_bram_ctrl_result_BRAM_PORTA_ADDR;
-  wire axi_bram_ctrl_result_BRAM_PORTA_CLK;
-  wire [31:0]axi_bram_ctrl_result_BRAM_PORTA_DIN;
-  wire [31:0]axi_bram_ctrl_result_BRAM_PORTA_DOUT;
-  wire axi_bram_ctrl_result_BRAM_PORTA_EN;
-  wire axi_bram_ctrl_result_BRAM_PORTA_RST;
-  wire [3:0]axi_bram_ctrl_result_BRAM_PORTA_WE;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [13:0]axi_bram_ctrl_result_BRAM_PORTA_ADDR;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire axi_bram_ctrl_result_BRAM_PORTA_CLK;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [31:0]axi_bram_ctrl_result_BRAM_PORTA_DIN;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [31:0]axi_bram_ctrl_result_BRAM_PORTA_DOUT;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire axi_bram_ctrl_result_BRAM_PORTA_EN;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire axi_bram_ctrl_result_BRAM_PORTA_RST;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]axi_bram_ctrl_result_BRAM_PORTA_WE;
   wire [13:0]axi_bram_ctrl_source_BRAM_PORTA_ADDR;
   wire axi_bram_ctrl_source_BRAM_PORTA_CLK;
   wire [31:0]axi_bram_ctrl_source_BRAM_PORTA_DIN;
@@ -538,7 +538,7 @@ module DSP_imp_KXGKBB
   wire axi_bram_ctrl_source_BRAM_PORTA_EN;
   wire axi_bram_ctrl_source_BRAM_PORTA_RST;
   wire [3:0]axi_bram_ctrl_source_BRAM_PORTA_WE;
-  wire [127:0]blk_mem_gen_0_doutb;
+  (* DEBUG = "true" *) (* MARK_DEBUG *) wire [127:0]blk_mem_gen_0_doutb;
   wire [15:0]mult_sum_0_out;
   wire nResetExt_0_1;
   wire s00_axi_aclk_1;
@@ -933,7 +933,7 @@ module DSP_imp_KXGKBB
         .m_axis_data_tdata(xfft_0_M_AXIS_DATA_TDATA),
         .m_axis_data_tready(xfft_0_M_AXIS_DATA_TREADY),
         .m_axis_data_tvalid(xfft_0_M_AXIS_DATA_TVALID),
-        .s_axis_config_tdata(FFTInputBitsConverter_0_m_axis_config_TDATA),
+        .s_axis_config_tdata(FFTInputBitsConverter_0_m_axis_config_TDATA[191:0]),
         .s_axis_config_tready(FFTInputBitsConverter_0_m_axis_config_TREADY),
         .s_axis_config_tvalid(FFTInputBitsConverter_0_m_axis_config_TVALID),
         .s_axis_data_tdata(FFTInputBitsConverter_0_m_axis_data_TDATA),

@@ -89,7 +89,7 @@ output wire internal_S_TXD;
 output wire busy;
 
   UIF_SerialMasterController #(
-    .preScale(49)
+    .preScale(24)
   ) inst (
     .nReset(nReset),
     .sysClk(sysClk),

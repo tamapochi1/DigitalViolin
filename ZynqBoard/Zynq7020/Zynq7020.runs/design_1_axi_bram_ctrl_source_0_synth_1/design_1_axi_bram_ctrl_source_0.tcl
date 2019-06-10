@@ -17,9 +17,13 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param tcl.collectionResultDisplayLimit 0
+set_param xicom.use_bs_reader 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
-create_project -in_memory -part xc7z020clg484-1
+create_project -in_memory -part xc7z007sclg225-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
@@ -27,9 +31,10 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/wt [current_project]
 set_property parent.project_path C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property board_part em.avnet.com:minized:part0:1.2 [current_project]
 set_property ip_repo_paths {
   c:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/DSP_register_1.0
   c:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo
@@ -60,7 +65,7 @@ set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir C:/Git/Digi
 if { $cached_ip eq {} } {
 close [open __synthesis_is_running__ w]
 
-synth_design -top design_1_axi_bram_ctrl_source_0 -part xc7z020clg484-1 -mode out_of_context
+synth_design -top design_1_axi_bram_ctrl_source_0 -part xc7z007sclg225-1 -mode out_of_context
 
 #---------------------------------------------------------
 # Generate Checkpoint/Stub/Simulation Files For IP Cache

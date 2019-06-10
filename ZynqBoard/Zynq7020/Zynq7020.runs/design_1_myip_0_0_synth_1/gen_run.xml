@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="design_1_myip_0_0_synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1558592377">
+<GenRun Id="design_1_myip_0_0_synth_1" LaunchPart="xc7z007sclg225-1" LaunchTime="1560019318">
   <File Type="PA-TCL" Name="design_1_myip_0_0.tcl"/>
   <File Type="REPORTS-TCL" Name="design_1_myip_0_0_reports.tcl"/>
   <File Type="RDS-RDS" Name="design_1_myip_0_0.vds"/>

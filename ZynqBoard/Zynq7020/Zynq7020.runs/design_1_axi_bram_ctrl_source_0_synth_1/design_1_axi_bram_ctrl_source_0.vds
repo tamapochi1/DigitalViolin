@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Wed Jun  5 03:52:00 2019
-# Process ID: 14828
+# Start of session at: Sun Jun  9 02:41:39 2019
+# Process ID: 19176
 # Current directory: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_axi_bram_ctrl_source_0_synth_1
 # Command line: vivado.exe -log design_1_axi_bram_ctrl_source_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_bram_ctrl_source_0.tcl
 # Log file: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_axi_bram_ctrl_source_0_synth_1/design_1_axi_bram_ctrl_source_0.vds
@@ -18,21 +18,20 @@ WARNING: [IP_Flow 19-3685] Ignored loading user repository 'c:/Git/DigitalViolin
 WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/Reiji/AppData/Roaming/Xilinx/ip_repo'; Can't find the specified path.
 If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
-WARNING: [IP_Flow 19-5242] IP Cache entry (cache-ID 1fc7031b978a5b43) does not have the required number of cached files and is not valid. Please delete this entry using the TCL command: 'config_ip_cache -remove [get_ips design_1_axi_bram_ctrl_source_0]'
-Command: synth_design -top design_1_axi_bram_ctrl_source_0 -part xc7z020clg484-1 -mode out_of_context
+Command: synth_design -top design_1_axi_bram_ctrl_source_0 -part xc7z007sclg225-1 -mode out_of_context
 Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z007s'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z007s'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 18024 
+INFO: Helper process launched with PID 22936 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 371.727 ; gain = 105.121
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 370.844 ; gain = 101.590
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_axi_bram_ctrl_source_0' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_source_0/synth/design_1_axi_bram_ctrl_source_0.vhd:108]
 	Parameter C_BRAM_INST_MODE bound to: EXTERNAL - type: string 
-	Parameter C_MEMORY_DEPTH bound to: 4096 - type: integer 
-	Parameter C_BRAM_ADDR_WIDTH bound to: 12 - type: integer 
-	Parameter C_S_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_MEMORY_DEPTH bound to: 2048 - type: integer 
+	Parameter C_BRAM_ADDR_WIDTH bound to: 11 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 13 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ID_WIDTH bound to: 12 - type: integer 
 	Parameter C_S_AXI_PROTOCOL bound to: AXI4 - type: string 
@@ -51,9 +50,9 @@ INFO: [Synth 8-638] synthesizing module 'design_1_axi_bram_ctrl_source_0' [c:/Gi
 INFO: [Synth 8-3491] module 'axi_bram_ctrl' declared at 'c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:30482' bound to instance 'U0' of component 'axi_bram_ctrl' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_source_0/synth/design_1_axi_bram_ctrl_source_0.vhd:264]
 INFO: [Synth 8-638] synthesizing module 'axi_bram_ctrl' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:30654]
 	Parameter C_BRAM_INST_MODE bound to: EXTERNAL - type: string 
-	Parameter C_MEMORY_DEPTH bound to: 4096 - type: integer 
-	Parameter C_BRAM_ADDR_WIDTH bound to: 12 - type: integer 
-	Parameter C_S_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_MEMORY_DEPTH bound to: 2048 - type: integer 
+	Parameter C_BRAM_ADDR_WIDTH bound to: 11 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 13 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ID_WIDTH bound to: 12 - type: integer 
 	Parameter C_S_AXI_PROTOCOL bound to: AXI4 - type: string 
@@ -70,8 +69,8 @@ INFO: [Synth 8-638] synthesizing module 'axi_bram_ctrl' [c:/Git/DigitalViolin/Zy
 	Parameter C_FAULT_INJECT bound to: 0 - type: integer 
 	Parameter C_ECC_ONOFF_RESET_VALUE bound to: 0 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'axi_bram_ctrl_top' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:29676]
-	Parameter C_BRAM_ADDR_WIDTH bound to: 12 - type: integer 
-	Parameter C_S_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_BRAM_ADDR_WIDTH bound to: 11 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 13 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ID_WIDTH bound to: 12 - type: integer 
 	Parameter C_S_AXI_PROTOCOL bound to: AXI4 - type: string 
@@ -86,7 +85,7 @@ INFO: [Synth 8-638] synthesizing module 'axi_bram_ctrl_top' [c:/Git/DigitalVioli
 	Parameter C_FAULT_INJECT bound to: 0 - type: integer 
 	Parameter C_ECC_ONOFF_RESET_VALUE bound to: 0 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'full_axi' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:28443]
-	Parameter C_S_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 13 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ID_WIDTH bound to: 12 - type: integer 
 	Parameter C_S_AXI_PROTOCOL bound to: AXI4 - type: string 
@@ -110,10 +109,10 @@ INFO: [Synth 8-638] synthesizing module 'full_axi' [c:/Git/DigitalViolin/ZynqBoa
 WARNING: [Synth 8-6774] Null subtype or type declaration found [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:28512]
 INFO: [Synth 8-3919] null assignment ignored [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:28512]
 INFO: [Synth 8-638] synthesizing module 'sng_port_arb' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:11670]
-	Parameter C_S_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 13 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'sng_port_arb' (1#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:11670]
 INFO: [Synth 8-638] synthesizing module 'wr_chnl' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:23322]
-	Parameter C_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_AXI_ADDR_WIDTH bound to: 13 - type: integer 
 	Parameter C_BRAM_ADDR_ADJUST_FACTOR bound to: 2 - type: integer 
 	Parameter C_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_AXI_ID_WIDTH bound to: 12 - type: integer 
@@ -126,7 +125,7 @@ INFO: [Synth 8-638] synthesizing module 'wr_chnl' [c:/Git/DigitalViolin/ZynqBoar
 	Parameter C_ECC_TYPE bound to: 0 - type: integer 
 INFO: [Synth 8-506] null port 'FaultInjectECC' ignored [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:23289]
 INFO: [Synth 8-638] synthesizing module 'wrap_brst' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:12669]
-	Parameter C_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_AXI_ADDR_WIDTH bound to: 13 - type: integer 
 	Parameter C_BRAM_ADDR_ADJUST_FACTOR bound to: 2 - type: integer 
 	Parameter C_AXI_DATA_WIDTH bound to: 32 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'wrap_brst' (2#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:12669]
@@ -182,7 +181,7 @@ WARNING: [Synth 8-6014] Unused sequential element curr_awlen_reg_1_or_2_reg was 
 INFO: [Synth 8-256] done synthesizing module 'wr_chnl' (9#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:23322]
 WARNING: [Synth 8-6778] Component port with null array found, Will be ignored [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:29169]
 INFO: [Synth 8-638] synthesizing module 'rd_chnl' [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:14962]
-	Parameter C_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_AXI_ADDR_WIDTH bound to: 13 - type: integer 
 	Parameter C_BRAM_ADDR_ADJUST_FACTOR bound to: 2 - type: integer 
 	Parameter C_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_AXI_ID_WIDTH bound to: 12 - type: integer 
@@ -203,7 +202,6 @@ INFO: [Synth 8-256] done synthesizing module 'full_axi' (11#1) [c:/Git/DigitalVi
 INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl_top' (12#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:29676]
 INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl' (13#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ipshared/27fe/hdl/axi_bram_ctrl_v4_1_rfs.vhd:30654]
 INFO: [Synth 8-256] done synthesizing module 'design_1_axi_bram_ctrl_source_0' (14#1) [c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_source_0/synth/design_1_axi_bram_ctrl_source_0.vhd:108]
-WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_AWADDR[13]
 WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_AWADDR[12]
 WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_AWADDR[11]
 WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_AWADDR[10]
@@ -217,7 +215,6 @@ WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_AWADDR[3]
 WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_AWADDR[2]
 WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_AWADDR[1]
 WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_AWADDR[0]
-WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_ARADDR[13]
 WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_ARADDR[12]
 WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_ARADDR[11]
 WARNING: [Synth 8-3331] design sng_port_arb has unconnected port AXI_ARADDR[10]
@@ -236,7 +233,6 @@ WARNING: [Synth 8-3331] design wrap_brst has unconnected port curr_axlen[6]
 WARNING: [Synth 8-3331] design wrap_brst has unconnected port curr_axlen[5]
 WARNING: [Synth 8-3331] design wrap_brst has unconnected port curr_axlen[4]
 WARNING: [Synth 8-3331] design wrap_brst has unconnected port bram_addr_ld[2]
-WARNING: [Synth 8-3331] design wrap_brst has unconnected port bram_addr_int[13]
 WARNING: [Synth 8-3331] design wrap_brst has unconnected port bram_addr_int[12]
 WARNING: [Synth 8-3331] design wrap_brst has unconnected port bram_addr_int[11]
 WARNING: [Synth 8-3331] design wrap_brst has unconnected port bram_addr_int[10]
@@ -303,9 +299,12 @@ WARNING: [Synth 8-3331] design wr_chnl has unconnected port FaultInjectData[0]
 WARNING: [Synth 8-3331] design wr_chnl has unconnected port BRAM_RdData[31]
 WARNING: [Synth 8-3331] design wr_chnl has unconnected port BRAM_RdData[30]
 WARNING: [Synth 8-3331] design wr_chnl has unconnected port BRAM_RdData[29]
+WARNING: [Synth 8-3331] design wr_chnl has unconnected port BRAM_RdData[28]
+WARNING: [Synth 8-3331] design wr_chnl has unconnected port BRAM_RdData[27]
+WARNING: [Synth 8-3331] design wr_chnl has unconnected port BRAM_RdData[26]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 520.648 ; gain = 254.043
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 520.070 ; gain = 250.816
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -318,14 +317,14 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 520.648 ; gain = 254.043
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 520.070 ; gain = 250.816
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 520.648 ; gain = 254.043
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 520.070 ; gain = 250.816
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Device 21-403] Loading part xc7z007sclg225-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -336,30 +335,30 @@ Parsing XDC File [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1
 Finished Parsing XDC File [C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_axi_bram_ctrl_source_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 791.184 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 767.152 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 5 instances were transformed.
   FDR => FDRE: 1 instances
   MUXCY_L => MUXCY: 4 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 791.195 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 792.125 ; gain = 0.941
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 767.164 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 768.723 ; gain = 1.570
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 792.125 ; gain = 525.520
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 768.723 ; gain = 499.469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
-Loading part: xc7z020clg484-1
+Loading part: xc7z007sclg225-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 792.125 ; gain = 525.520
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 768.723 ; gain = 499.469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for U0. (constraint file  C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_axi_bram_ctrl_source_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 792.125 ; gain = 525.520
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 768.723 ; gain = 499.469
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "max_wrap_burst" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "max_wrap_burst" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
@@ -430,7 +429,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'GEN_NO_RD_CMD_OPT.rlast_sm
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'arb_sm_cs_reg' using encoding 'sequential' in module 'sng_port_arb'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 792.125 ; gain = 525.520
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 768.723 ; gain = 499.469
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -450,8 +449,9 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit         XORs := 4     
 +---Registers : 
 	               32 Bit    Registers := 1     
-	               12 Bit    Registers := 4     
-	               11 Bit    Registers := 2     
+	               12 Bit    Registers := 3     
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 2     
 	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                3 Bit    Registers := 3     
@@ -459,8 +459,9 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 103   
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
-	   5 Input     12 Bit        Muxes := 2     
-	   2 Input     12 Bit        Muxes := 7     
+	   2 Input     12 Bit        Muxes := 2     
+	   5 Input     11 Bit        Muxes := 2     
+	   2 Input     11 Bit        Muxes := 5     
 	   2 Input      8 Bit        Muxes := 3     
 	   9 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 10    
@@ -485,10 +486,10 @@ Hierarchical RTL Component report
 Module wrap_brst 
 Detailed RTL Component Info : 
 +---Registers : 
-	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
 	                3 Bit    Registers := 1     
 +---Muxes : 
-	   5 Input     12 Bit        Muxes := 1     
+	   5 Input     11 Bit        Muxes := 1     
 	   8 Input      3 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
 	   3 Input      2 Bit        Muxes := 1     
@@ -510,7 +511,8 @@ Detailed RTL Component Info :
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 42    
 +---Muxes : 
-	   2 Input     12 Bit        Muxes := 2     
+	   2 Input     12 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 1     
 	   3 Input      3 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 1     
@@ -529,7 +531,8 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 56    
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
-	   2 Input     12 Bit        Muxes := 2     
+	   2 Input     12 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 2     
 	   9 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 9     
@@ -553,9 +556,9 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     10 Bit       Adders := 1     
 +---Registers : 
-	               12 Bit    Registers := 1     
+	               11 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input     12 Bit        Muxes := 3     
+	   2 Input     11 Bit        Muxes := 3     
 	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
@@ -565,8 +568,8 @@ Finished RTL Hierarchical Component Statistics
 Start Part Resource Summary
 ---------------------------------------------------------------------------------
 Part Resources:
-DSPs: 220 (col length:60)
-BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+DSPs: 66 (col length:40)
+BRAMs: 100 (col length: RAMB18 40 RAMB36 20)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
@@ -584,7 +587,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (U0/\gext_
 INFO: [Synth 8-3886] merging instance 'U0/gext_inst.abcv4_0_ext_inst/GEN_AXI4.I_FULL_AXI/I_WR_CHNL/GEN_BRESP.axi_bresp_int_reg[0]' (FDRE) to 'U0/gext_inst.abcv4_0_ext_inst/GEN_AXI4.I_FULL_AXI/I_WR_CHNL/GEN_BRESP.axi_bresp_int_reg[1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U0/\gext_inst.abcv4_0_ext_inst/GEN_AXI4.I_FULL_AXI/I_WR_CHNL/GEN_BRESP.axi_bresp_int_reg[1] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 792.125 ; gain = 525.520
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 768.723 ; gain = 499.469
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -596,13 +599,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 792.125 ; gain = 525.520
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 768.723 ; gain = 499.469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 828.848 ; gain = 562.242
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 794.531 ; gain = 525.277
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -614,7 +617,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 830.863 ; gain = 564.258
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 803.555 ; gain = 534.301
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -638,7 +641,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 830.863 ; gain = 564.258
+Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 803.555 ; gain = 534.301
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -651,7 +654,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 830.863 ; gain = 564.258
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 803.555 ; gain = 534.301
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -663,25 +666,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 830.863 ; gain = 564.258
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 803.555 ; gain = 534.301
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 830.863 ; gain = 564.258
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 803.555 ; gain = 534.301
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 830.863 ; gain = 564.258
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 803.555 ; gain = 534.301
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 830.863 ; gain = 564.258
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 803.555 ; gain = 534.301
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -697,64 +700,68 @@ Report Cell Usage:
 +------+--------+------+
 |      |Cell    |Count |
 +------+--------+------+
-|1     |LUT1    |     1|
-|2     |LUT2    |    23|
-|3     |LUT3    |    64|
-|4     |LUT4    |    46|
+|1     |LUT1    |     2|
+|2     |LUT2    |    22|
+|3     |LUT3    |    67|
+|4     |LUT4    |    39|
 |5     |LUT5    |    34|
-|6     |LUT6    |   104|
+|6     |LUT6    |   108|
 |7     |MUXCY_L |     3|
-|8     |SRL16E  |    12|
-|9     |XORCY   |     4|
-|10    |FDR     |     1|
-|11    |FDRE    |   240|
-|12    |FDSE    |     1|
+|8     |MUXF7   |     1|
+|9     |SRL16E  |    12|
+|10    |XORCY   |     4|
+|11    |FDR     |     1|
+|12    |FDRE    |   237|
+|13    |FDSE    |     1|
 +------+--------+------+
 
 Report Instance Areas: 
 +------+------------------------------------------+------------------+------+
 |      |Instance                                  |Module            |Cells |
 +------+------------------------------------------+------------------+------+
-|1     |top                                       |                  |   533|
-|2     |  U0                                      |axi_bram_ctrl     |   533|
-|3     |    \gext_inst.abcv4_0_ext_inst           |axi_bram_ctrl_top |   533|
-|4     |      \GEN_AXI4.I_FULL_AXI                |full_axi          |   533|
-|5     |        \GEN_ARB.I_SNG_PORT               |sng_port_arb      |    28|
-|6     |        I_RD_CHNL                         |rd_chnl           |   310|
-|7     |          \GEN_NO_RD_CMD_OPT.I_WRAP_BRST  |wrap_brst_0       |    51|
-|8     |        I_WR_CHNL                         |wr_chnl           |   174|
+|1     |top                                       |                  |   531|
+|2     |  U0                                      |axi_bram_ctrl     |   531|
+|3     |    \gext_inst.abcv4_0_ext_inst           |axi_bram_ctrl_top |   531|
+|4     |      \GEN_AXI4.I_FULL_AXI                |full_axi          |   531|
+|5     |        \GEN_ARB.I_SNG_PORT               |sng_port_arb      |    29|
+|6     |        I_RD_CHNL                         |rd_chnl           |   311|
+|7     |          \GEN_NO_RD_CMD_OPT.I_WRAP_BRST  |wrap_brst_0       |    49|
+|8     |        I_WR_CHNL                         |wr_chnl           |   172|
 |9     |          BID_FIFO                        |SRL_FIFO          |    50|
 |10    |          I_WRAP_BRST                     |wrap_brst         |    36|
 +------+------------------------------------------+------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 830.863 ; gain = 564.258
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 803.555 ; gain = 534.301
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 163 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:21 . Memory (MB): peak = 830.863 ; gain = 292.781
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 830.863 ; gain = 564.258
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:20 . Memory (MB): peak = 803.555 ; gain = 285.648
+Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 803.555 ; gain = 534.301
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 830.863 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 803.555 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 1 instances
   FDR => FDRE: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-115 Infos, 112 Warnings, 0 Critical Warnings and 0 Errors encountered.
+115 Infos, 111 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 830.863 ; gain = 569.172
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 830.863 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 803.555 ; gain = 540.902
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 803.555 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_axi_bram_ctrl_source_0_synth_1/design_1_axi_bram_ctrl_source_0.dcp' has been generated.
+WARNING: [Coretcl 2-1488] Problem adding IP cache entry: Directory already exists: c:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.cache/ip/2018.3/d92dec6a1bdb7a4f
 INFO: [Coretcl 2-1174] Renamed 9 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 830.863 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 803.555 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.runs/design_1_axi_bram_ctrl_source_0_synth_1/design_1_axi_bram_ctrl_source_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_axi_bram_ctrl_source_0_utilization_synth.rpt -pb design_1_axi_bram_ctrl_source_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Jun  5 03:52:32 2019...
+INFO: [Common 17-206] Exiting Vivado at Sun Jun  9 02:42:08 2019...

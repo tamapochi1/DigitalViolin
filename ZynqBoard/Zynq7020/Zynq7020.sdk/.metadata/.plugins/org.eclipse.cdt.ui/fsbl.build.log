@@ -1,4 +1,4 @@
-00:49:58 **** Build of configuration Debug for project fsbl ****
+00:57:20 **** Build of configuration Debug for project fsbl ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -82,5 +82,5 @@ arm-none-eabi-size fsbl.elf  |tee "fsbl.elf.size"
 'Finished building: fsbl.elf.size'
 ' '
 
-00:50:00 Build Finished (took 2s.370ms)
+00:57:23 Build Finished (took 2s.783ms)
 

@@ -17,6 +17,9 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param tcl.collectionResultDisplayLimit 0
+set_param xicom.use_bs_reader 1
+set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 create_project -in_memory -part xc7z007sclg225-1
 
@@ -29,6 +32,7 @@ set_property parent.project_path C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq702
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property board_part em.avnet.com:minized:part0:1.2 [current_project]
 set_property ip_repo_paths {
   c:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo/DSP_register_1.0
   c:/Git/DigitalViolin/ZynqBoard/Zynq7020/ip_repo

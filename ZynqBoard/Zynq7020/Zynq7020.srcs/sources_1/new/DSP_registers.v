@@ -24,7 +24,7 @@ module DSP_registers #
     
     output fft_start,
     
-    output [19:0] fft_scale,
+    output [15:0] fft_scale,
     
     input wire fftComplete,
     input wire audioSample,
@@ -460,7 +460,7 @@ assign fftCompleteInterrupt = slv_reg0[3];
 assign debugData = slv_reg1[15:0];
 assign synth0Gain = slv_reg2[7:0];
 
-assign fft_scale = slv_reg3[19:0];
+assign fft_scale = slv_reg3[15:0];
 // User logic ends
 
 endmodule

@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Wed Jun  5 23:56:11 2019
+// Date        : Sun Jul 14 20:55:18 2019
 // Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_DSP_registers_0_0/design_1_DSP_registers_0_0_sim_netlist.v
@@ -54,10 +54,10 @@ module design_1_DSP_registers_0_0
   output [15:0]debugData;
   output [7:0]synth0Gain;
   output fft_start;
-  output [19:0]fft_scale;
+  output [15:0]fft_scale;
   input fftComplete;
   input audioSample;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET S_AXI_ARESETN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input S_AXI_ACLK;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET S_AXI_ARESETN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_1_FCLK_CLK0, INSERT_VIP 0" *) input S_AXI_ACLK;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S_AXI_ARESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI_ARESETN, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input S_AXI_ARESETN;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) input [4:0]S_AXI_AWADDR;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI AWPROT" *) input [2:0]S_AXI_AWPROT;
@@ -77,7 +77,7 @@ module design_1_DSP_registers_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]S_AXI_RDATA;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]S_AXI_RRESP;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output S_AXI_RVALID;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input S_AXI_RREADY;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_1_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input S_AXI_RREADY;
 
   wire \<const0> ;
   wire S_AXI_ACLK;
@@ -102,7 +102,7 @@ module design_1_DSP_registers_0_0
   wire [15:0]debugData;
   wire fftComplete;
   wire fftCompleteInterrupt;
-  wire [19:0]fft_scale;
+  wire [15:0]fft_scale;
   wire fft_start;
   wire outDataValid;
   wire [7:0]synth0Gain;
@@ -178,7 +178,7 @@ module design_1_DSP_registers_0_0_DSP_registers
   output audioClkInterrupt;
   output [15:0]debugData;
   output [7:0]synth0Gain;
-  output [19:0]fft_scale;
+  output [15:0]fft_scale;
   output S_AXI_ARREADY;
   output [31:0]S_AXI_RDATA;
   output S_AXI_RVALID;
@@ -269,7 +269,7 @@ module design_1_DSP_registers_0_0_DSP_registers
   wire [15:0]debugData;
   wire fftComplete;
   wire fftCompleteInterrupt;
-  wire [19:0]fft_scale;
+  wire [15:0]fft_scale;
   wire fft_start;
   wire fft_start_reg_i_1_n_0;
   wire fft_start_reg_i_2_n_0;
@@ -292,9 +292,9 @@ module design_1_DSP_registers_0_0_DSP_registers
   wire \slv_reg2[23]_i_1_n_0 ;
   wire \slv_reg2[31]_i_1_n_0 ;
   wire \slv_reg2[7]_i_1_n_0 ;
-  wire [31:20]slv_reg3;
+  wire [31:16]slv_reg3;
   wire \slv_reg3[15]_i_1_n_0 ;
-  wire \slv_reg3[19]_i_1_n_0 ;
+  wire \slv_reg3[23]_i_1_n_0 ;
   wire \slv_reg3[31]_i_1_n_0 ;
   wire \slv_reg3[7]_i_1_n_0 ;
   wire slv_reg_rden__0;
@@ -607,7 +607,7 @@ module design_1_DSP_registers_0_0_DSP_registers
     \axi_rdata[16]_i_2 
        (.I0(slv_reg1[16]),
         .I1(slv_reg0[16]),
-        .I2(fft_scale[16]),
+        .I2(slv_reg3[16]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
         .I5(slv_reg2[16]),
@@ -624,7 +624,7 @@ module design_1_DSP_registers_0_0_DSP_registers
     \axi_rdata[17]_i_2 
        (.I0(slv_reg1[17]),
         .I1(slv_reg0[17]),
-        .I2(fft_scale[17]),
+        .I2(slv_reg3[17]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
         .I5(slv_reg2[17]),
@@ -641,7 +641,7 @@ module design_1_DSP_registers_0_0_DSP_registers
     \axi_rdata[18]_i_2 
        (.I0(slv_reg1[18]),
         .I1(slv_reg0[18]),
-        .I2(fft_scale[18]),
+        .I2(slv_reg3[18]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
         .I5(slv_reg2[18]),
@@ -658,7 +658,7 @@ module design_1_DSP_registers_0_0_DSP_registers
     \axi_rdata[19]_i_2 
        (.I0(slv_reg1[19]),
         .I1(slv_reg0[19]),
-        .I2(fft_scale[19]),
+        .I2(slv_reg3[19]),
         .I3(axi_araddr[3]),
         .I4(axi_araddr[2]),
         .I5(slv_reg2[19]),
@@ -2028,14 +2028,14 @@ module design_1_DSP_registers_0_0_DSP_registers
         .O(\slv_reg3[15]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0000000000800000)) 
-    \slv_reg3[19]_i_1 
+    \slv_reg3[23]_i_1 
        (.I0(S_AXI_WSTRB[2]),
         .I1(p_0_in_0[0]),
         .I2(p_0_in_0[1]),
         .I3(p_0_in_0[2]),
         .I4(slv_reg_wren__0),
         .I5(slv_reg01__0),
-        .O(\slv_reg3[19]_i_1_n_0 ));
+        .O(\slv_reg3[23]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0000000000800000)) 
     \slv_reg3[31]_i_1 
@@ -2100,27 +2100,27 @@ module design_1_DSP_registers_0_0_DSP_registers
         .R(p_0_in));
   FDRE \slv_reg3_reg[16] 
        (.C(S_AXI_ACLK),
-        .CE(\slv_reg3[19]_i_1_n_0 ),
+        .CE(\slv_reg3[23]_i_1_n_0 ),
         .D(S_AXI_WDATA[16]),
-        .Q(fft_scale[16]),
+        .Q(slv_reg3[16]),
         .R(p_0_in));
   FDRE \slv_reg3_reg[17] 
        (.C(S_AXI_ACLK),
-        .CE(\slv_reg3[19]_i_1_n_0 ),
+        .CE(\slv_reg3[23]_i_1_n_0 ),
         .D(S_AXI_WDATA[17]),
-        .Q(fft_scale[17]),
+        .Q(slv_reg3[17]),
         .R(p_0_in));
   FDRE \slv_reg3_reg[18] 
        (.C(S_AXI_ACLK),
-        .CE(\slv_reg3[19]_i_1_n_0 ),
+        .CE(\slv_reg3[23]_i_1_n_0 ),
         .D(S_AXI_WDATA[18]),
-        .Q(fft_scale[18]),
+        .Q(slv_reg3[18]),
         .R(p_0_in));
   FDRE \slv_reg3_reg[19] 
        (.C(S_AXI_ACLK),
-        .CE(\slv_reg3[19]_i_1_n_0 ),
+        .CE(\slv_reg3[23]_i_1_n_0 ),
         .D(S_AXI_WDATA[19]),
-        .Q(fft_scale[19]),
+        .Q(slv_reg3[19]),
         .R(p_0_in));
   FDRE \slv_reg3_reg[1] 
        (.C(S_AXI_ACLK),
@@ -2130,25 +2130,25 @@ module design_1_DSP_registers_0_0_DSP_registers
         .R(p_0_in));
   FDRE \slv_reg3_reg[20] 
        (.C(S_AXI_ACLK),
-        .CE(\slv_reg3[19]_i_1_n_0 ),
+        .CE(\slv_reg3[23]_i_1_n_0 ),
         .D(S_AXI_WDATA[20]),
         .Q(slv_reg3[20]),
         .R(p_0_in));
   FDRE \slv_reg3_reg[21] 
        (.C(S_AXI_ACLK),
-        .CE(\slv_reg3[19]_i_1_n_0 ),
+        .CE(\slv_reg3[23]_i_1_n_0 ),
         .D(S_AXI_WDATA[21]),
         .Q(slv_reg3[21]),
         .R(p_0_in));
   FDRE \slv_reg3_reg[22] 
        (.C(S_AXI_ACLK),
-        .CE(\slv_reg3[19]_i_1_n_0 ),
+        .CE(\slv_reg3[23]_i_1_n_0 ),
         .D(S_AXI_WDATA[22]),
         .Q(slv_reg3[22]),
         .R(p_0_in));
   FDRE \slv_reg3_reg[23] 
        (.C(S_AXI_ACLK),
-        .CE(\slv_reg3[19]_i_1_n_0 ),
+        .CE(\slv_reg3[23]_i_1_n_0 ),
         .D(S_AXI_WDATA[23]),
         .Q(slv_reg3[23]),
         .R(p_0_in));

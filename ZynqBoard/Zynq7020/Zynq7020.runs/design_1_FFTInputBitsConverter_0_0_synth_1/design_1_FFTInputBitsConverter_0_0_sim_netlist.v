@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Wed Jun  5 23:56:09 2019
+// Date        : Sun Jul 14 20:55:17 2019
 // Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_FFTInputBitsConverter_0_0_sim_netlist.v
@@ -310,7 +310,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
     m_axis_config_tready,
     m_axis_config_tvalid);
   input nReset;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF m_axis_config:m_axis_data, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF m_axis_config:m_axis_data, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_1_FCLK_CLK0, INSERT_VIP 0" *) input clk;
   output [31:0]bram_addr;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 bram_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_clk, ASSOCIATED_RESET bram_rst, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_FFTInputBitsConverter_0_0_bram_clk, INSERT_VIP 0" *) output bram_clk;
   input [127:0]bram_rddata;
@@ -318,13 +318,13 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 bram_rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bram_rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output bram_rst;
   output bram_we;
   input start;
-  input [19:0]scale;
+  input [15:0]scale;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_data TDATA" *) output [255:0]m_axis_data_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_data TREADY" *) input m_axis_data_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_data TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_data, TDATA_NUM_BYTES 32, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *) output m_axis_data_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_config TDATA" *) output [223:0]m_axis_config_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_data TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_data, TDATA_NUM_BYTES 32, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_1_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *) output m_axis_data_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_config TDATA" *) output [191:0]m_axis_config_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_config TREADY" *) input m_axis_config_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_config TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_config, TDATA_NUM_BYTES 28, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *) output m_axis_config_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis_config TVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis_config, TDATA_NUM_BYTES 24, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_1_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *) output m_axis_config_tvalid;
 
   wire \<const0> ;
   wire \<const1> ;
@@ -335,7 +335,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   wire m_axis_data_tready;
   wire m_axis_data_tvalid;
   wire nReset;
-  wire [19:0]scale;
+  wire [15:0]scale;
   wire start;
 
   assign bram_addr[31] = \<const0> ;
@@ -364,38 +364,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   assign bram_clk = clk;
   assign bram_en = nReset;
   assign bram_we = \<const0> ;
-  assign m_axis_config_tdata[223] = \<const0> ;
-  assign m_axis_config_tdata[222] = \<const0> ;
-  assign m_axis_config_tdata[221] = \<const0> ;
-  assign m_axis_config_tdata[220] = \<const0> ;
-  assign m_axis_config_tdata[219] = \<const0> ;
-  assign m_axis_config_tdata[218] = \<const0> ;
-  assign m_axis_config_tdata[217] = \<const0> ;
-  assign m_axis_config_tdata[216] = \<const0> ;
-  assign m_axis_config_tdata[215] = \<const0> ;
-  assign m_axis_config_tdata[214] = \<const0> ;
-  assign m_axis_config_tdata[213] = \<const0> ;
-  assign m_axis_config_tdata[212] = \<const0> ;
-  assign m_axis_config_tdata[211] = \<const0> ;
-  assign m_axis_config_tdata[210] = \<const0> ;
-  assign m_axis_config_tdata[209] = \<const0> ;
-  assign m_axis_config_tdata[208] = \<const0> ;
-  assign m_axis_config_tdata[207] = \<const0> ;
-  assign m_axis_config_tdata[206] = \<const0> ;
-  assign m_axis_config_tdata[205] = \<const0> ;
-  assign m_axis_config_tdata[204] = \<const0> ;
-  assign m_axis_config_tdata[203] = \<const0> ;
-  assign m_axis_config_tdata[202] = \<const0> ;
-  assign m_axis_config_tdata[201] = \<const0> ;
-  assign m_axis_config_tdata[200] = \<const0> ;
-  assign m_axis_config_tdata[199] = \<const0> ;
-  assign m_axis_config_tdata[198] = \<const0> ;
-  assign m_axis_config_tdata[197] = \<const0> ;
-  assign m_axis_config_tdata[196] = \<const0> ;
-  assign m_axis_config_tdata[195] = \<const0> ;
-  assign m_axis_config_tdata[194] = \<const0> ;
-  assign m_axis_config_tdata[193] = \<const0> ;
-  assign m_axis_config_tdata[192] = \<const0> ;
   assign m_axis_config_tdata[191] = \<const0> ;
   assign m_axis_config_tdata[190] = \<const0> ;
   assign m_axis_config_tdata[189] = \<const0> ;
@@ -420,14 +388,46 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
   assign m_axis_config_tdata[170] = \<const0> ;
   assign m_axis_config_tdata[169] = \<const0> ;
   assign m_axis_config_tdata[168] = \<const0> ;
-  assign m_axis_config_tdata[167:148] = scale;
-  assign m_axis_config_tdata[147:128] = scale;
-  assign m_axis_config_tdata[127:108] = scale;
-  assign m_axis_config_tdata[107:88] = scale;
-  assign m_axis_config_tdata[87:68] = scale;
-  assign m_axis_config_tdata[67:48] = scale;
-  assign m_axis_config_tdata[47:28] = scale;
-  assign m_axis_config_tdata[27:8] = scale;
+  assign m_axis_config_tdata[167] = \<const0> ;
+  assign m_axis_config_tdata[166] = \<const0> ;
+  assign m_axis_config_tdata[165] = \<const0> ;
+  assign m_axis_config_tdata[164] = \<const0> ;
+  assign m_axis_config_tdata[163] = \<const0> ;
+  assign m_axis_config_tdata[162] = \<const0> ;
+  assign m_axis_config_tdata[161] = \<const0> ;
+  assign m_axis_config_tdata[160] = \<const0> ;
+  assign m_axis_config_tdata[159] = \<const0> ;
+  assign m_axis_config_tdata[158] = \<const0> ;
+  assign m_axis_config_tdata[157] = \<const0> ;
+  assign m_axis_config_tdata[156] = \<const0> ;
+  assign m_axis_config_tdata[155] = \<const0> ;
+  assign m_axis_config_tdata[154] = \<const0> ;
+  assign m_axis_config_tdata[153] = \<const0> ;
+  assign m_axis_config_tdata[152] = \<const0> ;
+  assign m_axis_config_tdata[151] = \<const0> ;
+  assign m_axis_config_tdata[150] = \<const0> ;
+  assign m_axis_config_tdata[149] = \<const0> ;
+  assign m_axis_config_tdata[148] = \<const0> ;
+  assign m_axis_config_tdata[147] = \<const0> ;
+  assign m_axis_config_tdata[146] = \<const0> ;
+  assign m_axis_config_tdata[145] = \<const0> ;
+  assign m_axis_config_tdata[144] = \<const0> ;
+  assign m_axis_config_tdata[143] = \<const0> ;
+  assign m_axis_config_tdata[142] = \<const0> ;
+  assign m_axis_config_tdata[141] = \<const0> ;
+  assign m_axis_config_tdata[140] = \<const0> ;
+  assign m_axis_config_tdata[139] = \<const0> ;
+  assign m_axis_config_tdata[138] = \<const0> ;
+  assign m_axis_config_tdata[137] = \<const0> ;
+  assign m_axis_config_tdata[136] = \<const0> ;
+  assign m_axis_config_tdata[135:120] = scale;
+  assign m_axis_config_tdata[119:104] = scale;
+  assign m_axis_config_tdata[103:88] = scale;
+  assign m_axis_config_tdata[87:72] = scale;
+  assign m_axis_config_tdata[71:56] = scale;
+  assign m_axis_config_tdata[55:40] = scale;
+  assign m_axis_config_tdata[39:24] = scale;
+  assign m_axis_config_tdata[23:8] = scale;
   assign m_axis_config_tdata[7] = \<const1> ;
   assign m_axis_config_tdata[6] = \<const1> ;
   assign m_axis_config_tdata[5] = \<const1> ;

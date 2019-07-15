@@ -2,5 +2,6 @@
 <section name="Workbench">
 	<item value="C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk" key="com.xilinx.sdk.hw.ui.hwspec.last"/>
 	<item value="F:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_0" key="program_fpga_view_bit_bmm_browse_key"/>
-	<item value="C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk" key="last_stored_selection"/>
+	<item value="C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\sumou\bootimage" key="zynq_flash_files_selection"/>
+	<item value="C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\sumou\bootimage" key="last_stored_selection"/>
 </section>

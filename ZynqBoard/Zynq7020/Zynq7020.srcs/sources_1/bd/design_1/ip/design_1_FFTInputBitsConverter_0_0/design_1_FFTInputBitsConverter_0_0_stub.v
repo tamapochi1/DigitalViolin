@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Wed Jun  5 23:56:09 2019
+// Date        : Sun Jul 14 20:55:17 2019
 // Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.srcs/sources_1/bd/design_1/ip/design_1_FFTInputBitsConverter_0_0/design_1_FFTInputBitsConverter_0_0_stub.v
@@ -17,7 +17,7 @@
 module design_1_FFTInputBitsConverter_0_0(nReset, clk, bram_addr, bram_clk, bram_rddata, 
   bram_en, bram_rst, bram_we, start, scale, m_axis_data_tdata, m_axis_data_tready, 
   m_axis_data_tvalid, m_axis_config_tdata, m_axis_config_tready, m_axis_config_tvalid)
-/* synthesis syn_black_box black_box_pad_pin="nReset,clk,bram_addr[31:0],bram_clk,bram_rddata[127:0],bram_en,bram_rst,bram_we,start,scale[19:0],m_axis_data_tdata[255:0],m_axis_data_tready,m_axis_data_tvalid,m_axis_config_tdata[223:0],m_axis_config_tready,m_axis_config_tvalid" */;
+/* synthesis syn_black_box black_box_pad_pin="nReset,clk,bram_addr[31:0],bram_clk,bram_rddata[127:0],bram_en,bram_rst,bram_we,start,scale[15:0],m_axis_data_tdata[255:0],m_axis_data_tready,m_axis_data_tvalid,m_axis_config_tdata[191:0],m_axis_config_tready,m_axis_config_tvalid" */;
   input nReset;
   input clk;
   output [31:0]bram_addr;
@@ -27,11 +27,11 @@ module design_1_FFTInputBitsConverter_0_0(nReset, clk, bram_addr, bram_clk, bram
   output bram_rst;
   output bram_we;
   input start;
-  input [19:0]scale;
+  input [15:0]scale;
   output [255:0]m_axis_data_tdata;
   input m_axis_data_tready;
   output m_axis_data_tvalid;
-  output [223:0]m_axis_config_tdata;
+  output [191:0]m_axis_config_tdata;
   input m_axis_config_tready;
   output m_axis_config_tvalid;
 endmodule

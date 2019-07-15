@@ -45,9 +45,9 @@
  *   ps7_uart    115200 (configured by bootrom/bsp)
  */
 
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 #include <string.h>
 #include "xil_io.h"
 #include "xil_printf.h"
@@ -64,27 +64,6 @@
 
 XScuGic InterruptController; /* Instance of the Interrupt Controller */
 static XScuGic_Config *GicConfig;/* The configuration parameters of the controller */
-u8 adcCh = 0;
-s16 adcData;
-u8 adcGain = 5;
-
-volatile u32 *UIF1_EN = (volatile u32 *)(0x43C20000);
-volatile u32 *UIF1_WRITE = (volatile u32 *)(0x43C20000 + 16);
-volatile u32 *UIF1_READ = (volatile u32 *)(0x43C20000 + 20);
-volatile u32 *UIF1_START = (volatile u32 *)(0x43C20000 + 24);
-volatile u32 *UIF1_BUSY = (volatile u32 *)(0x43C20000 + 28);
-
-volatile u32 *UIF2_EN = (volatile u32 *)(0x43C30000);
-volatile u32 *UIF2_WRITE = (volatile u32 *)(0x43C30000 + 16);
-volatile u32 *UIF2_READ = (volatile u32 *)(0x43C30000 + 20);
-volatile u32 *UIF2_START = (volatile u32 *)(0x43C30000 + 24);
-volatile u32 *UIF2_BUSY = (volatile u32 *)(0x43C30000 + 28);
-
-volatile u32 *UIF3_EN = (volatile u32 *)(0x43C40000);
-volatile u32 *UIF3_WRITE = (volatile u32 *)(0x43C40000 + 16);
-volatile u32 *UIF3_READ = (volatile u32 *)(0x43C40000 + 20);
-volatile u32 *UIF3_START = (volatile u32 *)(0x43C40000 + 24);
-volatile u32 *UIF3_BUSY = (volatile u32 *)(0x43C40000 + 28);
 
 typedef union
 {
@@ -108,12 +87,41 @@ typedef union
 	}u32;
 	u16 array16[8];
 }fftData;
-fftData soundDataBufferA[1024];
-fftData soundDataBufferB[1024];
+
+u8 adcGain = 5;
+float window[256];
+u8 adcCh = 0;
 u32 soundDataIndex = 0;
 u32 soundDataReady = 0;
-fftData *writingSoundDataBuffer = soundDataBufferA;
-fftData *readingSoundDataBuffer = soundDataBufferB;
+
+volatile u32 *UIF1_EN = (volatile u32 *)(0x43C20000);
+volatile u32 *UIF1_WRITE = (volatile u32 *)(0x43C20000 + 16);
+volatile u32 *UIF1_READ = (volatile u32 *)(0x43C20000 + 20);
+volatile u32 *UIF1_START = (volatile u32 *)(0x43C20000 + 24);
+volatile u32 *UIF1_BUSY = (volatile u32 *)(0x43C20000 + 28);
+s16 adcData1;
+fftData soundDataBuffer1A[1024];
+fftData soundDataBuffer1B[1024];
+fftData *writingSoundDataBuffer1 = soundDataBuffer1A;
+fftData *readingSoundDataBuffer1 = soundDataBuffer1B;
+
+volatile u32 *UIF2_EN = (volatile u32 *)(0x43C30000);
+volatile u32 *UIF2_WRITE = (volatile u32 *)(0x43C30000 + 16);
+volatile u32 *UIF2_READ = (volatile u32 *)(0x43C30000 + 20);
+volatile u32 *UIF2_START = (volatile u32 *)(0x43C30000 + 24);
+volatile u32 *UIF2_BUSY = (volatile u32 *)(0x43C30000 + 28);
+s16 adcData2;
+fftData soundDataBuffer2A[1024];
+fftData soundDataBuffer2B[1024];
+fftData *writingSoundDataBuffer2 = soundDataBuffer2A;
+fftData *readingSoundDataBuffer2 = soundDataBuffer2B;
+
+volatile u32 *UIF3_EN = (volatile u32 *)(0x43C40000);
+volatile u32 *UIF3_WRITE = (volatile u32 *)(0x43C40000 + 16);
+volatile u32 *UIF3_READ = (volatile u32 *)(0x43C40000 + 20);
+volatile u32 *UIF3_START = (volatile u32 *)(0x43C40000 + 24);
+volatile u32 *UIF3_BUSY = (volatile u32 *)(0x43C40000 + 28);
+
 
 volatile u32 *DSP_FFT_SCALE = (volatile u32 *)(0x43C10000 + 12);
 //volatile u32 *DSP_FFT_WRITE = (volatile u32 *)(0x43C10000 + 20);
@@ -128,49 +136,58 @@ u32 fftCompleted = 0;
 
 void OnAudioClk(void *data)
 {
+	s32 adcDataTemp;
 	fftData *temp;
 
 	while(*UIF1_BUSY);
 
-	adcData = *UIF1_READ;	// ignore
-	adcData = (*UIF1_READ & 0x0F) << 8;
-	adcData |= *UIF1_READ & 0xFF;
+	adcDataTemp = *UIF1_READ;	// ignore
+	adcDataTemp = (*UIF1_READ & 0x0F) << 8;
+	adcDataTemp |= *UIF1_READ & 0xFF;
 
-	adcData -= 2048;
-	adcData *= adcGain;
+	adcDataTemp -= 2048;
+	adcDataTemp = (float)adcDataTemp * window[soundDataIndex] * (float)adcGain;
+
+	if(adcDataTemp < -2048){
+		adcData1 = -2048;
+	}else if(adcDataTemp > 2047){
+		adcData1 = 2047;
+	}else{
+		adcData1 = adcDataTemp;
+	}
 
 	switch(adcCh)
 	{
 	case 0:
-		writingSoundDataBuffer[soundDataIndex].channels.ch0 = (u16)adcData;
+		writingSoundDataBuffer1[soundDataIndex].channels.ch0 = (u16)adcData1;
 		break;
 	case 1:
-		writingSoundDataBuffer[soundDataIndex].channels.ch1 = (u16)adcData;
+		writingSoundDataBuffer1[soundDataIndex].channels.ch1 = (u16)adcData1;
 		break;
 	case 2:
-		writingSoundDataBuffer[soundDataIndex].channels.ch2 = (u16)adcData;
+		writingSoundDataBuffer1[soundDataIndex].channels.ch2 = (u16)adcData1;
 		break;
 	case 3:
-		writingSoundDataBuffer[soundDataIndex].channels.ch3 = (u16)adcData;
+		writingSoundDataBuffer1[soundDataIndex].channels.ch3 = (u16)adcData1;
 		break;
 	case 4:
-		writingSoundDataBuffer[soundDataIndex].channels.ch4 = (u16)adcData;
+		writingSoundDataBuffer1[soundDataIndex].channels.ch4 = (u16)adcData1;
 		break;
 	case 5:
-		writingSoundDataBuffer[soundDataIndex].channels.ch5 = (u16)adcData;
+		writingSoundDataBuffer1[soundDataIndex].channels.ch5 = (u16)adcData1;
 		break;
 	case 6:
-		writingSoundDataBuffer[soundDataIndex].channels.ch6 = (u16)adcData;
+		writingSoundDataBuffer1[soundDataIndex].channels.ch6 = (u16)adcData1;
 		break;
 	case 7:
-		writingSoundDataBuffer[soundDataIndex].channels.ch7 = (u16)adcData;
+		writingSoundDataBuffer1[soundDataIndex].channels.ch7 = (u16)adcData1;
 		soundDataIndex++;
-		if(soundDataIndex == 256)
+		if(soundDataIndex >= 256)
 		{
 			soundDataIndex = 0;
-			temp = readingSoundDataBuffer;
-			readingSoundDataBuffer = writingSoundDataBuffer;
-			writingSoundDataBuffer = temp;
+			temp = readingSoundDataBuffer1;
+			readingSoundDataBuffer1 = writingSoundDataBuffer1;
+			writingSoundDataBuffer1 = temp;
 			soundDataReady = 1;
 		}
 		break;
@@ -194,8 +211,7 @@ void OnAudioClk(void *data)
     *UIF1_WRITE = adcCh << 6;
     *UIF1_WRITE = 0x00;
 
-   *UIF1_START = 0xFF;
-//    Xil_Out32(0x43C20000 + 24, 0x01);
+   *UIF1_START = 0x01;
 
    // clear interrupt bit
 	*(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR &= ~0x00000004;
@@ -224,16 +240,15 @@ int main()
 	u32 mag[8];
 	u8 receivedByte;
 //	s32 value[1025];
-	u32 i, j, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
+	u32 i, j, x, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
 	u8 rddata[10][672], currentRow = 0;
 	int note;
 	float gain, fingerPos[4];
 	int status;
 
-
     init_platform();
 
-    *(u32*)XPAR_MYIP_0_S00_AXI_BASEADDR = 0x1;
+    *(u32*)XPAR_MYIP_0_S00_AXI_BASEADDR = 0b000;
     *(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR = 0x0;
 
     GicConfig = XScuGic_LookupConfig(XPAR_PS7_SCUGIC_0_DEVICE_ID);
@@ -245,15 +260,20 @@ int main()
     XScuGic_Enable(&InterruptController, 61);
     XScuGic_Enable(&InterruptController, 62);
 
-    *UIF1_EN = 3;
-    *UIF2_EN = 3;
-    *UIF3_EN = 3;
+    for(i = 0; i < 256; i++)
+    {
+    	window[i] = 0.54f - 0.46f * cosf(2.f * (float)M_PI * (float)i / 255.f);
+    }
 
-    *DSP_FFT_SCALE = 0x55556;	// 0x05556 = x1, 0x15556 = x0.5, 0x55556 = x0.25 but perfectly secure.
+    *UIF1_EN = 3;
+    *UIF2_EN = 0;
+    *UIF3_EN = 0;
+
+    *DSP_FFT_SCALE = 0x5556;	// 0x05556 = x1, 0x15556 = x0.5, 0x55556 = x0.25 but perfectly secure. (if N=1024, but now 256)
 
     *(u32*)XPAR_DSP_DSP_REGISTER_0_S00_AXI_BASEADDR = 0x3;	// start audio sample clock.
 
-    *(u32*)XPAR_MYIP_0_S00_AXI_BASEADDR = 0x2;
+    *(u32*)XPAR_MYIP_0_S00_AXI_BASEADDR = 0b111;
 
     while(1)
     {
@@ -272,7 +292,7 @@ int main()
     			printf("fft failed\n");
     		}
 
-    		*(u32*)XPAR_MYIP_0_S00_AXI_BASEADDR = 0x1;
+    		*(u32*)XPAR_MYIP_0_S00_AXI_BASEADDR = 0b101;
 
     		j = 0;
 //    		for(i = 0; i < 256; i++)
@@ -280,9 +300,9 @@ int main()
 //    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch1ch0;
 //    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch3ch2;
 //    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch5ch4;
-//    			DSP_FFT_DATA[j++] = readingSoundDataBuffer[i].u32.ch7ch6;
+//    			DSP_FFT_DATA[j++] = readingSoundDataBuffer1[i].u32.ch7ch6;
 //    		}
-    		memcpy(DSP_FFT_DATA, readingSoundDataBuffer, 256 * 4 * 4);
+    		memcpy(DSP_FFT_DATA, readingSoundDataBuffer1, 256 * 4 * 4);
     		*DSP_FFT_START = 1;
     	}
 
@@ -303,22 +323,23 @@ int main()
 			{
 				mag[i] = 0;
 				// HPF
-				for(j = 10; j < 128; j++)
+				for(j = 30; j < 128; j++)
 				{
-					mag[i] += (u32)((float)value[j].array16[i] * ((float)(128 + j) / 128.f));
+					x = (u32)((float)value[j].array16[i] * ((float)j / 12.8f));
+					mag[i] += x > 20 ? x : 0;
 				}
-				mag[i] /= 10;
 			}
 
-			// なぜかch4だけ結果が大きいことがあった
-			printf("%d %d %d %d %d %d %d %d", mag[0], mag[1], mag[2], mag[3], mag[4], mag[5], mag[6], mag[7]);
-			for(i = 0; i < mag[7]; i += 10)
-			{
-				printf("*");
-			}
+			// なぜかch4だけ結果が大きいことがあった:Nを1024から256にしたときスケーリングの変更を忘れていた
+			// 改行前にスペースを挿入する
+			printf("%d %d %d %d %d %d %d %d ", mag[0], mag[1], mag[2], mag[3], mag[4], mag[5], mag[6], mag[7]);
+//			for(i = 0; i < mag[7]; i += 10)
+//			{
+//				printf("*");
+//			}
 			printf("\n");
 
-			*(u32*)XPAR_MYIP_0_S00_AXI_BASEADDR = 0x2;
+//			*(u32*)XPAR_MYIP_0_S00_AXI_BASEADDR = 0b111;
     	}
 
     	// ループの中のここの位置じゃないとすぐフリーズする？

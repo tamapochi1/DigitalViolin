@@ -33,13 +33,13 @@ module FFTInputBitsConverter(
     
     input start,
     
-    input [19:0] scale,
+    input [15:0] scale,
     
     output[255:0] m_axis_data_tdata,
     input m_axis_data_tready,
     output m_axis_data_tvalid,
     
-    output[223:0] m_axis_config_tdata,
+    output[191:0] m_axis_config_tdata,
     input m_axis_config_tready,
     output m_axis_config_tvalid
     );
@@ -98,7 +98,7 @@ assign m_axis_data_tdata[223:192] = {20'd0, bram_rddata[107:96]};
 assign m_axis_data_tdata[255:224] = {20'd0, bram_rddata[123:112]};
 assign m_axis_data_tvalid = (byteCounter != 16'h0000);
 
-assign m_axis_config_tdata = {56'd0, scale, scale, scale, scale, scale, scale, scale, scale, 8'b1111_1111};
+assign m_axis_config_tdata = {55'd0, scale, scale, scale, scale, scale, scale, scale, scale, 8'b1111_1111};
 assign m_axis_config_tvalid = 1'b1;
 
 endmodule

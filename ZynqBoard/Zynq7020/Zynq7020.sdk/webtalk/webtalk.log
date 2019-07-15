@@ -2,8 +2,8 @@
 # Webtalk v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # 
-# Start of session at: Mon Jun 10 01:39:34 2019
-# Process ID: 21476
+# Start of session at: Tue Jun 11 04:15:27 2019
+# Process ID: 19416
 # Current directory: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/webtalk
 # Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
 # Log file: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/webtalk/webtalk.log
@@ -12,7 +12,7 @@
 source sdk_webtalk.tcl
 # webtalk_init -webtalk_dir C:\\Git\\DigitalViolin\\ZynqBoard\\Zynq7020\\Zynq7020.sdk\\webtalk
 # webtalk_register_client -client project
-# webtalk_add_data -client project -key date_generated -value "2019-06-10 01:39:33" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key date_generated -value "2019-06-11 04:15:26" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key product_version -value "SDK v2018.3" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key build_version -value "2018.3" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key os_platform -value "amd64" -context "software_version_and_target_device"
@@ -24,9 +24,9 @@ source sdk_webtalk.tcl
 # webtalk_add_data -client project -key target_device -value "NA" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key target_package -value "NA" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key target_speed -value "NA" -context "software_version_and_target_device"
-# webtalk_add_data -client project -key random_id -value "bfai3k6facebfmm14lli1m0l7k" -context "software_version_and_target_device"
-# webtalk_add_data -client project -key project_id -value "2018.3_5" -context "software_version_and_target_device"
-# webtalk_add_data -client project -key project_iteration -value "5" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key random_id -value "mp6sd27s95j3gvi1u60mh8q4k3" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key project_id -value "2018.3_6" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key project_iteration -value "6" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 # webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 # webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz" -context "user_environment"
@@ -34,25 +34,29 @@ source sdk_webtalk.tcl
 # webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
 # webtalk_add_data -client project -key system_ram -value "17.087 GB" -context "user_environment"
 # webtalk_register_client -client sdk
-# webtalk_add_data -client sdk -key uid -value "1560060461389" -context "sdk\\\\hardware/1560060461389"
-# webtalk_add_data -client sdk -key isZynq -value "true" -context "sdk\\\\hardware/1560060461389"
-# webtalk_add_data -client sdk -key isZynqMP -value "false" -context "sdk\\\\hardware/1560060461389"
-# webtalk_add_data -client sdk -key Processors -value "1" -context "sdk\\\\hardware/1560060461389"
-# webtalk_add_data -client sdk -key VivadoVersion -value "2018.3" -context "sdk\\\\hardware/1560060461389"
-# webtalk_add_data -client sdk -key Arch -value "zynq" -context "sdk\\\\hardware/1560060461389"
-# webtalk_add_data -client sdk -key Device -value "7z007s" -context "sdk\\\\hardware/1560060461389"
-# webtalk_add_data -client sdk -key IsHandoff -value "true" -context "sdk\\\\hardware/1560060461389"
-# webtalk_add_data -client sdk -key os -value "NA" -context "sdk\\\\hardware/1560060461389"
-# webtalk_add_data -client sdk -key apptemplate -value "NA" -context "sdk\\\\hardware/1560060461389"
-# webtalk_add_data -client sdk -key RecordType -value "HWCreation" -context "sdk\\\\hardware/1560060461389"
-# webtalk_add_data -client sdk -key uid -value "NA" -context "sdk\\\\bsp/1560098373123"
-# webtalk_add_data -client sdk -key RecordType -value "ToolUsage" -context "sdk\\\\bsp/1560098373123"
-# webtalk_add_data -client sdk -key BootgenCount -value "0" -context "sdk\\\\bsp/1560098373123"
-# webtalk_add_data -client sdk -key DebugCount -value "32" -context "sdk\\\\bsp/1560098373123"
-# webtalk_add_data -client sdk -key PerfCount -value "0" -context "sdk\\\\bsp/1560098373123"
-# webtalk_add_data -client sdk -key FlashCount -value "0" -context "sdk\\\\bsp/1560098373123"
-# webtalk_add_data -client sdk -key CrossTriggCount -value "0" -context "sdk\\\\bsp/1560098373123"
-# webtalk_add_data -client sdk -key QemuDebugCount -value "0" -context "sdk\\\\bsp/1560098373123"
-# webtalk_transmit -clientid 403471533 -regid "" -xml C:\\Git\\DigitalViolin\\ZynqBoard\\Zynq7020\\Zynq7020.sdk\\webtalk\\usage_statistics_ext_sdk.xml -html C:\\Git\\DigitalViolin\\ZynqBoard\\Zynq7020\\Zynq7020.sdk\\webtalk\\usage_statistics_ext_sdk.html -wdm C:\\Git\\DigitalViolin\\ZynqBoard\\Zynq7020\\Zynq7020.sdk\\webtalk\\sdk_webtalk.wdm -intro "<H3>SDK Usage Report</H3><BR>"
+# webtalk_add_data -client sdk -key uid -value "1560181776504" -context "sdk\\\\bsp/1560181776504"
+# webtalk_add_data -client sdk -key hwid -value "1560011691505" -context "sdk\\\\bsp/1560181776504"
+# webtalk_add_data -client sdk -key os -value "standalone" -context "sdk\\\\bsp/1560181776504"
+# webtalk_add_data -client sdk -key apptemplate -value "zynq_fsbl" -context "sdk\\\\bsp/1560181776504"
+# webtalk_add_data -client sdk -key RecordType -value "BSPCreation" -context "sdk\\\\bsp/1560181776504"
+# webtalk_add_data -client sdk -key uid -value "1560181783161" -context "sdk\\\\application/1560181783161"
+# webtalk_add_data -client sdk -key hwid -value "1560011691505" -context "sdk\\\\application/1560181783161"
+# webtalk_add_data -client sdk -key bspid -value "1560181776504" -context "sdk\\\\application/1560181783161"
+# webtalk_add_data -client sdk -key newbsp -value "true" -context "sdk\\\\application/1560181783161"
+# webtalk_add_data -client sdk -key os -value "standalone" -context "sdk\\\\application/1560181783161"
+# webtalk_add_data -client sdk -key apptemplate -value "zynq_fsbl" -context "sdk\\\\application/1560181783161"
+# webtalk_add_data -client sdk -key RecordType -value "APPCreation" -context "sdk\\\\application/1560181783161"
+# webtalk_add_data -client sdk -key LangUsed -value "C" -context "sdk\\\\application/1560181783161"
+# webtalk_add_data -client sdk -key Procused -value "ps7_cortexa9" -context "sdk\\\\application/1560181783161"
+# webtalk_add_data -client sdk -key projSize -value "433.921875" -context "sdk\\\\application/1560181783161"
+# webtalk_add_data -client sdk -key uid -value "NA" -context "sdk\\\\bsp/1560194126733"
+# webtalk_add_data -client sdk -key RecordType -value "ToolUsage" -context "sdk\\\\bsp/1560194126733"
+# webtalk_add_data -client sdk -key BootgenCount -value "1" -context "sdk\\\\bsp/1560194126733"
+# webtalk_add_data -client sdk -key DebugCount -value "0" -context "sdk\\\\bsp/1560194126733"
+# webtalk_add_data -client sdk -key PerfCount -value "0" -context "sdk\\\\bsp/1560194126733"
+# webtalk_add_data -client sdk -key FlashCount -value "1" -context "sdk\\\\bsp/1560194126733"
+# webtalk_add_data -client sdk -key CrossTriggCount -value "0" -context "sdk\\\\bsp/1560194126733"
+# webtalk_add_data -client sdk -key QemuDebugCount -value "0" -context "sdk\\\\bsp/1560194126733"
+# webtalk_transmit -clientid 661620455 -regid "" -xml C:\\Git\\DigitalViolin\\ZynqBoard\\Zynq7020\\Zynq7020.sdk\\webtalk\\usage_statistics_ext_sdk.xml -html C:\\Git\\DigitalViolin\\ZynqBoard\\Zynq7020\\Zynq7020.sdk\\webtalk\\usage_statistics_ext_sdk.html -wdm C:\\Git\\DigitalViolin\\ZynqBoard\\Zynq7020\\Zynq7020.sdk\\webtalk\\sdk_webtalk.wdm -intro "<H3>SDK Usage Report</H3><BR>"
 # webtalk_terminate
-INFO: [Common 17-206] Exiting Webtalk at Mon Jun 10 01:39:34 2019...
+INFO: [Common 17-206] Exiting Webtalk at Tue Jun 11 04:15:27 2019...

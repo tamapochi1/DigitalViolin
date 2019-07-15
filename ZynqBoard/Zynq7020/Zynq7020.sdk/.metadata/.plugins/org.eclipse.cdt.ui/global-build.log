@@ -1,4 +1,4 @@
-00:49:47 **** Build of project fsbl_bsp ****
+02:21:02 **** Build of project sumou_bsp ****
 make -k all 
 "Running Make include in ps7_cortexa9_0/libsrc/bram_v4_2/src"
 make -C ps7_cortexa9_0/libsrc/bram_v4_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
@@ -28,14 +28,9 @@ make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s include  "SHELL=CMD" "COMPI
 make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 "Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
 make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/xilffs_v4_0/src"
-make -C ps7_cortexa9_0/libsrc/xilffs_v4_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Running Make include in ps7_cortexa9_0/libsrc/xilrsa_v1_5/src"
-make -C ps7_cortexa9_0/libsrc/xilrsa_v1_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 "Running Make libs in ps7_cortexa9_0/libsrc/bram_v4_2/src"
 make -C ps7_cortexa9_0/libsrc/bram_v4_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 "Compiling bram"
-arm-none-eabi-ar: creating ../../../lib/libxil.a
 "Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
 make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 "Compiling coresightps_dcc"
@@ -98,116 +93,122 @@ make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm
 "Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src"
 make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 "Compiling xadcps"
-"Running Make libs in ps7_cortexa9_0/libsrc/xilffs_v4_0/src"
-make -C ps7_cortexa9_0/libsrc/xilffs_v4_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-"Compiling XilFFs Library"
-diskio.c: In function 'disk_read':
-diskio.c:358:9: warning: unused parameter 'buff' [-Wunused-parameter]
-   BYTE *buff, /* Pointer to the data buffer to store read data */
-         ^~~~
-diskio.c:359:9: warning: unused parameter 'sector' [-Wunused-parameter]
-   DWORD sector, /* Start sector number (LBA) */
-         ^~~~~~
-diskio.c: In function 'disk_ioctl':
-diskio.c:402:7: warning: unused parameter 'pdrv' [-Wunused-parameter]
-  BYTE pdrv,    /* Physical drive number (0) */
-       ^~~~
-diskio.c:403:7: warning: unused parameter 'cmd' [-Wunused-parameter]
-  BYTE cmd,    /* Control code */
-       ^~~
-diskio.c:404:8: warning: unused parameter 'buff' [-Wunused-parameter]
-  void *buff    /* Buffer to send/receive control data */
-        ^~~~
-diskio.c: In function 'disk_write':
-diskio.c:501:14: warning: unused parameter 'buff' [-Wunused-parameter]
-  const BYTE *buff, /* Data to be written */
-              ^~~~
-diskio.c:502:8: warning: unused parameter 'sector' [-Wunused-parameter]
-  DWORD sector,  /* Sector address (LBA) */
-        ^~~~~~
-"Running Make libs in ps7_cortexa9_0/libsrc/xilrsa_v1_5/src"
-make -C ps7_cortexa9_0/libsrc/xilrsa_v1_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 'Finished building libraries'
-00:49:58 **** Build of configuration Debug for project fsbl ****
+02:21:13 **** Build of configuration Debug for project sumou ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-'Building file: ../src/fsbl_handoff.S'
+'Building file: ../src/helloworld.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/fsbl_handoff.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/fsbl_handoff.d" -MT"src/fsbl_handoff.o" -o "src/fsbl_handoff.o" "../src/fsbl_handoff.S"
-'Finished building: ../src/fsbl_handoff.S'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../sumou_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:305:14: warning: passing argument 1 of 'memcpy' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+       memcpy(DSP_FFT_DATA, readingSoundDataBuffer1, 256 * 4 * 4);
+              ^~~~~~~~~~~~
+In file included from c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\libc\usr\include\sys\reent.h:13:0,
+                 from c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\libc\usr\include\math.h:5,
+                 from ../src/helloworld.c:48:
+c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\libc\usr\include\string.h:23:8: note: expected 'void * restrict' but argument is of type 'volatile u32 * {aka volatile long unsigned int *}'
+ _PTR   _EXFUN(memcpy,(_PTR __restrict, const _PTR __restrict, size_t));
+        ^
+../src/helloworld.c:320:18: warning: passing argument 2 of 'memcpy' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+    memcpy(value, DSP_FFT_RESULT, 128 * 4 * 4);
+                  ^~~~~~~~~~~~~~
+In file included from c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\libc\usr\include\sys\reent.h:13:0,
+                 from c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\libc\usr\include\math.h:5,
+                 from ../src/helloworld.c:48:
+c:\xilinx\sdk\2018.3\gnu\aarch32\nt\gcc-arm-none-eabi\arm-none-eabi\libc\usr\include\string.h:23:8: note: expected 'const void * restrict' but argument is of type 'volatile u32 * {aka volatile long unsigned int *}'
+ _PTR   _EXFUN(memcpy,(_PTR __restrict, const _PTR __restrict, size_t));
+        ^
+../src/helloworld.c:335:13: warning: format '%d' expects argument of type 'int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+    printf("%d %d %d %d %d %d %d %d ", mag[0], mag[1], mag[2], mag[3], mag[4], mag[5], mag[6], mag[7]);
+            ~^                         ~~~~~~
+            %ld
+../src/helloworld.c:335:16: warning: format '%d' expects argument of type 'int', but argument 3 has type 'u32 {aka long unsigned int}' [-Wformat=]
+    printf("%d %d %d %d %d %d %d %d ", mag[0], mag[1], mag[2], mag[3], mag[4], mag[5], mag[6], mag[7]);
+               ~^                              ~~~~~~
+               %ld
+../src/helloworld.c:335:19: warning: format '%d' expects argument of type 'int', but argument 4 has type 'u32 {aka long unsigned int}' [-Wformat=]
+    printf("%d %d %d %d %d %d %d %d ", mag[0], mag[1], mag[2], mag[3], mag[4], mag[5], mag[6], mag[7]);
+                  ~^                                   ~~~~~~
+                  %ld
+../src/helloworld.c:335:22: warning: format '%d' expects argument of type 'int', but argument 5 has type 'u32 {aka long unsigned int}' [-Wformat=]
+    printf("%d %d %d %d %d %d %d %d ", mag[0], mag[1], mag[2], mag[3], mag[4], mag[5], mag[6], mag[7]);
+                     ~^                                        ~~~~~~
+                     %ld
+../src/helloworld.c:335:25: warning: format '%d' expects argument of type 'int', but argument 6 has type 'u32 {aka long unsigned int}' [-Wformat=]
+    printf("%d %d %d %d %d %d %d %d ", mag[0], mag[1], mag[2], mag[3], mag[4], mag[5], mag[6], mag[7]);
+                        ~^                                             ~~~~~~
+                        %ld
+../src/helloworld.c:335:28: warning: format '%d' expects argument of type 'int', but argument 7 has type 'u32 {aka long unsigned int}' [-Wformat=]
+    printf("%d %d %d %d %d %d %d %d ", mag[0], mag[1], mag[2], mag[3], mag[4], mag[5], mag[6], mag[7]);
+                           ~^                                                  ~~~~~~
+                           %ld
+../src/helloworld.c:335:31: warning: format '%d' expects argument of type 'int', but argument 8 has type 'u32 {aka long unsigned int}' [-Wformat=]
+    printf("%d %d %d %d %d %d %d %d ", mag[0], mag[1], mag[2], mag[3], mag[4], mag[5], mag[6], mag[7]);
+                              ~^                                                       ~~~~~~
+                              %ld
+../src/helloworld.c:335:34: warning: format '%d' expects argument of type 'int', but argument 9 has type 'u32 {aka long unsigned int}' [-Wformat=]
+    printf("%d %d %d %d %d %d %d %d ", mag[0], mag[1], mag[2], mag[3], mag[4], mag[5], mag[6], mag[7]);
+                                 ~^                                                            ~~~~~~
+                                 %ld
+../src/helloworld.c:247:6: warning: unused variable 'status' [-Wunused-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c:246:14: warning: unused variable 'fingerPos' [-Wunused-variable]
+  float gain, fingerPos[4];
+              ^~~~~~~~~
+../src/helloworld.c:246:8: warning: unused variable 'gain' [-Wunused-variable]
+  float gain, fingerPos[4];
+        ^~~~
+../src/helloworld.c:245:6: warning: unused variable 'note' [-Wunused-variable]
+  int note;
+      ^~~~
+../src/helloworld.c:244:22: warning: unused variable 'currentRow' [-Wunused-variable]
+  u8 rddata[10][672], currentRow = 0;
+                      ^~~~~~~~~~
+../src/helloworld.c:244:5: warning: unused variable 'rddata' [-Wunused-variable]
+  u8 rddata[10][672], currentRow = 0;
+     ^~~~~~
+../src/helloworld.c:243:71: warning: unused variable 'offset' [-Wunused-variable]
+  u32 i, j, x, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
+                                                                       ^~~~~~
+../src/helloworld.c:243:57: warning: unused variable 'sumcount' [-Wunused-variable]
+  u32 i, j, x, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
+                                                         ^~~~~~~~
+../src/helloworld.c:243:51: warning: unused variable 'sum2' [-Wunused-variable]
+  u32 i, j, x, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
+                                                   ^~~~
+../src/helloworld.c:243:45: warning: unused variable 'sum1' [-Wunused-variable]
+  u32 i, j, x, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
+                                             ^~~~
+../src/helloworld.c:243:35: warning: unused variable 'temp' [-Wunused-variable]
+  u32 i, j, x, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
+                                   ^~~~
+../src/helloworld.c:243:29: warning: unused variable 'addr' [-Wunused-variable]
+  u32 i, j, x, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
+                             ^~~~
+../src/helloworld.c:243:21: warning: unused variable 'upDown' [-Wunused-variable]
+  u32 i, j, x, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
+                     ^~~~~~
+../src/helloworld.c:243:15: warning: unused variable 'freq' [-Wunused-variable]
+  u32 i, j, x, freq, upDown, addr, temp[10], sum1, sum2, sumcount = 0, offset;
+               ^~~~
+'Finished building: ../src/helloworld.c'
 ' '
-'Building file: ../src/fsbl_hooks.c'
+'Building file: ../src/platform.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/fsbl_hooks.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/fsbl_hooks.d" -MT"src/fsbl_hooks.o" -o "src/fsbl_hooks.o" "../src/fsbl_hooks.c"
-'Finished building: ../src/fsbl_hooks.c'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../sumou_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
 ' '
-'Building file: ../src/image_mover.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/image_mover.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/image_mover.d" -MT"src/image_mover.o" -o "src/image_mover.o" "../src/image_mover.c"
-'Finished building: ../src/image_mover.c'
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-In file included from ../src/main.c:137:0:
-../../fsbl_bsp/ps7_cortexa9_0/include/xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-'Finished building: ../src/main.c'
-' '
-'Building file: ../src/md5.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/md5.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/md5.d" -MT"src/md5.o" -o "src/md5.o" "../src/md5.c"
-'Finished building: ../src/md5.c'
-' '
-'Building file: ../src/nand.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/nand.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/nand.d" -MT"src/nand.o" -o "src/nand.o" "../src/nand.c"
-'Finished building: ../src/nand.c'
-' '
-'Building file: ../src/nor.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/nor.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/nor.d" -MT"src/nor.o" -o "src/nor.o" "../src/nor.c"
-'Finished building: ../src/nor.c'
-' '
-'Building file: ../src/pcap.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/pcap.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/pcap.d" -MT"src/pcap.o" -o "src/pcap.o" "../src/pcap.c"
-In file included from ../src/pcap.c:100:0:
-../../fsbl_bsp/ps7_cortexa9_0/include/xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
- #pragma message ("For the sleep routines, Global timer is being used")
-         ^~~~~~~
-'Finished building: ../src/pcap.c'
-' '
-'Building file: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_minized/ps7_init.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/ps7_init.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/ps7_init.d" -MT"src/ps7_init.o" -o "src/ps7_init.o" "C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_minized/ps7_init.c"
-'Finished building: C:/Git/DigitalViolin/ZynqBoard/Zynq7020/Zynq7020.sdk/design_1_wrapper_hw_platform_minized/ps7_init.c'
-' '
-'Building file: ../src/qspi.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/qspi.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/qspi.d" -MT"src/qspi.o" -o "src/qspi.o" "../src/qspi.c"
-'Finished building: ../src/qspi.c'
-' '
-'Building file: ../src/rsa.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/rsa.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/rsa.d" -MT"src/rsa.o" -o "src/rsa.o" "../src/rsa.c"
-'Finished building: ../src/rsa.c'
-' '
-'Building file: ../src/sd.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Git\DigitalViolin\ZynqBoard\Zynq7020\Zynq7020.sdk\design_1_wrapper_hw_platform_minized" -c -fmessage-length=0 -MT"src/sd.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../fsbl_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/sd.d" -MT"src/sd.o" -o "src/sd.o" "../src/sd.c"
-'Finished building: ../src/sd.c'
-' '
-'Building target: fsbl.elf'
+'Building target: sumou.elf'
 'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../fsbl_bsp/ps7_cortexa9_0/lib -o "fsbl.elf"  ./src/fsbl_handoff.o ./src/fsbl_hooks.o ./src/image_mover.o ./src/main.o ./src/md5.o ./src/nand.o ./src/nor.o ./src/pcap.o ./src/ps7_init.o ./src/qspi.o ./src/rsa.o ./src/sd.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilffs,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lrsa,-lxil,-lgcc,-lc,--end-group
-'Finished building target: fsbl.elf'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../sumou_bsp/ps7_cortexa9_0/lib -o "sumou.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: sumou.elf'
 ' '
 'Invoking: ARM v7 Print Size'
-arm-none-eabi-size fsbl.elf  |tee "fsbl.elf.size"
+arm-none-eabi-size sumou.elf  |tee "sumou.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  56428	   8872	  71816	 137116	  2179c	fsbl.elf
-'Finished building: fsbl.elf.size'
+  81448	   3460	  89952	 174860	  2ab0c	sumou.elf
+'Finished building: sumou.elf.size'
 ' '

@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sun Jun  9 19:19:14 2019
+//Date        : Sun Jul 14 20:54:39 2019
 //Host        : DESKTOP-F4TL0I1 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -205,14 +205,14 @@ module DSP_imp_KXGKBB
 
   wire DSP_registers_0_audioClkInterrupt;
   wire DSP_registers_0_fftCompleteInterrupt;
-  wire [19:0]DSP_registers_0_fft_scale;
+  wire [15:0]DSP_registers_0_fft_scale;
   wire DSP_registers_0_fft_start;
   wire DSP_reset_0_nResetSysClk1;
   wire [31:0]FFTInputBitsConverter_0_bram_addr;
   wire FFTInputBitsConverter_0_bram_clk;
   wire FFTInputBitsConverter_0_bram_en;
   wire FFTInputBitsConverter_0_bram_we;
-  wire [223:0]FFTInputBitsConverter_0_m_axis_config_TDATA;
+  wire [191:0]FFTInputBitsConverter_0_m_axis_config_TDATA;
   wire FFTInputBitsConverter_0_m_axis_config_TREADY;
   wire FFTInputBitsConverter_0_m_axis_config_TVALID;
   (* DEBUG = "true" *) (* MARK_DEBUG *) wire [255:0]FFTInputBitsConverter_0_m_axis_data_TDATA;
@@ -618,7 +618,7 @@ module DSP_imp_KXGKBB
         .m_axis_data_tdata(xfft_0_M_AXIS_DATA_TDATA),
         .m_axis_data_tready(xfft_0_M_AXIS_DATA_TREADY),
         .m_axis_data_tvalid(xfft_0_M_AXIS_DATA_TVALID),
-        .s_axis_config_tdata(FFTInputBitsConverter_0_m_axis_config_TDATA[191:0]),
+        .s_axis_config_tdata(FFTInputBitsConverter_0_m_axis_config_TDATA),
         .s_axis_config_tready(FFTInputBitsConverter_0_m_axis_config_TREADY),
         .s_axis_config_tvalid(FFTInputBitsConverter_0_m_axis_config_TVALID),
         .s_axis_data_tdata(FFTInputBitsConverter_0_m_axis_data_TDATA),
